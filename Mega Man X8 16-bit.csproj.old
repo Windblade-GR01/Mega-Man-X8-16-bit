@@ -1,0 +1,6 @@
+<Project Sdk="Godot.NET.Sdk/3.3.0">
+  <PropertyGroup>
+	<TargetFramework>net10.0-windows</TargetFramework>
+    <RootNamespace>MegaManX816bit</RootNamespace>
+  </PropertyGroup>
+</Project>

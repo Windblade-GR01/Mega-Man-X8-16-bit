@@ -1,9 +1,9 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 var falling := false
-onready var collision_shape_2d: CollisionShape2D = $collisionShape2D
-onready var animated_sprite: AnimatedSprite = $animatedSprite
-var tween : SceneTreeTween
+@onready var collision_shape_2d: CollisionShape2D = $collisionShape2D
+@onready var animated_sprite: AnimatedSprite2D = $animatedSprite
+var tween : Tween
 
 func _ready() -> void:
 	Event.listen("player_death",self,"stop_tween")
@@ -15,7 +15,7 @@ func _on_area2D_body_entered(_body: Node) -> void:
 		animated_sprite.play("dying")
 		tween.tween_property(self,"position:y",position.y,0.5) # warning-ignore:return_value_discarded
 		tween.tween_property(self,"global_position:y",global_position.y+300.0,2.0).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)# warning-ignore:return_value_discarded
-		tween.tween_callback(self,"disable_everything")# warning-ignore:return_value_discarded
+		tween.tween_callback(Callable(self, "disable_everything"))# warning-ignore:return_value_discarded
 
 func disable_everything() -> void:
 	collision_shape_2d.disabled = true

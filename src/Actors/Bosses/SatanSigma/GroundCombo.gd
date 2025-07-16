@@ -1,12 +1,12 @@
 extends AttackAbility
-onready var particles: Particles2D = $"../animatedSprite/particles"
-onready var slash_1: Node2D = $slash1
-onready var slash_2: Node2D = $slash2
-onready var slash_3: Node2D = $slash3
-onready var slash_1_sfx: AudioStreamPlayer2D = $slash1_sfx
-onready var projectile_sfx: AudioStreamPlayer2D = $projectile_sfx
+@onready var particles: GPUParticles2D = $"../animatedSprite/particles"
+@onready var slash_1: Node2D = $slash1
+@onready var slash_2: Node2D = $slash2
+@onready var slash_3: Node2D = $slash3
+@onready var slash_1_sfx: AudioStreamPlayer2D = $slash1_sfx
+@onready var projectile_sfx: AudioStreamPlayer2D = $projectile_sfx
 
-export var projectile : PackedScene
+@export var projectile : PackedScene
 
 func _Setup() -> void:
 	turn_and_face_player()
@@ -87,13 +87,13 @@ func _Update(delta) -> void:
 		EndAbility()
 	
 func turn_and_face_player():
-	.turn_and_face_player()
+	super.turn_and_face_player()
 	slash_1.handle_direction()
 	slash_2.handle_direction()
 	slash_3.handle_direction()
 	
 
-onready var ground_projectile_pos: Position2D = $"../animatedSprite/ground_projectile_pos"
+@onready var ground_projectile_pos: Marker2D = $"../animatedSprite/ground_projectile_pos"
 
 var target_dir : Vector2
 

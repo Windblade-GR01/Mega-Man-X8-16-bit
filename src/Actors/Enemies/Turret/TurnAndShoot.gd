@@ -1,12 +1,12 @@
 extends AttackAbility
 
-export var cooldown:= 1.0
-export var projectile : PackedScene
+@export var cooldown:= 1.0
+@export var projectile : PackedScene
 var current_aim := "diagonal"
-onready var shot_sound: AudioStreamPlayer2D = $shot_sound
-onready var horizontal_spawn_point: Node2D = $horizontal_spawn_point
-onready var diagonal_spawn_point: Node2D = $diagonal_spawn_point
-onready var initial_rotation := character.rotation_degrees
+@onready var shot_sound: AudioStreamPlayer2D = $shot_sound
+@onready var horizontal_spawn_point: Node2D = $horizontal_spawn_point
+@onready var diagonal_spawn_point: Node2D = $diagonal_spawn_point
+@onready var initial_rotation := character.rotation_degrees
 
 func _ready() -> void:
 	pass

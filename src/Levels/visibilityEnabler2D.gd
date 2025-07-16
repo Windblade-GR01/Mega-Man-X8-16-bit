@@ -1,6 +1,6 @@
-extends VisibilityNotifier2D
+extends VisibleOnScreenNotifier2D
 
-onready var parent :Node2D= get_parent()
+@onready var parent :Node2D= get_parent()
 #onready var shape: CollisionShape2D = $collisionShape2D
 var debug_logs := false
 var main_tileset : TileMap

@@ -7,7 +7,7 @@ using TiledImporter.Structures;
 
 namespace TiledImporter.Parsers
 {
-    public class ObjectJsonElement : JsonElement
+    public partial class ObjectJsonElement : JsonElement
     {
         protected override Dictionary<string, ElementaryType> RequiredElementaryTypeFieldsNames
         {
@@ -309,7 +309,7 @@ namespace TiledImporter.Parsers
             ShapeObjectType? shapeObjectType = DetermineShapeObjectType(elementDictionary);
             if (shapeObjectType == null)
             {
-                GD.PushError("Shape object type is not determined!");
+                GD.PushError("Shape3D object type is not determined!");
                 return null;
             }
 

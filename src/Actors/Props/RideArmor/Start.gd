@@ -1,9 +1,9 @@
 extends NewAbility
 
-onready var animation = AnimationController.new($"../animatedSprite", self)
-onready var physics = Physics.new(get_parent())
-onready var startup: AudioStreamPlayer2D = $startup
-onready var vento: Sprite = $vento
+@onready var animation = AnimationController.new($"../animatedSprite", self)
+@onready var physics = Physics.new(get_parent())
+@onready var startup: AudioStreamPlayer2D = $startup
+@onready var vento: Sprite2D = $vento
 
 signal stand_up
 

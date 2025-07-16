@@ -1,7 +1,7 @@
 extends ParallaxLayer
 
-onready var tween := TweenController.new(self,false)
-onready var mid_sky: ParallaxLayer = $"../../Scenery/parallaxBackground/mid_sky"
+@onready var tween := TweenController.new(self,false)
+@onready var mid_sky: ParallaxLayer = $"../../Scenery/parallaxBackground/mid_sky"
 
 
 func _on_mid_sky_visibility_changed() -> void:

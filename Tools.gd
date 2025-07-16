@@ -14,7 +14,7 @@ static func filter_for_type(type,children): #returns a list
 static func filter_particles(children): #returns a list
 	var particle_list = []
 	for child in children:
-		if child is Particles2D:
+		if child is GPUParticles2D:
 			particle_list.append(child)
 	return particle_list
 	
@@ -46,7 +46,7 @@ static func is_between(value, minimum, maximum) -> bool:
 	return value >= minimum and value <= maximum
 
 static func instantiate(scene : PackedScene) -> Node2D:
-	var instance = scene.instance()
+	var instance = scene.instantiate()
 	return instance
 
 static func get_player_angle(global_position : Vector2) -> Vector2:
@@ -84,21 +84,21 @@ static func timer(wait_time : float, method : String, parent : Node, method_owne
 	var timer = Timer.new()
 	if method_owner == null:
 		method_owner = parent
-	timer.connect("timeout",method_owner,method)
-	timer.connect("timeout",timer,"queue_free",[],1)
+	timer.connect("timeout", Callable(method_owner, method))
+	timer.connect("timeout", Callable(timer, "queue_free").bind(), 1)
 	timer.wait_time = wait_time
 	timer.one_shot = true
 	if ignore_pause:
-		timer.pause_mode = Node.PAUSE_MODE_PROCESS
+		timer.process_mode = Node.PROCESS_MODE_ALWAYS
 	parent.call_deferred("add_child",timer)
 	timer.call_deferred("start")
 	
 static func timer_p(wait_time : float, method : String, parent : Node, param) -> void:
 	var timer = Timer.new()
 	if param is Array:
-		timer.connect("timeout",parent,method, param)
+		timer.connect("timeout", Callable(parent, method).bind(param))
 	else:
-		timer.connect("timeout",parent,method, [param])
+		timer.connect("timeout", Callable(parent, method).bind(param))
 	timer.wait_time = wait_time
 	timer.one_shot = true
 	parent.call_deferred("add_child",timer)
@@ -107,9 +107,9 @@ static func timer_p(wait_time : float, method : String, parent : Node, param) ->
 static func timer_r(wait_time : float, method : String, parent : Node, param = null) -> Timer:
 	var timer = Timer.new()
 	if not param is Array:
-		timer.connect("timeout",parent,method, [param])
+		timer.connect("timeout", Callable(parent, method).bind(param))
 	else:
-		timer.connect("timeout",parent,method, param)
+		timer.connect("timeout", Callable(parent, method).bind(param))
 	#timer.connect("timeout",timer,"queue_free",1)
 	timer.wait_time = wait_time
 	timer.one_shot = true
@@ -119,14 +119,14 @@ static func timer_r(wait_time : float, method : String, parent : Node, param = n
 
 # warning-ignore:unused_argument
 static func tween(parent,property,final_value,duration, ease_type := Tween.EASE_IN_OUT, trans_type := Tween.TRANS_LINEAR) -> void:
-	var tween : SceneTreeTween  = parent.create_tween()
+	var tween : Tween  = parent.create_tween()
 # warning-ignore:return_value_discarded
 	tween.tween_property(parent,property,final_value, duration).set_ease(Tween.EASE_IN_OUT).set_trans(trans_type)
 	
-static func tween_method(parent,method,start_value,final_value,duration) -> void:
-	var tween : SceneTreeTween  = parent.create_tween()
+static func tween_method(Callable(parent, method), start_value, final_value, duration) -> void:
+	var tween : Tween  = parent.create_tween()
 # warning-ignore:return_value_discarded
-	tween.tween_method(parent,method,start_value,final_value,duration)
+	tween.tween_method(Callable(parent, method), start_value, final_value, duration)
 
 static func raycast(object : Node2D, local_target_position : Vector2, start_position = null, collision_layer = 1) -> Dictionary:
 	if start_position == null:

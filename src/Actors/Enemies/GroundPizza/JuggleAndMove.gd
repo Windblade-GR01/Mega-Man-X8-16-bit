@@ -1,10 +1,10 @@
 extends PizzaAbility
-export var frequency := 6
-var up_and_down : SceneTreeTween
-onready var ray_left: RayCast2D = $cast_left
-onready var ray_right: RayCast2D = $cast_right
-onready var cast_left: RayCast2D = $cast_left2
-onready var cast_right: RayCast2D = $cast_right2
+@export var frequency := 6
+var up_and_down : Tween
+@onready var ray_left: RayCast2D = $cast_left
+@onready var ray_right: RayCast2D = $cast_right
+@onready var cast_left: RayCast2D = $cast_left2
+@onready var cast_right: RayCast2D = $cast_right2
 
 var initial_position : Vector2
 
@@ -52,8 +52,8 @@ func return_projectile() -> void:
 	projectile.position.y = 13
 	var tween = get_tree().create_tween()
 	#tween.tween_property(projectile,"position",Vector2(0.0, 0.0),0.5)
-	tween.tween_callback(self,"toggle_projectile_damage",[true])
-	tween.tween_callback(self,"next_attack_stage")
+	tween.tween_callback(Callable(self, "toggle_projectile_damage").bind(true))
+	tween.tween_callback(Callable(self, "next_attack_stage"))
 
 func is_near_ledge() -> bool:
 	return check_for_ledges() == character.get_direction()

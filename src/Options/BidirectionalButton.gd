@@ -2,24 +2,24 @@ extends X8TextureButton
 class_name X8OptionButton
 
 var active := false
-onready var value: Label = $Value
+@onready var value: Label = $Value
 
 var frequency := 0.5
 var timer := 0.0
 
 func _ready() -> void:
-	var _s = Savefile.connect("loaded",self,"setup")
+	var _s = Savefile.connect("loaded", Callable(self, "setup"))
 	Event.listen("update_options",self,"setup")
 
 func setup() -> void:
 	pass
 
 func _on_focus_exited() -> void:
-	._on_focus_exited()
+	super._on_focus_exited()
 	active = false
 
 func _on_focus_entered() -> void:
-	._on_focus_entered()
+	super._on_focus_entered()
 	active = true
 
 func on_press() -> void:

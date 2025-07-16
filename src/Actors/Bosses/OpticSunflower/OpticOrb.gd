@@ -2,8 +2,8 @@ extends Node2D
 
 var h_speed := 100.0
 var v_speed := 100.0
-onready var front_shield: AnimatedSprite = $front_shield
-onready var back_shield: AnimatedSprite = $back_shield
+@onready var front_shield: AnimatedSprite2D = $front_shield
+@onready var back_shield: AnimatedSprite2D = $back_shield
 
 signal expired
 

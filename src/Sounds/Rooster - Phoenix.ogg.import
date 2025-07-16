@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/Rooster - Phoenix.ogg-c8bd118df2c00bb4845b7f815c0fb8d6.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bgtlkfb6yvt0b"
+path="res://.godot/imported/Rooster - Phoenix.ogg-c8bd118df2c00bb4845b7f815c0fb8d6.oggvorbisstr"
 
 [deps]
 
 source_file="res://src/Sounds/Rooster - Phoenix.ogg"
-dest_files=[ "res://.import/Rooster - Phoenix.ogg-c8bd118df2c00bb4845b7f815c0fb8d6.oggstr" ]
+dest_files=["res://.godot/imported/Rooster - Phoenix.ogg-c8bd118df2c00bb4845b7f815c0fb8d6.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,9 +1,9 @@
 extends EnemyShield
 
 var armor_cooldown := 1.0
-onready var flash: AnimatedSprite = $flash
-onready var armor_equip: AudioStreamPlayer2D = $armor_equip
-export var breakable_on_start := true
+@onready var flash: AnimatedSprite2D = $flash
+@onready var armor_equip: AudioStreamPlayer2D = $armor_equip
+@export var breakable_on_start := true
 signal catch
 
 func _ready() -> void:

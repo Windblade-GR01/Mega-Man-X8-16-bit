@@ -1,9 +1,9 @@
 extends AudioStreamPlayer
 
-onready var tween := TweenController.new(self,false)
-onready var base_db := volume_db
+@onready var tween := TweenController.new(self,false)
+@onready var base_db := volume_db
 var played_intro := false
-onready var loop: AudioStreamPlayer = $loop
+@onready var loop: AudioStreamPlayer = $loop
 
 func fade_in(duration := 1.0):
 	volume_db = -80
@@ -14,7 +14,7 @@ func fade_in(duration := 1.0):
 func play(from_position := 0.0):
 	if stream and not played_intro:
 		prepare_loop()
-		.play(from_position)
+		super.play(from_position)
 	else:
 		loop.play(from_position)
 
@@ -28,17 +28,17 @@ func fade_out(duration := 1.0):
 
 func stop():
 	reset_timer()
-	.stop()
+	super.stop()
 
 func play_loop():
 	loop.play()
 	reset_timer()
 
 func prepare_loop() -> void:
-	connect("finished",self,"play_loop")
+	connect("finished", Callable(self, "play_loop"))
 
 func reset_timer():
-	if is_connected("finished",self,"play_loop"):
-		disconnect("finished",self,"play_loop")
+	if is_connected("finished", Callable(self, "play_loop")):
+		disconnect("finished", Callable(self, "play_loop"))
 	played_intro = false
 	

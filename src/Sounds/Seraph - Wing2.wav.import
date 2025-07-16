@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Seraph - Wing2.wav-da0a0bba4b3a2466b040992e3e16a1e6.sample"
+type="AudioStreamWAV"
+uid="uid://ci5vkcplol5jr"
+path="res://.godot/imported/Seraph - Wing2.wav-da0a0bba4b3a2466b040992e3e16a1e6.sample"
 
 [deps]
 
 source_file="res://src/Sounds/Seraph - Wing2.wav"
-dest_files=[ "res://.import/Seraph - Wing2.wav-da0a0bba4b3a2466b040992e3e16a1e6.sample" ]
+dest_files=["res://.godot/imported/Seraph - Wing2.wav-da0a0bba4b3a2466b040992e3e16a1e6.sample"]
 
 [params]
 

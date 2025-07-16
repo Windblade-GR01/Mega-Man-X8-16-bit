@@ -1,12 +1,12 @@
 extends AttackAbility
 
-onready var space: Node = $"../Space"
-onready var tween := TweenController.new(self,false)
-onready var move_feathers: Particles2D = $"../animatedSprite/move_feathers"
-onready var woosh: AudioStreamPlayer2D = $woosh
-onready var flap: AudioStreamPlayer2D = $flap
-onready var debug_visual: Sprite = $"../DamageOnTouch/debug_visual"
-onready var charge: AudioStreamPlayer2D = $charge
+@onready var space: Node = $"../Space"
+@onready var tween := TweenController.new(self,false)
+@onready var move_feathers: GPUParticles2D = $"../animatedSprite/move_feathers"
+@onready var woosh: AudioStreamPlayer2D = $woosh
+@onready var flap: AudioStreamPlayer2D = $flap
+@onready var debug_visual: Sprite2D = $"../DamageOnTouch/debug_visual"
+@onready var charge: AudioStreamPlayer2D = $charge
 
 const travel_speed := 1500
 
@@ -113,12 +113,12 @@ func show_warning_visuals():
 	charge.play_rp()
 	debug_visual.scale.y = 0.0
 	debug_visual.modulate.a = .8
-	debug_visual.self_modulate = Color.white
+	debug_visual.self_modulate = Color.WHITE
 	tween.attribute("scale:y",1.0,.15,debug_visual)
 	tween.add_attribute("modulate:a",0.0,.5,debug_visual)
-	tween.attribute("self_modulate",Color.white,.15,debug_visual)
-	tween.add_attribute("self_modulate",Color.orange,.4,debug_visual)
-	tween.add_attribute("self_modulate",Color.red,.1,debug_visual)
+	tween.attribute("self_modulate",Color.WHITE,.15,debug_visual)
+	tween.add_attribute("self_modulate",Color.ORANGE,.4,debug_visual)
+	tween.add_attribute("self_modulate",Color.RED,.1,debug_visual)
 	tween.add_callback("stop_prepare_sound")
 
 func stop_prepare_sound():
@@ -128,7 +128,7 @@ func _Interrupt():
 	tween.reset()
 	move_feathers.emitting = false
 	debug_visual.visible = false
-	._Interrupt()
+	super._Interrupt()
 
 func go_to_nearest_position_besides_player() -> void:
 	var pos = GameManager.camera.get_camera_screen_center()

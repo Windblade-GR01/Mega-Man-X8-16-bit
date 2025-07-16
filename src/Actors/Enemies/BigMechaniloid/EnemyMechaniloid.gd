@@ -1,6 +1,6 @@
 extends Enemy
 
-onready var inside_wall = $rigidBody2D/collisionPolygon2D
+@onready var inside_wall = $rigidBody2D/collisionPolygon2D
 
 var started_pursuit := false
 
@@ -10,7 +10,7 @@ signal damage_reduction(_discard)
 
 func _ready() -> void:
 	animatedSprite.modulate = Color(1,1,1,0.01)
-	Event.connect("moved_player_to_checkpoint",self,"on_checkpoint")
+	Event.connect("moved_player_to_checkpoint", Callable(self, "on_checkpoint"))
 
 func on_checkpoint(checkpoint : CheckpointSettings) -> void:
 	if checkpoint.id >= 1:

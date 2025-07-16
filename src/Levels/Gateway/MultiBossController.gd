@@ -1,7 +1,7 @@
 extends Node
 
-onready var _reploids := [$"../TrilobyteReploid", $"../PandaReploid", $"../YetiReploid", $"../AntonionReploid", $"../ManowarReploid", $"../RoosterReploid", $"../SunflowerReploid", $"../MantisReploid"]
-onready var boss_watcher: Node2D = $"../BossWatcher"
+@onready var _reploids := [$"../TrilobyteReploid", $"../PandaReploid", $"../YetiReploid", $"../AntonionReploid", $"../ManowarReploid", $"../RoosterReploid", $"../SunflowerReploid", $"../MantisReploid"]
+@onready var boss_watcher: Node2D = $"../BossWatcher"
 
 var bosses_to_desperate : Array
 var boss_ais : Dictionary
@@ -13,7 +13,7 @@ var current_boss_id := 0
 
 func _ready() -> void:
 	for reploid in _reploids:
-		reploid.connect("spawned_boss",self,"_on_boss_spawn")
+		reploid.connect("spawned_boss", Callable(self, "_on_boss_spawn"))
 
 func start_bossfight():
 	Tools.timer(2,"bring_reploids",self)
@@ -32,7 +32,7 @@ func bring_reploids():
 
 func _on_boss_spawn(boss : Actor) -> void:
 	print("BossManager: spawned " + boss.name)
-	boss.connect("zero_health",self,"on_boss_kill",[boss])
+	boss.connect("zero_health", Callable(self, "on_boss_kill").bind(boss))
 	bosses_to_desperate.append(boss)
 	spawned_bosses += 1
 	boss_ais[boss.name] = boss.get_node("BossAI")

@@ -15,26 +15,26 @@
 [ext_resource path="res://src/WeaponGet/Charge.gd" type="Script" id=13]
 [ext_resource path="res://DashJump.gd" type="Script" id=14]
 [ext_resource path="res://src/Sounds/DAMAGE.wav" type="AudioStream" id=15]
-[ext_resource path="res://src/Effects/Textures/follow_shot.png" type="Texture" id=16]
+[ext_resource path="res://src/Effects/Textures/follow_shot.png" type="Texture2D" id=16]
 [ext_resource path="res://src/Sounds/SLIDE.wav" type="AudioStream" id=17]
 [ext_resource path="res://src/Sounds/JUMP.wav" type="AudioStream" id=18]
 [ext_resource path="res://src/Actors/Enemy Collision Detector.gd" type="Script" id=19]
 [ext_resource path="res://Damage.gd" type="Script" id=20]
 [ext_resource path="res://SpriteEffect.gd" type="Script" id=22]
-[ext_resource path="res://src/Effects/Textures/smoke.png" type="Texture" id=23]
+[ext_resource path="res://src/Effects/Textures/smoke.png" type="Texture2D" id=23]
 [ext_resource path="res://src/Actors/CrushCheck.gd" type="Script" id=24]
 [ext_resource path="res://src/Actors/Player/BossWeapons/ThunderDancer/ThunderDancerWeapon.gd" type="Script" id=26]
 [ext_resource path="res://WeaponChanger.gd" type="Script" id=27]
 [ext_resource path="res://Walljump.gd" type="Script" id=28]
 [ext_resource path="res://Wallslide.gd" type="Script" id=29]
 [ext_resource path="res://src/Sounds/DASH.wav" type="AudioStream" id=30]
-[ext_resource path="res://src/Effects/Textures/charge_2.png" type="Texture" id=31]
-[ext_resource path="res://src/Effects/Textures/airdash.png" type="Texture" id=32]
-[ext_resource path="res://src/Effects/Textures/dash.png" type="Texture" id=33]
-[ext_resource path="res://src/Effects/Textures/charge_1.png" type="Texture" id=34]
+[ext_resource path="res://src/Effects/Textures/charge_2.png" type="Texture2D" id=31]
+[ext_resource path="res://src/Effects/Textures/airdash.png" type="Texture2D" id=32]
+[ext_resource path="res://src/Effects/Textures/dash.png" type="Texture2D" id=33]
+[ext_resource path="res://src/Effects/Textures/charge_1.png" type="Texture2D" id=34]
 [ext_resource path="res://src/Sounds/CHARGE_MAX.wav" type="AudioStream" id=35]
-[ext_resource path="res://src/Effects/Textures/old_lemon_hit.png" type="Texture" id=36]
-[ext_resource path="res://src/Effects/Textures/blue_screen.png" type="Texture" id=37]
+[ext_resource path="res://src/Effects/Textures/old_lemon_hit.png" type="Texture2D" id=36]
+[ext_resource path="res://src/Effects/Textures/blue_screen.png" type="Texture2D" id=37]
 [ext_resource path="res://src/Sounds/11 - MMX - X Die.wav" type="AudioStream" id=38]
 [ext_resource path="res://src/Effects/Materials/mat_x_death.tres" type="Material" id=39]
 [ext_resource path="res://src/Sounds/FX - Subtank Charge.ogg" type="AudioStream" id=40]
@@ -81,7 +81,7 @@
 [ext_resource path="res://src/Actors/Player/BossWeapons/FireDash/FireDash.gd" type="Script" id=94]
 [ext_resource path="res://src/Actors/WeaponStasis.gd" type="Script" id=97]
 [ext_resource path="res://src/Actors/rotation_particle_disabler.gd" type="Script" id=98]
-[ext_resource path="res://src/Effects/Textures/hit_vfx.png" type="Texture" id=100]
+[ext_resource path="res://src/Effects/Textures/hit_vfx.png" type="Texture2D" id=100]
 [ext_resource path="res://src/Sounds/MMX - Charge.wav" type="AudioStream" id=101]
 [ext_resource path="res://src/Levels/skip_intro.gd" type="Script" id=102]
 [ext_resource path="res://src/Effects/enemy_shader.tres" type="Shader" id=103]
@@ -323,14 +323,14 @@ particles_anim_h_frames = 2
 particles_anim_v_frames = 2
 particles_anim_loop = false
 
-[node name="X" type="KinematicBody2D" groups=["Player"]]
+[node name="X" type="CharacterBody2D" groups=["Player"]]
 z_as_relative = false
 collision_layer = 8192
 collision_mask = 1793
 script = ExtResource( 6 )
 
 [node name="Armor" type="Node2D" parent="."]
-pause_mode = 2
+process_mode = 3
 script = ExtResource( 54 )
 NeutralColor1 = Color( 0.909804, 0.878431, 0.25098, 1 )
 NeutralColor2 = Color( 0.945098, 0.6, 0.27451, 1 )
@@ -353,7 +353,7 @@ modulate = Color( 0.172549, 1, 0, 1 )
 z_index = 11
 z_as_relative = false
 enabled = true
-cast_to = Vector2( 0, 15 )
+target_position = Vector2( 0, 15 )
 collision_mask = 257
 
 [node name="death_down" type="RayCast2D" parent="CrushCheck"]
@@ -361,7 +361,7 @@ modulate = Color( 0.172549, 1, 0, 1 )
 z_index = 11
 z_as_relative = false
 enabled = true
-cast_to = Vector2( 0, -15 )
+target_position = Vector2( 0, -15 )
 collision_mask = 257
 
 [node name="death_right" type="RayCast2D" parent="CrushCheck"]
@@ -370,7 +370,7 @@ position = Vector2( 0, -8 )
 z_index = 11
 z_as_relative = false
 enabled = true
-cast_to = Vector2( 7, 0 )
+target_position = Vector2( 7, 0 )
 collision_mask = 257
 
 [node name="death_left" type="RayCast2D" parent="CrushCheck"]
@@ -379,7 +379,7 @@ position = Vector2( 0, -8 )
 z_index = 11
 z_as_relative = false
 enabled = true
-cast_to = Vector2( -7, 0 )
+target_position = Vector2( -7, 0 )
 collision_mask = 257
 
 [node name="death_right2" type="RayCast2D" parent="CrushCheck"]
@@ -388,7 +388,7 @@ position = Vector2( 0, 8 )
 z_index = 11
 z_as_relative = false
 enabled = true
-cast_to = Vector2( 7, 0 )
+target_position = Vector2( 7, 0 )
 collision_mask = 257
 
 [node name="death_left2" type="RayCast2D" parent="CrushCheck"]
@@ -397,11 +397,11 @@ position = Vector2( 0, 8 )
 z_index = 11
 z_as_relative = false
 enabled = true
-cast_to = Vector2( -7, 0 )
+target_position = Vector2( -7, 0 )
 collision_mask = 257
 
 [node name="Subtanks" type="Node" parent="."]
-pause_mode = 2
+process_mode = 3
 script = ExtResource( 56 )
 
 [node name="Subtank 1" parent="Subtanks" instance=ExtResource( 74 )]
@@ -416,7 +416,7 @@ subtank = ExtResource( 117 )
 [node name="Subtank 4" parent="Subtanks" instance=ExtResource( 74 )]
 subtank = ExtResource( 120 )
 
-[node name="animatedSprite" type="AnimatedSprite" parent="."]
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
 material = SubResource( 45 )
 position = Vector2( 0, -4 )
 z_index = 5
@@ -425,14 +425,14 @@ animation = "idle"
 frame = 52
 playing = true
 
-[node name="head_armor" type="AnimatedSprite" parent="animatedSprite"]
+[node name="head_armor" type="AnimatedSprite2D" parent="animatedSprite"]
 visible = false
 material = SubResource( 46 )
 frames = ExtResource( 78 )
 animation = "idle"
 script = ExtResource( 55 )
 
-[node name="body_armor" type="AnimatedSprite" parent="animatedSprite"]
+[node name="body_armor" type="AnimatedSprite2D" parent="animatedSprite"]
 visible = false
 material = SubResource( 47 )
 frames = ExtResource( 80 )
@@ -442,33 +442,33 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="arms_armor" type="AnimatedSprite" parent="animatedSprite"]
+[node name="arms_armor" type="AnimatedSprite2D" parent="animatedSprite"]
 visible = false
 material = SubResource( 48 )
 frames = ExtResource( 79 )
 animation = "idle"
 script = ExtResource( 55 )
 
-[node name="cannon_armor" type="AnimatedSprite" parent="animatedSprite"]
+[node name="cannon_armor" type="AnimatedSprite2D" parent="animatedSprite"]
 visible = false
 material = SubResource( 49 )
 frames = ExtResource( 77 )
 animation = "shot"
 script = ExtResource( 55 )
 
-[node name="legs_armor" type="AnimatedSprite" parent="animatedSprite"]
+[node name="legs_armor" type="AnimatedSprite2D" parent="animatedSprite"]
 visible = false
 material = SubResource( 50 )
 frames = ExtResource( 76 )
 animation = "idle"
 script = ExtResource( 55 )
 
-[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="animatedSprite"]
+[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="animatedSprite"]
 visible = false
 position = Vector2( 0, 3.99 )
 scale = Vector2( 0.6, 1.6 )
 
-[node name="Dash Smoke Particles" type="Particles2D" parent="animatedSprite"]
+[node name="Dash Smoke Particles" type="GPUParticles2D" parent="animatedSprite"]
 material = ExtResource( 88 )
 position = Vector2( -10, 17.99 )
 z_index = 1
@@ -482,7 +482,7 @@ texture = ExtResource( 23 )
 [node name="particle_disabler" type="Node" parent="animatedSprite/Dash Smoke Particles"]
 script = ExtResource( 98 )
 
-[node name="WallSlide Particles" type="Particles2D" parent="animatedSprite"]
+[node name="WallSlide Particles" type="GPUParticles2D" parent="animatedSprite"]
 material = ExtResource( 88 )
 position = Vector2( -14, 10.99 )
 z_index = 1
@@ -496,7 +496,7 @@ texture = ExtResource( 23 )
 [node name="particle_disabler" type="Node" parent="animatedSprite/WallSlide Particles"]
 script = ExtResource( 98 )
 
-[node name="WallJump Particle" type="Particles2D" parent="animatedSprite"]
+[node name="WallJump Particle" type="GPUParticles2D" parent="animatedSprite"]
 material = ExtResource( 87 )
 position = Vector2( 14, 17 )
 z_index = 1
@@ -508,8 +508,8 @@ local_coords = false
 process_material = ExtResource( 82 )
 texture = ExtResource( 36 )
 
-[node name="ChargingParticle" type="Particles2D" parent="animatedSprite"]
-pause_mode = 2
+[node name="ChargingParticle" type="GPUParticles2D" parent="animatedSprite"]
+process_mode = 3
 visible = false
 material = ExtResource( 89 )
 position = Vector2( 0, 3.99 )
@@ -519,8 +519,8 @@ lifetime = 0.3
 process_material = ExtResource( 86 )
 texture = ExtResource( 34 )
 
-[node name="ChargedParticle" type="Particles2D" parent="animatedSprite"]
-pause_mode = 2
+[node name="ChargedParticle" type="GPUParticles2D" parent="animatedSprite"]
+process_mode = 3
 visible = false
 material = ExtResource( 89 )
 position = Vector2( 0, 3.99 )
@@ -530,8 +530,8 @@ lifetime = 0.3
 process_material = ExtResource( 84 )
 texture = ExtResource( 31 )
 
-[node name="SuperChargeParticle" type="Particles2D" parent="animatedSprite"]
-pause_mode = 2
+[node name="SuperChargeParticle" type="GPUParticles2D" parent="animatedSprite"]
+process_mode = 3
 visible = false
 material = ExtResource( 89 )
 position = Vector2( 0, 3.99 )
@@ -555,7 +555,7 @@ final_color = Color( 0.258824, 0.172549, 0.576471, 0 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = ExtResource( 1 )
 
-[node name="Enemy Collision Detector" type="KinematicBody2D" parent="." groups=["Player"]]
+[node name="Enemy Collision Detector" type="CharacterBody2D" parent="." groups=["Player"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource( 19 )
@@ -576,80 +576,80 @@ visible = false
 [node name="Wallcheck Right" type="RayCast2D" parent="_raycasts"]
 position = Vector2( 2, -15 )
 enabled = true
-cast_to = Vector2( 6, 0 )
+target_position = Vector2( 6, 0 )
 collision_mask = 1537
 
 [node name="Wallcheck Right2" type="RayCast2D" parent="_raycasts"]
 position = Vector2( 2, 0 )
 enabled = true
-cast_to = Vector2( 6, 0 )
+target_position = Vector2( 6, 0 )
 collision_mask = 1537
 
 [node name="Wallcheck Right3" type="RayCast2D" parent="_raycasts"]
 position = Vector2( 2, 14.95 )
 enabled = true
-cast_to = Vector2( 6, 0 )
+target_position = Vector2( 6, 0 )
 collision_mask = 1537
 
 [node name="Wallcheck Left" type="RayCast2D" parent="_raycasts"]
 position = Vector2( -2, -15 )
 enabled = true
-cast_to = Vector2( -6, 0 )
+target_position = Vector2( -6, 0 )
 collision_mask = 1537
 
 [node name="Wallcheck Left2" type="RayCast2D" parent="_raycasts"]
 position = Vector2( -2, 0 )
 enabled = true
 exclude_parent = false
-cast_to = Vector2( -6, 0 )
+target_position = Vector2( -6, 0 )
 collision_mask = 1537
 
 [node name="Wallcheck Left3" type="RayCast2D" parent="_raycasts"]
 position = Vector2( -2, 14.95 )
 enabled = true
-cast_to = Vector2( -6, 0 )
+target_position = Vector2( -6, 0 )
 collision_mask = 1537
 
 [node name="WallJumpCast Right" type="RayCast2D" parent="_raycasts"]
 position = Vector2( 2, -14 )
 enabled = true
-cast_to = Vector2( 13, 0 )
+target_position = Vector2( 13, 0 )
 collision_mask = 1537
 
 [node name="WallJumpCast Right2" type="RayCast2D" parent="_raycasts"]
 position = Vector2( 2, 0 )
 enabled = true
-cast_to = Vector2( 13, 0 )
+target_position = Vector2( 13, 0 )
 collision_mask = 1537
 
 [node name="WallJumpCast Right3" type="RayCast2D" parent="_raycasts"]
 position = Vector2( 2, 15 )
 enabled = true
-cast_to = Vector2( 13, 0 )
+target_position = Vector2( 13, 0 )
 collision_mask = 1537
 
 [node name="WallJumpCast Left" type="RayCast2D" parent="_raycasts"]
 position = Vector2( -2, -14 )
 enabled = true
-cast_to = Vector2( -13, 0 )
+target_position = Vector2( -13, 0 )
 collision_mask = 1537
 
 [node name="WallJumpCast Left2" type="RayCast2D" parent="_raycasts"]
 position = Vector2( -2, 0 )
 enabled = true
-cast_to = Vector2( -13, 0 )
+target_position = Vector2( -13, 0 )
 collision_mask = 1537
 
 [node name="WallJumpCast Left3" type="RayCast2D" parent="_raycasts"]
 position = Vector2( -2, 15 )
 enabled = true
-cast_to = Vector2( -13, 0 )
+target_position = Vector2( -13, 0 )
 collision_mask = 1537
 
 [node name="Groundcheck" type="RayCast2D" parent="_raycasts"]
 position = Vector2( 0, 15 )
 enabled = true
-cast_to = Vector2( 0, 8 )
+target_position = Vector2( 0, 8 )
 
 [node name="_crush_raycasts" type="Node2D" parent="."]
 visible = false
@@ -664,7 +664,7 @@ script = ExtResource( 27 )
 [node name="HotSwap" parent="WeaponChanger" instance=ExtResource( 69 )]
 
 [node name="Intro" type="Node2D" parent="."]
-pause_mode = 2
+process_mode = 3
 script = ExtResource( 102 )
 __meta__ = {
 "_editor_description_": ""
@@ -688,7 +688,7 @@ max_distance = 600.0
 bus = "SFX"
 
 [node name="Death" type="Node2D" parent="."]
-pause_mode = 2
+process_mode = 3
 script = ExtResource( 46 )
 actions = [ "Event" ]
 animation = "damage"
@@ -701,7 +701,7 @@ z_index = 15
 volume_db = -10.0
 bus = "SFX"
 
-[node name="background_light" type="Sprite" parent="Death"]
+[node name="background_light" type="Sprite2D" parent="Death"]
 visible = false
 material = ExtResource( 39 )
 position = Vector2( 5.99998, 7.49999 )
@@ -745,11 +745,11 @@ jump_velocity = 190.0
 invulnerability_time = 1.75
 
 [node name="audioStreamPlayer" type="AudioStreamPlayer" parent="Damage"]
-pause_mode = 2
+process_mode = 3
 volume_db = 3.0
 bus = "SFX"
 
-[node name="sparks" type="AnimatedSprite" parent="Damage"]
+[node name="sparks" type="AnimatedSprite2D" parent="Damage"]
 position = Vector2( 0, -8 )
 z_index = 5
 frames = SubResource( 44 )
@@ -757,7 +757,7 @@ animation = "sparks"
 frame = 15
 playing = true
 
-[node name="back" type="AnimatedSprite" parent="Damage"]
+[node name="back" type="AnimatedSprite2D" parent="Damage"]
 visible = false
 position = Vector2( 0, -8 )
 frames = SubResource( 44 )
@@ -824,15 +824,15 @@ weapon = ExtResource( 116 )
 dash_speed = Vector2( 300, 300 )
 
 [node name="audioStreamPlayer" type="AudioStreamPlayer" parent="Shot"]
-pause_mode = 2
+process_mode = 3
 volume_db = -10.0
 bus = "SFX"
 
 [node name="label" type="Label" parent="Shot"]
 visible = false
-margin_left = 21.0
-margin_right = 61.0
-margin_bottom = 14.0
+offset_left = 21.0
+offset_right = 61.0
+offset_bottom = 14.0
 
 [node name="charge" type="AudioStreamPlayer" parent="Shot"]
 stream = ExtResource( 40 )
@@ -856,12 +856,12 @@ level_3_charge = 2.0
 level_4_charge = 3.0
 
 [node name="audioStreamPlayer" type="AudioStreamPlayer" parent="Charge"]
-pause_mode = 2
+process_mode = 3
 volume_db = -13.5
 bus = "SFX"
 
 [node name="audioStreamPlayer2" type="AudioStreamPlayer" parent="Charge"]
-pause_mode = 2
+process_mode = 3
 volume_db = -14.0
 bus = "SFX"
 
@@ -879,7 +879,7 @@ start_delay = 0.116
 move_away_duration = 0.134
 
 [node name="audioStreamPlayer" type="AudioStreamPlayer" parent="DashWallJump"]
-pause_mode = 2
+process_mode = 3
 stream = ExtResource( 43 )
 bus = "SFX"
 
@@ -896,7 +896,7 @@ start_delay = 0.116
 move_away_duration = 0.15
 
 [node name="audioStreamPlayer" type="AudioStreamPlayer" parent="WallJump"]
-pause_mode = 2
+process_mode = 3
 bus = "SFX"
 
 [node name="AirDash" type="Node2D" parent="."]
@@ -914,11 +914,11 @@ leeway = 0.0
 shot_pos_adjust = Vector2( 14, 4 )
 
 [node name="audioStreamPlayer" type="AudioStreamPlayer" parent="AirDash"]
-pause_mode = 2
+process_mode = 3
 volume_db = -0.676
 bus = "SFX"
 
-[node name="dash_particle" type="Sprite" parent="AirDash"]
+[node name="dash_particle" type="Sprite2D" parent="AirDash"]
 visible = false
 position = Vector2( -16, 4 )
 z_index = 45
@@ -934,7 +934,7 @@ script = ExtResource( 61 )
 make_invisible = true
 undo_on_rotation_end = false
 
-[node name="duringImage" type="AnimatedSprite" parent="AirDash"]
+[node name="duringImage" type="AnimatedSprite2D" parent="AirDash"]
 visible = false
 modulate = Color( 0, 0.65098, 0.776471, 0.552941 )
 material = SubResource( 51 )
@@ -945,8 +945,8 @@ animation = "dash"
 frame = 15
 playing = true
 
-[node name="particles2D" type="Particles2D" parent="AirDash"]
-pause_mode = 1
+[node name="particles2D" type="GPUParticles2D" parent="AirDash"]
+process_mode = 1
 material = SubResource( 31 )
 position = Vector2( 0, -1 )
 z_index = 4
@@ -963,10 +963,10 @@ fade_out = true
 
 [node name="label" type="Label" parent="AirDash"]
 visible = false
-margin_left = -8.0
-margin_top = -32.0
-margin_right = 32.0
-margin_bottom = -18.0
+offset_left = -8.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = -18.0
 text = "3w"
 
 [node name="WallSlide" type="Node2D" parent="."]
@@ -979,7 +979,7 @@ horizontal_velocity = 0.0
 jump_velocity = 90.0
 
 [node name="audioStreamPlayer" type="AudioStreamPlayer" parent="WallSlide"]
-pause_mode = 2
+process_mode = 3
 bus = "SFX"
 
 [node name="DashJump" type="Node2D" parent="."]
@@ -993,7 +993,7 @@ shot_pos_adjust = Vector2( 4, 0 )
 dash_action = "dash_emulated"
 
 [node name="audioStreamPlayer" type="AudioStreamPlayer" parent="DashJump"]
-pause_mode = 2
+process_mode = 3
 bus = "SFX"
 
 [node name="Jump" type="Node2D" parent="."]
@@ -1008,7 +1008,7 @@ sound = ExtResource( 18 )
 shot_pos_adjust = Vector2( 4, 0 )
 
 [node name="audioStreamPlayer" type="AudioStreamPlayer" parent="Jump"]
-pause_mode = 2
+process_mode = 3
 bus = "SFX"
 
 [node name="AirJump" type="Node2D" parent="."]
@@ -1027,10 +1027,10 @@ fullspeed_proportion = 0.3
 dash_action = "dash_emulated"
 
 [node name="audioStreamPlayer" type="AudioStreamPlayer" parent="AirJump"]
-pause_mode = 2
+process_mode = 3
 bus = "SFX"
 
-[node name="jump_particle" type="Sprite" parent="AirJump"]
+[node name="jump_particle" type="Sprite2D" parent="AirJump"]
 visible = false
 position = Vector2( 0, 24 )
 rotation = -1.5708
@@ -1059,11 +1059,11 @@ sound = ExtResource( 30 )
 horizontal_velocity = 210.0
 
 [node name="audioStreamPlayer" type="AudioStreamPlayer" parent="Dash"]
-pause_mode = 2
+process_mode = 3
 volume_db = -0.676
 bus = "SFX"
 
-[node name="dash_particle" type="Sprite" parent="Dash"]
+[node name="dash_particle" type="Sprite2D" parent="Dash"]
 visible = false
 position = Vector2( -22, 0 )
 z_index = 45
@@ -1079,7 +1079,7 @@ script = ExtResource( 61 )
 make_invisible = true
 undo_on_rotation_end = false
 
-[node name="duringImage" type="AnimatedSprite" parent="Dash"]
+[node name="duringImage" type="AnimatedSprite2D" parent="Dash"]
 visible = false
 modulate = Color( 0, 0.65098, 0.776471, 0.552941 )
 material = SubResource( 51 )
@@ -1090,8 +1090,8 @@ animation = "dash"
 frame = 15
 playing = true
 
-[node name="particles2D" type="Particles2D" parent="Dash"]
-pause_mode = 1
+[node name="particles2D" type="GPUParticles2D" parent="Dash"]
+process_mode = 1
 material = SubResource( 31 )
 position = Vector2( 0, -1 )
 z_index = 4
@@ -1122,7 +1122,7 @@ animation = "walk"
 [node name="JumpDamage" parent="." instance=ExtResource( 71 )]
 
 [node name="Finish" type="Node2D" parent="."]
-pause_mode = 2
+process_mode = 3
 script = ExtResource( 57 )
 __meta__ = {
 "_editor_description_": ""
@@ -1148,15 +1148,15 @@ max_distance = 600.0
 bus = "SFX"
 
 [node name="label" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
+offset_right = 40.0
+offset_bottom = 14.0
 
 [node name="lowjumpcast" type="Label" parent="."]
 visible = false
-margin_left = -53.0
-margin_top = 2.0
-margin_right = -13.0
-margin_bottom = 16.0
+offset_left = -53.0
+offset_top = 2.0
+offset_right = -13.0
+offset_bottom = 16.0
 text = "x"
 
 [node name="AltFire" type="Node2D" parent="."]

@@ -1,16 +1,16 @@
 extends AttackAbility
 
 const degrees :=[0,90,-45, 15,-30,-15, -45,90,15, -45, 30,0]
-export var slash : PackedScene
+@export var slash : PackedScene
 var current_degree:= 0
 var performed_slashes:= 0
 var slash1_timer := 1.55 - 0.454
 var alert_pitch := 0.5
-onready var pandaslash: AudioStreamPlayer2D = $pandaslash
-onready var roar: AudioStreamPlayer2D = $roar
-onready var alert: AudioStreamPlayer2D = $alert
-onready var claw_appear: AudioStreamPlayer2D = $claw_appear
-onready var claw_retreat: AudioStreamPlayer2D = $claw_retreat
+@onready var pandaslash: AudioStreamPlayer2D = $pandaslash
+@onready var roar: AudioStreamPlayer2D = $roar
+@onready var alert: AudioStreamPlayer2D = $alert
+@onready var claw_appear: AudioStreamPlayer2D = $claw_appear
+@onready var claw_retreat: AudioStreamPlayer2D = $claw_retreat
 
 signal cancel
 signal slashed
@@ -105,8 +105,8 @@ func create_slash() -> void:
 		var s = instantiate(slash)
 		s.global_position = GameManager.get_player_position()
 		s.rotate_degrees(degrees[current_degree])
-		var _d = connect("slashed",s,"activate")
-		_d = connect("cancel",s,"queue_free")
+		var _d = connect("slashed", Callable(s, "activate"))
+		_d = connect("cancel", Callable(s, "queue_free"))
 		current_degree += 1
 		play_alert()
 
@@ -122,4 +122,4 @@ func _Interrupt() -> void:
 	performed_slashes = 0
 	character.emit_signal("damage_reduction", 1.0)
 	emit_signal("cancel")
-	._Interrupt()
+	super._Interrupt()

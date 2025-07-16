@@ -1,5 +1,5 @@
 extends Node2D
-onready var spiked_wall: Node2D = $SpikedWall
+@onready var spiked_wall: Node2D = $SpikedWall
 
 var activated := false
 

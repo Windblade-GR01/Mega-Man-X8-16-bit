@@ -3,11 +3,11 @@ extends AttackAbility
 const order = [5,2,6,3,1,4,0]
 var teleport_positions = []
 var times_used := 0
-onready var damage: Node2D = $"../Damage"
-onready var dot: Node2D = $"../DamageOnTouch"
-onready var disappear: AudioStreamPlayer2D = $disappear
-onready var appear: AudioStreamPlayer2D = $appear
-onready var leaves: Particles2D = $leaves
+@onready var damage: Node2D = $"../Damage"
+@onready var dot: Node2D = $"../DamageOnTouch"
+@onready var disappear: AudioStreamPlayer2D = $disappear
+@onready var appear: AudioStreamPlayer2D = $appear
+@onready var leaves: GPUParticles2D = $leaves
 
 func _Setup() -> void:
 	times_used += 1

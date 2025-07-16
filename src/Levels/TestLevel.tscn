@@ -7,7 +7,7 @@
 [ext_resource path="res://src/Actors/dancingpanda.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Tests/MovingPlatform.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Levels/HUD.gd" type="Script" id=7]
-[ext_resource path="res://src/Fonts/font.tres" type="DynamicFont" id=8]
+[ext_resource path="res://src/Fonts/font.tres" type="FontFile" id=8]
 [ext_resource path="res://src/Levels/RoundCamera.gd" type="Script" id=10]
 [ext_resource path="res://src/Objects/Conveyor Belt.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/Levels/Rotate.gd" type="Script" id=12]
@@ -15,7 +15,7 @@
 
 [sub_resource type="Curve2D" id=6]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 15, -204, 0, 0, 0, 0, 15, -24 )
+"points": PackedVector2Array( 0, 0, 0, 0, 15, -204, 0, 0, 0, 0, 15, -24 )
 }
 
 [sub_resource type="Animation" id=8]
@@ -23,14 +23,14 @@ resource_name = "New Anim"
 length = 8.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("pathFollow2D:unit_offset")
+tracks/0/path = NodePath("pathFollow2D:progress_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 4 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
 }
@@ -38,33 +38,33 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=9]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:unit_offset")
+tracks/0/path = NodePath(".:progress_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("pathFollow2D:unit_offset")
+tracks/1/path = NodePath("pathFollow2D:progress_ratio")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 1.0 ]
 }
 
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 174, -203, 0, 0, 0, 0, -151, -203 )
+"points": PackedVector2Array( 0, 0, 0, 0, 174, -203, 0, 0, 0, 0, -151, -203 )
 }
 
 [sub_resource type="Animation" id=3]
@@ -72,14 +72,14 @@ resource_name = "New Anim"
 length = 8.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("pathFollow2D:unit_offset")
+tracks/0/path = NodePath("pathFollow2D:progress_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 4 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
 }
@@ -87,26 +87,26 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=4]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:unit_offset")
+tracks/0/path = NodePath(".:progress_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("pathFollow2D:unit_offset")
+tracks/1/path = NodePath("pathFollow2D:progress_ratio")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 1.0 ]
 }
@@ -127,34 +127,34 @@ script = ExtResource( 7 )
 checked_inputs = [ "move_left", "move_right", "move_left_analog", "move_right_analog", "fire", "alt_fire", "jump", "dash", "weapon_select_left", "weapon_select_right" ]
 
 [node name="X Debug Info" type="RichTextLabel" parent="Visual Debugger"]
-margin_right = 206.0
-margin_bottom = 106.0
-custom_fonts/normal_font = ExtResource( 8 )
+offset_right = 206.0
+offset_bottom = 106.0
+theme_override_fonts/normal_font = ExtResource( 8 )
 text = "Debug Information"
 
 [node name="Input Info" type="RichTextLabel" parent="Visual Debugger"]
-margin_top = 211.0
-margin_right = 206.0
-margin_bottom = 317.0
-custom_fonts/normal_font = ExtResource( 8 )
+offset_top = 211.0
+offset_right = 206.0
+offset_bottom = 317.0
+theme_override_fonts/normal_font = ExtResource( 8 )
 text = "Input Info"
 
 [node name="Boss and Weapon Info" type="RichTextLabel" parent="Visual Debugger"]
-margin_left = 276.0
-margin_right = 398.0
-margin_bottom = 89.0
-custom_fonts/normal_font = ExtResource( 8 )
+offset_left = 276.0
+offset_right = 398.0
+offset_bottom = 89.0
+theme_override_fonts/normal_font = ExtResource( 8 )
 text = "Input Info"
 
-[node name="textureProgress" type="TextureProgress" parent="Visual Debugger"]
-margin_left = 282.0
-margin_top = 47.0
-margin_right = 322.0
-margin_bottom = 87.0
+[node name="textureProgress" type="TextureProgressBar" parent="Visual Debugger"]
+offset_left = 282.0
+offset_top = 47.0
+offset_right = 322.0
+offset_bottom = 87.0
 fill_mode = 2
 
 [node name="audioStreamPlayer" type="AudioStreamPlayer" parent="."]
-pause_mode = 2
+process_mode = 3
 stream = ExtResource( 3 )
 volume_db = -15.903
 autoplay = true
@@ -162,7 +162,7 @@ bus = "Music"
 script = ExtResource( 4 )
 
 [node name="tileMap" type="TileMap" parent="."]
-pause_mode = 2
+process_mode = 3
 z_index = -2
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
@@ -173,23 +173,23 @@ tile_data = PoolIntArray( -2555981, 7, 0, -2555980, 7, 0, -2555979, 7, 0, -25559
 script = ExtResource( 12 )
 
 [node name="camera2D" type="Camera2D" parent="tileMap"]
-pause_mode = 2
+process_mode = 3
 position = Vector2( -942, -260 )
 current = true
 limit_left = -1086
 limit_top = -490
 limit_right = 1072
 limit_bottom = 410
-drag_margin_v_enabled = true
+drag_vertical_enabled = true
 editor_draw_limits = true
 script = ExtResource( 10 )
 
 [node name="X" parent="tileMap" instance=ExtResource( 2 )]
-pause_mode = 1
+process_mode = 1
 position = Vector2( -987, 335 )
 
 [node name="MovingPlatform" parent="tileMap" instance=ExtResource( 6 )]
-pause_mode = 1
+process_mode = 1
 position = Vector2( -479, 356 )
 
 [node name="path2D" parent="tileMap/MovingPlatform" index="0"]
@@ -203,7 +203,7 @@ offset = 180.041
 position = Vector2( 15, -24 )
 
 [node name="MovingPlatform3" parent="tileMap" instance=ExtResource( 6 )]
-pause_mode = 1
+process_mode = 1
 position = Vector2( 829, -238 )
 
 [node name="path2D" parent="tileMap/MovingPlatform3" index="0"]
@@ -221,7 +221,7 @@ anims/RESET = SubResource( 9 )
 position = Vector2( 15, -24 )
 
 [node name="MovingPlatform2" parent="tileMap" instance=ExtResource( 6 )]
-pause_mode = 1
+process_mode = 1
 position = Vector2( 199, 213 )
 
 [node name="path2D" parent="tileMap/MovingPlatform2" index="0"]
@@ -240,12 +240,12 @@ anims/RESET = SubResource( 4 )
 position = Vector2( -151, -203 )
 
 [node name="Panda" parent="tileMap" instance=ExtResource( 5 )]
-pause_mode = 1
+process_mode = 1
 position = Vector2( -871, 305 )
 max_health = 1.0
 
 [node name="Conveyor Belt" parent="tileMap" instance=ExtResource( 11 )]
-pause_mode = 1
+process_mode = 1
 position = Vector2( -250, 261 )
 
 [node name="collisionShape2D" parent="tileMap/Conveyor Belt" index="0"]
@@ -253,7 +253,7 @@ position = Vector2( 2, 39 )
 shape = SubResource( 1 )
 
 [node name="Conveyor Belt2" parent="tileMap" instance=ExtResource( 11 )]
-pause_mode = 1
+process_mode = 1
 position = Vector2( -693, 180 )
 input_pickable = false
 speed = -70.0
@@ -263,7 +263,7 @@ position = Vector2( -19, 117 )
 shape = SubResource( 5 )
 
 [node name="Conveyor Belt3" parent="tileMap" instance=ExtResource( 11 )]
-pause_mode = 1
+process_mode = 1
 position = Vector2( 569, -127 )
 input_pickable = false
 speed = -70.0

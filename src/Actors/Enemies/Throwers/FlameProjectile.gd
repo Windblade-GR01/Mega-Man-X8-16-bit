@@ -1,12 +1,12 @@
 extends GenericProjectile
-onready var animated_sprite: AnimatedSprite = $animatedSprite
+@onready var animated_sprite: AnimatedSprite2D = $animatedSprite
 
 func flip() -> void:
 	animated_sprite.rotation_degrees = -90
 
 func _Setup() -> void:
 	animated_sprite.playing = true
-	if rand_range(0.0,1.0) > 0.5:
+	if randf_range(0.0,1.0) > 0.5:
 		animatedSprite.flip_h = true
 func _OnHit(_target_remaining_HP) -> void: #override
 	pass

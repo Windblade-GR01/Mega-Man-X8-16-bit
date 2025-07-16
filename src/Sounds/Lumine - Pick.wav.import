@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Lumine - Pick.wav-f19ae60a6e50f84403a43947b9a1e956.sample"
+type="AudioStreamWAV"
+uid="uid://b4ea1cx0w6kup"
+path="res://.godot/imported/Lumine - Pick.wav-f19ae60a6e50f84403a43947b9a1e956.sample"
 
 [deps]
 
 source_file="res://src/Sounds/Lumine - Pick.wav"
-dest_files=[ "res://.import/Lumine - Pick.wav-f19ae60a6e50f84403a43947b9a1e956.sample" ]
+dest_files=["res://.godot/imported/Lumine - Pick.wav-f19ae60a6e50f84403a43947b9a1e956.sample"]
 
 [params]
 

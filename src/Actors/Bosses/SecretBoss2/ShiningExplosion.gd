@@ -1,16 +1,16 @@
 extends Node2D
 
-onready var warning: AnimatedSprite = $warning
-onready var prepare: AudioStreamPlayer2D = $prepare
-onready var damage: Node2D = $DamageOnTouch
-onready var explosion: AnimatedSprite = $explosion
-onready var explosion_sfx: AudioStreamPlayer2D = $explosion_sfx
+@onready var warning: AnimatedSprite2D = $warning
+@onready var prepare: AudioStreamPlayer2D = $prepare
+@onready var damage: Node2D = $DamageOnTouch
+@onready var explosion: AnimatedSprite2D = $explosion
+@onready var explosion_sfx: AudioStreamPlayer2D = $explosion_sfx
 
 var expiring := false
 
 func _ready() -> void:
 	prepare()
-	Event.connect("first_secret2_death",self,"queue_free")
+	Event.connect("first_secret2_death", Callable(self, "queue_free"))
 	
 func expire():
 	expiring = true

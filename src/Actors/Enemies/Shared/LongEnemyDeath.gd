@@ -5,6 +5,6 @@ func get_spawn_item():
 
 
 func _on_EnemyDeath_ability_start(_ability) -> void:
-	character.set_collision_mask_bit(0,false)
-	character.set_collision_mask_bit(9,false)
+	character.set_collision_mask_value(0,false)
+	character.set_collision_mask_value(9,false)
 	pass # Replace with function body.

@@ -1,7 +1,7 @@
 extends X8OptionButton
 
 func _ready() -> void:
-	Event.connect("translation_updated",self,"display")
+	Event.connect("translation_updated", Callable(self, "display"))
 
 func setup() -> void:
 	if not Configurations.exists("CRT"):

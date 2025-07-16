@@ -1,13 +1,13 @@
 extends NinePatchRect
-onready var bike_bar: NinePatchRect = $"../Ride Bar"
-onready var armor_bar: NinePatchRect = $"../RideArmor Bar"
-onready var tween := TweenController.new(self,false)
+@onready var bike_bar: NinePatchRect = $"../Ride Bar"
+@onready var armor_bar: NinePatchRect = $"../RideArmor Bar"
+@onready var tween := TweenController.new(self,false)
 
 var fading_out := false
 var fading_in := false
 
 func _ready() -> void:
-	Event.connect("player_death",self,"disable")
+	Event.connect("player_death", Callable(self, "disable"))
 
 func disable():
 	set_physics_process(false)

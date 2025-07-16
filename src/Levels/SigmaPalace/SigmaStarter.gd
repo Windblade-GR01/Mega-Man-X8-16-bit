@@ -1,12 +1,12 @@
 extends Area2D
 
 var activated := false
-onready var previous_limit: Area2D = $"../../Limits/pre_boss"
-onready var next_limit: Area2D = $"../../Limits/final_boss"
-onready var invisible_wall: CollisionShape2D = $"../../Scenery/invisible_wall/collisionShape2D"
+@onready var previous_limit: Area2D = $"../../Limits/pre_boss"
+@onready var next_limit: Area2D = $"../../Limits/final_boss"
+@onready var invisible_wall: CollisionShape2D = $"../../Scenery/invisible_wall/collisionShape2D"
 
 func _ready() -> void:
-	Event.connect("lumine_went_seraph",self,"debug_seraph")
+	Event.connect("lumine_went_seraph", Callable(self, "debug_seraph"))
 
 func _on_body_entered(_body: Node) -> void:
 	if not activated:

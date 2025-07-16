@@ -1,8 +1,8 @@
 extends Attack
 class_name ProjectileShot
 
-export var sound2 : AudioStream
-export(PackedScene) var projectile
+@export var sound2 : AudioStream
+@export var projectile: PackedScene
 var shot_positions = []
 
 func _ready() -> void:
@@ -13,7 +13,7 @@ func _ready() -> void:
 func fire() -> void:
 	play_sound(sound)
 	for shot_pos in shot_positions:
-		var _shot = projectile.instance()
+		var _shot = projectile.instantiate()
 		get_tree().current_scene.add_child(_shot)
 		position_shot(_shot, shot_pos)
 

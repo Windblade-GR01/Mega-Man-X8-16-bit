@@ -1,21 +1,21 @@
 extends Node2D
 class_name EnemyDamage
-onready var animatedSprite = get_parent().get_node("animatedSprite")
-onready var character = get_parent()
-onready var area2D := get_parent().get_node("area2D")
-onready var visibility := get_parent().get_node("visibilityNotifier2D")
-export var active := true
-export var invulnerability_time := 0.0
-export var minimum_damage := 0.1
-export var only_on_screen := true
-export var ignore_nearby_hits := true
-export var ignore_hits_if_shield := false
-export var bypass_hit_invulnerable := false
-export var disable_on_death := true
+@onready var animatedSprite = get_parent().get_node("animatedSprite")
+@onready var character = get_parent()
+@onready var area2D := get_parent().get_node("area2D")
+@onready var visibility := get_parent().get_node("visibilityNotifier2D")
+@export var active := true
+@export var invulnerability_time := 0.0
+@export var minimum_damage := 0.1
+@export var only_on_screen := true
+@export var ignore_nearby_hits := true
+@export var ignore_hits_if_shield := false
+@export var bypass_hit_invulnerable := false
+@export var disable_on_death := true
 var saved_for_reactivation = []
 var damage_reduction := 1.0
 
-export var max_flash_time := 0.035
+@export var max_flash_time := 0.035
 var i_timer := 0.0 #independent timer
 
 
@@ -31,8 +31,8 @@ func _ready() -> void:
 	if active:
 		if not is_in_group("Enemies"):
 			add_to_group("Enemies", true)
-		visibility.connect("screen_exited",self,"not_visible")
-		visibility.connect("screen_entered",self,"visible")
+		visibility.connect("screen_exited", Callable(self, "not_visible"))
+		visibility.connect("screen_entered", Callable(self, "visible"))
 		character.listen("damage",self,"damage")
 		if disable_on_death:
 			character.listen("death",self,"deactivate")
@@ -40,8 +40,8 @@ func _ready() -> void:
 		connect_area_events()
 
 func connect_area_events():
-	area2D.connect("body_entered",self,"_on_area2D_body_entered")
-	area2D.connect("body_exited",self,"_on_area2D_body_exited")
+	area2D.connect("body_entered", Callable(self, "_on_area2D_body_entered"))
+	area2D.connect("body_exited", Callable(self, "_on_area2D_body_exited"))
 
 func set_damage_reduction (value):
 	damage_reduction = value
@@ -143,7 +143,7 @@ func calculate_dps(delta) -> void:
 			emit_signal("dps",dps)
 
 func stop_blink():
-	animatedSprite.material.set_shader_param("Flash", 0)
+	animatedSprite.material.set_shader_parameter("Flash", 0)
 	i_timer = 0
 	
 
@@ -160,8 +160,8 @@ func play_audio():
 	
 func play_shader():
 	if character.has_health():
-		animatedSprite.material.set_shader_param("Flash", 1)
-		animatedSprite.material.set_shader_param("Should_Blink", 1)
+		animatedSprite.material.set_shader_parameter("Flash", 1)
+		animatedSprite.material.set_shader_parameter("Should_Blink", 1)
 		i_timer = 0.01
 
 func not_visible() -> void:

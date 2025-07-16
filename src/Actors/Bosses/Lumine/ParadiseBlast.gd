@@ -1,13 +1,13 @@
 extends AttackAbility
 
-onready var space: Node = $"../Space"
-onready var tween := TweenController.new(self,false)
-onready var flash: Sprite = $flash
-onready var feather_explosion: Particles2D = $"../feather_explosion"
-onready var cannon: Node2D = $cannon
-onready var vfx: AnimatedSprite = $"../animatedSprite/cannon"
-onready var fire: AudioStreamPlayer2D = $fire
-onready var charge: AudioStreamPlayer2D = $charge
+@onready var space: Node = $"../Space"
+@onready var tween := TweenController.new(self,false)
+@onready var flash: Sprite2D = $flash
+@onready var feather_explosion: GPUParticles2D = $"../feather_explosion"
+@onready var cannon: Node2D = $cannon
+@onready var vfx: AnimatedSprite2D = $"../animatedSprite/cannon"
+@onready var fire: AudioStreamPlayer2D = $fire
+@onready var charge: AudioStreamPlayer2D = $charge
 
 var pursuing := false
 var offset := 64.0
@@ -86,7 +86,7 @@ func _Interrupt():
 	cannon.deactivate()
 	vfx.play("cannon_end")
 	tween.reset()
-	._Interrupt()
+	super._Interrupt()
 
 func go_to_nearest_position_besides_player() -> void:
 	var pos = space.get_bottom() - 32

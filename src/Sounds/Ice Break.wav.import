@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Ice Break.wav-e6c930512666ad42f586bdf3d34cab0e.sample"
+type="AudioStreamWAV"
+uid="uid://cwuhc0sjc50kr"
+path="res://.godot/imported/Ice Break.wav-e6c930512666ad42f586bdf3d34cab0e.sample"
 
 [deps]
 
 source_file="res://src/Sounds/Ice Break.wav"
-dest_files=[ "res://.import/Ice Break.wav-e6c930512666ad42f586bdf3d34cab0e.sample" ]
+dest_files=["res://.godot/imported/Ice Break.wav-e6c930512666ad42f586bdf3d34cab0e.sample"]
 
 [params]
 

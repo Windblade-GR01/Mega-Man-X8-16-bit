@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 450.5, 12 )
 
-[node name="OpticShield" type="KinematicBody2D" groups=["Player Projectile"]]
+[node name="OpticShield" type="CharacterBody2D" groups=["Player Projectile"]]
 z_index = 8
 collision_layer = 4
 collision_mask = 0
@@ -18,7 +18,7 @@ damage_to_weakness = 15.0
 time_off_screen = 2.0
 break_guards = true
 
-[node name="animatedSprite" type="AnimatedSprite" parent="."]
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2( 24, 0 )
 scale = Vector2( 14, 1 )
 frames = ExtResource( 2 )
@@ -26,13 +26,13 @@ animation = "line"
 frame = 2
 offset = Vector2( 32, 0 )
 
-[node name="shockwave" type="AnimatedSprite" parent="."]
+[node name="shockwave" type="AnimatedSprite2D" parent="."]
 position = Vector2( 27, 0 )
 frames = ExtResource( 2 )
 animation = "shot"
 frame = 2
 
-[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2( 455, 0 )
 scale = Vector2( 44.1, 1 )
 z_index = -1

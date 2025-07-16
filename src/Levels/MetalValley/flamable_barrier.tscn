@@ -3,12 +3,12 @@
 [ext_resource path="res://src/Levels/MetalValley/tileset_metalvalley.tsx" type="TileSet" id=1]
 [ext_resource path="res://src/Levels/MetalValley/PlayerProjectileDetector.gd" type="Script" id=2]
 [ext_resource path="res://src/Levels/MetalValley/FlamableBarrier.gd" type="Script" id=3]
-[ext_resource path="res://src/Effects/Textures/explosion.png" type="Texture" id=4]
-[ext_resource path="res://src/Effects/Fire/fire2.png" type="Texture" id=5]
+[ext_resource path="res://src/Effects/Textures/explosion.png" type="Texture2D" id=4]
+[ext_resource path="res://src/Effects/Fire/fire2.png" type="Texture2D" id=5]
 [ext_resource path="res://src/Effects/Materials/flamable_particles_1.tres" type="Material" id=6]
 [ext_resource path="res://src/Effects/Materials/flamable_flames_particles.tres" type="Material" id=7]
 [ext_resource path="res://src/Sounds/56 - MMX - Enemy Death.wav" type="AudioStream" id=8]
-[ext_resource path="res://src/Effects/Textures/remains.png" type="Texture" id=9]
+[ext_resource path="res://src/Effects/Textures/remains.png" type="Texture2D" id=9]
 [ext_resource path="res://src/Effects/Materials/RemainsParticle.tres" type="Material" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -44,7 +44,7 @@ tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 compatibility_mode = true
 format = 1
-tile_data = PoolIntArray( 65535, 704, 0, 0, 704, 0, 1, 536871616, 0, 2, 704, 0, 3, 536871616, 0, 131071, 744, 0, 65536, 744, 0, 65537, 745, 0, 65538, 744, 0, 65539, 745, 0, 196607, 784, 0, 131072, 784, 0, 131073, 784, 0, 131074, 784, 0, 131075, 784, 0, 262143, 536871736, 0, 196608, 536871736, 0, 196609, 536871736, 0, 196610, 536871736, 0, 196611, 536871736, 0 )
+tile_data = PackedInt32Array( 65535, 704, 0, 0, 704, 0, 1, 536871616, 0, 2, 704, 0, 3, 536871616, 0, 131071, 744, 0, 65536, 744, 0, 65537, 745, 0, 65538, 744, 0, 65539, 745, 0, 196607, 784, 0, 131072, 784, 0, 131073, 784, 0, 131074, 784, 0, 131075, 784, 0, 262143, 536871736, 0, 196608, 536871736, 0, 196609, 536871736, 0, 196610, 536871736, 0, 196611, 536871736, 0 )
 
 [node name="staticBody2D" type="StaticBody2D" parent="."]
 collision_mask = 0
@@ -63,7 +63,7 @@ visible = false
 position = Vector2( 32, 32 )
 shape = SubResource( 2 )
 
-[node name="Explosion Particles" type="Particles2D" parent="."]
+[node name="Explosion Particles" type="GPUParticles2D" parent="."]
 material = SubResource( 3 )
 position = Vector2( 32, 30 )
 z_index = 2
@@ -75,7 +75,7 @@ local_coords = false
 process_material = ExtResource( 6 )
 texture = ExtResource( 4 )
 
-[node name="Fire" type="Particles2D" parent="."]
+[node name="Fire" type="GPUParticles2D" parent="."]
 material = SubResource( 4 )
 position = Vector2( 32, 29 )
 z_index = 3
@@ -96,7 +96,7 @@ max_distance = 600.0
 attenuation = 0.951366
 bus = "SFX"
 
-[node name="remains_particles" type="Particles2D" parent="."]
+[node name="remains_particles" type="GPUParticles2D" parent="."]
 material = SubResource( 5 )
 position = Vector2( 25, 29 )
 z_index = -1

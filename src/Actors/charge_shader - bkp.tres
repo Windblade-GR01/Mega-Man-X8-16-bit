@@ -1,20 +1,20 @@
 [gd_resource type="VisualShader" load_steps=47 format=2]
 
-[sub_resource type="VisualShaderNodeScalarFunc" id=37]
+[sub_resource type="VisualShaderNodeFloatFunc" id=37]
 function = 12
 
-[sub_resource type="VisualShaderNodeScalarOp" id=39]
+[sub_resource type="VisualShaderNodeFloatOp" id=39]
 output_port_for_preview = 0
 operator = 2
 
-[sub_resource type="VisualShaderNodeScalarFunc" id=40]
+[sub_resource type="VisualShaderNodeFloatFunc" id=40]
 function = 29
 
-[sub_resource type="VisualShaderNodeScalarOp" id=41]
+[sub_resource type="VisualShaderNodeFloatOp" id=41]
 default_input_values = [ 0, 0.0, 1, 0.3 ]
 operator = 1
 
-[sub_resource type="VisualShaderNodeScalarUniform" id=42]
+[sub_resource type="VisualShaderNodeFloatParameter" id=42]
 uniform_name = "Charge"
 
 [sub_resource type="VisualShaderNodeTexture" id=1]
@@ -23,9 +23,9 @@ source = 2
 [sub_resource type="VisualShaderNodeIf" id=46]
 default_input_values = [ 0, 0.0, 1, 0.3, 2, 1e-05, 3, Vector3( 0, 0, 0 ), 4, Vector3( 1, 1, 1 ), 5, Vector3( 0, 0, 0 ) ]
 
-[sub_resource type="VisualShaderNodeScalarConstant" id=47]
+[sub_resource type="VisualShaderNodeFloatConstant" id=47]
 
-[sub_resource type="VisualShaderNodeScalarConstant" id=49]
+[sub_resource type="VisualShaderNodeFloatConstant" id=49]
 constant = 1.0
 
 [sub_resource type="VisualShaderNodeIf" id=51]
@@ -34,45 +34,45 @@ default_input_values = [ 0, 0.0, 1, 0.5, 2, 1e-05, 3, Vector3( 0, 0, 0 ), 4, Vec
 [sub_resource type="VisualShaderNodeColorOp" id=52]
 operator = 2
 
-[sub_resource type="VisualShaderNodeColorUniform" id=53]
+[sub_resource type="VisualShaderNodeColorParameter" id=53]
 uniform_name = "Color"
 
 [sub_resource type="VisualShaderNodeColorOp" id=54]
 operator = 3
 
-[sub_resource type="VisualShaderNodeScalarUniform" id=55]
+[sub_resource type="VisualShaderNodeFloatParameter" id=55]
 uniform_name = "Alpha"
 
-[sub_resource type="VisualShaderNodeScalarOp" id=56]
+[sub_resource type="VisualShaderNodeFloatOp" id=56]
 operator = 2
 
-[sub_resource type="VisualShaderNodeScalarFunc" id=57]
+[sub_resource type="VisualShaderNodeFloatFunc" id=57]
 function = 1
 
-[sub_resource type="VisualShaderNodeScalarFunc" id=58]
+[sub_resource type="VisualShaderNodeFloatFunc" id=58]
 function = 12
 
-[sub_resource type="VisualShaderNodeScalarOp" id=59]
+[sub_resource type="VisualShaderNodeFloatOp" id=59]
 default_input_values = [ 0, 0.0, 1, 0.3 ]
 operator = 1
 
-[sub_resource type="VisualShaderNodeScalarFunc" id=60]
+[sub_resource type="VisualShaderNodeFloatFunc" id=60]
 function = 29
 
 [sub_resource type="VisualShaderNodeInput" id=61]
 input_name = "time"
 
-[sub_resource type="VisualShaderNodeScalarOp" id=62]
+[sub_resource type="VisualShaderNodeFloatOp" id=62]
 default_input_values = [ 0, 0.0, 1, 60.0 ]
 operator = 2
 
 [sub_resource type="VisualShaderNodeIf" id=63]
 default_input_values = [ 0, 0.0, 1, 1.0, 2, 1e-05, 3, Vector3( 0, 0, 0 ), 4, Vector3( 0, 0, 0 ), 5, Vector3( 0, 0, 0 ) ]
 
-[sub_resource type="VisualShaderNodeScalarOp" id=64]
+[sub_resource type="VisualShaderNodeFloatOp" id=64]
 operator = 7
 
-[sub_resource type="VisualShaderNodeScalarConstant" id=65]
+[sub_resource type="VisualShaderNodeFloatConstant" id=65]
 constant = 0.5
 
 [sub_resource type="VisualShaderNodeExpression" id=67]
@@ -87,46 +87,46 @@ else if (replace (current_color, main_color_5, replace_color_5, final_color, tol
 else if (replace (current_color, main_color_6, replace_color_6, final_color, tolerance)){}
 else {final_color = current_color}"
 
-[sub_resource type="VisualShaderNodeColorUniform" id=68]
+[sub_resource type="VisualShaderNodeColorParameter" id=68]
 uniform_name = "MainColor1"
 
-[sub_resource type="VisualShaderNodeColorUniform" id=69]
+[sub_resource type="VisualShaderNodeColorParameter" id=69]
 uniform_name = "MainColor2"
 
-[sub_resource type="VisualShaderNodeColorUniform" id=70]
+[sub_resource type="VisualShaderNodeColorParameter" id=70]
 uniform_name = "MainColor3"
 
-[sub_resource type="VisualShaderNodeColorUniform" id=71]
+[sub_resource type="VisualShaderNodeColorParameter" id=71]
 uniform_name = "MainColor4"
 
-[sub_resource type="VisualShaderNodeColorUniform" id=72]
+[sub_resource type="VisualShaderNodeColorParameter" id=72]
 uniform_name = "MainColor5"
 
 [sub_resource type="VisualShaderNodeInput" id=32]
 input_name = "time"
 
-[sub_resource type="VisualShaderNodeColorUniform" id=73]
+[sub_resource type="VisualShaderNodeColorParameter" id=73]
 uniform_name = "MainColor6"
 
-[sub_resource type="VisualShaderNodeColorUniform" id=74]
+[sub_resource type="VisualShaderNodeColorParameter" id=74]
 uniform_name = "R_MainColor1"
 
-[sub_resource type="VisualShaderNodeColorUniform" id=75]
+[sub_resource type="VisualShaderNodeColorParameter" id=75]
 uniform_name = "R_MainColor2"
 
-[sub_resource type="VisualShaderNodeColorUniform" id=76]
+[sub_resource type="VisualShaderNodeColorParameter" id=76]
 uniform_name = "R_MainColor3"
 
-[sub_resource type="VisualShaderNodeColorUniform" id=77]
+[sub_resource type="VisualShaderNodeColorParameter" id=77]
 uniform_name = "R_MainColor4"
 
-[sub_resource type="VisualShaderNodeColorUniform" id=78]
+[sub_resource type="VisualShaderNodeColorParameter" id=78]
 uniform_name = "R_MainColor5"
 
-[sub_resource type="VisualShaderNodeScalarFunc" id=33]
+[sub_resource type="VisualShaderNodeFloatFunc" id=33]
 function = 1
 
-[sub_resource type="VisualShaderNodeColorUniform" id=79]
+[sub_resource type="VisualShaderNodeColorParameter" id=79]
 uniform_name = "R_MainColor6"
 
 [sub_resource type="VisualShaderNodeGlobalExpression" id=80]
@@ -144,10 +144,10 @@ expression = "bool replace (vec3 color, vec3 main_color, vec3 replace_color, out
 	return false;
 }"
 
-[sub_resource type="VisualShaderNodeScalarUniform" id=81]
+[sub_resource type="VisualShaderNodeFloatParameter" id=81]
 uniform_name = "tolerance"
 
-[sub_resource type="VisualShaderNodeScalarOp" id=35]
+[sub_resource type="VisualShaderNodeFloatOp" id=35]
 default_input_values = [ 0, 0.0, 1, 42.0 ]
 operator = 2
 
@@ -166,19 +166,19 @@ input_name = "alpha"
 [resource]
 code = "shader_type canvas_item;
 uniform float Charge;
-uniform vec4 Color : hint_color;
-uniform vec4 MainColor1 : hint_color;
-uniform vec4 MainColor2 : hint_color;
-uniform vec4 MainColor3 : hint_color;
-uniform vec4 MainColor4 : hint_color;
-uniform vec4 MainColor5 : hint_color;
-uniform vec4 MainColor6 : hint_color;
-uniform vec4 R_MainColor1 : hint_color;
-uniform vec4 R_MainColor2 : hint_color;
-uniform vec4 R_MainColor3 : hint_color;
-uniform vec4 R_MainColor4 : hint_color;
-uniform vec4 R_MainColor5 : hint_color;
-uniform vec4 R_MainColor6 : hint_color;
+uniform vec4 Color : source_color;
+uniform vec4 MainColor1 : source_color;
+uniform vec4 MainColor2 : source_color;
+uniform vec4 MainColor3 : source_color;
+uniform vec4 MainColor4 : source_color;
+uniform vec4 MainColor5 : source_color;
+uniform vec4 MainColor6 : source_color;
+uniform vec4 R_MainColor1 : source_color;
+uniform vec4 R_MainColor2 : source_color;
+uniform vec4 R_MainColor3 : source_color;
+uniform vec4 R_MainColor4 : source_color;
+uniform vec4 R_MainColor5 : source_color;
+uniform vec4 R_MainColor6 : source_color;
 uniform float tolerance;
 uniform float Alpha;
 
@@ -532,4 +532,4 @@ nodes/fragment/71/expression = "bool replace (vec3 color, vec3 main_color, vec3 
 }"
 nodes/fragment/72/node = SubResource( 81 )
 nodes/fragment/72/position = Vector2( -2160, 1180 )
-nodes/fragment/connections = PoolIntArray( 6, 0, 9, 0, 7, 0, 12, 0, 12, 0, 16, 0, 16, 0, 15, 0, 9, 0, 7, 0, 15, 0, 14, 0, 23, 0, 38, 1, 17, 0, 14, 1, 34, 0, 23, 3, 34, 0, 23, 5, 30, 0, 23, 4, 38, 0, 40, 0, 40, 0, 37, 4, 2, 1, 42, 0, 14, 0, 37, 0, 47, 0, 48, 0, 43, 0, 44, 0, 44, 0, 45, 0, 45, 0, 46, 0, 48, 0, 43, 0, 46, 0, 42, 1, 41, 0, 50, 0, 42, 0, 51, 0, 52, 0, 51, 1, 2, 1, 50, 4, 2, 1, 50, 3, 42, 0, 50, 5, 55, 0, 54, 0, 56, 0, 54, 1, 57, 0, 54, 2, 58, 0, 54, 3, 59, 0, 54, 4, 60, 0, 54, 5, 65, 0, 54, 6, 66, 0, 54, 7, 67, 0, 54, 8, 68, 0, 54, 9, 69, 0, 54, 10, 70, 0, 54, 11, 50, 0, 0, 1, 54, 0, 23, 0, 54, 0, 40, 1, 54, 0, 37, 5, 72, 0, 54, 12, 37, 0, 0, 0, 39, 0, 38, 0 )
+nodes/fragment/connections = PackedInt32Array( 6, 0, 9, 0, 7, 0, 12, 0, 12, 0, 16, 0, 16, 0, 15, 0, 9, 0, 7, 0, 15, 0, 14, 0, 23, 0, 38, 1, 17, 0, 14, 1, 34, 0, 23, 3, 34, 0, 23, 5, 30, 0, 23, 4, 38, 0, 40, 0, 40, 0, 37, 4, 2, 1, 42, 0, 14, 0, 37, 0, 47, 0, 48, 0, 43, 0, 44, 0, 44, 0, 45, 0, 45, 0, 46, 0, 48, 0, 43, 0, 46, 0, 42, 1, 41, 0, 50, 0, 42, 0, 51, 0, 52, 0, 51, 1, 2, 1, 50, 4, 2, 1, 50, 3, 42, 0, 50, 5, 55, 0, 54, 0, 56, 0, 54, 1, 57, 0, 54, 2, 58, 0, 54, 3, 59, 0, 54, 4, 60, 0, 54, 5, 65, 0, 54, 6, 66, 0, 54, 7, 67, 0, 54, 8, 68, 0, 54, 9, 69, 0, 54, 10, 70, 0, 54, 11, 50, 0, 0, 1, 54, 0, 23, 0, 54, 0, 40, 1, 54, 0, 37, 5, 72, 0, 54, 12, 37, 0, 0, 0, 39, 0, 38, 0 )

@@ -1,13 +1,13 @@
 extends WeaponShot
 
-export var wallcheck_distance := 8.0
-export var max_time_on_wall := 8.0
-onready var area2D = $HittableArea
+@export var wallcheck_distance := 8.0
+@export var max_time_on_wall := 8.0
+@onready var area2D = $HittableArea
 var timer := 0.0
 var adjusted_angle := false
 
 func _ready() -> void:
-	area2D.connect("body_entered",self,"_on_area2D_body_entered")
+	area2D.connect("body_entered", Callable(self, "_on_area2D_body_entered"))
 
 func adjust_angle():
 	if not adjusted_angle:
@@ -59,7 +59,7 @@ func _physics_process(delta: float) -> void:
 		emit_hit_particle()
 		disable_visual_and_mechanics()
 		
-	._physics_process(delta)
+	super._physics_process(delta)
 
 func emit_hit_particle():
 	if not emitted_hit_particle:

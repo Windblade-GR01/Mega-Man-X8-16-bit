@@ -1,11 +1,11 @@
 extends CanvasLayer
-onready var fader: ColorRect = $CoverScreen
-onready var bg: TextureRect = $bg
-onready var pause: TextureRect = $pause
-onready var choice: AudioStreamPlayer = $choice
-onready var key_config: CanvasLayer = $KeyConfig
-onready var options_menu: CanvasLayer = $OptionsMenu
-onready var achievements: CanvasLayer = $AchievementsScreen
+@onready var fader: ColorRect = $CoverScreen
+@onready var bg: TextureRect = $bg
+@onready var pause: TextureRect = $pause
+@onready var choice: AudioStreamPlayer = $choice
+@onready var key_config: CanvasLayer = $KeyConfig
+@onready var options_menu: CanvasLayer = $OptionsMenu
+@onready var achievements: CanvasLayer = $AchievementsScreen
 
 var paused := false
 var subtanks : Array
@@ -27,10 +27,10 @@ func _ready() -> void:
 		Pause()
 	subtanks = get_subtank_controls()
 	connect_subtank_signals()
-	key_config.connect("end",self,"unlock_buttons") # warning-ignore:return_value_discarded
-	options_menu.connect("end",self,"unlock_buttons") # warning-ignore:return_value_discarded
-	achievements.connect("end",self,"unlock_buttons") # warning-ignore:return_value_discarded
-	Event.connect("lumine_desperation",self,"on_lumine_desperation")
+	key_config.connect("end", Callable(self, "unlock_buttons")) # warning-ignore:return_value_discarded
+	options_menu.connect("end", Callable(self, "unlock_buttons")) # warning-ignore:return_value_discarded
+	achievements.connect("end", Callable(self, "unlock_buttons")) # warning-ignore:return_value_discarded
+	Event.connect("lumine_desperation", Callable(self, "on_lumine_desperation"))
 	
 func on_lumine_desperation():
 	endgame = true
@@ -43,8 +43,8 @@ func unlock_buttons() -> void:
 
 func connect_subtank_signals() -> void:
 	for s in subtanks:
-		var _d = s.connect("using",self,"on_subtank_use")
-		_d =     s.connect("finished",self,"on_subtank_finish")
+		var _d = s.connect("using", Callable(self, "on_subtank_use"))
+		_d =     s.connect("finished", Callable(self, "on_subtank_finish"))
 
 func on_subtank_use() -> void:
 	using_subtank = true
@@ -96,7 +96,7 @@ func Pause() -> void:
 	GameManager.half_music_volume()
 	Event.emit_signal("pause_menu_opened")
 	GameManager.pause("PauseMenu")
-	yield(fader,"finished")
+	await fader.finished
 	emit_signal("unlock_buttons")
 	call_deferred("emit_signal","pause_started")
 
@@ -107,7 +107,7 @@ func Unpause() -> void:
 	paused = false
 	GameManager.normal_music_volume()
 	Savefile.save()
-	yield(fader,"finished")
+	await fader.finished
 	Event.emit_signal("pause_menu_closed")
 	GameManager.unpause("PauseMenu")
 	emit_signal("pause_ended")

@@ -6,7 +6,7 @@ using TiledImporter.Structures;
 
 namespace TiledImporter.Parsers
 {
-    public class ChunkInfoJsonElement : JsonElement
+    public partial class ChunkInfoJsonElement : JsonElement
     {
         protected override Dictionary<string, ElementaryType> RequiredElementaryTypeFieldsNames
         {

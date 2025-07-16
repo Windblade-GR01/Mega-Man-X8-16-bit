@@ -1,13 +1,13 @@
 class_name ConfirmButton extends X8TextureButton
-export var default_label := "CLEARSAVE_OPTION"
-export var confirmation := "CLEARSAVE_CONFIRM"
+@export var default_label := "CLEARSAVE_OPTION"
+@export var confirmation := "CLEARSAVE_CONFIRM"
 var times_pressed := 0
 var flashed = false
-onready var text: Label = $text
+@onready var text: Label = $text
 
 func _ready() -> void:
 	text.text = default_label
-	Event.connect("translation_updated",self,"on_update")
+	Event.connect("translation_updated", Callable(self, "on_update"))
 
 func on_update():
 	text.text = tr(default_label)
@@ -22,7 +22,7 @@ func on_press() -> void:
 		text.text = confirmation
 	if times_pressed >= 2:
 		strong_flash()
-		yield(get_tree().create_timer(0.1),"timeout")
+		await get_tree().create_timer(0.1).timeout
 		action()
 
 func action() -> void:
@@ -39,7 +39,7 @@ func action() -> void:
 	
 
 func _on_focus_exited() -> void:
-	._on_focus_exited()
+	super._on_focus_exited()
 	flashed = false
 	times_pressed = 0
 	text.text = tr(default_label)

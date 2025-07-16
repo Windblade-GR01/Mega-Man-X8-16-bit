@@ -1,6 +1,6 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
-onready var camera2D = $camera2D
+@onready var camera2D = $camera2D
 var focus
 
 var focus_ahead := 0.0
@@ -38,7 +38,9 @@ func _physics_process(delta: float) -> void:
 		var distance = global_position.distance_to(focus_position)
 		var direction = global_position.direction_to(focus_position) * distance
 		speed = Vector2(direction.x * 45, direction.y * 80)
-		speed = move_and_slide(speed)
+		set_velocity(speed)
+		move_and_slide()
+		speed = velocity
 			
 	pass
 
@@ -52,18 +54,18 @@ func calculate_focus_position(delta) -> Vector2:
 	return Vector2(focus.global_position.x + focus_ahead, focus.global_position.y)
 
 func change_camera_focus(new_focus : Node):
-	Log.msg("Camera: Changing focus to: " + new_focus.name)
+	Log.msg("Camera3D: Changing focus to: " + new_focus.name)
 	#Log.msg("at : " +str(new_focus.position))
 	focus = new_focus
 	
 func add_trauma():
-	print_debug("Camera: calling method not implemented yet: add_trauma")
+	print_debug("Camera3D: calling method not implemented yet: add_trauma")
 	pass
 func move_camera():
-	print_debug("Camera: calling method not implemented yet: move_camera")
+	print_debug("Camera3D: calling method not implemented yet: move_camera")
 	pass
 func move_camera_y():
-	print_debug("Camera: calling method not implemented yet: move_camera_y")
+	print_debug("Camera3D: calling method not implemented yet: move_camera_y")
 	pass
 func on_camera_ahead():
 	camera_ahead = true
@@ -73,8 +75,8 @@ func on_camera_center():
 	print_debug("camera center")
 	pass
 func camera_follow_target():
-	print_debug("Camera: calling method not implemented yet: camera_follow_target")
+	print_debug("Camera3D: calling method not implemented yet: camera_follow_target")
 	pass
 func set_limits():
-	print_debug("Camera: calling method not implemented yet: set_limits")
+	print_debug("Camera3D: calling method not implemented yet: set_limits")
 	pass

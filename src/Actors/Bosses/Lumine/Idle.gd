@@ -1,11 +1,11 @@
 extends BossIdle
-onready var space: Node = $"../Space"
-onready var tween := TweenController.new(self,false)
-onready var stage := AbilityStage.new(self,false)
+@onready var space: Node = $"../Space"
+@onready var tween := TweenController.new(self,false)
+@onready var stage := AbilityStage.new(self,false)
 #onready var boss_ai: Node2D = $"../BossAI"
 const movespeed := Vector2(240,-80)
-onready var rotating_crystals: Node2D = $"../RotatingCrystals"
-onready var after_images: Node = $"../animatedSprite/afterImages"
+@onready var rotating_crystals: Node2D = $"../RotatingCrystals"
+@onready var after_images: Node = $"../animatedSprite/afterImages"
 var first_use := true
 
 func _Setup() -> void:
@@ -81,6 +81,6 @@ func get_player_direction_relative() -> int:
 		return(-1)
 
 func play_animation_again(anim : String):
-	.play_animation(anim)
+	super.play_animation(anim)
 	current_animation = anim
 	finished_animation = ""

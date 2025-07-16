@@ -1,22 +1,22 @@
 extends Node2D
 
-onready var tween := TweenController.new(self,false)
+@onready var tween := TweenController.new(self,false)
 
-onready var fire_1: Particles2D = $fire1
-onready var fire_2: Particles2D = $fire2
-onready var fire_3: Particles2D = $fire3
-onready var fires := [fire_1,fire_2,fire_3]
-onready var damage_on_touch: Node2D = $DamageOnTouch
-onready var backflames: Sprite = $backflames
-onready var o_modulate := backflames.modulate
-onready var loop: AudioStreamPlayer2D = $loop
-onready var start: AudioStreamPlayer2D = $start
+@onready var fire_1: GPUParticles2D = $fire1
+@onready var fire_2: GPUParticles2D = $fire2
+@onready var fire_3: GPUParticles2D = $fire3
+@onready var fires := [fire_1,fire_2,fire_3]
+@onready var damage_on_touch: Node2D = $DamageOnTouch
+@onready var backflames: Sprite2D = $backflames
+@onready var o_modulate := backflames.modulate
+@onready var loop: AudioStreamPlayer2D = $loop
+@onready var start: AudioStreamPlayer2D = $start
 
 func _ready() -> void:
 	Event.listen("copy_sigma_desperation",self,"start_desperation")
 	Event.listen("copy_sigma_flash",self,"activate_damage")
 	Event.listen("copy_sigma_end_desperation",self,"end")
-	Event.connect("enemy_kill",self,"on_boss_death")
+	Event.connect("enemy_kill", Callable(self, "on_boss_death"))
 	end()
 
 func start_desperation():

@@ -1,6 +1,6 @@
 extends ChargedBuster
-onready var sprite: AnimatedSprite = $animatedSprite
-onready var particles: Particles2D = $particles2D
+@onready var sprite: AnimatedSprite2D = $animatedSprite
+@onready var particles: GPUParticles2D = $particles2D
 
 
 func go_up(speed) -> void:

@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/Yeti - Quake Prepare.ogg-958536da47e7aa6eeb82dab62c96451e.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cam74607m2lrk"
+path="res://.godot/imported/Yeti - Quake Prepare.ogg-958536da47e7aa6eeb82dab62c96451e.oggvorbisstr"
 
 [deps]
 
 source_file="res://src/Sounds/Yeti - Quake Prepare.ogg"
-dest_files=[ "res://.import/Yeti - Quake Prepare.ogg-958536da47e7aa6eeb82dab62c96451e.oggstr" ]
+dest_files=["res://.godot/imported/Yeti - Quake Prepare.ogg-958536da47e7aa6eeb82dab62c96451e.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

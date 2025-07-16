@@ -1,6 +1,6 @@
 extends Node2D
-onready var slash_hitbox: Node2D = $SlashHitbox
-onready var animated_sprite: AnimatedSprite = $animatedSprite
+@onready var slash_hitbox: Node2D = $SlashHitbox
+@onready var animated_sprite: AnimatedSprite2D = $animatedSprite
 
 signal activated
 

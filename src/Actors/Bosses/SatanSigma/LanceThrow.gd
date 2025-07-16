@@ -1,14 +1,14 @@
 extends AttackAbility
 
 var gravity_scale := 800
-export var lance : PackedScene
-onready var lance_pos: Position2D = $"../animatedSprite/lance_projectile_pos"
-onready var lance_raycast: RayCast2D = $"../animatedSprite/lance_raycast"
-onready var laser: AnimatedSprite = $laser
-onready var jump: AudioStreamPlayer2D = $jump
-onready var projectile_sfx: AudioStreamPlayer2D = $projectile_sfx
-onready var charge: AudioStreamPlayer2D = $charge
-onready var land: AudioStreamPlayer2D = $land
+@export var lance : PackedScene
+@onready var lance_pos: Marker2D = $"../animatedSprite/lance_projectile_pos"
+@onready var lance_raycast: RayCast2D = $"../animatedSprite/lance_raycast"
+@onready var laser: AnimatedSprite2D = $laser
+@onready var jump: AudioStreamPlayer2D = $jump
+@onready var projectile_sfx: AudioStreamPlayer2D = $projectile_sfx
+@onready var charge: AudioStreamPlayer2D = $charge
+@onready var land: AudioStreamPlayer2D = $land
 
 var target_dir : Vector2
 var targetting := false
@@ -99,7 +99,7 @@ func _Update(delta) -> void:
 		EndAbility()
 
 func _Interrupt():
-	._Interrupt()
+	super._Interrupt()
 	laser.set_deferred("visible", false)
 	targetting = false
 
@@ -107,7 +107,7 @@ func instantiate_spear():
 	if not lance_raycast.is_colliding():
 		return
 	var collision_point = lance_raycast.get_collision_point()
-	var instance := lance.instance()
+	var instance := lance.instantiate()
 	instance.set_lance_origin(character.global_position)
 	get_tree().current_scene.add_child(instance)
 	instance.global_position = collision_point

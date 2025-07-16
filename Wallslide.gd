@@ -1,10 +1,10 @@
 extends Movement
 class_name WallSlide
 
-export var start_delay := 0.16
-export var block_timer := 0.0
+@export var start_delay := 0.16
+@export var block_timer := 0.0
 
-onready var particles = character.get_node("animatedSprite").get_node("WallSlide Particles")
+@onready var particles = character.get_node("animatedSprite").get_node("WallSlide Particles")
 
 var horizontal_speed = 90
 var wallgrab_direction := 0

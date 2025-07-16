@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/Sounds/Ridearmor - Step.ogg" type="AudioStream" id=1]
-[ext_resource path="res://src/Effects/Textures/smoke.png" type="Texture" id=2]
+[ext_resource path="res://src/Effects/Textures/smoke.png" type="Texture2D" id=2]
 [ext_resource path="res://src/Actors/Enemies/BigMechaniloid/mechaniloid.res" type="SpriteFrames" id=3]
 [ext_resource path="res://src/Effects/Materials/mat_smokeparticle.tres" type="Material" id=4]
 [ext_resource path="res://src/Effects/Materials/mecha_smokes.tres" type="Material" id=5]
@@ -20,7 +20,7 @@ extents = Vector2( 44, 77.5 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 24.125, 74 )
 
-[node name="Mechaniloid" type="KinematicBody2D"]
+[node name="Mechaniloid" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 268435456
 script = ExtResource( 6 )
@@ -29,7 +29,7 @@ script = ExtResource( 6 )
 position = Vector2( 0, 2.5 )
 shape = SubResource( 3 )
 
-[node name="animatedSprite" type="AnimatedSprite" parent="."]
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
 frames = ExtResource( 3 )
 animation = "idle"
 frame = 8
@@ -40,7 +40,7 @@ flip_h = true
 script = ExtResource( 7 )
 
 [node name="step" type="AudioStreamPlayer2D" parent="Pursuit"]
-pause_mode = 2
+process_mode = 3
 stream = ExtResource( 1 )
 volume_db = -6.0
 pitch_scale = 0.75
@@ -85,7 +85,7 @@ max_distance = 1200.0
 attenuation = 1e-05
 bus = "SFX"
 
-[node name="smoke" type="Particles2D" parent="."]
+[node name="smoke" type="GPUParticles2D" parent="."]
 material = ExtResource( 4 )
 position = Vector2( 1, -59 )
 z_index = 1
@@ -94,7 +94,7 @@ local_coords = false
 process_material = ExtResource( 5 )
 texture = ExtResource( 2 )
 
-[node name="smoke4" type="Particles2D" parent="."]
+[node name="smoke4" type="GPUParticles2D" parent="."]
 material = ExtResource( 4 )
 position = Vector2( 28, -5 )
 z_index = 1
@@ -104,7 +104,7 @@ local_coords = false
 process_material = ExtResource( 5 )
 texture = ExtResource( 2 )
 
-[node name="smoke2" type="Particles2D" parent="."]
+[node name="smoke2" type="GPUParticles2D" parent="."]
 modulate = Color( 0.552941, 0.552941, 0.552941, 1 )
 material = ExtResource( 4 )
 position = Vector2( 30, -67 )
@@ -115,7 +115,7 @@ local_coords = false
 process_material = ExtResource( 5 )
 texture = ExtResource( 2 )
 
-[node name="smoke3" type="Particles2D" parent="."]
+[node name="smoke3" type="GPUParticles2D" parent="."]
 modulate = Color( 0.552941, 0.552941, 0.552941, 1 )
 material = ExtResource( 4 )
 position = Vector2( 4, 11 )
@@ -135,4 +135,4 @@ mode = 1
 
 [node name="collisionPolygon2D" type="CollisionPolygon2D" parent="rigidBody2D"]
 z_index = 1
-polygon = PoolVector2Array( -38, 99, 29, 99, 2, 71, 0, -96, -38, -96 )
+polygon = PackedVector2Array( -38, 99, 29, 99, 2, 71, 0, -96, -38, -96 )

@@ -1,5 +1,5 @@
-tool
-extends Reference
+@tool
+extends RefCounted
 
 var result_code = preload("../config/result_codes.gd")
 var _aseprite = preload("../aseprite/aseprite.gd").new()
@@ -29,11 +29,11 @@ func _is_loop_config_enabled() -> String:
 	return _config.is_default_animation_loop_enabled()
 
 
-func create_animations(sprite: AnimatedSprite, options: Dictionary):
+func create_animations(sprite: AnimatedSprite2D, options: Dictionary):
 	if not _aseprite.test_command():
 		return result_code.ERR_ASEPRITE_CMD_NOT_FOUND
 
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	if not dir.file_exists(options.source):
 		return result_code.ERR_SOURCE_FILE_NOT_FOUND
 
@@ -43,13 +43,13 @@ func create_animations(sprite: AnimatedSprite, options: Dictionary):
 	var result = _create_animations_from_file(sprite, options)
 
 	if result is GDScriptFunctionState:
-		result = yield(result, "completed")
+		result = await result.completed
 
 	if result != result_code.SUCCESS:
 		printerr(result_code.get_error_message(result))
 
 
-func _create_animations_from_file(sprite: AnimatedSprite, options: Dictionary):
+func _create_animations_from_file(sprite: AnimatedSprite2D, options: Dictionary):
 	var output
 
 	if options.get("layer", "") == "":
@@ -57,17 +57,17 @@ func _create_animations_from_file(sprite: AnimatedSprite, options: Dictionary):
 	else:
 		output = _aseprite.export_layer(options.source, options.layer, options.output_folder, options)
 
-	if output.empty():
+	if output.is_empty():
 		return result_code.ERR_ASEPRITE_EXPORT_FAILED
-	yield(_scan_filesystem(), "completed")
+	await _scan_filesystem().completed
 
 	var result = _import(output, sprite)
 
 	if _config.should_remove_source_files():
-		var dir = Directory.new()
+		var dir = DirAccess.new()
 		dir.remove(output.data_file)
 		dir.remove(output.sprite_sheet)
-		yield(_scan_filesystem(), "completed")
+		await _scan_filesystem().completed
 
 	return result
 
@@ -78,7 +78,7 @@ func create_resource(source_file: String, output_folder: String, options = {}):
 	if not _aseprite.test_command():
 		return result_code.ERR_ASEPRITE_CMD_NOT_FOUND
 
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	if not dir.file_exists(source_file):
 		return result_code.ERR_SOURCE_FILE_NOT_FOUND
 
@@ -88,11 +88,11 @@ func create_resource(source_file: String, output_folder: String, options = {}):
 	match export_mode:
 		FILE_EXPORT_MODE:
 			if _should_check_file_system:
-				return yield(create_sprite_frames_from_aseprite_file(source_file, output_folder, options), "completed")
+				return await create_sprite_frames_from_aseprite_file(source_file, output_folder, options).completed
 			return create_sprite_frames_from_aseprite_file(source_file, output_folder, options)
 		LAYERS_EXPORT_MODE:
 			if _should_check_file_system:
-				return yield(create_sprite_frames_from_aseprite_layers(source_file, output_folder, options), "completed")
+				return await create_sprite_frames_from_aseprite_layers(source_file, output_folder, options).completed
 			return create_sprite_frames_from_aseprite_layers(source_file, output_folder, options)
 		_:
 			return result_code.ERR_UNKNOWN_EXPORT_MODE
@@ -100,11 +100,11 @@ func create_resource(source_file: String, output_folder: String, options = {}):
 
 func create_sprite_frames_from_aseprite_file(source_file: String, output_folder: String, options: Dictionary):
 	var output = _aseprite.export_file(source_file, output_folder, options)
-	if output.empty():
+	if output.is_empty():
 		return result_code.ERR_ASEPRITE_EXPORT_FAILED
 
 	if (_should_check_file_system):
-		yield(_scan_filesystem(), "completed")
+		await _scan_filesystem().completed
 
 	if options.get("do_not_create_resource", false):
 		return OK
@@ -112,29 +112,29 @@ func create_sprite_frames_from_aseprite_file(source_file: String, output_folder:
 	var result = _import(output)
 
 	if options.get("remove_source_files_allowed", false) and _config.should_remove_source_files():
-		var dir = Directory.new()
+		var dir = DirAccess.new()
 		dir.remove(output.data_file)
 		dir.remove(output.sprite_sheet)
 		if (_should_check_file_system):
-			yield(_scan_filesystem(), "completed")
+			await _scan_filesystem().completed
 
 	return result
 
 
 func create_sprite_frames_from_aseprite_layers(source_file: String, output_folder: String, options: Dictionary):
 	var output = _aseprite.export_layers(source_file, output_folder, options)
-	if output.empty():
+	if output.is_empty():
 		return result_code.ERR_NO_VALID_LAYERS_FOUND
 
 	var result = OK
 
 	if (_should_check_file_system):
-		yield(_scan_filesystem(), "completed")
+		await _scan_filesystem().completed
 
 	var should_remove_source = options.get("remove_source_files_allowed", false) and _config.should_remove_source_files()
 
 	for o in output:
-		if o.empty():
+		if o.is_empty():
 			result = result_code.ERR_ASEPRITE_EXPORT_FAILED
 		else:
 			if options.get("do_not_create_resource", false):
@@ -142,12 +142,12 @@ func create_sprite_frames_from_aseprite_layers(source_file: String, output_folde
 			else:
 				result = _import(o)
 				if should_remove_source:
-					var dir = Directory.new()
+					var dir = DirAccess.new()
 					dir.remove(o.data_file)
 					dir.remove(o.sprite_sheet)
 
 	if should_remove_source and _should_check_file_system:
-		yield(_scan_filesystem(), "completed")
+		await _scan_filesystem().completed
 
 	return result
 
@@ -163,7 +163,9 @@ func _import(data, animated_sprite = null) -> int:
 	var err = file.open(source_file, File.READ)
 	if err != OK:
 			return err
-	var content =  parse_json(file.get_as_text())
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(file.get_as_text())
+	var content =  test_json_conv.get_data()
 
 	if not _aseprite.is_valid_spritesheet(content):
 		return result_code.ERR_INVALID_ASEPRITE_SPRITESHEET
@@ -185,7 +187,7 @@ func _import(data, animated_sprite = null) -> int:
 func _create_sprite_frames_with_animations(content, texture):
 	var frames = _aseprite.get_content_frames(content)
 	var sprite_frames = SpriteFrames.new()
-	sprite_frames.remove_animation("default")
+	sprite_frames.remove_animation_library("default")
 
 	if content.meta.has("frameTags") and content.meta.frameTags.size() > 0:
 		for tag in content.meta.frameTags:
@@ -255,7 +257,7 @@ func _parse_texture_path(path):
 		var image = Image.new()
 		image.load(path)
 		var texture = ImageTexture.new()
-		texture.create_from_image(image, 0)
+		texture.create_from_image(image) #,0
 		return texture
 
 	return ResourceLoader.load(path, 'Image', true)
@@ -271,7 +273,7 @@ func _create_atlastexture_from_frame(image, frame_data):
 
 func _scan_filesystem():
 	_file_system.scan()
-	yield(_file_system, "filesystem_changed")
+	await _file_system.filesystem_changed
 
 
 func list_layers(file: String, only_visibles = false) -> Array:

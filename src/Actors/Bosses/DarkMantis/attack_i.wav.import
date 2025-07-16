@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/attack_i.wav-e724de11f66b17d6d0088f559c7b7306.sample"
+type="AudioStreamWAV"
+uid="uid://ck7axsmea4yvq"
+path="res://.godot/imported/attack_i.wav-e724de11f66b17d6d0088f559c7b7306.sample"
 
 [deps]
 
 source_file="res://src/Actors/Bosses/DarkMantis/attack_i.wav"
-dest_files=[ "res://.import/attack_i.wav-e724de11f66b17d6d0088f559c7b7306.sample" ]
+dest_files=["res://.godot/imported/attack_i.wav-e724de11f66b17d6d0088f559c7b7306.sample"]
 
 [params]
 

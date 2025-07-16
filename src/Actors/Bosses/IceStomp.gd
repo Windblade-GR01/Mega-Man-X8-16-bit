@@ -1,10 +1,10 @@
 extends AttackAbility
 class_name IceStomp
 
-export(PackedScene) var snow_wave
-export var horizontal_speed := 420.0
-onready var stomp = $stomp
-onready var land_particles = $"Land"
+@export var snow_wave: PackedScene
+@export var horizontal_speed := 420.0
+@onready var stomp = $stomp
+@onready var land_particles = $"Land"
 var deacceleration := 10
 
 func _Update(delta):

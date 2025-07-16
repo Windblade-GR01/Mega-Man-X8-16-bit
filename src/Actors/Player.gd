@@ -1,6 +1,6 @@
 extends Character
 
-export var skip_intro := false
+@export var skip_intro := false
 
 var current_armor = ["no_head", "no_body", "no_arms", "no_legs"]
 var armor_sprites = []
@@ -12,7 +12,7 @@ var raycast_down : RayCast2D
 var colliding := true
 var using_upgrades := false
 var grabbed := false
-onready var lowjumpcast: Label = $lowjumpcast
+@onready var lowjumpcast: Label = $lowjumpcast
 
 signal walljump                  
 signal wallslide                 
@@ -38,7 +38,7 @@ func deactivate():
 func activate():
 	if is_colliding():
 		reactivate_charge()
-		.activate()
+		super.activate()
 	
 	return
 
@@ -302,12 +302,12 @@ func collect(collectible: String):
 	GameManager.add_collectible_to_savedata(collectible)
 
 func save_original_colors():
-	colors.append(animatedSprite.material.get_shader_param("MainColor1"))
-	colors.append(animatedSprite.material.get_shader_param("MainColor2"))
-	colors.append(animatedSprite.material.get_shader_param("MainColor3"))
-	colors.append(animatedSprite.material.get_shader_param("MainColor4"))
-	colors.append(animatedSprite.material.get_shader_param("MainColor5"))
-	colors.append(animatedSprite.material.get_shader_param("MainColor6"))
+	colors.append(animatedSprite.material.get_shader_parameter("MainColor1"))
+	colors.append(animatedSprite.material.get_shader_parameter("MainColor2"))
+	colors.append(animatedSprite.material.get_shader_parameter("MainColor3"))
+	colors.append(animatedSprite.material.get_shader_parameter("MainColor4"))
+	colors.append(animatedSprite.material.get_shader_parameter("MainColor5"))
+	colors.append(animatedSprite.material.get_shader_parameter("MainColor6"))
 
 func change_palette(new_colors, paint_armor := true):
 	if not animatedSprite:
@@ -322,16 +322,16 @@ func change_palette(new_colors, paint_armor := true):
 		
 
 func set_new_colors_on_shader_parameters(object,new_colors) -> void:
-	object.material.set_shader_param("R_MainColor1", new_colors[0])
-	object.material.set_shader_param("R_MainColor2", new_colors[1])
-	object.material.set_shader_param("R_MainColor3", new_colors[2])
-	object.material.set_shader_param("R_MainColor4", new_colors[3])
-	object.material.set_shader_param("R_MainColor5", new_colors[4])
-	object.material.set_shader_param("R_MainColor6", new_colors[5])
+	object.material.set_shader_parameter("R_MainColor1", new_colors[0])
+	object.material.set_shader_parameter("R_MainColor2", new_colors[1])
+	object.material.set_shader_parameter("R_MainColor3", new_colors[2])
+	object.material.set_shader_parameter("R_MainColor4", new_colors[3])
+	object.material.set_shader_parameter("R_MainColor5", new_colors[4])
+	object.material.set_shader_parameter("R_MainColor6", new_colors[5])
 	
 func set_new_colors_for_armor_on_shader_parameters(object,new_colors) -> void:
-	object.material.set_shader_param("R_MainColor2", new_colors[1])
-	object.material.set_shader_param("R_MainColor3", new_colors[2])
+	object.material.set_shader_parameter("R_MainColor2", new_colors[1])
+	object.material.set_shader_parameter("R_MainColor3", new_colors[2])
 
 func disable_collision():
 	colliding = false
@@ -346,11 +346,11 @@ func is_colliding() -> bool:
 
 func flash():
 	if has_health():
-		animatedSprite.material.set_shader_param("Flash", 1)
+		animatedSprite.material.set_shader_parameter("Flash", 1)
 		flash_timer = 0.01
 	
 func end_flash():
-	animatedSprite.material.set_shader_param("Flash", 0)
+	animatedSprite.material.set_shader_parameter("Flash", 0)
 	flash_timer = 0
 
 func are_low_walljump_raycasts_active() -> bool:

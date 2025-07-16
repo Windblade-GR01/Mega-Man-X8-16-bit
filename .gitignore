@@ -54,6 +54,7 @@ Thumbs.db
 .vscode/*
 .mono/*
 .vs/*
+.godot/*
 
 # C-Sharp
 [Bb]in/*

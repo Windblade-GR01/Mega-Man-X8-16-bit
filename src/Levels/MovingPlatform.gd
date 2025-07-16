@@ -1,6 +1,6 @@
 extends TileMap
 
-onready var tween = $tween
+@onready var tween = $tween
 
 func _ready() -> void:
 	tween.interpolate_property(self, "position",

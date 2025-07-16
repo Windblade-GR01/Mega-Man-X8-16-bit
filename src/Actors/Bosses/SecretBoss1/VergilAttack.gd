@@ -1,10 +1,10 @@
 extends AttackAbility
-onready var damage: Node2D = $"../Damage"
-onready var damage_on_touch: Node2D = $"../DamageOnTouch"
-onready var disappear: AudioStreamPlayer2D = $disappear
+@onready var damage: Node2D = $"../Damage"
+@onready var damage_on_touch: Node2D = $"../DamageOnTouch"
+@onready var disappear: AudioStreamPlayer2D = $disappear
 
-export var _slash : PackedScene
-onready var slashes: AudioStreamPlayer2D = $slashes
+@export var _slash : PackedScene
+@onready var slashes: AudioStreamPlayer2D = $slashes
 
 
 var angles = [33,-33,90,44,-44,25,-25,0,90,44,-25,-33]
@@ -58,7 +58,7 @@ func _Update(delta) -> void:
 var origin_pos := Vector2.ZERO
 var foward_pos := 8
 func create_slash(degrees : float):
-	var slash = _slash.instance()
+	var slash = _slash.instantiate()
 	get_tree().current_scene.add_child(slash,true)
 	if not facing_a_wall():
 		slash.set_global_position(origin_pos + Vector2(foward_pos * get_facing_direction(),0)) 
@@ -71,4 +71,4 @@ func create_slash(degrees : float):
 
 
 func _Interrupt() -> void:
-	._Interrupt()
+	super._Interrupt()

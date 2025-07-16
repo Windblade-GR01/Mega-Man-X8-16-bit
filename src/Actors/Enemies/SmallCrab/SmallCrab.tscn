@@ -19,7 +19,7 @@ extents = Vector2( 12, 10 )
 [sub_resource type="RectangleShape2D" id=48]
 extents = Vector2( 18, 2.5 )
 
-[node name="SmallCrab" type="KinematicBody2D" groups=["Enemies"]]
+[node name="SmallCrab" type="CharacterBody2D" groups=["Enemies"]]
 z_index = 2
 collision_layer = 0
 script = ExtResource( 14 )
@@ -37,7 +37,7 @@ input_pickable = false
 [node name="collisionShape2D" type="CollisionShape2D" parent="AI/vision"]
 shape = SubResource( 47 )
 
-[node name="animatedSprite" type="AnimatedSprite" parent="."]
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
 material = ExtResource( 3 )
 frames = ExtResource( 9 )
 animation = "idle"
@@ -49,7 +49,7 @@ flip_h = true
 visible = false
 shape = SubResource( 15 )
 
-[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 visible = false
 scale = Vector2( 2, 2 )
 rect = Rect2( -5, -5, 10, 10 )

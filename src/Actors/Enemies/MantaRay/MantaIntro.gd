@@ -1,6 +1,6 @@
 extends GenericIntro
-onready var damage: Node2D = $"../Damage"
-onready var damage_on_touch: Node2D = $"../DamageOnTouch"
+@onready var damage: Node2D = $"../Damage"
+@onready var damage_on_touch: Node2D = $"../DamageOnTouch"
 
 var target := Vector2(400.0,-20)
 

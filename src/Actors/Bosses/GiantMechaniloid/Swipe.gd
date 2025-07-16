@@ -1,8 +1,8 @@
 extends AttackAbility
-onready var actual_attack: Node2D = $"../animatedSprite/swipe_attack"
-onready var prepare_attack: Node2D = $"../animatedSprite/swipe_prepare"
-onready var drill: AudioStreamPlayer2D = $drill
-onready var swipe: AudioStreamPlayer2D = $swipe
+@onready var actual_attack: Node2D = $"../animatedSprite/swipe_attack"
+@onready var prepare_attack: Node2D = $"../animatedSprite/swipe_prepare"
+@onready var drill: AudioStreamPlayer2D = $drill
+@onready var swipe: AudioStreamPlayer2D = $swipe
 
 func _Setup() -> void:
 	play_animation("swipe_prepare")

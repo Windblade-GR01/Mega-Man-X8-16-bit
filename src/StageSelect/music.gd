@@ -1,6 +1,6 @@
 extends AudioStreamPlayer
 
-export var intro : AudioStream
+@export var intro : AudioStream
 var music : AudioStream
 var playing_intro := false
 

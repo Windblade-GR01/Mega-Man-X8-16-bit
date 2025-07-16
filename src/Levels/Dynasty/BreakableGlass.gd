@@ -1,8 +1,8 @@
 extends Node2D
-onready var remains: Particles2D = $remains
+@onready var remains: GPUParticles2D = $remains
 var broken := false
-onready var tile_map: TileMap = $tileMap
-onready var shatter_sfx: AudioStreamPlayer2D = $shatter
+@onready var tile_map: TileMap = $tileMap
+@onready var shatter_sfx: AudioStreamPlayer2D = $shatter
 
 func _ready() -> void:
 	pass

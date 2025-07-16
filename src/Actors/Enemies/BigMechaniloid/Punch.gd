@@ -1,8 +1,8 @@
 extends AttackAbility
 
-onready var tween = TweenController.new(self)
-onready var damage_area: Node2D = $damage_area
-onready var drill: AudioStreamPlayer2D = $drill
+@onready var tween = TweenController.new(self)
+@onready var damage_area: Node2D = $damage_area
+@onready var drill: AudioStreamPlayer2D = $drill
 
 signal stop  
 

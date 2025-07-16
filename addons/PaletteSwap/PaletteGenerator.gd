@@ -1,4 +1,4 @@
-tool
+@tool
 extends EditorScript
 
 const IMPORT_OPTIONS = """[deps]
@@ -9,21 +9,21 @@ flags/filter=false
 
 func _run() -> void:
 	var selection := get_editor_interface().get_selection().get_selected_nodes()
-	assert(not selection.empty(), "Select some nodes to generate texture.")
+	assert(not selection.is_empty(), "Select some nodes to generate texture.")
 	
 	for node in selection:
-		var texture := node.get("texture") as Texture
+		var texture := node.get("texture") as Texture2D
 		if texture:
 			generate_palette_from(texture.get_data(), texture.resource_path)
 			return
 	
-	assert(false, "No selected node has 'texture' property with a valid Texture.")
+	assert(false, "No selected node has 'texture' property with a valid Texture2D.")
 
 func generate_palette_from(image: Image, texture_path: String):
 	print("Generating palette for: ", texture_path)
 	
 	var colors := []
-	image.lock()
+	false # image.lock() # TODOConverter3To4, Image no longer requires locking, `false` helps to not break one line if/else, so it can freely be removed
 	
 	for x in image.get_width():
 		for y in image.get_height():
@@ -32,17 +32,17 @@ func generate_palette_from(image: Image, texture_path: String):
 				color = Color(color.r, color.g, color.b)
 				if not color in colors:
 					colors.append(color)
-	image.unlock()
+	false # image.unlock() # TODOConverter3To4, Image no longer requires locking, `false` helps to not break one line if/else, so it can freely be removed
 	
 	var palette := Image.new()
 	palette.create(colors.size(), 2, false, Image.FORMAT_RGB8)
-	palette.lock()
+	false # palette.lock() # TODOConverter3To4, Image no longer requires locking, `false` helps to not break one line if/else, so it can freely be removed
 	
 	for i in colors.size():
 		palette.set_pixel(i, 0, colors[i])
-		palette.set_pixel(i, 1, Color.black)
+		palette.set_pixel(i, 1, Color.BLACK)
 	
-	palette.unlock()
+	false # palette.unlock() # TODOConverter3To4, Image no longer requires locking, `false` helps to not break one line if/else, so it can freely be removed
 	
 	var png_path := str(texture_path.get_base_dir(), "/", texture_path.get_file().get_basename(), "_palette.png")
 	var file := File.new()

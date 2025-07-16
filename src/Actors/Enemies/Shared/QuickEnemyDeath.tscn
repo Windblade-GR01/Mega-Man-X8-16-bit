@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/Effects/Materials/ExplosionParticles.tres" type="Material" id=1]
-[ext_resource path="res://src/Effects/Textures/remains.png" type="Texture" id=2]
+[ext_resource path="res://src/Effects/Textures/remains.png" type="Texture2D" id=2]
 [ext_resource path="res://src/Actors/Modules/Enemy/EnemyDeath.gd" type="Script" id=3]
-[ext_resource path="res://src/Effects/Textures/explosion.png" type="Texture" id=4]
+[ext_resource path="res://src/Effects/Textures/explosion.png" type="Texture2D" id=4]
 [ext_resource path="res://src/Effects/Remains.gd" type="Script" id=5]
 [ext_resource path="res://src/Sounds/56 - MMX - Enemy Death.wav" type="AudioStream" id=6]
 [ext_resource path="res://src/Effects/Materials/RemainsParticleSingleExplosion.tres" type="Material" id=7]
@@ -33,7 +33,7 @@ particles_anim_loop = false
 script = ExtResource( 3 )
 explosion_duration = 0.0
 
-[node name="Explosion Particles" type="Particles2D" parent="."]
+[node name="Explosion Particles" type="GPUParticles2D" parent="."]
 material = SubResource( 8 )
 position = Vector2( 0, 0.5 )
 z_index = 2
@@ -44,7 +44,7 @@ local_coords = false
 process_material = ExtResource( 1 )
 texture = ExtResource( 4 )
 
-[node name="Remains" type="Particles2D" parent="."]
+[node name="Remains" type="GPUParticles2D" parent="."]
 material = SubResource( 66 )
 position = Vector2( 0, 0.5 )
 z_index = 10
@@ -57,7 +57,7 @@ process_material = ExtResource( 7 )
 texture = ExtResource( 4 )
 script = ExtResource( 5 )
 
-[node name="remains_particles" type="Particles2D" parent="Remains"]
+[node name="remains_particles" type="GPUParticles2D" parent="Remains"]
 material = SubResource( 12 )
 z_index = -1
 emitting = false

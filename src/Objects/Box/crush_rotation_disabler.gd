@@ -1,7 +1,7 @@
 extends Node
-export var active := true
-export var return_time_after_rotation_end := 0.1
-onready var parent = get_parent()
+@export var active := true
+@export var return_time_after_rotation_end := 0.1
+@onready var parent = get_parent()
 
 func _ready() -> void:
 	Event.listen("stage_rotate",self,"on_rotate_stage")

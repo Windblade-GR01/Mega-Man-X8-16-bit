@@ -1,10 +1,10 @@
 extends GenericProjectile
-onready var vanish: AudioStreamPlayer2D = $vanish
-export var mini_projectile : PackedScene
+@onready var vanish: AudioStreamPlayer2D = $vanish
+@export var mini_projectile : PackedScene
 var exploded := false
-onready var fire_1: Particles2D = $fire1
-onready var fire_2: Particles2D = $fire2
-onready var fire_3: Particles2D = $fire3
+@onready var fire_1: GPUParticles2D = $fire1
+@onready var fire_2: GPUParticles2D = $fire2
+@onready var fire_3: GPUParticles2D = $fire3
 
 func _Update(delta) -> void:
 	if not exploded and is_on_wall():
@@ -22,7 +22,7 @@ func explode() -> void:
 	create_mini_projectile()
 
 func create_mini_projectile():
-	var projectile = mini_projectile.instance()
+	var projectile = mini_projectile.instantiate()
 	get_tree().current_scene.add_child(projectile,true)
 	projectile.set_global_position(global_position) 
 	projectile.set_creator(creator)

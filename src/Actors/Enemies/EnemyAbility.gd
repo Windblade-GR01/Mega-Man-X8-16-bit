@@ -1,7 +1,7 @@
 extends Movement
 class_name EnemyAbility
 
-onready var animatedSprite : AnimatedSprite = get_parent().get_node("animatedSprite")
+@onready var animatedSprite : AnimatedSprite2D = get_parent().get_node("animatedSprite")
 var current_animation := ""
 var finished_animation := "'"
 var attack_stage = 0
@@ -12,11 +12,11 @@ func _ready() -> void:
 		connect_animation_finished_event()
 
 func connect_animation_finished_event():
-	animatedSprite.connect("animation_finished",self,"on_finished_animation")
+	animatedSprite.connect("animation_finished", Callable(self, "on_finished_animation"))
 	
 
 func Initialize() -> void:
-	.Initialize()
+	super.Initialize()
 	attack_stage = 0
 	
 func on_finished_animation():
@@ -44,15 +44,15 @@ func is_current_animation_either(animations : Array) -> bool:
 	return false
 	
 func play_animation_once(anim : String):
-	.play_animation_once(anim)
+	super.play_animation_once(anim)
 	current_animation = anim
 
 func play_animation(anim : String):
-	.play_animation(anim)
+	super.play_animation(anim)
 	current_animation = anim
 
 func play_animation_again(anim : String):
-	.play_animation(anim)
+	super.play_animation(anim)
 	current_animation = anim
 	finished_animation = ""
 

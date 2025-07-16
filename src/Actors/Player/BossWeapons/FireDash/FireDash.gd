@@ -4,29 +4,29 @@ const recoil_duration := 0.25
 var executing := false
 var dash_timer := 0.0
 var diagonal := false
-export var dash_speed := Vector2(200,200)
+@export var dash_speed := Vector2(200,200)
 var horizontal_speed := 0.0
 var vertical_speed := 0.0
 var charged := false
 var ricochet_times := 0
 var time_since_last_ricochet := 0.0
 var recoil := 0.0
-var recoil_tween : SceneTreeTween
+var recoil_tween : Tween
 var shot
-var light_tween : SceneTreeTween
+var light_tween : Tween
 var debug_timescalled := 0
-onready var light : Light2D = get_node_or_null("../../light")
-onready var airdash: Node2D = $"../../AirDash"
-onready var weapon_stasis: Node2D = $"../../WeaponStasis"
+@onready var light : PointLight2D = get_node_or_null("../../light")
+@onready var airdash: Node2D = $"../../AirDash"
+@onready var weapon_stasis: Node2D = $"../../WeaponStasis"
 
 const speed_limit := Vector2(800,500)
 
 func _ready() -> void:
-	var _s = weapon_stasis.connect("interrupted",self,"end")
-	_s = Event.connect("weapon_select_left",self,"manual_interrupt")
-	_s = Event.connect("weapon_select_right",self,"manual_interrupt")
-	_s = Event.connect("weapon_select_buster",self,"manual_interrupt")
-	_s = Event.connect("select_weapon",self,"manual_interrupt")
+	var _s = weapon_stasis.connect("interrupted", Callable(self, "end"))
+	_s = Event.connect("weapon_select_left", Callable(self, "manual_interrupt"))
+	_s = Event.connect("weapon_select_right", Callable(self, "manual_interrupt"))
+	_s = Event.connect("weapon_select_buster", Callable(self, "manual_interrupt"))
+	_s = Event.connect("select_weapon", Callable(self, "manual_interrupt"))
 
 func is_cooling_down() -> bool:
 	return timer > 0 or weapon_stasis.executing
@@ -148,7 +148,7 @@ func recoil() -> void:
 	character.set_horizontal_speed(horizontal_speed)
 	dash_timer = 0
 	recoil_tween = create_tween()
-	recoil_tween.tween_method(character,"set_vertical_speed",-280.0,0.0,recoil_duration)
+	recoil_tween.tween_method(Callable(character, "set_vertical_speed"), -280.0, 0.0, recoil_duration)
 	recoil = 0.01
 	visual_explosion()
 	if cooldown:
@@ -229,10 +229,10 @@ func visual_explosion() -> void:
 	pass
 	
 func instantiate(scene : PackedScene) -> Node2D:
-	var instance = scene.instance()
+	var instance = scene.instantiate()
 	character.call_deferred("add_child",instance,true)
 	instance.set_position(Vector2.ZERO)
-	instance.connect("finish",self,"recoil")
+	instance.connect("finish", Callable(self, "recoil"))
 		
 	return instance
 
@@ -246,7 +246,7 @@ func reset_dash_duration() -> void:
 
 func light_for_pitchblack() -> void:
 	if light != null:
-		light.light(1,Vector2(5,3),Color.lightsalmon)
+		light.light(1,Vector2(5,3),Color.LIGHT_SALMON)
 
 func dim_light_for_pitchblack() -> void:
 	if light != null:

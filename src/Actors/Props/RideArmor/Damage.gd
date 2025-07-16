@@ -1,8 +1,8 @@
 extends NewAbility
 
-onready var physics = Physics.new(get_parent())
-onready var dmg: AudioStreamPlayer2D = $dmg
-onready var tween = TweenController.new(self)
+@onready var physics = Physics.new(get_parent())
+@onready var dmg: AudioStreamPlayer2D = $dmg
+@onready var tween = TweenController.new(self)
 
 var damage_direction := 0
 var damage_ammount := 0

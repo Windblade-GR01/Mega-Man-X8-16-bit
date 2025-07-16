@@ -1,13 +1,13 @@
 extends Area2D
 
-export var active := true
-export var speed := 70.0
+@export var active := true
+@export var speed := 70.0
 var affected_entities : Array
 var affected_groups = ["Player", "Enemies", "Item", "Props", "Movable"]
 
 func _ready() -> void:
-	connect("body_entered",self,"_on_area2D_body_entered")
-	connect("body_exited",self,"_on_area2D_body_exited")
+	connect("body_entered", Callable(self, "_on_area2D_body_entered"))
+	connect("body_exited", Callable(self, "_on_area2D_body_exited"))
 
 func _on_area2D_body_entered(body: Node) -> void:
 	if active:

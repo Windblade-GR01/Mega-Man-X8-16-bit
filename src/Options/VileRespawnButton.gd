@@ -1,5 +1,5 @@
 extends X8OptionButton
-onready var parent_button: Control = $".."
+@onready var parent_button: Control = $".."
 
 func setup() -> void:
 	set_vile_spawn(get_vile_spawn())

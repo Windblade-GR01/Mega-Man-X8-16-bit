@@ -1,4 +1,4 @@
-[gd_resource type="ParticlesMaterial" load_steps=5 format=2]
+[gd_resource type="ParticleProcessMaterial" load_steps=5 format=2]
 
 [sub_resource type="Curve" id=100]
 min_value = -360.0
@@ -9,10 +9,10 @@ _data = [ Vector2( 0, 0 ), 0.0, 1008.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 curve = SubResource( 100 )
 
 [sub_resource type="Gradient" id=99]
-offsets = PoolRealArray( 0, 0.222222, 0.400862, 1 )
-colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+offsets = PackedFloat32Array( 0, 0.222222, 0.400862, 1 )
+colors = PackedColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=98]
+[sub_resource type="GradientTexture2D" id=98]
 gradient = SubResource( 99 )
 
 [resource]

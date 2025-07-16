@@ -1,7 +1,7 @@
-extends Light2D
+extends PointLight2D
 var timer := 0.0
-onready var bg2: Sprite = $"../bg2"
-var tween : SceneTreeTween
+@onready var bg2: Sprite2D = $"../bg2"
+var tween : Tween
 
 var repeat_pulse_time := 1.0
 
@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 			repeat_pulse_time = 3
 			timer = 0
 
-func repeat_pulse(object, _color = Color.blue, _color2 = null) -> void:
+func repeat_pulse(object, _color = Color.BLUE, _color2 = null) -> void:
 	object.scale = Vector2.ZERO
 	object.modulate = _color
 	
@@ -27,11 +27,11 @@ func repeat_pulse(object, _color = Color.blue, _color2 = null) -> void:
 	
 	if not _color2:
 		tween.set_ease(Tween.EASE_OUT)
-		tween.tween_property(object,"modulate",Color.black,2)
+		tween.tween_property(object,"modulate",Color.BLACK,2)
 	else:
 		tween.set_trans(Tween.TRANS_LINEAR)
 		tween.set_parallel()
 		tween.tween_property(object,"modulate",_color2,2.5)
 		tween.set_parallel(false)
-		tween.tween_property(object,"modulate",Color.black,.5)
+		tween.tween_property(object,"modulate",Color.BLACK,.5)
 		

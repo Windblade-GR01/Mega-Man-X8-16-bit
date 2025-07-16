@@ -1,12 +1,12 @@
 extends Node2D
 
-onready var collision: CollisionShape2D = $staticBody2D/collisionShape2D
-onready var explosion: Particles2D = $"Explosion Particles"
-onready var fire: Particles2D = $Fire
-onready var tile_map: TileMap = $tileMap
-export var disabled := false
-onready var sound: AudioStreamPlayer2D = $explosion
-onready var remains_particles: Particles2D = $remains_particles
+@onready var collision: CollisionShape2D = $staticBody2D/collisionShape2D
+@onready var explosion: GPUParticles2D = $"Explosion Particles"
+@onready var fire: GPUParticles2D = $Fire
+@onready var tile_map: TileMap = $tileMap
+@export var disabled := false
+@onready var sound: AudioStreamPlayer2D = $explosion
+@onready var remains_particles: GPUParticles2D = $remains_particles
 
 func deactivate() -> void:
 	collision.disabled = true

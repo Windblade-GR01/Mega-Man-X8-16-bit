@@ -1,7 +1,7 @@
 extends GenericProjectile
 class_name MissileClaw
 
-export var speed := 160.0
+@export var speed := 160.0
 var return_direction : Vector2
 
 func _Setup() -> void:

@@ -1,6 +1,6 @@
-extends Sprite
+extends Sprite2D
 
-onready var tween := TweenController.new(self,false)
+@onready var tween := TweenController.new(self,false)
 
 func _ready() -> void:
 	scale.x = 0

@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/Antonion - BoxStart.ogg-55913ac25888c90205a3387879908177.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bskb5rld4d6w1"
+path="res://.godot/imported/Antonion - BoxStart.ogg-55913ac25888c90205a3387879908177.oggvorbisstr"
 
 [deps]
 
 source_file="res://src/Sounds/Antonion - BoxStart.ogg"
-dest_files=[ "res://.import/Antonion - BoxStart.ogg-55913ac25888c90205a3387879908177.oggstr" ]
+dest_files=["res://.godot/imported/Antonion - BoxStart.ogg-55913ac25888c90205a3387879908177.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,5 +1,5 @@
-extends Light2D
-var light_tween : SceneTreeTween
+extends PointLight2D
+var light_tween : Tween
 
 func light(new_energy,new_scale,new_color) -> void:
 	if light_tween:
@@ -15,4 +15,4 @@ func dim(duration : float, final_energy := 0.35) -> void:
 	light_tween.set_parallel()
 	light_tween.tween_property(self,"energy",final_energy,duration)
 	light_tween.tween_property(self,"scale",Vector2(1,1),duration)
-	light_tween.tween_property(self,"color",Color.white,duration)
+	light_tween.tween_property(self,"color",Color.WHITE,duration)

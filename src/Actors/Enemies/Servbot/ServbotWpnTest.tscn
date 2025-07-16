@@ -31,7 +31,7 @@ extents = Vector2( 13.5, 15.5 )
 
 [sub_resource type="RectangleShape2D" id=56]
 
-[node name="Servbot" type="KinematicBody2D" groups=["Enemies"]]
+[node name="Servbot" type="CharacterBody2D" groups=["Enemies"]]
 position = Vector2( 111, -35 )
 z_index = 5
 collision_layer = 0
@@ -54,7 +54,7 @@ input_pickable = false
 position = Vector2( 0, 1.5 )
 shape = SubResource( 54 )
 
-[node name="animatedSprite" type="AnimatedSprite" parent="."]
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
 material = SubResource( 55 )
 z_index = 1
 frames = ExtResource( 9 )
@@ -68,7 +68,7 @@ visible = false
 position = Vector2( -0.5, 1.5 )
 shape = SubResource( 15 )
 
-[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 visible = false
 scale = Vector2( 2, 2 )
 rect = Rect2( -5, -5, 10, 10 )

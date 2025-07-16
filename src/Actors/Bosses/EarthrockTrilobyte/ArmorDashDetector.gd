@@ -1,6 +1,6 @@
 extends Area2D
 
-export var minimum_speed := 100
+@export var minimum_speed := 100
 var player : Actor
 
 signal player_detected

@@ -2,11 +2,11 @@
 
 [ext_resource path="res://src/Effects/Materials/ExplosionParticles.tres" type="Material" id=1]
 [ext_resource path="res://src/Effects/Materials/RemainsParticle.tres" type="Material" id=2]
-[ext_resource path="res://src/Effects/Textures/explosion.png" type="Texture" id=4]
+[ext_resource path="res://src/Effects/Textures/explosion.png" type="Texture2D" id=4]
 [ext_resource path="res://src/Actors/NewStateMachine/audioplayer.gd" type="Script" id=5]
 [ext_resource path="res://src/Sounds/Ice Break.wav" type="AudioStream" id=11]
 [ext_resource path="res://src/Sounds/Trilobyte - Create Crystal.ogg" type="AudioStream" id=14]
-[ext_resource path="res://src/Effects/Textures/remains_purple.png" type="Texture" id=15]
+[ext_resource path="res://src/Effects/Textures/remains_purple.png" type="Texture2D" id=15]
 [ext_resource path="res://src/Actors/Player/BossWeapons/CrystalBouncer/CrystalBouncerCharged.gd" type="Script" id=16]
 [ext_resource path="res://src/Levels/Primrose/rotation_disabler.gd" type="Script" id=17]
 [ext_resource path="res://src/Actors/Player/BossWeapons/CrystalBouncer/crystalwall.res" type="SpriteFrames" id=18]
@@ -33,7 +33,7 @@ particles_anim_h_frames = 4
 particles_anim_v_frames = 4
 particles_anim_loop = false
 
-[node name="CrystalBouncerCharged" type="KinematicBody2D" groups=["Player Projectile"]]
+[node name="CrystalBouncerCharged" type="CharacterBody2D" groups=["Player Projectile"]]
 z_index = 4
 collision_layer = 4
 script = ExtResource( 16 )
@@ -66,7 +66,7 @@ modulate = Color( 0.756863, 1, 0, 1 )
 position = Vector2( -7, 0 )
 shape = SubResource( 9 )
 
-[node name="remains" type="Particles2D" parent="."]
+[node name="remains" type="GPUParticles2D" parent="."]
 modulate = Color( 0.780392, 1, 0.454902, 1 )
 material = SubResource( 5 )
 position = Vector2( 0, 3.5 )
@@ -90,43 +90,43 @@ mode = 1
 [node name="wallCheck_left" type="RayCast2D" parent="platform"]
 position = Vector2( -11, 16 )
 enabled = true
-cast_to = Vector2( -50, 0 )
+target_position = Vector2( -50, 0 )
 collision_mask = 65537
 
 [node name="wallCheck_right" type="RayCast2D" parent="platform"]
 position = Vector2( 11, 16 )
 enabled = true
-cast_to = Vector2( 50, 0 )
+target_position = Vector2( 50, 0 )
 collision_mask = 65537
 
 [node name="wallCheck_up" type="RayCast2D" parent="platform"]
 position = Vector2( 0, 19 )
 enabled = true
-cast_to = Vector2( 0, -50 )
+target_position = Vector2( 0, -50 )
 
 [node name="wallCheck_up2" type="RayCast2D" parent="platform"]
 position = Vector2( -15, 19 )
 enabled = true
-cast_to = Vector2( 0, -50 )
+target_position = Vector2( 0, -50 )
 
 [node name="wallCheck_up3" type="RayCast2D" parent="platform"]
 position = Vector2( 15, 19 )
 enabled = true
-cast_to = Vector2( 0, -50 )
+target_position = Vector2( 0, -50 )
 
 [node name="collisionShape2D" type="CollisionShape2D" parent="platform"]
 position = Vector2( 0, 3.5 )
 shape = SubResource( 10 )
 disabled = true
 
-[node name="animatedSprite" type="AnimatedSprite" parent="."]
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2( 0, -34 )
 frames = ExtResource( 18 )
 animation = "start"
 frame = 7
 playing = true
 
-[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 visible = false
 position = Vector2( 4.76837e-07, -27 )
 scale = Vector2( 1.8, 3.5 )
@@ -157,7 +157,7 @@ fade_out = true
 delete_after_fade = true
 undo_on_rotation_end = false
 
-[node name="explosion" type="Particles2D" parent="."]
+[node name="explosion" type="GPUParticles2D" parent="."]
 material = SubResource( 4 )
 z_index = 2
 emitting = false

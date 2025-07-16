@@ -1,6 +1,6 @@
 extends Area2D
 
-export var active := true
+@export var active := true
 var targets : Array
 
 func get_closest_target() -> Node2D:

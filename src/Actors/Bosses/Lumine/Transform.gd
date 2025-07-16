@@ -1,34 +1,34 @@
 extends AttackAbility
 
-export var disable_after_usage := false
-export var flip_animation := false
-export var _desperation: NodePath
-onready var desperation = get_node(_desperation)
-export var _collider: NodePath
-onready var transform_collider = get_node(_collider)
-onready var tween := TweenController.new(self,false)
-export var boss_sprites : SpriteFrames
-export var weakness := ""
+@export var disable_after_usage := false
+@export var flip_animation := false
+@export var _desperation: NodePath
+@onready var desperation = get_node(_desperation)
+@export var _collider: NodePath
+@onready var transform_collider = get_node(_collider)
+@onready var tween := TweenController.new(self,false)
+@export var boss_sprites : SpriteFrames
+@export var weakness := ""
 const lumine_sprites = preload("res://src/Actors/Bosses/Lumine/lumine.res")
-onready var flash: Sprite = $"../flash"
-onready var rotating_crystals: Node2D = $"../RotatingCrystals"
-onready var og_collider: CollisionShape2D = $"../collisionShape2D"
-onready var transform_sfx: AudioStreamPlayer2D = $"../transform"
-onready var damage_area: Area2D = $"../area2D"
-onready var damage_og_collider: CollisionShape2D = $"../area2D/collisionShape2D"
-onready var damage_transform_collider : CollisionShape2D = damage_area.get_node(transform_collider.name)
-onready var damage: Node2D = $"../Damage"
-onready var pick: AudioStreamPlayer2D = $"../pick"
-onready var start_transform: AudioStreamPlayer2D = $"../start_transform"
-onready var boss_stun: Node2D = $"../BossStun"
+@onready var flash: Sprite2D = $"../flash"
+@onready var rotating_crystals: Node2D = $"../RotatingCrystals"
+@onready var og_collider: CollisionShape2D = $"../collisionShape2D"
+@onready var transform_sfx: AudioStreamPlayer2D = $"../transform"
+@onready var damage_area: Area2D = $"../area2D"
+@onready var damage_og_collider: CollisionShape2D = $"../area2D/collisionShape2D"
+@onready var damage_transform_collider : CollisionShape2D = damage_area.get_node(transform_collider.name)
+@onready var damage: Node2D = $"../Damage"
+@onready var pick: AudioStreamPlayer2D = $"../pick"
+@onready var start_transform: AudioStreamPlayer2D = $"../start_transform"
+@onready var boss_stun: Node2D = $"../BossStun"
 
 signal transformed
 signal ended_transform
 
 func _ready() -> void:
-	desperation.connect("ability_end",self,"on_desperation_end")
-	desperation.connect("executed",boss_stun,"deactivate")
-	desperation.connect("ready_for_stun",boss_stun,"reactivate")
+	desperation.connect("ability_end", Callable(self, "on_desperation_end"))
+	desperation.connect("executed", Callable(boss_stun, "deactivate"))
+	desperation.connect("ready_for_stun", Callable(boss_stun, "reactivate"))
 	desperation.call_deferred("connect_animation_finished_event")
 
 func _Setup():
@@ -90,7 +90,7 @@ func change_frames(new_frames):
 	transform_sfx.play()
 	animatedSprite.change_frames(new_frames)
 	animatedSprite.modulate = Color(6,6,6,1)
-	tween.attribute("modulate",Color.white,.8,animatedSprite)
+	tween.attribute("modulate",Color.WHITE,.8,animatedSprite)
 	play_animation("idle")
 	if flip_animation:
 		animatedSprite.flip_h = !animatedSprite.flip_h
@@ -100,7 +100,7 @@ func _Interrupt():
 		unstransform()
 	emit_signal("ended_transform")
 	desperation.EndAbility()
-	._Interrupt()
+	super._Interrupt()
 	if disable_after_usage:
 		deactivate()
 

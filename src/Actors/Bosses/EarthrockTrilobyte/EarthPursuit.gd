@@ -2,9 +2,9 @@ extends AttackAbility
 
 var pursuing_armor := false
 var grabbed_armor := false
-onready var guard_break: Node = $"../GuardBreak"
-onready var tween = TweenController.new(self,false)
-onready var dash_smoke: Particles2D = $dash_smoke
+@onready var guard_break: Node = $"../GuardBreak"
+@onready var tween = TweenController.new(self,false)
+@onready var dash_smoke: GPUParticles2D = $dash_smoke
 
 func on_catch_armor() -> void:
 	if executing:

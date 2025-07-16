@@ -1,7 +1,7 @@
 extends Node2D
 
-export var damage : NodePath
-onready var dmg = get_node_or_null(damage)
+@export var damage : NodePath
+@onready var dmg = get_node_or_null(damage)
 
 func damage(damage, inflicter) -> float:
 	if dmg != null:

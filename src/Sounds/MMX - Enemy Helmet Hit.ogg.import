@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/MMX - Enemy Helmet Hit.ogg-7e259e916e5816fa039723f24f7eef55.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bmyxxw2diqc4x"
+path="res://.godot/imported/MMX - Enemy Helmet Hit.ogg-7e259e916e5816fa039723f24f7eef55.oggvorbisstr"
 
 [deps]
 
 source_file="res://src/Sounds/MMX - Enemy Helmet Hit.ogg"
-dest_files=[ "res://.import/MMX - Enemy Helmet Hit.ogg-7e259e916e5816fa039723f24f7eef55.oggstr" ]
+dest_files=["res://.godot/imported/MMX - Enemy Helmet Hit.ogg-7e259e916e5816fa039723f24f7eef55.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

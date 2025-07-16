@@ -1,18 +1,18 @@
 extends Weapon
 
-export var recharge_rate := 1.0
-export var weapon : Resource
-onready var parent := get_parent()
-onready var animatedsprite: AnimatedSprite = $"../../animatedSprite"
-onready var weapon_stasis: Node2D = $"../../WeaponStasis"
-onready var jump_damage: Node2D = $"../../JumpDamage"
+@export var recharge_rate := 1.0
+@export var weapon : Resource
+@onready var parent := get_parent()
+@onready var animatedsprite: AnimatedSprite2D = $"../../animatedSprite"
+@onready var weapon_stasis: Node2D = $"../../WeaponStasis"
+@onready var jump_damage: Node2D = $"../../JumpDamage"
 
-onready var OriginalMainColor1 : Color = MainColor1
-onready var OriginalMainColor2 : Color = MainColor2
-onready var OriginalMainColor3 : Color = MainColor3
-onready var vfx: AnimatedSprite = $break_vfx
+@onready var OriginalMainColor1 : Color = MainColor1
+@onready var OriginalMainColor2 : Color = MainColor2
+@onready var OriginalMainColor3 : Color = MainColor3
+@onready var vfx: AnimatedSprite2D = $break_vfx
 
-onready var tween : SceneTreeTween
+@onready var tween : Tween
 
 var timer := 0.0
 var last_time_hit := 0.0
@@ -49,7 +49,7 @@ func has_ammo() -> bool:
 	return current_ammo >= max_ammo
 
 func fire(_charge_level := 0) -> void:
-	.fire(0)
+	super.fire(0)
 	weapon_stasis.ExecuteOnce()
 	jump_damage.effect.visible = false
 	animatedsprite.modulate = Color(1,1,1,0.01)
@@ -57,11 +57,11 @@ func fire(_charge_level := 0) -> void:
 	parent.set_buster_as_weapon()
 	
 func connect_shot_event(_shot):
-	_shot.connect("projectile_end", self,"on_shot_end")
+	_shot.connect("projectile_end", Callable(self, "on_shot_end"))
 	character.listen("zero_health",_shot,"on_death")
 
 func on_zero_health() -> void:
-	animatedsprite.modulate = Color.white
+	animatedsprite.modulate = Color.WHITE
 
 func position_shot(shot) -> void:
 	shot.transform = global_transform
@@ -71,7 +71,7 @@ func on_shot_end(_shot):
 	character.remove_invulnerability("GigaCrash")
 	weapon_stasis.play_animation("fall")
 	weapon_stasis.EndAbility()
-	animatedsprite.modulate = Color.white
+	animatedsprite.modulate = Color.WHITE
 
 func _physics_process(delta: float) -> void:
 	timer += delta

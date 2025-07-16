@@ -1,6 +1,6 @@
 extends ParallaxBackground
-onready var near_bushes: ParallaxLayer = $NearBushes
-onready var layers := get_children()
+@onready var near_bushes: ParallaxLayer = $NearBushes
+@onready var layers := get_children()
 
 var moving := false
 var timer := 0.0

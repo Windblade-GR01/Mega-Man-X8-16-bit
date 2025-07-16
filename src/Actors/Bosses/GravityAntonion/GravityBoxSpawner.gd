@@ -1,8 +1,8 @@
 extends Node2D
 
-export var gravitybox : PackedScene
+@export var gravitybox : PackedScene
 var floor_position := 0.0
-onready var throw: AudioStreamPlayer2D = $throw
+@onready var throw: AudioStreamPlayer2D = $throw
 
 func _ready() -> void:
 	$animatedSprite.playing = true
@@ -11,7 +11,7 @@ func _ready() -> void:
 	Tools.timer(0.2,"play_rp",throw)
 
 func _on_animatedSprite_animation_finished() -> void:
-	var b = gravitybox.instance()
+	var b = gravitybox.instantiate()
 	b.global_position = global_position
 	b.floor_position = floor_position
 	get_tree().current_scene.add_child(b)

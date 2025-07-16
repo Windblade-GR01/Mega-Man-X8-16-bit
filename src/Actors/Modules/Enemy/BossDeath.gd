@@ -1,15 +1,15 @@
 extends EnemyDeath
 class_name BossDeath
 
-export var freeze_time := 1.0
+@export var freeze_time := 1.0
 var freeze_moment := 0.0
 var freeze_over := false
-export var explosion_time := 10.0
-export var death_animation := "death"
-export var pause_animation := true
-export var force_reploid_death := false
-export var collectible := "boss_weapon"
-export var defeated_flag := "none"
+@export var explosion_time := 10.0
+@export var death_animation := "death"
+@export var pause_animation := true
+@export var force_reploid_death := false
+@export var collectible := "boss_weapon"
+@export var defeated_flag := "none"
 var explosion_over := false
 var background_alpha := 0.0 
 var elapsed_explosion_time := 0.0
@@ -23,11 +23,11 @@ var sub_alpha := 1.0
 var sub_speed := 1.0
 var delta := 0.016
 
-onready var smoke = $"Smoke Particles"
-onready var background = get_node("background_light")
-onready var touch_damage = get_parent().get_node("DamageOnTouch")
-onready var reploid: AnimatedSprite = $reploid
-onready var transform_audio: AudioStreamPlayer2D = $reploid/transform
+@onready var smoke = $"Smoke Particles"
+@onready var background = get_node("background_light")
+@onready var touch_damage = get_parent().get_node("DamageOnTouch")
+@onready var reploid: AnimatedSprite2D = $reploid
+@onready var transform_audio: AudioStreamPlayer2D = $reploid/transform
 
 signal screen_flash
 
@@ -46,14 +46,14 @@ func _Setup():
 	if pause_animation:
 		sprite.playing = false
 	else:
-		sprite.pause_mode = Node.PAUSE_MODE_PROCESS
+		sprite.process_mode = Node.PROCESS_MODE_ALWAYS
 		pass
 	touch_damage.active = false
 	elapsed_explosion_time = 0.0
 	background.scale.x = 100
 	background.scale.y = 40 
 	GameManager.pause(character.name + name)
-	freeze_moment = OS.get_ticks_msec()
+	freeze_moment = Time.get_ticks_msec()
 	
 
 func animate_boss_or_reploid() -> void:
@@ -93,7 +93,7 @@ func _Update(_delta: float):
 		tempo_change()
 	if tempo == 3:
 		darken -= _delta/8
-		sprite.material.set_shader_param("Darken", darken)
+		sprite.material.set_shader_parameter("Darken", darken)
 		set_background_color(tween_color(1,7))
 
 	if tempo == 4:
@@ -102,7 +102,7 @@ func _Update(_delta: float):
 		set_background_color(tween_color(2))
 		set_background_alpha(tween_alpha(1))
 		darken -= _delta/2
-		sprite.material.set_shader_param("Darken", darken)
+		sprite.material.set_shader_parameter("Darken", darken)
 		
 	if tempo == 6:
 		if not emitted_fading_signal:
@@ -111,9 +111,9 @@ func _Update(_delta: float):
 			background_alpha = 1
 			
 		sprite_alpha -= _delta/4.5
-		sprite.material.set_shader_param("Alpha", sprite_alpha)
+		sprite.material.set_shader_parameter("Alpha", sprite_alpha)
 		
-	if sprite.material.get_shader_param("Alpha") <= 0.35:
+	if sprite.material.get_shader_parameter("Alpha") <= 0.35:
 		smoke.emitting = false
 	
 	
@@ -166,7 +166,7 @@ func tempo_change():
 		emit_signal("changed_stage",tempo)
 		
 func set_background_color(value : float):
-	background.material.set_shader_param("Color",value)
+	background.material.set_shader_parameter("Color",value)
 	
 func set_background_alpha(value : float):
 	var alpha = value
@@ -175,7 +175,7 @@ func set_background_alpha(value : float):
 	if alpha < 0:
 		alpha = 0
 	background_alpha = alpha
-	background.material.set_shader_param("Alpha",background_alpha)
+	background.material.set_shader_parameter("Alpha",background_alpha)
 
 func is_explosion_time_over() -> bool:
 	return freeze_over and elapsed_explosion_time > explosion_time
@@ -184,7 +184,7 @@ func during_explosion_time() -> bool:
 	return elapsed_explosion_time < explosion_time
 
 func is_freeze_time_over() -> bool:
-	if OS.get_ticks_msec() > freeze_time * 1000 + freeze_moment:
+	if Time.get_ticks_msec() > freeze_time * 1000 + freeze_moment:
 		return true
 	return false
 

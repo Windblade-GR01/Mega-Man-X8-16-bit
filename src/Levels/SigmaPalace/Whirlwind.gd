@@ -1,10 +1,10 @@
 extends AudioStreamPlayer
 
-onready var tween := TweenController.new(self,false)
+@onready var tween := TweenController.new(self,false)
 
 func _ready() -> void:
-	Event.connect("lumine_went_seraph",self,"activate")
-	Event.connect("enemy_kill",self,"deactivate")
+	Event.connect("lumine_went_seraph", Callable(self, "activate"))
+	Event.connect("enemy_kill", Callable(self, "deactivate"))
 
 func deactivate(enemy):
 	if enemy is String:

@@ -1,15 +1,15 @@
 extends Control
 class_name LightGroup
-export var objects_to_light : Array
-export var focus_group : Array
-export var idle_color := Color.dimgray
-export var focus_color := Color.white
-export var focus_multiplier := 2.0
-export var press_multiplier := 3.0
+@export var objects_to_light : Array
+@export var focus_group : Array
+@export var idle_color := Color.DIM_GRAY
+@export var focus_color := Color.WHITE
+@export var focus_multiplier := 2.0
+@export var press_multiplier := 3.0
 var focus_nodes : Array
 var nodes : Array
 var lit := false
-var tween : SceneTreeTween
+var tween : Tween
 
 func _ready() -> void:
 	call_deferred("save_nodes")

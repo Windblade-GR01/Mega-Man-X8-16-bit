@@ -1,12 +1,12 @@
 extends AttackAbility
 
-export var grenade :PackedScene
-onready var shot: AudioStreamPlayer2D = $shot
-onready var prepare: AudioStreamPlayer2D = $prepare
-onready var claw_appear: AudioStreamPlayer2D = $claw_appear
+@export var grenade :PackedScene
+@onready var shot: AudioStreamPlayer2D = $shot
+@onready var prepare: AudioStreamPlayer2D = $prepare
+@onready var claw_appear: AudioStreamPlayer2D = $claw_appear
 
 func _Setup() -> void:
-	._Setup()
+	super._Setup()
 	claw_appear.play()
 	Tools.timer(0.6,"screenshake",self)
 	Tools.timer(0.6,"play",prepare)

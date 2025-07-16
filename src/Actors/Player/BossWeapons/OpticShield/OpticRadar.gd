@@ -1,12 +1,12 @@
 extends SimplePlayerProjectile
 
-export var laser : PackedScene
+@export var laser : PackedScene
 
 var duration := 2.0
 var tracked : Node2D
 var initial_speed := 80.0
 var pursuit_speed := 120.0
-onready var ground_check: RayCast2D = $ground_check
+@onready var ground_check: RayCast2D = $ground_check
 
 func _Setup() -> void:
 	set_horizontal_speed(initial_speed * get_facing_direction())
@@ -54,7 +54,7 @@ func _on_tracker_body_entered(body: Node) -> void:
 			tracked = body
 			
 func create_laser(ground_position) -> void:
-	var instance = laser.instance()
+	var instance = laser.instantiate()
 	get_tree().current_scene.get_node("Objects").call_deferred("add_child",instance,true)
 	instance.set_global_position(ground_position) 
 	instance.set_creator(creator)

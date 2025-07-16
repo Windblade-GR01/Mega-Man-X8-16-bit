@@ -1,8 +1,8 @@
 extends Node
 class_name WeaponChanger
 
-export var active := false
-onready var character = get_parent()
+@export var active := false
+@onready var character = get_parent()
 
 func _process(_delta: float) -> void:
 	if active:

@@ -1,6 +1,6 @@
 extends GenericIntro
 
-export var projectile : PackedScene
+@export var projectile : PackedScene
 
 func _Setup() -> void:
 	GameManager.start_cutscene()
@@ -19,7 +19,7 @@ func _Update(_delta) -> void:
 		next_attack_stage()
 
 	elif attack_stage == 0 and timer > 1:
-		make_visible()
+		_make_visible()
 		turn_player_towards_boss()
 		play_animation("land")
 		next_attack_stage()

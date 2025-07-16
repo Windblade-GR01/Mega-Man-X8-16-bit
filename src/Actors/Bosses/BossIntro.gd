@@ -1,8 +1,8 @@
 extends EnemyAbility
 class_name BossIntro
 
-export var skip_intro := false
-export var show_health := true
+@export var skip_intro := false
+@export var show_health := true
 
 func _ready() -> void:
 	if not skip_intro:

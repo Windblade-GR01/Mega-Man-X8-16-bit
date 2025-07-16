@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/16 - MMX - X Upgrade Complete.wav-c2ff9b60f14ef83b0252bc852e35385c.sample"
+type="AudioStreamWAV"
+uid="uid://kmbpxs8132jh"
+path="res://.godot/imported/16 - MMX - X Upgrade Complete.wav-c2ff9b60f14ef83b0252bc852e35385c.sample"
 
 [deps]
 
 source_file="res://src/Sounds/16 - MMX - X Upgrade Complete.wav"
-dest_files=[ "res://.import/16 - MMX - X Upgrade Complete.wav-c2ff9b60f14ef83b0252bc852e35385c.sample" ]
+dest_files=["res://.godot/imported/16 - MMX - X Upgrade Complete.wav-c2ff9b60f14ef83b0252bc852e35385c.sample"]
 
 [params]
 

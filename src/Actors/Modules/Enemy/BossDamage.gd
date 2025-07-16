@@ -2,11 +2,11 @@ extends EnemyDamage
 class_name BossDamage
 
 #export var max_damage := false
-export var debugging := false
-export var debug_visual := false
-export var activate_after_intro := true
-export var weakenesses : Array
-export var weakness_multiplier := 1.0
+@export var debugging := false
+@export var debug_visual := false
+@export var activate_after_intro := true
+@export var weakenesses : Array
+@export var weakness_multiplier := 1.0
 const normal_invulnerability_time := 0.06
 const weakness_invulnerability_time := 1.75
 const charged_weakness_invul_time := 2.15
@@ -51,15 +51,15 @@ func connect_area_events():
 	for child in get_children():
 		if child is Area2D:
 			custom_hitbox = child
-			child.connect("body_entered",self,"_on_area2D_body_entered")
-			child.connect("body_exited",self,"_on_area2D_body_exited")
+			child.connect("body_entered", Callable(self, "_on_area2D_body_entered"))
+			child.connect("body_exited", Callable(self, "_on_area2D_body_exited"))
 			return
-	area2D.connect("body_entered",self,"_on_area2D_body_entered")
-	area2D.connect("body_exited",self,"_on_area2D_body_exited")
+	area2D.connect("body_entered", Callable(self, "_on_area2D_body_entered"))
+	area2D.connect("body_exited", Callable(self, "_on_area2D_body_exited"))
 
 
 func reduce_health(_damage, inflicter) -> void:
-	debug_last_hit = OS.get_ticks_msec()
+	debug_last_hit = Time.get_ticks_msec()
 	Event.emit_signal("hit_enemy")
 	var dmg_value = 1
 	if "damage_to_bosses" in inflicter:
@@ -110,17 +110,17 @@ func play_shader():
 	if not character.has_health():
 		max_flash_time = invulnerability_time/6
 		
-	animatedSprite.material.set_shader_param("Flash", 1)
+	animatedSprite.material.set_shader_parameter("Flash", 1)
 	if debug_visual:
-		animatedSprite.material.set_shader_param("Should_Blink", 1)
+		animatedSprite.material.set_shader_parameter("Should_Blink", 1)
 	if character.current_health > 0:
 		i_timer = 0.01
 	else:
 		i_timer = normal_flash_time/2
 
 func stop_shader() -> void:
-	animatedSprite.material.set_shader_param("Flash", 0)
-	animatedSprite.material.set_shader_param("Should_Blink", 0)
+	animatedSprite.material.set_shader_parameter("Flash", 0)
+	animatedSprite.material.set_shader_parameter("Should_Blink", 0)
 	
 
 func should_stop_blinking() -> bool:

@@ -1,14 +1,14 @@
 class_name VileShot extends AttackAbility
-export var projectile : PackedScene
-export var shots := 1
-export var initial_speed : Vector2
+@export var projectile : PackedScene
+@export var shots := 1
+@export var initial_speed : Vector2
 var anim_name : String
-export var shoot_towards_player := false
-onready var shot_sound: AudioStreamPlayer2D = $shot_sound
+@export var shoot_towards_player := false
+@onready var shot_sound: AudioStreamPlayer2D = $shot_sound
 
 
 func _Setup() -> void:
-	._Setup()
+	super._Setup()
 	anim_name = animation.trim_suffix("_prepare")
 
 func _Update(_delta) -> void:

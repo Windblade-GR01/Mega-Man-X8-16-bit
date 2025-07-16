@@ -4,7 +4,7 @@ func _ready() -> void:
 	Event.listen("damage",self,"finish")
 	Event.listen("player_death",self,"finish")
 	character.listen("cutscene_deactivate",self,"finish")
-	weapon_stasis.connect("interrupted",self,"finish")
+	weapon_stasis.connect("interrupted", Callable(self, "finish"))
 	
 func fire_charged() -> void:
 	play(weapon.charged_sound)

@@ -1,7 +1,7 @@
 extends AttackAbility
 
-export var bouncer : PackedScene
-onready var throw: AudioStreamPlayer2D = $throw
+@export var bouncer : PackedScene
+@onready var throw: AudioStreamPlayer2D = $throw
 
 func _Setup() -> void:
 	turn_and_face_player()

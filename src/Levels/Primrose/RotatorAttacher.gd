@@ -1,8 +1,8 @@
 extends Node2D
 
-onready var rotator = get_child(0)
+@onready var rotator = get_child(0)
 func _ready() -> void:
-	Event.connect("respawned",self,"attach_rotator")
+	Event.connect("respawned", Callable(self, "attach_rotator"))
 	pass
 
 func attach_rotator(enemy : Node2D):

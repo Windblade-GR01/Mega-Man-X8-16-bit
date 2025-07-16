@@ -1,10 +1,10 @@
 extends NewAbility
-onready var skill := $".."
+@onready var skill := $".."
 var able_to = true
 var sound_played = false
 var double_check := false
 
-onready var animation := AnimationController.new($"../../animatedSprite")
+@onready var animation := AnimationController.new($"../../animatedSprite")
 
 signal started
 signal step
@@ -34,7 +34,7 @@ func able_to_walk_again() -> void:
 	
 func _StartCondition() -> bool:
 	if able_to:
-		return ._StartCondition()
+		return super._StartCondition()
 	else:
 		return false
 

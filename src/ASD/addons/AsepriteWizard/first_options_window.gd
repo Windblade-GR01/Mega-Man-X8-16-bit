@@ -1,4 +1,4 @@
-tool
+@tool
 extends PanelContainer
 
 signal importer_state_changed
@@ -29,9 +29,9 @@ func _ready():
 	file_dialog_aseprite = _create_aseprite_file_selection()
 	output_folder_dialog = _create_outuput_folder_selection()
 	warning_dialog = AcceptDialog.new()
-	config_window = config_dialog.instance()
+	config_window = config_dialog.instantiate()
 	config_window.init(config)
-	config_window.connect("importer_state_changed", self, "_notify_importer_state_changed")
+	config_window.connect("importer_state_changed", Callable(self, "_notify_importer_state_changed"))
 	aseprite.init(config, config_window.get_default_command(), file_system)
 
 	get_parent().add_child(file_dialog_aseprite)
@@ -49,13 +49,13 @@ func _exit_tree():
 
 func _load_persisted_config():
 	if config.has_section_key(CONFIG_SECTION_KEY, GROUP_MODE_KEY):
-		_split_mode_field().pressed = config.get_value(CONFIG_SECTION_KEY, GROUP_MODE_KEY)
+		_split_mode_field().button_pressed = config.get_value(CONFIG_SECTION_KEY, GROUP_MODE_KEY)
 
 	if config.has_section_key(CONFIG_SECTION_KEY, ONLY_VISIBLE_LAYERS_KEY):
-		_only_visible_layers_field().pressed = config.get_value(CONFIG_SECTION_KEY, ONLY_VISIBLE_LAYERS_KEY)
+		_only_visible_layers_field().button_pressed = config.get_value(CONFIG_SECTION_KEY, ONLY_VISIBLE_LAYERS_KEY)
 
 	if config.has_section_key(CONFIG_SECTION_KEY, TRIM_IMAGES_KEY):
-		_trim_image_field().pressed = config.get_value(CONFIG_SECTION_KEY, TRIM_IMAGES_KEY)
+		_trim_image_field().button_pressed = config.get_value(CONFIG_SECTION_KEY, TRIM_IMAGES_KEY)
 
 	if config.has_section_key(CONFIG_SECTION_KEY, EXCEPTIONS_KEY):
 		_exception_pattern_field().text = config.get_value(CONFIG_SECTION_KEY, EXCEPTIONS_KEY)
@@ -72,7 +72,7 @@ func _load_persisted_config():
 		_output_folder_field().text = 'res://'
 
 	if config.has_section_key(CONFIG_SECTION_KEY, DO_NOT_CREATE_RES_KEY):
-		_do_not_create_res_field().pressed = config.get_value(CONFIG_SECTION_KEY, DO_NOT_CREATE_RES_KEY)
+		_do_not_create_res_field().button_pressed = config.get_value(CONFIG_SECTION_KEY, DO_NOT_CREATE_RES_KEY)
 
 
 func _open_aseprite_file_selection_dialog():
@@ -89,17 +89,17 @@ func _open_output_folder_selection_dialog():
 
 func _create_aseprite_file_selection():
 	var file_dialog = FileDialog.new()
-	file_dialog.mode = FileDialog.MODE_OPEN_FILE
+	file_dialog.mode = FileDialog.FILE_MODE_OPEN_FILE
 	file_dialog.access = FileDialog.ACCESS_FILESYSTEM
-	file_dialog.connect("file_selected", self, "_on_aseprite_file_selected")
-	file_dialog.set_filters(PoolStringArray(["*.ase","*.aseprite"]))
+	file_dialog.connect("file_selected", Callable(self, "_on_aseprite_file_selected"))
+	file_dialog.set_filters(PackedStringArray(["*.ase","*.aseprite"]))
 	return file_dialog
 
 func _create_outuput_folder_selection():
 	var file_dialog = FileDialog.new()
-	file_dialog.mode = FileDialog.MODE_OPEN_DIR
+	file_dialog.mode = FileDialog.FILE_MODE_OPEN_DIR
 	file_dialog.access = FileDialog.ACCESS_RESOURCES
-	file_dialog.connect("dir_selected", self, "_on_output_folder_selected")
+	file_dialog.connect("dir_selected", Callable(self, "_on_output_folder_selected"))
 	return file_dialog
 
 func _on_aseprite_file_selected(path):
@@ -127,7 +127,7 @@ func _on_next_btn_up():
 	}
 	var exit_code = aseprite.create_resource(aseprite_file, output_location, options)
 	if exit_code is GDScriptFunctionState:
-		exit_code = yield(exit_code, "completed")
+		exit_code = await exit_code.completed
 
 	if exit_code != 0:
 		_show_error(exit_code)

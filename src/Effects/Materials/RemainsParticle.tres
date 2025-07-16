@@ -1,21 +1,14 @@
-[gd_resource type="ParticlesMaterial" load_steps=3 format=2]
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://b0b6oldatfun4"]
 
-[ext_resource path="res://pisca_gradient.tres" type="Gradient" id=1]
+[ext_resource type="Gradient" path="res://pisca_gradient.tres" id="1"]
 
-[sub_resource type="GradientTexture" id=16]
-gradient = ExtResource( 1 )
+[sub_resource type="GradientTexture2D" id="16"]
+gradient = ExtResource("1")
 
 [resource]
 resource_name = "remains"
 emission_shape = 1
 emission_sphere_radius = 26.47
-flag_disable_z = true
-direction = Vector3( 0, -1, 0 )
-gravity = Vector3( 0, 800, 0 )
-initial_velocity = 400.0
-initial_velocity_random = 0.69
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-color_ramp = SubResource( 16 )
-anim_offset = 1.0
-anim_offset_random = 1.0
+direction = Vector3(0, -1, 0)
+gravity = Vector3(0, 800, 0)
+color_ramp = SubResource("16")

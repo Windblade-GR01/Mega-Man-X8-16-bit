@@ -1,8 +1,8 @@
 extends GenericIntro
 
-onready var floppy: Node2D = $"../Floppy"
-export var bar : Texture
-onready var battle_song: AudioStreamPlayer = $BattleSong
+@onready var floppy: Node2D = $"../Floppy"
+@export var bar : Texture2D
+@onready var battle_song: AudioStreamPlayer = $BattleSong
 
 func _ready() -> void:
 	call_deferred("play_animation","analysing")

@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/FX - Giga Crash Shot.ogg-aab84ec27d3549f7e09262ab25f6fcfa.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://hsd6c6xqiav7"
+path="res://.godot/imported/FX - Giga Crash Shot.ogg-aab84ec27d3549f7e09262ab25f6fcfa.oggvorbisstr"
 
 [deps]
 
 source_file="res://src/Sounds/FX - Giga Crash Shot.ogg"
-dest_files=[ "res://.import/FX - Giga Crash Shot.ogg-aab84ec27d3549f7e09262ab25f6fcfa.oggstr" ]
+dest_files=["res://.godot/imported/FX - Giga Crash Shot.ogg-aab84ec27d3549f7e09262ab25f6fcfa.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

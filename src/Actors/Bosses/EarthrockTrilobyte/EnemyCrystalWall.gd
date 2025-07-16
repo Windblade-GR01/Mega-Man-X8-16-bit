@@ -1,20 +1,20 @@
 extends Enemy
 
-export var strong_sprites : Resource
+@export var strong_sprites : Resource
 var player_at_left := false
 var player_at_right := false
 var creator : Node2D
 var shattered := false
-onready var collider: CollisionShape2D = $rigidBody2D/collisionShape2D
-onready var wall_check_left: RayCast2D = $wallCheck_left
-onready var wall_check_right: RayCast2D = $wallCheck_right
-onready var wallchecks = [wall_check_left, wall_check_right]
-onready var explosion: Particles2D = $explosion
-onready var remains: Particles2D = $remains
-onready var dot: Node2D = $DamageOnTouch
+@onready var collider: CollisionShape2D = $rigidBody2D/collisionShape2D
+@onready var wall_check_left: RayCast2D = $wallCheck_left
+@onready var wall_check_right: RayCast2D = $wallCheck_right
+@onready var wallchecks = [wall_check_left, wall_check_right]
+@onready var explosion: GPUParticles2D = $explosion
+@onready var remains: GPUParticles2D = $remains
+@onready var dot: Node2D = $DamageOnTouch
 
-onready var stage := AbilityStage.new(self,false)
-onready var animation := AnimationController.new($animatedSprite)
+@onready var stage := AbilityStage.new(self,false)
+@onready var animation := AnimationController.new($animatedSprite)
 var timer := 0.0
 var speed := 0.0
 

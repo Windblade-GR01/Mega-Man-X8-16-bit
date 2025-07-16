@@ -1,6 +1,6 @@
 extends Shot
-onready var buster: Node2D = $Buster
-onready var icarus_buster: Node2D = get_node_or_null("Icarus Buster")
+@onready var buster: Node2D = $Buster
+@onready var icarus_buster: Node2D = get_node_or_null("Icarus Buster")
 
 func switch_to_icarus():
 	buster.active = false

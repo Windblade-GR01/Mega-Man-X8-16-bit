@@ -1,30 +1,30 @@
 extends Node2D
 const beats = [0.01, 1.66, 3.32, 4.97, 5.59, 10.80]
 
-export var stage_info : Resource
-export var debug_logs := false
+@export var stage_info : Resource
+@export var debug_logs := false
 
 var ending := false
 
-onready var flash_bg: Sprite = $white_flash
-onready var fadeout: Sprite = $fadeout
-onready var red_bg: AnimatedSprite = $red_bg
-onready var sparks: AnimatedSprite = $sparks
-onready var boss: AnimatedSprite = $boss
+@onready var flash_bg: Sprite2D = $white_flash
+@onready var fadeout: Sprite2D = $fadeout
+@onready var red_bg: AnimatedSprite2D = $red_bg
+@onready var sparks: AnimatedSprite2D = $sparks
+@onready var boss: AnimatedSprite2D = $boss
 
-onready var objects: Node2D = $objects
-onready var ring: Sprite = $objects/ring
-onready var triangle: Sprite = $objects/triangle
-onready var sigma: Sprite = $objects/sigma
+@onready var objects: Node2D = $objects
+@onready var ring: Sprite2D = $objects/ring
+@onready var triangle: Sprite2D = $objects/triangle
+@onready var sigma: Sprite2D = $objects/sigma
 
-onready var boss_name: Label = $ui_anchor/boss_name
-onready var boss_name_shadow: Label = $ui_anchor/shadow
+@onready var boss_name: Label = $ui_anchor/boss_name
+@onready var boss_name_shadow: Label = $ui_anchor/shadow
 
 var animations : Array
 
-onready var tween := TweenController.new(self)
-onready var music: AudioStreamPlayer = $music
-onready var shake: AnimationPlayer = $animationPlayer
+@onready var tween := TweenController.new(self)
+@onready var music: AudioStreamPlayer = $music
+@onready var shake: AnimationPlayer = $animationPlayer
 
 
 signal start

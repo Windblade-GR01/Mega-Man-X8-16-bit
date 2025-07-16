@@ -1,8 +1,8 @@
 class_name Achievement extends Resource
 
-export var icon : Texture
-export var location : String
-export var disabled := false
+@export var icon : Texture2D
+@export var location : String
+@export var disabled := false
 var unlocked := false
 var date := "locked"
 
@@ -12,7 +12,7 @@ func get_description() -> String:
 func get_title() -> String:
 	return tr(get_id() + "_TITLE")
 	
-func get_icon() -> Texture:
+func get_icon() -> Texture2D:
 	return icon
 
 func get_id() -> String:

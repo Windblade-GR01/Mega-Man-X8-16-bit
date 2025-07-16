@@ -2,7 +2,7 @@ extends Node2D
 
 signal compiled(cache_path)
 
-var camera = Camera.new()
+var camera = Camera3D.new()
 
 var _compiled_cache_paths = []
 
@@ -21,10 +21,10 @@ func compile(cache_packed_scene):
 		return
 	
 	var cache_scene = spawn_cache(cache_packed_scene)
-	cache_scene.connect("compiled", self, "_on_cache_compiled", [cache_path, cache_scene])
+	cache_scene.connect("compiled", Callable(self, "_on_cache_compiled").bind(cache_path, cache_scene))
 
 func spawn_cache(cache_packed_scene):
-	var cache_scene = cache_packed_scene.instance()
+	var cache_scene = cache_packed_scene.instantiate()
 	var active_camera = get_active_camera()
 	active_camera.add_child(cache_scene)
 	cache_scene.scale = Vector3.ONE * 0.001
@@ -42,7 +42,7 @@ func _on_cache_compiled(cache_path, cache_scene):
 	emit_signal("compiled", cache_path)
 
 func get_active_camera():
-	var active_camera = get_viewport().get_camera()
+	var active_camera = get_viewport().get_camera_3d()
 	if not active_camera:
 		active_camera = camera
 		camera.current = true

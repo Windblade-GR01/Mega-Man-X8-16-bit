@@ -1,8 +1,8 @@
 extends NewAbility
 
-onready var animation = AnimationController.new($"../animatedSprite",self)
-onready var collider: CollisionShape2D = $"../collisionShape2D"
-onready var open: AudioStreamPlayer2D = $open
+@onready var animation = AnimationController.new($"../animatedSprite",self)
+@onready var collider: CollisionShape2D = $"../collisionShape2D"
+@onready var open: AudioStreamPlayer2D = $open
 
 signal waiting
 

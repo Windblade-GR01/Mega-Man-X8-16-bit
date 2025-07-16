@@ -1,7 +1,7 @@
 extends Node2D
 
-export var final_section_intro : AudioStream
-export var final_section_loop : AudioStream
+@export var final_section_intro : AudioStream
+@export var final_section_loop : AudioStream
 
 var beaten_bosses : Array
 var crystals_ready : Array
@@ -9,16 +9,16 @@ var sprites : Array
 
 signal ready_for_battle
 signal prepare_for_sigma
-onready var ready_effect: Sprite = $"../charge_circle2"
+@onready var ready_effect: Sprite2D = $"../charge_circle2"
 
 func _ready() -> void:
-	Event.connect("gateway_crystal_get",self,"on_crystal_got")
-	Event.connect("gateway_boss_defeated",self,"on_boss_defeated")
-	Event.connect("gateway_final_section",self,"start_final_section")
+	Event.connect("gateway_crystal_get", Callable(self, "on_crystal_got"))
+	Event.connect("gateway_boss_defeated", Callable(self, "on_boss_defeated"))
+	Event.connect("gateway_final_section", Callable(self, "start_final_section"))
 	Tools.timer(0.1,"update_based_on_savedata",self)
 	
 	for child in get_children():
-		if child is AnimatedSprite:
+		if child is AnimatedSprite2D:
 			sprites.append(child)
 			child.visible = false
 	

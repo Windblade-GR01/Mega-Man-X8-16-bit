@@ -1,11 +1,11 @@
 extends Spawner
 
-export var defeated_variable : String
-export var _debug_ignore_defeat := true
-export var dialogue_override : Resource
-export var death_signal_emitter : NodePath
+@export var defeated_variable : String
+@export var _debug_ignore_defeat := true
+@export var dialogue_override : Resource
+@export var death_signal_emitter : NodePath
 
-export var respawn_after_beat_game := false
+@export var respawn_after_beat_game := false
 var defeated = false
 signal defeated 
 
@@ -23,7 +23,7 @@ func initialize(_d = null):
 			active = false
 			emit_death()
 	else:
-		connect("object_death",self,"on_defeated")
+		connect("object_death", Callable(self, "on_defeated"))
 
 func emit_death() -> void:
 	emit_signal("object_death")
@@ -51,6 +51,6 @@ func _on_VileDoor_finish() -> void:
 			
 
 func setup_custom_variables() -> void:
-	.setup_custom_variables()
+	super.setup_custom_variables()
 	if dialogue_override:
 		spawned_object.get_node("Intro").dialogue = dialogue_override

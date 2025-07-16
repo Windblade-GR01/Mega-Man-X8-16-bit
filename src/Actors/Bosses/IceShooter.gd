@@ -1,14 +1,14 @@
 extends Node2D
 
-export(PackedScene) var shards
-export var active := false
-export var debug_logs := false
-export var interval_between_shots := 2.5
+@export var shards: PackedScene
+@export var active := false
+@export var debug_logs := false
+@export var interval_between_shots := 2.5
 var created_shards = []
 var timer := 0.0
-onready var actual_snow = $actual_snow
-onready var character = get_parent().get_parent()
-export var shot_creation_height := -180
+@onready var actual_snow = $actual_snow
+@onready var character = get_parent().get_parent()
+@export var shot_creation_height := -180
 var shot_position_y := 0.0
 const sequence := [0,1,-1,.5,-.5,0,.25,-.25,1,-1,-.75,.75]
 var last_pos := 0
@@ -58,7 +58,7 @@ func create_ice():
 		Tools.timer(interval_between_shots,"create_ice",self)
 	
 func fire(projectile, shot_position, _dir := 0, velocity_override := Vector2 (0,0)):
-	var shot = projectile.instance()
+	var shot = projectile.instantiate()
 	var direction
 	if _dir != 0:
 		direction = _dir
@@ -73,7 +73,7 @@ func fire(projectile, shot_position, _dir := 0, velocity_override := Vector2 (0,
 	if velocity_override.y != 0:
 		shot.set_vertical_speed(velocity_override.y)
 	
-	shot.connect("zero_health", self, "remove_shard_from_list",[shot])
+	shot.connect("zero_health", Callable(self, "remove_shard_from_list").bind(shot))
 	created_shards.append(shot)
 	
 	#print("Shot created at " + str(shot.global_position.y))

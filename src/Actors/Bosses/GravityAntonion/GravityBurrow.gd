@@ -1,12 +1,12 @@
 extends AttackAbility
-onready var damage: Node2D = $"../Damage"
-onready var damage_on_touch: Node2D = $"../DamageOnTouch"
-onready var collision: Particles2D = $collision
-onready var burrow: Particles2D = $burrow
-onready var burrow_2: Particles2D = $burrow2
-onready var burrow_sfx: AudioStreamPlayer2D = $burrow3
-onready var jump: AudioStreamPlayer2D = $jump
-onready var land: AudioStreamPlayer2D = $land
+@onready var damage: Node2D = $"../Damage"
+@onready var damage_on_touch: Node2D = $"../DamageOnTouch"
+@onready var collision: GPUParticles2D = $collision
+@onready var burrow: GPUParticles2D = $burrow
+@onready var burrow_2: GPUParticles2D = $burrow2
+@onready var burrow_sfx: AudioStreamPlayer2D = $burrow3
+@onready var jump: AudioStreamPlayer2D = $jump
+@onready var land: AudioStreamPlayer2D = $land
 
 func _Update(delta) -> void:
 	process_gravity(delta)

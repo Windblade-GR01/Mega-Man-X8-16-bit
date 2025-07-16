@@ -1,17 +1,17 @@
 extends Label
-onready var shadow: Label = $"../Shadow"
-onready var tween := TweenController.new(self,false)
-export var text_palette : Texture
+@onready var shadow: Label = $"../Shadow"
+@onready var tween := TweenController.new(self,false)
+@export var text_palette : Texture2D
 
 func _ready() -> void:
 	for child in get_parent().get_children():
 		if child.has_signal("stage_selected"):
-			child.connect("stage_selected",self,"on_stage_selected")
+			child.connect("stage_selected", Callable(self, "on_stage_selected"))
 		else:
-			child.connect("focus_entered",self,"clear")
+			child.connect("focus_entered", Callable(self, "clear"))
 	percent_visible = 0
 	shadow.percent_visible = 0
-	material.set_shader_param("palette",text_palette)
+	material.set_shader_parameter("palette",text_palette)
 
 func clear() -> void:
 	tween.reset()

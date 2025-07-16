@@ -1,21 +1,21 @@
 extends Node2D
 
-onready var ice_pieces_parent := $Pool
-onready var piece_pool : Array
-onready var position_pool : Array
+@onready var ice_pieces_parent := $Pool
+@onready var piece_pool : Array
+@onready var position_pool : Array
 var active := false
 var sunk_index := 0
 var timer := 0.0
 var biker_spawn_timer := 0.0
 var endtimer := 0.0
-var tween : SceneTreeTween
+var tween : Tween
 const piece_size = 64
 const original_sink_interval = 0.16
 var sink_interval = 0.16
 var spawned_enemies := []
-onready var boss_holder: Sprite = $Boss
-onready var explosion_time = get_death_time()
-onready var walls: TileMap = $Boss/UnclimbableWalls
+@onready var boss_holder: Sprite2D = $Boss
+@onready var explosion_time = get_death_time()
+@onready var walls: TileMap = $Boss/UnclimbableWalls
 
 func _ready() -> void:
 	generate_ice_pieces()
@@ -34,8 +34,8 @@ func populate_position_pool_and_connect() -> void:
 	piece_pool = ice_pieces_parent.get_children()
 	position_pool = ice_pieces_parent.get_children()
 	for piece in piece_pool:
-		var _s = piece.connect("sunk",self,"on_piece_sunk")
-		_s = piece.connect("spawned",self,"add_spawn_to_list")
+		var _s = piece.connect("sunk", Callable(self, "on_piece_sunk"))
+		_s = piece.connect("spawned", Callable(self, "add_spawn_to_list"))
 
 func start() -> void:
 	active = true

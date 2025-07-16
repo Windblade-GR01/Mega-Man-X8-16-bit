@@ -1,11 +1,11 @@
-extends AnimatedSprite
+extends AnimatedSprite2D
 
-onready var character: KinematicBody2D = $"../.."
-onready var boss_ai: Node2D = $"../../BossAI"
-onready var animated_sprite: AnimatedSprite = $".."
-onready var shot_sound: AudioStreamPlayer2D = $shot_sound
+@onready var character: CharacterBody2D = $"../.."
+@onready var boss_ai: Node2D = $"../../BossAI"
+@onready var animated_sprite: AnimatedSprite2D = $".."
+@onready var shot_sound: AudioStreamPlayer2D = $shot_sound
 
-export (PackedScene) var projectile
+@export var projectile: PackedScene
 var shot
 var timer := 0.0
 var last_shot_time := 0.0
@@ -79,7 +79,7 @@ func _physics_process(delta: float) -> void:
 			
 
 func play_random_fire():
-	if rand_range(-1,1) > 0:
+	if randf_range(-1,1) > 0:
 		play("fire1")
 		height_correction = -10
 	else:
@@ -99,7 +99,7 @@ func handle_activation() -> void:
 		hide()
 	
 func instantiate(scene : PackedScene) -> Node2D:
-	var instance = scene.instance()
+	var instance = scene.instantiate()
 	get_tree().current_scene.add_child(instance,true)
 	instance.set_global_position(global_position) 
 	return instance

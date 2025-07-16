@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/swipe.wav-0c47a17771e1f1f6bae905d63e9ad929.sample"
+type="AudioStreamWAV"
+uid="uid://dh8h8mb204rj7"
+path="res://.godot/imported/swipe.wav-0c47a17771e1f1f6bae905d63e9ad929.sample"
 
 [deps]
 
 source_file="res://src/Actors/Bosses/DarkMantis/swipe.wav"
-dest_files=[ "res://.import/swipe.wav-0c47a17771e1f1f6bae905d63e9ad929.sample" ]
+dest_files=["res://.godot/imported/swipe.wav-0c47a17771e1f1f6bae905d63e9ad929.sample"]
 
 [params]
 

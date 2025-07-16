@@ -1,5 +1,5 @@
-extends AnimatedSprite
-onready var start_portal: Node2D = $"../StartPortal"
+extends AnimatedSprite2D
+@onready var start_portal: Node2D = $"../StartPortal"
 
 
 func _ready() -> void:

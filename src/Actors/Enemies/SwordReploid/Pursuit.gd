@@ -1,11 +1,11 @@
 extends AttackAbility
 #class_name SwordPursuit
 
-export var nearby_distance : Vector2
+@export var nearby_distance : Vector2
 var max_distance : Vector2
 var player_direction := 0
 var turning := false
-onready var slash: Node2D = $SlashHitbox
+@onready var slash: Node2D = $SlashHitbox
 
 func _ready() -> void:
 	max_distance = $"../AI/vision/collisionShape2D".shape.extents
@@ -98,6 +98,6 @@ func player_in_front() -> bool:
 	return get_player_direction_relative() == character.get_facing_direction()
 
 func turn_and_face_player() -> void:
-	.turn_and_face_player()
+	super.turn_and_face_player()
 	slash.handle_direction()
 	

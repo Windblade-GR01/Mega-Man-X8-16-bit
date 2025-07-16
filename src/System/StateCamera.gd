@@ -3,7 +3,7 @@ class_name StateCamera
 
 const width := 398
 const height := 224
-onready var coll: CollisionShape2D = $area_limit_detector/collisionShape2D
+@onready var coll: CollisionShape2D = $area_limit_detector/collisionShape2D
 
 var modes = []
 var current_mode_x
@@ -14,7 +14,7 @@ var custom_limits_right:= 999999999.0
 var custom_limits_top  := -999999999.0
 var custom_limits_bot  := 999999999.0
 
-export var ignore_limits := false
+@export var ignore_limits := false
 var locked_camera := false
 
 signal start_translate_x (target_position)
@@ -36,10 +36,10 @@ var trauma_power = 3  # Trauma exponent. Use [2, 3].
 const max_offset := Vector2(4,4)
 
 var camera_offset : Vector2
-onready var debugt : RichTextLabel = $debugtext
-onready var offsetter: Node = $Offset
-onready var debug2: RichTextLabel = $debugtext2
-onready var debugtext_3: RichTextLabel = $debugtext3
+@onready var debugt : RichTextLabel = $debugtext
+@onready var offsetter: Node = $Offset
+@onready var debug2: RichTextLabel = $debugtext2
+@onready var debugtext_3: RichTextLabel = $debugtext3
 
 var ignore_translate := false
 
@@ -109,7 +109,7 @@ func process_offset(new_position, delta) -> Vector2:
 func process_screenshake(new_position : Vector2, delta) -> Vector2:
 	trauma = max(trauma - decay * delta, 0)
 	var amount = pow(trauma, trauma_power)
-	offset.y = max_offset.y * amount * rand_range(-1, 1)
+	offset.y = max_offset.y * amount * randf_range(-1, 1)
 	return new_position
 
 func add_trauma(amount):

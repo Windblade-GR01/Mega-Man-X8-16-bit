@@ -1,30 +1,30 @@
 extends SimplePlayerProjectile
 
-export var duration := 3.0
-export var move_speed := 100.0
-export var endanim_name := "expire"
-export var deflectable := true
-export var flash_duration := 0.25
-export var foward_start := 16.0
+@export var duration := 3.0
+@export var move_speed := 100.0
+@export var endanim_name := "expire"
+@export var deflectable := true
+@export var flash_duration := 0.25
+@export var foward_start := 16.0
 var target_list : Array
 var interval := 0.064
 var damage_timer := 0.0
 const continuous_damage := true
 const bypass_shield := true
-onready var animation := AnimationController.new($animatedSprite)
-onready var tween := TweenController.new(self,false)
-onready var point: AudioStreamPlayer2D = $point
-onready var sound: AudioStreamPlayer2D = $sound
+@onready var animation := AnimationController.new($animatedSprite)
+@onready var tween := TweenController.new(self,false)
+@onready var point: AudioStreamPlayer2D = $point
+@onready var sound: AudioStreamPlayer2D = $sound
 
 signal projectile_started
 
 func _ready() -> void:
-	Event.connect("gigacrash",self,"end")
+	Event.connect("gigacrash", Callable(self, "end"))
 
 func _Setup() -> void:
 	emit_signal("projectile_started")
 	modulate = Color(10,10,10,1)
-	tween.attribute("modulate",Color.white,flash_duration)
+	tween.attribute("modulate",Color.WHITE,flash_duration)
 	point.play()
 	sound.play()
 	global_position.x += foward_start * get_facing_direction()

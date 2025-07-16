@@ -1,11 +1,11 @@
 extends AttackAbility
 
-export var projectile : PackedScene
+@export var projectile : PackedScene
 const knee_time := 0.3
-onready var land_particles: Particles2D = $land_particles
-onready var land: AudioStreamPlayer2D = $land
-onready var shot_sound: AudioStreamPlayer2D = $shot_sound
-onready var jump: AudioStreamPlayer2D = $jump
+@onready var land_particles: GPUParticles2D = $land_particles
+@onready var land: AudioStreamPlayer2D = $land
+@onready var shot_sound: AudioStreamPlayer2D = $shot_sound
+@onready var jump: AudioStreamPlayer2D = $jump
 
 func _Update(_delta) -> void:
 	if attack_stage == 0 and has_finished_last_animation():
@@ -55,7 +55,7 @@ func _Update(_delta) -> void:
 			EndAbility()
 
 func _Interrupt() -> void:
-	._Interrupt()
+	super._Interrupt()
 	land_particles.emitting = false
 
 func is_falling() -> bool:

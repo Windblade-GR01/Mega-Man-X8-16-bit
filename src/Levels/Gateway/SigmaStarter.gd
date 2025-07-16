@@ -1,5 +1,5 @@
 extends Area2D
-onready var collider: CollisionShape2D = $collisionShape2D
+@onready var collider: CollisionShape2D = $collisionShape2D
 
 signal x_detected
 var started := false

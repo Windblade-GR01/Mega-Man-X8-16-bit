@@ -9,7 +9,7 @@
 [ext_resource path="res://src/Actors/MeleeEnemyAttack.gd" type="Script" id=11]
 [ext_resource path="res://src/Actors/Enemies/SwordReploid/Pursuit.gd" type="Script" id=12]
 [ext_resource path="res://src/Sounds/HIT.wav" type="AudioStream" id=13]
-[ext_resource path="res://src/Actors/Enemies/SwordReploid/reploid_remains_palette.png" type="Texture" id=14]
+[ext_resource path="res://src/Actors/Enemies/SwordReploid/reploid_remains_palette.png" type="Texture2D" id=14]
 [ext_resource path="res://src/Actors/Enemies/SwordReploid/sword_reploid.res" type="SpriteFrames" id=15]
 [ext_resource path="res://src/Actors/Enemies/SwordReploid/AlarmReploid.gd" type="Script" id=16]
 [ext_resource path="res://src/Actors/Enemies/SwordReploid/AlarmIntro.gd" type="Script" id=17]
@@ -35,7 +35,7 @@ extents = Vector2( 14, 20.5 )
 [sub_resource type="RectangleShape2D" id=70]
 extents = Vector2( 55, 20.5 )
 
-[node name="SwordReploid" type="KinematicBody2D" groups=["Enemies"]]
+[node name="SwordReploid" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 0
 collision_mask = 513
 script = ExtResource( 16 )
@@ -57,7 +57,7 @@ input_pickable = false
 position = Vector2( -0.5, 0 )
 shape = SubResource( 67 )
 
-[node name="animatedSprite" type="AnimatedSprite" parent="."]
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
 material = SubResource( 63 )
 position = Vector2( 2, 0 )
 z_index = 1
@@ -72,7 +72,7 @@ visible = false
 position = Vector2( 0, 3 )
 shape = SubResource( 68 )
 
-[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 visible = false
 scale = Vector2( 6, 4.8 )
 rect = Rect2( -2, -2, 4, 6 )

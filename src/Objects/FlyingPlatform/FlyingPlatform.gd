@@ -1,16 +1,16 @@
 extends PathFollow2D
-export var speed := 60
-export var use_elevator_speed := false
-onready var collision_shape_2d: CollisionShape2D = $kinematicBody2D/collisionShape2D
+@export var speed := 60
+@export var use_elevator_speed := false
+@onready var collision_shape_2d: CollisionShape2D = $kinematicBody2D/collisionShape2D
 
 var reached_bottom := false
-onready var elevator := get_parent().get_parent()
+@onready var elevator := get_parent().get_parent()
 
 func _ready() -> void:
 	if use_elevator_speed:
 		speed = 0
-		elevator.connect("activated",self,"get_elevator_speed")# warning-ignore:return_value_discarded
-		elevator.connect("player_reached_bottom",self,"on_player_reached_bottom")# warning-ignore:return_value_discarded
+		elevator.connect("activated", Callable(self, "get_elevator_speed"))# warning-ignore:return_value_discarded
+		elevator.connect("player_reached_bottom", Callable(self, "on_player_reached_bottom"))# warning-ignore:return_value_discarded
 	if not visible:
 		collision_shape_2d.disabled = true
 

@@ -1,5 +1,5 @@
 extends SimplePlayerProjectile
-onready var shockwave: AnimatedSprite = $shockwave
+@onready var shockwave: AnimatedSprite2D = $shockwave
 #onready var shot_sound: AudioStreamPlayer2D = $shot_sound
 
 func _Setup() -> void:

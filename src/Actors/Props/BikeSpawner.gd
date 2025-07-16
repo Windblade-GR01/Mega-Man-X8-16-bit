@@ -12,4 +12,4 @@ func should_despawn() -> bool:
 	return false
 
 func despawn() -> void:
-	.despawn()
+	super.despawn()

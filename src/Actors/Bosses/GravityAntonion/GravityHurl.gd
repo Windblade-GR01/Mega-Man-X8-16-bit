@@ -1,7 +1,7 @@
 extends AttackAbility
-onready var createbox: AudioStreamPlayer2D = $createbox
+@onready var createbox: AudioStreamPlayer2D = $createbox
 
-export var projectile : PackedScene
+@export var projectile : PackedScene
 
 func _Update(delta) -> void:
 	process_gravity(delta)

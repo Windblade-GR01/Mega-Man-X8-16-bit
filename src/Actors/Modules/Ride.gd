@@ -28,7 +28,7 @@ func _Setup() -> void:
 func _Interrupt() -> void:
 	equalize_character_and_ride_directions()
 	character.activate()
-	character.make_visible()
+	character._make_visible()
 	execute_jump()
 	set_ride(null)
 	Event.emit_signal("new_camera_focus", character)

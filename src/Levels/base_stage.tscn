@@ -21,7 +21,7 @@
 [node name="Hud" parent="." instance=ExtResource( 6 )]
 
 [node name="Music Player" type="AudioStreamPlayer" parent="."]
-pause_mode = 2
+process_mode = 3
 bus = "Music"
 script = ExtResource( 1 )
 boss_intro = ExtResource( 10 )
@@ -33,7 +33,7 @@ capsule_song = ExtResource( 7 )
 
 [node name="StateCamera" parent="." instance=ExtResource( 2 )]
 
-[node name="Ready Warning Text" type="AnimatedSprite" parent="StateCamera"]
+[node name="Ready Warning Text" type="AnimatedSprite2D" parent="StateCamera"]
 frames = ExtResource( 14 )
 animation = "ready"
 script = ExtResource( 12 )

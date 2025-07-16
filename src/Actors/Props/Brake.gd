@@ -1,7 +1,7 @@
 extends BikeMovement
 class_name Break
 
-export var brake_speed = 640.0
+@export var brake_speed = 640.0
 
 func _StartCondition() -> bool:
 	if character.is_on_floor():

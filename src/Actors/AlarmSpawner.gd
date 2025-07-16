@@ -1,14 +1,14 @@
 extends Node2D
 
-export (PackedScene) var object_to_spawn
-export var set_direction_to_right := false
-export var detection_area : NodePath
+@export var object_to_spawn: PackedScene
+@export var set_direction_to_right := false
+@export var detection_area : NodePath
 var timer := 0.0
 var alarm := false
 var spawned_object : Node2D
 var area
 
-onready var visibility: VisibilityNotifier2D = $visibilityNotifier2D
+@onready var visibility: VisibleOnScreenNotifier2D = $visibilityNotifier2D
 func _ready() -> void:
 	Event.listen("alarm",self,"on_alarm")
 	Event.listen("turn_off_alarm",self,"on_reset_lights")
@@ -60,7 +60,7 @@ func on_reset_lights() -> void:
 	alarm = false
 
 func add_spawn_to_scene() -> void:
-	spawned_object = object_to_spawn.instance()
+	spawned_object = object_to_spawn.instantiate()
 	get_tree().current_scene.get_node("Objects").call_deferred("add_child",spawned_object)
 
 func position_spawn() -> void:

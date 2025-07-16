@@ -1,7 +1,7 @@
 extends Enemy
-export var dir := -1
-export var type := "mid"
-export var chance := 0.015
+@export var dir := -1
+@export var type := "mid"
+@export var chance := 0.015
 
 func _ready() -> void:
 	play_animation(type)

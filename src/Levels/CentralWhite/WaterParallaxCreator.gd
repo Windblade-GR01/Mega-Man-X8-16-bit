@@ -1,7 +1,7 @@
 extends ParallaxBackground
 
-export var water_piece : NodePath
-export var number_of_pieces := 72
+@export var water_piece : NodePath
+@export var number_of_pieces := 72
 var pieces = []
 
 func _ready() -> void:
@@ -12,13 +12,13 @@ func _ready() -> void:
 	pieces.append(get_node(water_piece))
 	while i <= number_of_pieces:
 		var new_piece : ParallaxLayer = get_node(water_piece).duplicate()
-		var sprite : Sprite = new_piece.get_child(0)
+		var sprite : Sprite2D = new_piece.get_child(0)
 		var visual_y = clamp(ceil(float(i)/6),0,10)
 		if i > 4:
 			new_piece.motion_scale.x += float(i)/(number_of_pieces*2)
 		new_piece.motion_offset.y += float(i)*2
 		sprite.region_rect.position.y = visual_y
-		sprite.region_rect.position.x = round(rand_range(-32,32))
+		sprite.region_rect.position.x = round(randf_range(-32,32))
 		sprite.flip_h = randi() % 2 > 0
 		add_child(new_piece)
 		pieces.append(new_piece)

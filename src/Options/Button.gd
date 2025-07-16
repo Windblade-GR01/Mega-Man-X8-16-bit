@@ -1,14 +1,14 @@
 extends TextureButton
 class_name X8TextureButton
 
-export var idle_color := Color.dimgray
-export var focus_color := Color.white
-export var focus_multiplier := 2.0
-export var press_multiplier := 3.0
+@export var idle_color := Color.DIM_GRAY
+@export var focus_color := Color.WHITE
+@export var focus_multiplier := 2.0
+@export var press_multiplier := 3.0
 
-export (NodePath) var menu_path
-var tween : SceneTreeTween
-var original_y = rect_position.y
+@export var menu_path: NodePath
+var tween : Tween
+var original_y = position.y
 var silent := false
 
 var menu
@@ -22,8 +22,8 @@ func connect_lock_signals(_menu) -> void:
 	if _menu:
 		if not menu:
 			menu = _menu
-		_menu.connect("unlock_buttons",self,"enable")
-		_menu.connect("lock_buttons",self,"disable")
+		_menu.connect("unlock_buttons", Callable(self, "enable"))
+		_menu.connect("lock_buttons", Callable(self, "disable"))
 
 func enable() -> void:
 	focus_mode = Control.FOCUS_ALL

@@ -1,10 +1,10 @@
 extends AttackAbility
 
 var diag_attack := false
-onready var laser: Node2D = $"../animatedSprite/SigmaLaser"
-onready var diag_laser: Node2D = $"../animatedSprite/SigmaLaser2"
-onready var shot: AudioStreamPlayer2D = $shot
-onready var flash: Sprite = $flash
+@onready var laser: Node2D = $"../animatedSprite/SigmaLaser"
+@onready var diag_laser: Node2D = $"../animatedSprite/SigmaLaser2"
+@onready var shot: AudioStreamPlayer2D = $shot
+@onready var flash: Sprite2D = $flash
 
 func _Setup():
 	turn_and_face_player()
@@ -40,7 +40,7 @@ func _Update(_delta):
 		EndAbility()
 
 func _Interrupt():
-	._Interrupt()
+	super._Interrupt()
 	shot.stop()
 	deactivate_laser()
 	diag_laser.visible = false
@@ -61,12 +61,12 @@ func deactivate_laser():
 func play_animation(anim_name : String) -> void:
 	var diag_prefix := "diag"
 	if diag_attack:
-		.play_animation(diag_prefix + anim_name)
+		super.play_animation(diag_prefix + anim_name)
 	else:
-		.play_animation(anim_name)
+		super.play_animation(anim_name)
 
 func screenshake(value := 2.0):
 	if executing:
 		flash.start()
-		.screenshake(value)
+		super.screenshake(value)
 	pass

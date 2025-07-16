@@ -1,9 +1,9 @@
 extends AttackAbility
-onready var shield_behaviour: Node2D = $"../EnemyShield"
-onready var flying_shield: AnimatedSprite = $"../animatedSprite/flying_shield"
-onready var break_vfx: AnimatedSprite = $"../animatedSprite/break_vfx"
-var tween : SceneTreeTween
-export var travel_time := 1.5
+@onready var shield_behaviour: Node2D = $"../EnemyShield"
+@onready var flying_shield: AnimatedSprite2D = $"../animatedSprite/flying_shield"
+@onready var break_vfx: AnimatedSprite2D = $"../animatedSprite/break_vfx"
+var tween : Tween
+@export var travel_time := 1.5
 
 func _ready() -> void:
 	flying_shield.visible = false
@@ -20,7 +20,7 @@ func shield_throw() -> void:
 	tween = get_tree().create_tween()
 	tween.tween_property(flying_shield,"position", Vector2(0,-jump_velocity),travel_time/2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)# warning-ignore:return_value_discarded
 	tween.tween_property(flying_shield,"position", Vector2(0,0),travel_time/2).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)# warning-ignore:return_value_discarded
-	tween.tween_callback(self,"catch_shield")# warning-ignore:return_value_discarded
+	tween.tween_callback(Callable(self, "catch_shield"))# warning-ignore:return_value_discarded
 
 func catch_shield() -> void:
 	if character.has_health():

@@ -1,27 +1,27 @@
 extends Weapon
 
-export var recharge_rate := 1.0
-export var weapon : Resource
-onready var parent := get_parent()
-onready var jump_damage: Node2D = $"../../JumpDamage"
+@export var recharge_rate := 1.0
+@export var weapon : Resource
+@onready var parent := get_parent()
+@onready var jump_damage: Node2D = $"../../JumpDamage"
 
-onready var OriginalMainColor1 : Color = MainColor1
-onready var OriginalMainColor2 : Color = MainColor2
-onready var OriginalMainColor3 : Color = MainColor3
-onready var vfx: AnimatedSprite = $break_vfx
+@onready var OriginalMainColor1 : Color = MainColor1
+@onready var OriginalMainColor2 : Color = MainColor2
+@onready var OriginalMainColor3 : Color = MainColor3
+@onready var vfx: AnimatedSprite2D = $break_vfx
 
-onready var tween : SceneTreeTween
+@onready var tween : Tween
 
 var buffed := false
-onready var air_dash: Node2D = $"../../AirDash"
-onready var dash: Node2D = $"../../Dash"
-onready var life_steal: Node2D = $"../../LifeSteal"
-onready var charge: Node2D = $"../../Charge"
-onready var trail: Line2D = $node/trail
-onready var sprite: AnimatedSprite = $"../../animatedSprite"
-onready var activate: AudioStreamPlayer2D = $activate
-onready var flash: Sprite = $flash
-onready var particles_2d: Particles2D = $particles2D
+@onready var air_dash: Node2D = $"../../AirDash"
+@onready var dash: Node2D = $"../../Dash"
+@onready var life_steal: Node2D = $"../../LifeSteal"
+@onready var charge: Node2D = $"../../Charge"
+@onready var trail: Line2D = $node/trail
+@onready var sprite: AnimatedSprite2D = $"../../animatedSprite"
+@onready var activate: AudioStreamPlayer2D = $activate
+@onready var flash: Sprite2D = $flash
+@onready var particles_2d: GPUParticles2D = $particles2D
 
 signal activated
 signal deactivated

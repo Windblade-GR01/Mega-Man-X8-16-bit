@@ -1,8 +1,8 @@
 extends X8TextureButton
 
-export var stage_info : Resource
-export var frame := 0
-export var intensity := 0
+@export var stage_info : Resource
+@export var frame := 0
+@export var intensity := 0
 signal stage_selected(info)
 
 

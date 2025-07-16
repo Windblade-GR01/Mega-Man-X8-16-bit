@@ -1,29 +1,29 @@
 extends Node
 
-export var debug_logs := false
-export var boss_door := false
-export var _previous_limit : NodePath
-export var _next_limit : NodePath
-export var _explosion_limit : NodePath
-export var associated_checkpoint := -1
-export var exclusive_checkpoint := false
+@export var debug_logs := false
+@export var boss_door := false
+@export var _previous_limit : NodePath
+@export var _next_limit : NodePath
+@export var _explosion_limit : NodePath
+@export var associated_checkpoint := -1
+@export var exclusive_checkpoint := false
 
-onready var door := get_parent()
-onready var previous_limit := get_node_or_null(_previous_limit)
-onready var next_limit := get_node_or_null(_next_limit)
-onready var explosion_limit := get_node_or_null(_explosion_limit)
+@onready var door := get_parent()
+@onready var previous_limit := get_node_or_null(_previous_limit)
+@onready var next_limit := get_node_or_null(_next_limit)
+@onready var explosion_limit := get_node_or_null(_explosion_limit)
 const limit_object := preload("res://src/Objects/Door/explosion_limit.tscn")
 
 var exploded := false
 
 func _ready() -> void:
-	door.connect("explode",self,"on_explosion")
-	door.connect("passing",self,"on_passing")
-	door.connect("finish",self,"on_finish")
-	door.connect("close",self,"on_close")
+	door.connect("explode", Callable(self, "on_explosion"))
+	door.connect("passing", Callable(self, "on_passing"))
+	door.connect("finish", Callable(self, "on_finish"))
+	door.connect("close", Callable(self, "on_close"))
 	Event.listen("moved_player_to_checkpoint",self,"on_checkpoint")
 	if previous_limit:
-		previous_limit.connect("accessed",self,"last_zone_entered")
+		previous_limit.connect("accessed", Callable(self, "last_zone_entered"))
 
 func last_zone_entered() -> void:
 	if not exploded and door.able_to_open:
@@ -84,7 +84,7 @@ func enable_explosion_limits() -> void:
 		explosion_limit.enable()
 	else:
 		Log("spawning and enabling explosion limits")
-		var l = limit_object.instance()
+		var l = limit_object.instantiate()
 		door.call_deferred("add_child",l)
 		l.set_deferred("global_position",door.global_position)
 		explosion_limit = l

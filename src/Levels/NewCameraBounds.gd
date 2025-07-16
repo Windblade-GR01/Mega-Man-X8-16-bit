@@ -1,15 +1,15 @@
 extends Area2D
 
-export var bound_x := false
-export var bound_y := true
+@export var bound_x := false
+@export var bound_y := true
 
 var following_player
 var needs_translation = false
-onready var camera_limits = $camera_limits
-onready var limit_left = camera_limits.global_position.x - camera_limits.shape.extents.x
-onready var limit_right = camera_limits.global_position.x + camera_limits.shape.extents.x
-onready var limit_up = camera_limits.global_position.y - camera_limits.shape.extents.y
-onready var limit_down = camera_limits.global_position.y + camera_limits.shape.extents.y
+@onready var camera_limits = $camera_limits
+@onready var limit_left = camera_limits.global_position.x - camera_limits.shape.extents.x
+@onready var limit_right = camera_limits.global_position.x + camera_limits.shape.extents.x
+@onready var limit_up = camera_limits.global_position.y - camera_limits.shape.extents.y
+@onready var limit_down = camera_limits.global_position.y + camera_limits.shape.extents.y
 
 func _ready() -> void:
 # warning-ignore:return_value_discarded
@@ -17,7 +17,7 @@ func _ready() -> void:
 # warning-ignore:return_value_discarded
 	Event.listen("camera_movement_concluded",self,"done_moving")
 # warning-ignore:return_value_discarded
-	connect("body_entered",self,"update_camera_bounds")
+	connect("body_entered", Callable(self, "update_camera_bounds"))
 
 func new_bounds_set(current_bounds) -> void:
 	if current_bounds != self and following_player:

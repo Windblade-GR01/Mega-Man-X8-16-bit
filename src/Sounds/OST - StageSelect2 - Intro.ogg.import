@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/OST - StageSelect2 - Intro.ogg-ca4549bfbfab41bf99b12a0b5a140d14.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bdq6p07nknk55"
+path="res://.godot/imported/OST - StageSelect2 - Intro.ogg-ca4549bfbfab41bf99b12a0b5a140d14.oggvorbisstr"
 
 [deps]
 
 source_file="res://src/Sounds/OST - StageSelect2 - Intro.ogg"
-dest_files=[ "res://.import/OST - StageSelect2 - Intro.ogg-ca4549bfbfab41bf99b12a0b5a140d14.oggstr" ]
+dest_files=["res://.godot/imported/OST - StageSelect2 - Intro.ogg-ca4549bfbfab41bf99b12a0b5a140d14.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

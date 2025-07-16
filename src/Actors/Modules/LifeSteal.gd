@@ -1,21 +1,21 @@
 extends EventAbility
 
-export var first_decay := 1.25
-export var lifesteal_decay := 0.5
-export var minimum_time_between_heals := 0.2
+@export var first_decay := 1.25
+@export var lifesteal_decay := 0.5
+@export var minimum_time_between_heals := 0.2
 var first_decayed := false
 var last_time_hit := 0.0
 var last_time_decay := 0.0
 var healable_amount := 0
-onready var damage_module = get_parent().get_node("Damage")
-onready var heal_sound = get_node("heal_sound")
+@onready var damage_module = get_parent().get_node("Damage")
+@onready var heal_sound = get_node("heal_sound")
 
 func _ready() -> void:
 	Event.listen("hit_enemy",self,"on_hit_enemy")
 	Event.listen("charge_hit_enemy",self,"on_big_hit_enemy")
 	Event.listen("enemy_kill",self,"on_kill_enemy")
-	Event.connect("subtank_health_restore",self,"remove_healable_amount",[1])
-	Event.connect("xdrive",self,"heal_all_at_once")
+	Event.connect("subtank_health_restore", Callable(self, "remove_healable_amount").bind(1))
+	Event.connect("xdrive", Callable(self, "heal_all_at_once"))
 	character.listen("collected_health", self, "remove_healable_amount")
 
 func play_sound_on_initialize():
@@ -25,12 +25,12 @@ func set_up_character_event_connection():
 	call_deferred("setup_deferred")
 
 func setup_deferred():
-	damage_module.connect(start_event,self,execution_method)
+	damage_module.connect(start_event, Callable(self, execution_method))
 	if stop_listening_on_death:
 		character.listen("death",self,"deactivate")
 
 func deactivate(_d = null) -> void:
-	.deactivate()
+	super.deactivate()
 	healable_amount = 0
 	Event.emit_signal("disabled_lifesteal")
 

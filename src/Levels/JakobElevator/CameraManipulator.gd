@@ -1,9 +1,9 @@
 extends Node
-onready var camera: Camera2D = $"../../../StateCamera"
-onready var elevator: StaticBody2D = $".."
+@onready var camera: Camera2D = $"../../../StateCamera"
+@onready var elevator: StaticBody2D = $".."
 
-export var offset_top := 226.0
-export var offset_bottom := 0
+@export var offset_top := 226.0
+@export var offset_bottom := 0
 
 var active := false
 

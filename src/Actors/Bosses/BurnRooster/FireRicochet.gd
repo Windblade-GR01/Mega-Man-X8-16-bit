@@ -5,27 +5,27 @@ var voadora_speed := 600.0
 var voadora_dir : Vector2
 var wallhit_count := 0
 
-export (PackedScene) var land_projectile
+@export var land_projectile: PackedScene
 
-onready var raycast: RayCast2D = $rayCast2D
-onready var floorcast: RayCast2D = $rayCast2D2
-onready var animated_sprite: AnimatedSprite = $"../animatedSprite"
-onready var fire_1: Particles2D = $fire1
-onready var fire_2: Particles2D = $fire2
-onready var fire_3: Particles2D = $fire3
-onready var land: Particles2D = $land
+@onready var raycast: RayCast2D = $rayCast2D
+@onready var floorcast: RayCast2D = $rayCast2D2
+@onready var animated_sprite: AnimatedSprite2D = $"../animatedSprite"
+@onready var fire_1: GPUParticles2D = $fire1
+@onready var fire_2: GPUParticles2D = $fire2
+@onready var fire_3: GPUParticles2D = $fire3
+@onready var land: GPUParticles2D = $land
 
-onready var charge: AudioStreamPlayer2D = $charge
-onready var start: AudioStreamPlayer2D = $start
-onready var wallhit: AudioStreamPlayer2D = $wallhit
-onready var land_2: AudioStreamPlayer2D = $land2
-onready var jump: AudioStreamPlayer2D = $jump
-onready var fire_exp: Particles2D = $FireExp
-onready var explosion: Particles2D = $Explosion
+@onready var charge: AudioStreamPlayer2D = $charge
+@onready var start: AudioStreamPlayer2D = $start
+@onready var wallhit: AudioStreamPlayer2D = $wallhit
+@onready var land_2: AudioStreamPlayer2D = $land2
+@onready var jump: AudioStreamPlayer2D = $jump
+@onready var fire_exp: GPUParticles2D = $FireExp
+@onready var explosion: GPUParticles2D = $Explosion
 
 
 func _Setup() -> void:
-	._Setup()
+	super._Setup()
 	gravity = true
 	wallhit_count = 0
 
@@ -138,7 +138,7 @@ func get_voadora_direction() -> void:
 	voadora_dir = correct_dir
 
 func rotate_voadora_direction(degs) -> void:
-	voadora_dir = voadora_dir.rotated(deg2rad(degs))
+	voadora_dir = voadora_dir.rotated(deg_to_rad(degs))
 
 func go_towards_direction(rotate := true) -> void:
 	force_movement(abs(voadora_speed * voadora_dir.x))
@@ -147,14 +147,14 @@ func go_towards_direction(rotate := true) -> void:
 		rotate_voadora()
 
 func turn() -> void:
-	.turn()
+	super.turn()
 	animated_sprite.rotation *= -1
 
 func rotate_voadora() -> void:
 	if character.get_facing_direction() < 0:
 		animated_sprite.rotation = -voadora_dir.angle()
 	else:
-		animated_sprite.rotation = -voadora_dir.angle() - deg2rad(180)
+		animated_sprite.rotation = -voadora_dir.angle() - deg_to_rad(180)
 
 func direct_towards_floor() -> void:
 	if character.get_facing_direction() == 1:

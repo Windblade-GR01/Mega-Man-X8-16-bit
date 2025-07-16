@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/motor - GH.wav-49bbf86616b4b71f3ef5631a8beb38a4.sample"
+type="AudioStreamWAV"
+uid="uid://dwiu4xr21enpo"
+path="res://.godot/imported/motor - GH.wav-49bbf86616b4b71f3ef5631a8beb38a4.sample"
 
 [deps]
 
 source_file="res://src/Sounds/motor - GH.wav"
-dest_files=[ "res://.import/motor - GH.wav-49bbf86616b4b71f3ef5631a8beb38a4.sample" ]
+dest_files=["res://.godot/imported/motor - GH.wav-49bbf86616b4b71f3ef5631a8beb38a4.sample"]
 
 [params]
 

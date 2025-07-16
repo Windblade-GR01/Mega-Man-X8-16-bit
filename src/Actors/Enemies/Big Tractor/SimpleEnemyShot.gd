@@ -1,10 +1,10 @@
 extends EnemyShot
 class_name MultipleShot
 
-export var use_shot_position := false
-export var extra_projectiles : Array
-onready var prepare: AudioStreamPlayer2D = $prepare
-onready var turn: AudioStreamPlayer2D = $turn
+@export var use_shot_position := false
+@export var extra_projectiles : Array
+@onready var prepare: AudioStreamPlayer2D = $prepare
+@onready var turn: AudioStreamPlayer2D = $turn
 var played_sound := false
 
 
@@ -42,4 +42,4 @@ func _Update(_delta) -> void:
 		if not played_sound:
 			prepare.play()
 			played_sound = true
-		._Update(_delta)
+		super._Update(_delta)

@@ -1,12 +1,12 @@
 extends TileMap
 
-export var biker : PackedScene
+@export var biker : PackedScene
 var falling := false
 var timer := 0.0
 var tween
-onready var splash_2: AnimatedSprite = $splash2
-onready var water: TileMap = $water
-onready var box: = $rigidBody2D
+@onready var splash_2: AnimatedSprite2D = $splash2
+@onready var water: TileMap = $water
+@onready var box: = $rigidBody2D
 signal sunk(object)
 signal spawned(object)
 
@@ -23,13 +23,13 @@ func sink() -> void:
 		tween.kill()
 	tween = create_tween()
 	tween.tween_property(self,"global_position:y",global_position.y+300.0,2).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_callback(self,"done")
+	tween.tween_callback(Callable(self, "done"))
 
 func blink() -> void:
 	timer = 0.01
 
 func spawn() -> void:
-	var instance = biker.instance()
+	var instance = biker.instantiate()
 	var spawn_pos = Vector2(global_position.x-512,global_position.y-64)
 	get_tree().current_scene.add_child(instance,true)
 	instance.set_global_position(global_position) 

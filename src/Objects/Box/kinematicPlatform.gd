@@ -1,5 +1,5 @@
 extends RigidBody2D
-onready var conveyor_box: StaticBody2D = $".."
+@onready var conveyor_box: StaticBody2D = $".."
 
 
 func void_touch() -> void:

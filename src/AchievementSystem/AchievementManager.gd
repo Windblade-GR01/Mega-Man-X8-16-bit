@@ -8,7 +8,7 @@ const order = preload("res://src/AchievementSystem/AchievementOrder.tres")
 
 func _ready() -> void:
 	initialize_achievements()
-	popup = _popup_scene.instance()
+	popup = _popup_scene.instantiate()
 	get_parent().call_deferred("add_child",popup)
 
 func initialize_achievements():
@@ -26,7 +26,7 @@ func unlock(achievement_id : String):
 			found = true
 			if not achievement.unlocked:
 				if not GameManager.is_cheating():
-					achievement.unlock()
+					false # achievement.unlock() # TODOConverter3To4, Image no longer requires locking, `false` helps to not break one line if/else, so it can freely be removed
 				popup.show_achievement(achievement)
 			else:
 				print_debug("Achievements: Trying to unlock unlocked achievement " + achievement_id)
@@ -59,7 +59,7 @@ func get_unlocked_list() -> Array:
 		if achievement.unlocked:
 			unlocked_list.append(achievement)
 	
-	unlocked_list.sort_custom(self,"sort_by_date")
+	unlocked_list.sort_custom(Callable(self, "sort_by_date"))
 	return unlocked_list
 
 func sort_by_date(a,b):
@@ -100,9 +100,9 @@ func got_all() -> bool:
 
 func _get_files(path : String) -> Array:
 	var files = []
-	var dir := Directory.new()
+	var dir := DirAccess.new()
 	dir.open(path)
-	dir.list_dir_begin(true)
+	dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 
 	var file = dir.get_next()
 	while file != '':

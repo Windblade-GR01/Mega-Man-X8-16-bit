@@ -2,14 +2,14 @@ extends SimplePlayerProjectile
 const bypass_shield := true
 const speed := 420.0
 const turn_amount := 0.01
-onready var tracker: Area2D = $tracker
+@onready var tracker: Area2D = $tracker
 var target : Node2D
 var track_timer := 0.0
-export var tracking_time := 0.4
-export var tracker_update_interval := 0.05
+@export var tracking_time := 0.4
+@export var tracker_update_interval := 0.05
 
 func _Setup() -> void:
-	._Setup()
+	super._Setup()
 	set_horizontal_speed(speed * get_facing_direction())
 
 func _Update(delta) -> void:
@@ -18,7 +18,7 @@ func _Update(delta) -> void:
 		return
 	else:
 		set_rotation(Vector2(get_horizontal_speed(),get_vertical_speed()).angle())
-	._Update(delta)
+	super._Update(delta)
 	go_after_nearest_target(delta)
 	if timer > 0.3 and not ending:
 		process_gravity(delta * 0.85)
@@ -74,18 +74,18 @@ func deflect(_var) -> void:
 	pass
 
 func _OnHit(_v) -> void:
-	._OnHit(_v)
+	super._OnHit(_v)
 	ending = true
 
 func deactivate() -> void:
-	.deactivate()
+	super.deactivate()
 	modulate = Color(1,1,1,0.5)
 	stop()
 	disable_damage()
 	ending = true
 	var tween = get_tree().create_tween()
 	tween.tween_property(self,"modulate",Color(0,0,1,0),2)
-	tween.tween_callback(self,"destroy")
+	tween.tween_callback(Callable(self, "destroy"))
 
 func angle_to_vector2 (angle) -> Vector2:
 	return Vector2(cos(angle), sin(angle))

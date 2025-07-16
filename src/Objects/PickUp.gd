@@ -1,9 +1,9 @@
-extends KinematicBody2D
+extends CharacterBody2D
 class_name PickUp
 
-export var heal := 2
+@export var heal := 2
 var amount_to_heal := 2
-export var duration := 4
+@export var duration := 4
 var expirable := false
 var groundcheck_distance := 6.0
 var time_since_spawn := 0.0
@@ -15,7 +15,7 @@ var player
 var velocity = Vector2.ZERO
 var bonus_velocity = Vector2.ZERO
 var final_velocity = Vector2.ZERO
-onready var animated_sprite = $animatedSprite
+@onready var animated_sprite = $animatedSprite
 
 func _ready() -> void:
 	amount_to_heal = heal
@@ -78,11 +78,11 @@ func _on_area2D_body_entered(body: Node) -> void:
 		if body.is_in_group("Player"):
 			if body.is_in_group("Props") and not GameManager.player.ride:
 				return
-			set_pause_mode(Node.PAUSE_MODE_PROCESS)
-			$audioStreamPlayer2D.set_pause_mode(Node.PAUSE_MODE_PROCESS)
+			set_process_mode(Node.PROCESS_MODE_ALWAYS)
+			$audioStreamPlayer2D.set_process_mode(Node.PROCESS_MODE_ALWAYS)
 			var lifeup_sound = get_node_or_null("audioStreamPlayer2D2")
 			if lifeup_sound != null:
-				lifeup_sound.set_pause_mode(Node.PAUSE_MODE_PROCESS)
+				lifeup_sound.set_process_mode(Node.PROCESS_MODE_ALWAYS)
 			GameManager.pause(name)
 			timer = 0.01
 			executing = true
@@ -102,7 +102,12 @@ func process_movement():
 		velocity.y = final_velocity.y
 
 func process_final_velocity() -> Vector2:
-	return move_and_slide_with_snap(final_velocity, Vector2.DOWN * 8, Vector2.UP,true)
+	set_velocity(final_velocity)
+	# TODOConverter3To4 looks that snap in Godot 4 is float, not vector like in Godot 3 - previous value `Vector2.DOWN * 8`
+	set_up_direction(Vector2.UP)
+	set_floor_stop_on_slope_enabled(true)
+	move_and_slide()
+	return velocity
 	
 func process_gravity(_delta:float, gravity := 800) -> void:
 	#if not is_on_floor():

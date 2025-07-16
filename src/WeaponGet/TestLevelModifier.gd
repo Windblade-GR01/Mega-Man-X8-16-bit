@@ -1,10 +1,10 @@
 extends Node
-onready var spike_row: Node2D = $"../Objects/SpikeRow"
-onready var servbot: KinematicBody2D = $"../Objects/Servbot"
-onready var servbot_2: KinematicBody2D = $"../Objects/Servbot2"
-onready var servbot_3: KinematicBody2D = $"../Objects/Servbot3"
+@onready var spike_row: Node2D = $"../Objects/SpikeRow"
+@onready var servbot: CharacterBody2D = $"../Objects/Servbot"
+@onready var servbot_2: CharacterBody2D = $"../Objects/Servbot2"
+@onready var servbot_3: CharacterBody2D = $"../Objects/Servbot3"
 
-onready var drone_2: KinematicBody2D = $"../Objects/Drone2"
+@onready var drone_2: CharacterBody2D = $"../Objects/Drone2"
 
 func _on_WeaponGetScreen_weapon_defined(weapon : WeaponResource) -> void:
 	if not weapon.collectible == "panda_weapon":

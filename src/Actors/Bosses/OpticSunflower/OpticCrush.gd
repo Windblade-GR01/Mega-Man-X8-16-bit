@@ -1,5 +1,5 @@
 extends AttackAbility
-onready var rage: AudioStreamPlayer2D = $rage
+@onready var rage: AudioStreamPlayer2D = $rage
 signal ready_for_stun
 signal beam
 
@@ -42,5 +42,5 @@ func _Update(delta) -> void:
 		EndAbility()
 
 func _Interrupt():
-	._Interrupt()
+	super._Interrupt()
 	character.emit_signal("damage_reduction", 1.0)

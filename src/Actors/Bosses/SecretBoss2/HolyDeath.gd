@@ -1,21 +1,21 @@
 extends Node2D
 
-onready var death_area: Sprite = $death_area
-onready var death_cover: Sprite = $death_cover
-onready var charge: AudioStreamPlayer2D = $charge
-onready var shot: AudioStreamPlayer2D = $shot
-onready var kanji: Light2D = $kanji
+@onready var death_area: Sprite2D = $death_area
+@onready var death_cover: Sprite2D = $death_cover
+@onready var charge: AudioStreamPlayer2D = $charge
+@onready var shot: AudioStreamPlayer2D = $shot
+@onready var kanji: PointLight2D = $kanji
 
 
-onready var tween := TweenController.new(self,false)
-onready var area_1: Area2D = $"1"
-onready var area_2: Area2D = $"2"
-onready var area_3: Area2D = $"3"
-onready var area_4: Area2D = $"4"
-onready var area_5: Area2D = $"5"
-onready var area_6: Area2D = $"6"
+@onready var tween := TweenController.new(self,false)
+@onready var area_1: Area2D = $"1"
+@onready var area_2: Area2D = $"2"
+@onready var area_3: Area2D = $"3"
+@onready var area_4: Area2D = $"4"
+@onready var area_5: Area2D = $"5"
+@onready var area_6: Area2D = $"6"
 
-onready var areas = [area_1,area_2,area_3,area_4,area_5,area_6]
+@onready var areas = [area_1,area_2,area_3,area_4,area_5,area_6]
 var current_area := 0
 var previous_area : Area2D
 
@@ -47,14 +47,14 @@ func get_current_area() -> int:
 func connect_area(area : Area2D):
 	if previous_area:
 		previous_area.monitoring = false
-		previous_area.disconnect("body_entered",self,"on_player_enter")
-		previous_area.disconnect("body_exited",self,"on_player_exit")
+		previous_area.disconnect("body_entered", Callable(self, "on_player_enter"))
+		previous_area.disconnect("body_exited", Callable(self, "on_player_exit"))
 	
 	kanji.texture = area.kanji
 	death_area.texture = area.bg
 	death_cover.texture = area.bg
-	area.connect("body_entered",self,"on_player_enter")
-	area.connect("body_exited",self,"on_player_exit")
+	area.connect("body_entered", Callable(self, "on_player_enter"))
+	area.connect("body_exited", Callable(self, "on_player_exit"))
 	area.monitoring = true
 	
 	previous_area = area
@@ -62,7 +62,7 @@ func connect_area(area : Area2D):
 func start_visuals():
 	death_area.offset.y = 10
 	death_cover.offset.y = 10
-	death_area.modulate = Color.darkblue
+	death_area.modulate = Color.DARK_BLUE
 	death_area.modulate.a = 0.25
 	death_cover.modulate.a = 1.0
 	charge.play()
@@ -74,14 +74,14 @@ func start_visuals():
 	
 	tween.create(Tween.EASE_OUT,Tween.TRANS_SINE)
 	tween.add_attribute("scale",Vector2(1,1),2,kanji)
-	tween.attribute("modulate",Color.red,2.0,death_area)
+	tween.attribute("modulate",Color.RED,2.0,death_area)
 	tween.add_wait(.35)
 	var i = 0
 	while i < 5:
-		tween.add_attribute("modulate",Color.white,0.045,death_area)
-		tween.add_attribute("modulate",Color.red,0.045,death_area)
+		tween.add_attribute("modulate",Color.WHITE,0.045,death_area)
+		tween.add_attribute("modulate",Color.RED,0.045,death_area)
 		i +=1
-	tween.add_attribute("modulate",Color.red,0.045,death_area)
+	tween.add_attribute("modulate",Color.RED,0.045,death_area)
 	#tween.attribute("modulate:a",1,2.5,death_area)
 	tween.method("set_radius",0.65,0.1,2.30)
 	tween.add_wait(.55)
@@ -91,7 +91,7 @@ func start_visuals():
 func death():
 	shot.play()
 	Event.emit_signal("screenshake",2)
-	death_area.modulate = Color.white
+	death_area.modulate = Color.WHITE
 	death_cover.modulate.a = 0.0
 	kanji.scale = Vector2(.95,.95)
 	tween.create(Tween.EASE_OUT,Tween.TRANS_SINE)
@@ -108,5 +108,5 @@ func on_player_exit(_body):
 	targetting_player = false
 
 func set_radius(value := 0.65):
-	death_area.material.set_shader_param("radius",value)
+	death_area.material.set_shader_parameter("radius",value)
 	pass

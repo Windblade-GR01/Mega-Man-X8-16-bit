@@ -1,26 +1,26 @@
 extends Actor
 class_name WeaponShot#projectile
 
-export var damage := 1.0
-export var damage_to_bosses := 1.0
-export var damage_to_weakness := 1.0
-export var horizontal_velocity := 360.0
-export var vertical_position_range := 1
-export var time_outside_screen := 0.4
-export var fire_sound : AudioStream
-export var hit_sound : AudioStream
-export var hit : PackedScene
-export var break_guards := false
+@export var damage := 1.0
+@export var damage_to_bosses := 1.0
+@export var damage_to_weakness := 1.0
+@export var horizontal_velocity := 360.0
+@export var vertical_position_range := 1
+@export var time_outside_screen := 0.4
+@export var fire_sound : AudioStream
+@export var hit_sound : AudioStream
+@export var hit : PackedScene
+@export var break_guards := false
 var countdown_to_destruction := 0.0
 var facing_direction := 1
 var original_pitch := 1.0
 var timer_since_spawn := 0.0
 var continuous_damage := false
 
-onready var audio = $audioStreamPlayer2D
-onready var visibilityNotifier := $visibilityNotifier2D
+@onready var audio = $audioStreamPlayer2D
+@onready var visibilityNotifier := $visibilityNotifier2D
 var damageOnTouch
-onready var hit_particle = get_node("Hit Particle")
+@onready var hit_particle = get_node("Hit Particle")
 var emitted_hit_particle = false
 
 signal hit
@@ -30,7 +30,7 @@ signal projectile_end (this)
 
 func _ready() -> void:
 # warning-ignore:return_value_discarded
-	visibilityNotifier.connect("screen_exited",self,"_on_visibilityNotifier2D_screen_exited")
+	visibilityNotifier.connect("screen_exited", Callable(self, "_on_visibilityNotifier2D_screen_exited"))
 	Event.listen("disable_unneeded_objects",self,"disable_visual_and_mechanics")
 	if not is_in_group("Player Projectile") and not is_in_group("Enemy Projectile"):
 		print_debug(name + ": Not in any projectile group.")
@@ -96,13 +96,13 @@ func position_setup(spawn_point:Vector2, direction:int):
 	var x = spawn_point.x 
 	var y = spawn_point.y
 	position.x = position.x + x * direction
-	position.y = position.y + y + int(rand_range(-vertical_position_range,vertical_position_range))
+	position.y = position.y + y + int(randf_range(-vertical_position_range,vertical_position_range))
 	facing_direction = direction
 	
 func play_fire_sound(pitch:=true):
 	if fire_sound != null:
 		if pitch:
-			audio.pitch_scale = original_pitch + rand_range(-0.05,0.00)
+			audio.pitch_scale = original_pitch + randf_range(-0.05,0.00)
 		audio.stream = fire_sound
 		audio.play()
 

@@ -4,10 +4,10 @@ var destroy_damage := 8
 var rider
 var recent_rider
 var player_nearby := false
-onready var ceiling_check: RayCast2D = $ceiling_check
-onready var ceiling_check_2: RayCast2D = $ceiling_check2
+@onready var ceiling_check: RayCast2D = $ceiling_check
+@onready var ceiling_check_2: RayCast2D = $ceiling_check2
 
-onready var animation = AnimationController.new($"../animatedSprite", self)
+@onready var animation = AnimationController.new($"../animatedSprite", self)
 
 signal rider_on
 signal rider_off

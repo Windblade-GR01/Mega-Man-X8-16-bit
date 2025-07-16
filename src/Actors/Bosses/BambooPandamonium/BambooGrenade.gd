@@ -1,6 +1,6 @@
 extends GenericProjectile
 
-export var blast_area : PackedScene
+@export var blast_area : PackedScene
 
 func _Update(delta) -> void:
 	process_gravity(delta)
@@ -29,6 +29,6 @@ func rotate_towards_direction() -> void:
 	set_rotation(Vector2(get_horizontal_speed(),get_vertical_speed()).angle())
 
 func create_blast_area(instance_position := global_position):
-	var instance = blast_area.instance()
+	var instance = blast_area.instantiate()
 	get_tree().current_scene.add_child(instance,true)
 	instance.set_global_position(instance_position)

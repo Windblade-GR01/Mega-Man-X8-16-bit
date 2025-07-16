@@ -1,6 +1,6 @@
 extends Node2D
 
-export var entered_password := "1111111111111111"
+@export var entered_password := "1111111111111111"
 const even := "1225977663272912"
 const odd :=  "1932729259776691"
 const zero_all := "46738766824328"
@@ -89,7 +89,7 @@ const keys = {"00" : [],
 var show_debug := true
 
 var no_of_tries = 0
-onready var rng = RandomNumberGenerator.new()
+@onready var rng = RandomNumberGenerator.new()
 
 var hey := 0
 var somatorio = []

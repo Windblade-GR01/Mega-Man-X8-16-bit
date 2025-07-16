@@ -1,6 +1,6 @@
-extends VideoPlayer
+extends VideoStreamPlayer
 
-onready var tween := TweenController.new(self,false)
+@onready var tween := TweenController.new(self,false)
 
 
 func _on_Armor_reset() -> void:

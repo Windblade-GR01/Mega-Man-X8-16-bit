@@ -1,15 +1,15 @@
 extends AttackAbility
 
-onready var space: Node = $"../Space"
-onready var flap: AudioStreamPlayer2D = $flap
-onready var tween := TweenController.new(self,false)
+@onready var space: Node = $"../Space"
+@onready var flap: AudioStreamPlayer2D = $flap
+@onready var tween := TweenController.new(self,false)
 
-export var rotating_laser : PackedScene
+@export var rotating_laser : PackedScene
 
 var laser_1 : Node2D
 var laser_2 : Node2D
-onready var charge: AudioStreamPlayer2D = $charge
-onready var fire: AudioStreamPlayer2D = $fire
+@onready var charge: AudioStreamPlayer2D = $charge
+@onready var fire: AudioStreamPlayer2D = $fire
 
 var firing_lasers := false
 
@@ -22,7 +22,7 @@ func position_both_lasers():
 		laser_2 = position_laser()
 
 func position_laser() -> Node2D:
-	var laser = rotating_laser.instance()
+	var laser = rotating_laser.instantiate()
 	get_tree().current_scene.add_child(laser,true)
 	laser.global_position = space.get_center()
 	laser.global_position.y -= 80
@@ -107,7 +107,7 @@ func finish_lasers():
 
 func _Interrupt():
 	wait_duration = .95
-	._Interrupt()
+	super._Interrupt()
 
 func _StartCondition() -> bool:
 	if firing_lasers:

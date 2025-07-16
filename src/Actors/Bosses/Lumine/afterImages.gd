@@ -2,13 +2,13 @@ extends Node
 
 const subtle_motion := [Vector2(1,1),Vector2(-1,-1),Vector2(1,-1),Vector2(-1,1),Vector2(0,0)]
 var current_motion := 0
-export var active := false
-export var frequency := 0.1
-export var duration := 0.5
-export var initial_color := Color.white
-export var final_color := Color(1,1,1,0)
-export var motion_amount := 0.0
-onready var original: AnimatedSprite = $".."
+@export var active := false
+@export var frequency := 0.1
+@export var duration := 0.5
+@export var initial_color := Color.WHITE
+@export var final_color := Color(1,1,1,0)
+@export var motion_amount := 0.0
+@onready var original: AnimatedSprite2D = $".."
 
 
 func _ready() -> void:
@@ -26,21 +26,21 @@ func deactivate():
 
 func afterimage_emit():
 	if active:
-		var afterimage := AnimatedSprite.new()
+		var afterimage := AnimatedSprite2D.new()
 		add_child(afterimage)
 		equate_settings(afterimage)
 		fade_and_delete(afterimage)
 		Tools.timer(frequency,"afterimage_emit",self)
 		
-func fade_and_delete(afterimage :AnimatedSprite) -> void:
+func fade_and_delete(afterimage :AnimatedSprite2D) -> void:
 	afterimage.modulate = initial_color
 	var tween := afterimage.create_tween().set_parallel(true)
 	tween.tween_property(afterimage,"modulate",final_color,duration)
 	tween.tween_property(afterimage,"position",afterimage.position + get_motion(),duration)
 	tween.set_parallel(false)
-	tween.tween_callback(afterimage,"queue_free")
+	tween.tween_callback(Callable(afterimage, "queue_free"))
 
-func equate_settings(afterimage :AnimatedSprite) -> void:
+func equate_settings(afterimage :AnimatedSprite2D) -> void:
 	afterimage.scale = original.scale
 	afterimage.frames = original.frames
 	afterimage.animation = original.animation

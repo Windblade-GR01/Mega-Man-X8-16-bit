@@ -14,9 +14,9 @@
 [ext_resource path="res://src/Effects/Materials/default_material.tres" type="Material" id=12]
 [ext_resource path="res://src/Actors/MeleeEnemyAttack.gd" type="Script" id=13]
 [ext_resource path="res://src/Actors/Bosses/CopySigma/LandSpikeProjectile.tscn" type="PackedScene" id=14]
-[ext_resource path="res://src/Effects/Textures/smoke.png" type="Texture" id=15]
+[ext_resource path="res://src/Effects/Textures/smoke.png" type="Texture2D" id=15]
 [ext_resource path="res://src/Effects/Materials/x_dash_smoke.tres" type="Material" id=16]
-[ext_resource path="res://src/Effects/Textures/simple_gradient.png" type="Texture" id=17]
+[ext_resource path="res://src/Effects/Textures/simple_gradient.png" type="Texture2D" id=17]
 [ext_resource path="res://src/Actors/NewStateMachine/audioplayer.gd" type="Script" id=18]
 [ext_resource path="res://src/Sounds/Mantis - Dash.ogg" type="AudioStream" id=19]
 [ext_resource path="res://src/Sounds/Mantis - Cut2.ogg" type="AudioStream" id=20]
@@ -30,10 +30,10 @@
 [ext_resource path="res://src/Actors/Bosses/DarkMantis/Mantis - Jump.wav" type="AudioStream" id=28]
 [ext_resource path="res://src/Sounds/Yeti - Stomp.ogg" type="AudioStream" id=29]
 [ext_resource path="res://src/Actors/Bosses/CopySigma/CopyEyeFlare.gd" type="Script" id=30]
-[ext_resource path="res://src/Effects/Textures/elec_particles.png" type="Texture" id=31]
-[ext_resource path="res://src/Effects/Fire/pinkfire2.png" type="Texture" id=32]
-[ext_resource path="res://src/Effects/Fire/pinkfire1.png" type="Texture" id=33]
-[ext_resource path="res://src/Effects/Fire/pinkfire3.png" type="Texture" id=34]
+[ext_resource path="res://src/Effects/Textures/elec_particles.png" type="Texture2D" id=31]
+[ext_resource path="res://src/Effects/Fire/pinkfire2.png" type="Texture2D" id=32]
+[ext_resource path="res://src/Effects/Fire/pinkfire1.png" type="Texture2D" id=33]
+[ext_resource path="res://src/Effects/Fire/pinkfire3.png" type="Texture2D" id=34]
 [ext_resource path="res://src/Effects/Materials/pinkfire_mat.tres" type="Material" id=35]
 [ext_resource path="res://src/Actors/Enemies/Shared/LongBossDeath.tscn" type="PackedScene" id=36]
 [ext_resource path="res://src/Actors/Bosses/CopySigma/eyeliners.gd" type="Script" id=37]
@@ -42,7 +42,7 @@
 [ext_resource path="res://src/Effects/Materials/BossSmokeParticlesMedium.tres" type="Material" id=40]
 [ext_resource path="res://src/Sounds/Sunflower - LaserLoop.ogg" type="AudioStream" id=41]
 [ext_resource path="res://src/Sounds/Sunflower - OrbCharge.ogg" type="AudioStream" id=42]
-[ext_resource path="res://src/Effects/Textures/white_screen.png" type="Texture" id=43]
+[ext_resource path="res://src/Effects/Textures/white_screen.png" type="Texture2D" id=43]
 [ext_resource path="res://src/Actors/Bosses/CopySigma/flash.gd" type="Script" id=44]
 [ext_resource path="res://src/DialogSystem/Dialogs/Stages/CopySigma_Dialogue.tres" type="Resource" id=45]
 [ext_resource path="res://src/Actors/Bosses/CopySigma/lowslash.gd" type="Script" id=46]
@@ -130,7 +130,7 @@ height = 40.0
 [sub_resource type="Shader" id=88]
 code = "shader_type canvas_item;
 
-uniform sampler2D textureNoise: hint_white;
+uniform sampler2D textureNoise: hint_default_white;
 uniform float radius: hint_range(0.0, 1.0) = 0.459;
 uniform float effectControl: hint_range(0.0, 1.0) = 0.309;
 uniform float burnSpeed: hint_range(0.0, 1.0) = 0.076;
@@ -154,7 +154,7 @@ void fragment() {
 }
 "
 
-[sub_resource type="OpenSimplexNoise" id=71]
+[sub_resource type="FastNoiseLite" id=71]
 period = 35.6
 
 [sub_resource type="NoiseTexture" id=89]
@@ -181,7 +181,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=43]
 curve = SubResource( 52 )
 
-[sub_resource type="ParticlesMaterial" id=53]
+[sub_resource type="ParticleProcessMaterial" id=53]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -199,7 +199,7 @@ particles_anim_h_frames = 3
 particles_anim_v_frames = 3
 particles_anim_loop = false
 
-[node name="CopySigma" type="KinematicBody2D" groups=["Bosses"]]
+[node name="CopySigma" type="CharacterBody2D" groups=["Bosses"]]
 z_index = 6
 collision_layer = 0
 script = ExtResource( 2 )
@@ -214,7 +214,7 @@ play_desperation_music = false
 visible = false
 shape = SubResource( 73 )
 
-[node name="animatedSprite" type="AnimatedSprite" parent="."]
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
 material = ExtResource( 12 )
 frames = ExtResource( 4 )
 animation = "eye_loop"
@@ -229,16 +229,16 @@ positions = [ -75, 80, -80, 40 ]
 
 [node name="rayCast2D" type="RayCast2D" parent="animatedSprite/Eye"]
 position = Vector2( 7, -23 )
-cast_to = Vector2( 0, 256 )
+target_position = Vector2( 0, 256 )
 
 [node name="line2D" type="Line2D" parent="animatedSprite/Eye"]
 position = Vector2( -1, 0 )
-points = PoolVector2Array( 124, 30, 6, -24 )
+points = PackedVector2Array( 124, 30, 6, -24 )
 width = 1.5
 default_color = Color( 0.972549, 0.662745, 1, 1 )
 script = ExtResource( 39 )
 
-[node name="collision" type="AnimatedSprite" parent="animatedSprite/Eye"]
+[node name="collision" type="AnimatedSprite2D" parent="animatedSprite/Eye"]
 self_modulate = Color( 0.972549, 0.662745, 1, 1 )
 position = Vector2( 123, 30 )
 frames = SubResource( 85 )
@@ -246,7 +246,7 @@ frame = 1
 playing = true
 flip_h = true
 
-[node name="fire1" type="Particles2D" parent="animatedSprite/Eye/collision"]
+[node name="fire1" type="GPUParticles2D" parent="animatedSprite/Eye/collision"]
 material = ExtResource( 35 )
 position = Vector2( 0, -6 )
 z_index = 1
@@ -255,7 +255,7 @@ local_coords = false
 process_material = ExtResource( 38 )
 texture = ExtResource( 33 )
 
-[node name="fire2" type="Particles2D" parent="animatedSprite/Eye/collision"]
+[node name="fire2" type="GPUParticles2D" parent="animatedSprite/Eye/collision"]
 material = ExtResource( 35 )
 position = Vector2( 0, -6 )
 z_index = 1
@@ -264,7 +264,7 @@ local_coords = false
 process_material = ExtResource( 38 )
 texture = ExtResource( 32 )
 
-[node name="fire3" type="Particles2D" parent="animatedSprite/Eye/collision"]
+[node name="fire3" type="GPUParticles2D" parent="animatedSprite/Eye/collision"]
 material = ExtResource( 35 )
 position = Vector2( 0, -6 )
 z_index = 1
@@ -281,23 +281,23 @@ positions = [ -70, -90, 65, 70 ]
 
 [node name="rayCast2D" type="RayCast2D" parent="animatedSprite/Eye2"]
 position = Vector2( 7, -23 )
-cast_to = Vector2( 0, 256 )
+target_position = Vector2( 0, 256 )
 
 [node name="line2D" type="Line2D" parent="animatedSprite/Eye2"]
 position = Vector2( -1, 0 )
-points = PoolVector2Array( 124, 30, 6, -24 )
+points = PackedVector2Array( 124, 30, 6, -24 )
 width = 1.5
 default_color = Color( 0.972549, 0.662745, 1, 1 )
 script = ExtResource( 39 )
 
-[node name="collision" type="AnimatedSprite" parent="animatedSprite/Eye2"]
+[node name="collision" type="AnimatedSprite2D" parent="animatedSprite/Eye2"]
 self_modulate = Color( 0.972549, 0.662745, 1, 1 )
 position = Vector2( 123, 30 )
 frames = SubResource( 85 )
 playing = true
 flip_h = true
 
-[node name="fire1" type="Particles2D" parent="animatedSprite/Eye2/collision"]
+[node name="fire1" type="GPUParticles2D" parent="animatedSprite/Eye2/collision"]
 material = ExtResource( 35 )
 position = Vector2( 0, -6 )
 z_index = 1
@@ -306,7 +306,7 @@ local_coords = false
 process_material = ExtResource( 38 )
 texture = ExtResource( 33 )
 
-[node name="fire2" type="Particles2D" parent="animatedSprite/Eye2/collision"]
+[node name="fire2" type="GPUParticles2D" parent="animatedSprite/Eye2/collision"]
 material = ExtResource( 35 )
 position = Vector2( 0, -6 )
 z_index = 1
@@ -315,7 +315,7 @@ local_coords = false
 process_material = ExtResource( 38 )
 texture = ExtResource( 32 )
 
-[node name="fire3" type="Particles2D" parent="animatedSprite/Eye2/collision"]
+[node name="fire3" type="GPUParticles2D" parent="animatedSprite/Eye2/collision"]
 material = ExtResource( 35 )
 position = Vector2( 0, -6 )
 z_index = 1
@@ -345,7 +345,7 @@ shape = SubResource( 64 )
 position = Vector2( 0, 23.625 )
 shape = SubResource( 86 )
 
-[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 visible = false
 position = Vector2( -6.5, 3.5 )
 scale = Vector2( 4.35, 4.25 )
@@ -498,7 +498,7 @@ max_distance = 600.0
 bus = "SFX"
 script = ExtResource( 18 )
 
-[node name="flash" type="Sprite" parent="CopyFlash"]
+[node name="flash" type="Sprite2D" parent="CopyFlash"]
 modulate = Color( 1, 1, 1, 0 )
 material = SubResource( 70 )
 position = Vector2( 0, -93 )
@@ -567,7 +567,7 @@ max_distance = 600.0
 bus = "SFX"
 script = ExtResource( 18 )
 
-[node name="flash" type="Sprite" parent="CopyEyeFlare"]
+[node name="flash" type="Sprite2D" parent="CopyEyeFlare"]
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 0, 46 )
 scale = Vector2( 106.25, 15.0625 )
@@ -583,7 +583,7 @@ weakenesses = [ "DarkArrow" ]
 weakness_multiplier = 1.5
 
 [node name="audioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Damage"]
-pause_mode = 2
+process_mode = 3
 stream = ExtResource( 11 )
 max_distance = 600.0
 bus = "SFX"
@@ -617,7 +617,7 @@ animation = "death"
 horizontal_velocity = 120.0
 jump_velocity = 150.0
 
-[node name="smoke_dash" type="Particles2D" parent="."]
+[node name="smoke_dash" type="GPUParticles2D" parent="."]
 material = SubResource( 61 )
 position = Vector2( 0, 29 )
 z_index = 1

@@ -1,8 +1,9 @@
 [remap]
 
 importer="texture"
-type="StreamTexture"
-path="res://.import/doispontos.png-759b94b97415c9f9a05f7a84be2c947e.stex"
+type="CompressedTexture2D"
+uid="uid://d2kv2up3deak4"
+path="res://.godot/imported/doispontos.png-759b94b97415c9f9a05f7a84be2c947e.ctex"
 metadata={
 "vram_texture": false
 }
@@ -10,26 +11,24 @@ metadata={
 [deps]
 
 source_file="res://src/Levels/TroiaBase/ComboSystem/doispontos.png"
-dest_files=[ "res://.import/doispontos.png-759b94b97415c9f9a05f7a84be2c947e.stex" ]
+dest_files=["res://.godot/imported/doispontos.png-759b94b97415c9f9a05f7a84be2c947e.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
-compress/hdr_mode=0
-compress/bptc_ldr=0
+compress/hdr_compression=1
 compress/normal_map=0
-flags/repeat=0
-flags/filter=false
-flags/mipmaps=false
-flags/anisotropic=false
-flags/srgb=2
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
-process/HDR_as_SRGB=false
-process/invert_color=false
 process/normal_map_invert_y=false
-stream=false
-size_limit=0
-detect_3d=false
-svg/scale=1.0
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1

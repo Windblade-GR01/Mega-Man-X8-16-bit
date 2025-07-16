@@ -1,20 +1,20 @@
 class_name BaseAbility
 extends Node2D
 
-export var active := true
-export var debug_logs := false
-export var conflicting_moves = []
+@export var active := true
+@export var debug_logs := false
+@export var conflicting_moves = []
 var executing := false
 var timer := 0.0
 var last_time_used := 0.0
-var _commandList : CommandList = CommandList.new()
+var _commandList: CommandList = CommandList.new()
 var audio
 var last_message
 
-onready var character : Actor = get_parent()
+@onready var character: Actor = get_parent()
 
-signal ability_start (ability)
-signal ability_end (ability)
+signal ability_start(ability)
+signal ability_end(ability)
 signal executed
 
 func activate():
@@ -63,7 +63,7 @@ func Initialize():
 	emit_signal("executed")
 
 func get_time() -> int:
-	return OS.get_ticks_msec()
+	return Time.get_ticks_msec()
 
 func BeforeEveryFrame(delta: float) -> void:
 	timer = timer + delta
@@ -80,14 +80,14 @@ func ExecuteEachFrame(delta: float) -> void:
 
 func EndAbility() -> void:
 	Log("Ending")
-	Finalize() 
+	Finalize()
 	character.remove_from_executing_list(self)
 	character.enable_floor_snap()
 	emit_signal("ability_end", self)
 
 func ResetAbility() -> void:
 	Log("Resetting " + name)
-	Finalize() 
+	Finalize()
 	ExecuteOnce()
 	
 func Finalize() -> void:
@@ -96,8 +96,8 @@ func Finalize() -> void:
 	_Interrupt()
 	_commandList.UndoAll()
 
-func Interrupt(interruptor : String) -> void:
-	Log ("Interrupted by " + interruptor)
+func Interrupt(interruptor: String) -> void:
+	Log("Interrupted by " + interruptor)
 	EndAbility()
 
 func _ResetCondition() -> bool:
@@ -137,7 +137,7 @@ func is_high_priority() -> bool:
 
 func self_conflicts_with(executing_move) -> bool:
 	for conflict in conflicting_moves:
-		if executing_move.name == conflict: #Found a Conflict
+		if executing_move.name == conflict: # Found a Conflict
 			if executing_move.conflicts_with(self):
 				Log("Found a mutual conflict with " + executing_move.name)
 			else:
@@ -162,7 +162,7 @@ func conflicts_with_nothing() -> bool:
 	
 func conflicts_with_anything() -> bool:
 	if "Anything" in conflicting_moves:
-			return true
+		return true
 	return false
 	
 func StopAnyConflictingMoves():
@@ -175,36 +175,36 @@ func StopAnyConflictingMoves():
 			if not executing_move.conflicts_with_nothing():
 				moves_to_end.append(executing_move)
 		if executing_move.conflicts_with_anything() or \
-		   executing_move.conflicts_with(self):
+			executing_move.conflicts_with(self):
 			moves_to_end.append(executing_move)
 	
 	for move in moves_to_end:
 		Log("Interrupting " + move.name)
 		move.Interrupt(name)
 
-func Log(msg)  -> void:
+func Log(msg) -> void:
 	if debug_logs:
 		if not last_message == str(msg):
-			print(get_parent().name + "." + name +": " + str(msg))
+			print(get_parent().name + "." + name + ": " + str(msg))
 			last_message = str(msg)
 
-func n_int (direction: bool) -> int:
+func n_int(direction: bool) -> int:
 	if not direction:
 		return -1;
 	return 1;
 	
-func emit_particles(particles, value:= true):
+func emit_particles(particles, value := true):
 	particles.visible = true
 	particles.emitting = value
 
 func is_initial_frame() -> bool:
-	return timer < 1.1/Engine.get_iterations_per_second()
-	
-func play_sound(audiostream: AudioStream = null, pitch:= true) -> void:
+	return timer < 1.1 / Engine.get_physics_ticks_per_second()
+
+func play_sound(audiostream: AudioStream = null, pitch := true) -> void:
 	if not audio:
-		 audio = get_node("audioStreamPlayer")
+		audio = get_node("audioStreamPlayer")
 	if pitch:
-		audio.pitch_scale = rand_range(1.0,1.1)
+		audio.pitch_scale = randf_range(1.0, 1.1)
 	if audiostream != null:
 		if audio.stream == null or audio.stream != audiostream:
 			audio.stream = audiostream
@@ -215,21 +215,21 @@ func stop_sound() -> void:
 		audio.stop()
 	
 
-func get_all_particles(): #returns a list
+func get_all_particles(): # returns a list
 	var particle_list = []
 	for child in get_children():
-		if child is Particles2D:
+		if child is GPUParticles2D:
 			particle_list.append(child)
 	return particle_list
 	
-func get_children_whose_name_contains(text : String): #returns a list
+func get_children_whose_name_contains(text: String): # returns a list
 	var valid_children = []
 	for child in get_children():
 		if text in child.name:
 			valid_children.append(child)
 	return valid_children
 	
-func toggle_emit(object, state : bool):
+func toggle_emit(object, state: bool):
 	if object is Array:
 		for particle in object:
 			particle.emitting = state
@@ -243,10 +243,9 @@ func restart(object):
 	else:
 		object.restart()
 
-func flip(object, d : int):
+func flip(object, d: int):
 	if object is Array:
 		for particle in object:
 			particle.scale.x = d
 	else:
 		object.scale.x = d
-		

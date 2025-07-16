@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Seraph - Whirlwind.wav-abb0b179ac0c6eed53e7c79a6d8c4bf2.sample"
+type="AudioStreamWAV"
+uid="uid://cy5amaeyx4maj"
+path="res://.godot/imported/Seraph - Whirlwind.wav-abb0b179ac0c6eed53e7c79a6d8c4bf2.sample"
 
 [deps]
 
 source_file="res://src/Sounds/Seraph - Whirlwind.wav"
-dest_files=[ "res://.import/Seraph - Whirlwind.wav-abb0b179ac0c6eed53e7c79a6d8c4bf2.sample" ]
+dest_files=["res://.godot/imported/Seraph - Whirlwind.wav-abb0b179ac0c6eed53e7c79a6d8c4bf2.sample"]
 
 [params]
 

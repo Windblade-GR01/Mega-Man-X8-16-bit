@@ -6,7 +6,7 @@ using TiledImporter.Structures;
 
 namespace TiledImporter.Parsers
 {
-    public class FrameJsonElement : JsonElement
+    public partial class FrameJsonElement : JsonElement
     {
         protected override Dictionary<string, ElementaryType> RequiredElementaryTypeFieldsNames
         {

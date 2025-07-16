@@ -1,22 +1,22 @@
 extends Node2D
 
-export var boss_name := "none"
-export var color := Color.white
-onready var active: AnimatedSprite = $active
-onready var portal: Node2D = $Portal
-onready var closed: CollisionShape2D = $staticBody2D/closed
-onready var glass: Sprite = $glass
-onready var particles: Particles2D = $remains_particles
-onready var icebreak: AudioStreamPlayer2D = $icebreak
+@export var boss_name := "none"
+@export var color := Color.WHITE
+@onready var active: AnimatedSprite2D = $active
+@onready var portal: Node2D = $Portal
+@onready var closed: CollisionShape2D = $staticBody2D/closed
+@onready var glass: Sprite2D = $glass
+@onready var particles: GPUParticles2D = $remains_particles
+@onready var icebreak: AudioStreamPlayer2D = $icebreak
 
 func _ready() -> void:
 	active.modulate = color
 	active.modulate.a = .8
-	portal.connect("teleport_start",self,"on_teleport")
-	Event.connect("gateway_crystal_get",self,"on_crystal_got")
-	Event.connect("gateway_boss_defeated",self,"on_boss_defeated")
-	Event.connect("gateway_lock_capsules",self,"on_lock")
-	Event.connect("gateway_unlock_capsules",self,"unlock")
+	portal.connect("teleport_start", Callable(self, "on_teleport"))
+	Event.connect("gateway_crystal_get", Callable(self, "on_crystal_got"))
+	Event.connect("gateway_boss_defeated", Callable(self, "on_boss_defeated"))
+	Event.connect("gateway_lock_capsules", Callable(self, "on_lock"))
+	Event.connect("gateway_unlock_capsules", Callable(self, "unlock"))
 
 func on_teleport():
 	if boss_name == "none":

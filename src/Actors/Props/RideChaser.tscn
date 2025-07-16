@@ -20,7 +20,7 @@
 [ext_resource path="res://src/Actors/Props/BikeRiden.gd" type="Script" id=18]
 [ext_resource path="res://src/Actors/Enemy Collision Detector.gd" type="Script" id=19]
 [ext_resource path="res://src/Sounds/DAMAGE.wav" type="AudioStream" id=20]
-[ext_resource path="res://src/Effects/Textures/follow_shot.png" type="Texture" id=21]
+[ext_resource path="res://src/Effects/Textures/follow_shot.png" type="Texture2D" id=21]
 [ext_resource path="res://src/Actors/Props/WallHit.gd" type="Script" id=22]
 [ext_resource path="res://src/Sounds/Bike - RunLoop.wav" type="AudioStream" id=23]
 [ext_resource path="res://src/Actors/Props/MeleeHit.gd" type="Script" id=24]
@@ -30,18 +30,18 @@
 [ext_resource path="res://src/Actors/Weapons/Projectiles/Bike Lemon.tscn" type="PackedScene" id=28]
 [ext_resource path="res://src/Actors/Props/Sprites/bike_cannon.res" type="SpriteFrames" id=29]
 [ext_resource path="res://src/Effects/Materials/RideChaserSmokes.tres" type="Material" id=30]
-[ext_resource path="res://src/Effects/Textures/smoke.png" type="Texture" id=31]
+[ext_resource path="res://src/Effects/Textures/smoke.png" type="Texture2D" id=31]
 [ext_resource path="res://src/Sounds/Bike - Land.wav" type="AudioStream" id=32]
 [ext_resource path="res://src/Sounds/Bike - Mount.wav" type="AudioStream" id=33]
 [ext_resource path="res://src/Actors/Props/BikeHyperDash.gd" type="Script" id=34]
 [ext_resource path="res://src/Effects/Textures/hyperdash.tres" type="SpriteFrames" id=35]
 [ext_resource path="res://src/Effects/Materials/RemainsParticle.tres" type="Material" id=36]
-[ext_resource path="res://src/Effects/Textures/remains_bike.png" type="Texture" id=37]
+[ext_resource path="res://src/Effects/Textures/remains_bike.png" type="Texture2D" id=37]
 [ext_resource path="res://src/Effects/Materials/RideChaserParticles.tres" type="Material" id=38]
 [ext_resource path="res://src/Actors/Props/BikeSlopeJump.gd" type="Script" id=39]
 [ext_resource path="res://src/Effects/Materials/ExplosionParticles.tres" type="Material" id=41]
 [ext_resource path="res://src/Effects/Remains.gd" type="Script" id=42]
-[ext_resource path="res://src/Effects/Textures/explosion.png" type="Texture" id=43]
+[ext_resource path="res://src/Effects/Textures/explosion.png" type="Texture2D" id=43]
 
 [sub_resource type="CanvasItemMaterial" id=31]
 particles_animation = true
@@ -81,14 +81,14 @@ particles_anim_h_frames = 6
 particles_anim_v_frames = 3
 particles_anim_loop = false
 
-[node name="RideChaser" type="KinematicBody2D" groups=["Bike", "Props"]]
-pause_mode = 1
+[node name="RideChaser" type="CharacterBody2D" groups=["Bike", "Props"]]
+process_mode = 1
 z_index = 3
 collision_layer = 0
 collision_mask = 536938241
 script = ExtResource( 10 )
 
-[node name="animatedSprite" type="AnimatedSprite" parent="."]
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
 material = ExtResource( 1 )
 position = Vector2( 0, -3.99 )
 z_index = 1
@@ -97,12 +97,12 @@ animation = "stop"
 frame = 14
 playing = true
 
-[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="animatedSprite"]
+[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="animatedSprite"]
 visible = false
 position = Vector2( 0, 3.99 )
 scale = Vector2( 0.6, 1.6 )
 
-[node name="particles2D" type="Particles2D" parent="animatedSprite"]
+[node name="particles2D" type="GPUParticles2D" parent="animatedSprite"]
 material = SubResource( 31 )
 position = Vector2( -30, 10.99 )
 z_index = -4
@@ -113,7 +113,7 @@ local_coords = false
 process_material = ExtResource( 38 )
 texture = ExtResource( 21 )
 
-[node name="Smoke Particles" type="Particles2D" parent="animatedSprite"]
+[node name="Smoke Particles" type="GPUParticles2D" parent="animatedSprite"]
 material = SubResource( 20 )
 position = Vector2( 6, 18.99 )
 emitting = false
@@ -140,9 +140,9 @@ shape = SubResource( 246 )
 
 [node name="collisionPolygon2D" type="CollisionPolygon2D" parent="."]
 z_index = 1
-polygon = PoolVector2Array( -3, 15, 3, 15, 7, 8, 7, -15, -7, -15, -7, 8 )
+polygon = PackedVector2Array( -3, 15, 3, 15, 7, 8, 7, -15, -7, -15, -7, 8 )
 
-[node name="Enemy Collision Detector" type="KinematicBody2D" parent="." groups=["Player", "Player Projectile", "Props"]]
+[node name="Enemy Collision Detector" type="CharacterBody2D" parent="." groups=["Player", "Player Projectile", "Props"]]
 visible = false
 collision_layer = 2
 collision_mask = 0
@@ -157,86 +157,86 @@ shape = ExtResource( 2 )
 [node name="Wallcheck Right" type="RayCast2D" parent="_raycasts"]
 position = Vector2( 2, -14 )
 enabled = true
-cast_to = Vector2( 6, 0 )
+target_position = Vector2( 6, 0 )
 collision_mask = 67073
 
 [node name="Wallcheck Right2" type="RayCast2D" parent="_raycasts"]
 position = Vector2( 2, -7 )
 enabled = true
-cast_to = Vector2( 6, 0 )
+target_position = Vector2( 6, 0 )
 collision_mask = 67073
 
 [node name="Wallcheck Right3" type="RayCast2D" parent="_raycasts"]
 position = Vector2( 2, 13 )
 enabled = true
-cast_to = Vector2( 6, 0 )
+target_position = Vector2( 6, 0 )
 collision_mask = 67073
 
 [node name="Wallcheck Left" type="RayCast2D" parent="_raycasts"]
 position = Vector2( -2, -14 )
 enabled = true
-cast_to = Vector2( -6, 0 )
+target_position = Vector2( -6, 0 )
 collision_mask = 67073
 
 [node name="Wallcheck Left2" type="RayCast2D" parent="_raycasts"]
 position = Vector2( -2, -7 )
 enabled = true
 exclude_parent = false
-cast_to = Vector2( -6, 0 )
+target_position = Vector2( -6, 0 )
 collision_mask = 67073
 
 [node name="Wallcheck Left3" type="RayCast2D" parent="_raycasts"]
 position = Vector2( -2, 13 )
 enabled = true
-cast_to = Vector2( -6, 0 )
+target_position = Vector2( -6, 0 )
 collision_mask = 67073
 
 [node name="WallJumpCast Right" type="RayCast2D" parent="_raycasts"]
 visible = false
 position = Vector2( 2, -14 )
 enabled = true
-cast_to = Vector2( 12, 0 )
+target_position = Vector2( 12, 0 )
 collision_mask = 1537
 
 [node name="WallJumpCast Right2" type="RayCast2D" parent="_raycasts"]
 visible = false
 position = Vector2( 2, 0 )
 enabled = true
-cast_to = Vector2( 12, 0 )
+target_position = Vector2( 12, 0 )
 collision_mask = 1537
 
 [node name="WallJumpCast Right3" type="RayCast2D" parent="_raycasts"]
 visible = false
 position = Vector2( 2, 15 )
 enabled = true
-cast_to = Vector2( 12, 0 )
+target_position = Vector2( 12, 0 )
 collision_mask = 1537
 
 [node name="WallJumpCast Left" type="RayCast2D" parent="_raycasts"]
 visible = false
 position = Vector2( -2, -14 )
 enabled = true
-cast_to = Vector2( -12, 0 )
+target_position = Vector2( -12, 0 )
 collision_mask = 1537
 
 [node name="WallJumpCast Left2" type="RayCast2D" parent="_raycasts"]
 visible = false
 position = Vector2( -2, 0 )
 enabled = true
-cast_to = Vector2( -12, 0 )
+target_position = Vector2( -12, 0 )
 collision_mask = 1537
 
 [node name="WallJumpCast Left3" type="RayCast2D" parent="_raycasts"]
 visible = false
 position = Vector2( -2, 15 )
 enabled = true
-cast_to = Vector2( -12, 0 )
+target_position = Vector2( -12, 0 )
 collision_mask = 1537
 
 [node name="GroundCast" type="RayCast2D" parent="_raycasts"]
 position = Vector2( 0, 7 )
 enabled = true
-cast_to = Vector2( 0, 24 )
+target_position = Vector2( 0, 24 )
 collision_mask = 1537
 
 [node name="_crush_raycasts" type="Node2D" parent="."]
@@ -244,19 +244,19 @@ visible = false
 
 [node name="death_up" type="RayCast2D" parent="_crush_raycasts"]
 enabled = true
-cast_to = Vector2( 0, 15 )
+target_position = Vector2( 0, 15 )
 
 [node name="death_down" type="RayCast2D" parent="_crush_raycasts"]
 enabled = true
-cast_to = Vector2( 0, -15 )
+target_position = Vector2( 0, -15 )
 
 [node name="death_right" type="RayCast2D" parent="_crush_raycasts"]
 enabled = true
-cast_to = Vector2( 7, 0 )
+target_position = Vector2( 7, 0 )
 
 [node name="death_left" type="RayCast2D" parent="_crush_raycasts"]
 enabled = true
-cast_to = Vector2( -7, 0 )
+target_position = Vector2( -7, 0 )
 
 [node name="Riden" type="Node2D" parent="."]
 script = ExtResource( 18 )
@@ -350,7 +350,7 @@ pitch_scale = 1.14
 max_distance = 400.0
 bus = "SFX"
 
-[node name="hyperdash_effect" type="AnimatedSprite" parent="HyperDash"]
+[node name="hyperdash_effect" type="AnimatedSprite2D" parent="HyperDash"]
 visible = false
 material = ExtResource( 1 )
 position = Vector2( 0, -4 )
@@ -406,7 +406,7 @@ script = ExtResource( 17 )
 conflicting_moves = [ "Nothing" ]
 actions = [ "Event" ]
 
-[node name="Explosion Particles" type="Particles2D" parent="Death"]
+[node name="Explosion Particles" type="GPUParticles2D" parent="Death"]
 material = SubResource( 210 )
 position = Vector2( -21, 0.5 )
 z_index = 5
@@ -424,7 +424,7 @@ volume_db = -10.6
 max_distance = 400.0
 bus = "SFX"
 
-[node name="Remains" type="Particles2D" parent="Death"]
+[node name="Remains" type="GPUParticles2D" parent="Death"]
 material = SubResource( 66 )
 position = Vector2( 0, 0.5 )
 z_index = 10
@@ -437,7 +437,7 @@ process_material = ExtResource( 25 )
 texture = ExtResource( 43 )
 script = ExtResource( 42 )
 
-[node name="remains_particles" type="Particles2D" parent="Death/Remains"]
+[node name="remains_particles" type="GPUParticles2D" parent="Death/Remains"]
 material = SubResource( 12 )
 z_index = -1
 emitting = false
@@ -473,7 +473,7 @@ bus = "SFX"
 [node name="SlopeJump" type="Node2D" parent="."]
 script = ExtResource( 39 )
 
-[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 scale = Vector2( 5.5, 1.7 )
 
 [connection signal="timeout" from="Death/Remains/timer" to="Death/Remains" method="_on_timer_timeout"]

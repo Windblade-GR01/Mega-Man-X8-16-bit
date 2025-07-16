@@ -3,7 +3,7 @@
 [ext_resource path="res://src/System/X8Camera.gd" type="Script" id=1]
 [ext_resource path="res://src/System/CameraFollowPlayer.gd" type="Script" id=2]
 [ext_resource path="res://src/Levels/CameraManualTranslate.gd" type="Script" id=3]
-[ext_resource path="res://images/icon.png" type="Texture" id=5]
+[ext_resource path="res://images/icon.png" type="Texture2D" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -18,7 +18,7 @@ collision_mask = 2048
 [node name="collisionShape2D" type="CollisionShape2D" parent="area_limit_detector"]
 shape = SubResource( 1 )
 
-[node name="sprite" type="Sprite" parent="area_limit_detector/collisionShape2D"]
+[node name="sprite" type="Sprite2D" parent="area_limit_detector/collisionShape2D"]
 scale = Vector2( 0.0703125, 0.078125 )
 texture = ExtResource( 5 )
 

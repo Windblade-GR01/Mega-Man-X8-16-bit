@@ -1,19 +1,19 @@
 extends EventAbility
 class_name Finish
 
-export var beam_speed := 420.0
+@export var beam_speed := 420.0
 var stage_clear_song_duration := 3.8
 var ascending := false
 var victoring := false
-onready var animatedSprite = get_parent().get_node("animatedSprite")
-onready var victory_sound = get_node("audioStreamPlayer")
-onready var beam_out_sound = get_node("audioStreamPlayer2")
+@onready var animatedSprite = get_parent().get_node("animatedSprite")
+@onready var victory_sound = get_node("audioStreamPlayer")
+@onready var beam_out_sound = get_node("audioStreamPlayer2")
 
 var victory_pose_and_music := true
 
 func _ready() -> void:
-	animatedSprite.connect("animation_finished",self,"on_animation_finished")
-	Event.connect("disable_victory_ending",self,"disable_victory")
+	animatedSprite.connect("animation_finished", Callable(self, "on_animation_finished"))
+	Event.connect("disable_victory_ending", Callable(self, "disable_victory"))
 
 func disable_victory():
 	victory_pose_and_music = false

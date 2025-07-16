@@ -18,7 +18,7 @@ func _Setup():
 	background.scale.x = 100
 	background.scale.y = 40 
 	GameManager.pause(character.name + name)
-	freeze_moment = OS.get_ticks_msec()
+	freeze_moment = Time.get_ticks_msec()
 
 func _Interrupt():
 	elapsed_explosion_time = 0.0

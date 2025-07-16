@@ -1,13 +1,13 @@
 extends ChargedBuster
-export var auxiliary_projectiles : PackedScene
+@export var auxiliary_projectiles : PackedScene
 
 func projectile_setup(dir : int, position : Vector2, _launcher_velocity := 0.0):
-	.projectile_setup(dir, position)
+	super.projectile_setup(dir, position)
 	call_deferred("create_auxiliary_shots",dir)
 
 func create_auxiliary_shots(dir) -> void:
-	var aux_shot = auxiliary_projectiles.instance()
-	var aux_shot2 = auxiliary_projectiles.instance()
+	var aux_shot = auxiliary_projectiles.instantiate()
+	var aux_shot2 = auxiliary_projectiles.instantiate()
 	get_tree().root.add_child(aux_shot,true)
 	get_tree().root.add_child(aux_shot2,true)
 	aux_shot.global_position = global_position

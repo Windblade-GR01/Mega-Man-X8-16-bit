@@ -1,10 +1,10 @@
 extends Node2D
-onready var laser: AnimatedSprite = $laser
-onready var laser_damage: Node2D = $laser/damage
-onready var sprite: AnimatedSprite = $ball
-onready var shot_sfx: AudioStreamPlayer2D = $prepare
-onready var damage = get_parent().get_node_or_null("Damage")
-onready var shield: Node2D = $EnemyShield
+@onready var laser: AnimatedSprite2D = $laser
+@onready var laser_damage: Node2D = $laser/damage
+@onready var sprite: AnimatedSprite2D = $ball
+@onready var shot_sfx: AudioStreamPlayer2D = $prepare
+@onready var damage = get_parent().get_node_or_null("Damage")
+@onready var shield: Node2D = $EnemyShield
 var deflects := 2
 var target : Vector2
 var active := true

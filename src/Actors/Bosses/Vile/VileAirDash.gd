@@ -1,13 +1,13 @@
 extends AttackAbility
 
-onready var tween := TweenController.new(self,false)
-onready var rise: AudioStreamPlayer2D = $rise
-onready var traverse: AudioStreamPlayer2D = $traverse
-onready var land: AudioStreamPlayer2D = $land
+@onready var tween := TweenController.new(self,false)
+@onready var rise: AudioStreamPlayer2D = $rise
+@onready var traverse: AudioStreamPlayer2D = $traverse
+@onready var land: AudioStreamPlayer2D = $land
 
 var ended_movement := false
-onready var space: Node = $"../Space"
-onready var dash_particles: Particles2D = $dash_particles
+@onready var space: Node = $"../Space"
+@onready var dash_particles: GPUParticles2D = $dash_particles
 
 func _Setup() -> void:
 	play_animation("flight_to_upward")
@@ -88,6 +88,6 @@ func end_movement() -> void:
 	ended_movement = true
 
 func _Interrupt() -> void:
-	._Interrupt()
+	super._Interrupt()
 	tween.reset()
 	dash_particles.emitting = false

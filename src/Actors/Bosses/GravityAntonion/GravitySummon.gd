@@ -1,8 +1,8 @@
 extends AttackAbility
 
-export var projectile : PackedScene
-onready var point: AudioStreamPlayer2D = $point
-onready var space: Node = $"../Space"
+@export var projectile : PackedScene
+@onready var point: AudioStreamPlayer2D = $point
+@onready var space: Node = $"../Space"
 
 func _Update(delta) -> void:
 	process_gravity(delta)

@@ -1,12 +1,12 @@
-extends KinematicBody2D
+extends CharacterBody2D
 class_name GenericProjectile
 
-export var active := false
-export var debug_logs := false
-export var damage := 1.0
-export var damage_to_bosses := 1.0
-export var damage_to_weakness := 1.0
-export var time_off_screen := 0.05
+@export var active := false
+@export var debug_logs := false
+@export var damage := 1.0
+@export var damage_to_bosses := 1.0
+@export var damage_to_weakness := 1.0
+@export var time_off_screen := 0.05
 var facing_direction := 1
 var last_message
 var velocity := Vector2.ZERO
@@ -17,8 +17,8 @@ var creator : Node2D
 var off_screen_timer := 0.0
 
 var damage_ot: Node2D
-onready var visibility := $visibilityNotifier2D
-onready var animatedSprite: AnimatedSprite = $animatedSprite
+@onready var visibility := $visibilityNotifier2D
+@onready var animatedSprite: AnimatedSprite2D = $animatedSprite
 
  
 signal hit (target)
@@ -31,7 +31,7 @@ func _ready() -> void:
 	damage_ot = get_node_or_null("DamageOnTouch")
 	check_group_and_alert()
 	connect_disable_unneeded_object()
-	visibility.connect("screen_exited",self,"_OnScreenExit") # warning-ignore:return_value_discarded
+	visibility.connect("screen_exited", Callable(self, "_OnScreenExit")) # warning-ignore:return_value_discarded
 
 func connect_disable_unneeded_object() -> void:
 	Event.listen("disable_unneeded_objects",self,"destroy")
@@ -49,7 +49,12 @@ func set_creator(_creator : Node2D) -> void:
 	creator = _creator
 
 func process_movement():
-	velocity = move_and_slide_with_snap(velocity, Vector2.ZERO, Vector2.UP,true)
+	set_velocity(velocity)
+	# TODOConverter3To4 looks that snap in Godot 4 is float, not vector like in Godot 3 - previous value `Vector2.ZERO`
+	set_up_direction(Vector2.UP)
+	set_floor_stop_on_slope_enabled(true)
+	move_and_slide()
+	velocity = velocity
 
 func activate() -> void:
 	Log("Activating")
@@ -190,7 +195,7 @@ func Log(msg)  -> void:
 			last_message = str(msg)
 
 func listen(event_name : String, listener, method_to_call : String):
-	var error_code = connect(event_name,listener,method_to_call)
+	var error_code = connect(event_name, Callable(listener, method_to_call))
 	if error_code != 0:
 		print (name + ".listen: Connection error. Code: " + str(error_code))
 		print (listener.name + "'s method "+ method_to_call + " on event " + event_name)

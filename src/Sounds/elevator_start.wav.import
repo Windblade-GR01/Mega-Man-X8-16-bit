@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/elevator_start.wav-050a09e24c111feac1602040802cc878.sample"
+type="AudioStreamWAV"
+uid="uid://bgj3cfsesyuv0"
+path="res://.godot/imported/elevator_start.wav-050a09e24c111feac1602040802cc878.sample"
 
 [deps]
 
 source_file="res://src/Sounds/elevator_start.wav"
-dest_files=[ "res://.import/elevator_start.wav-050a09e24c111feac1602040802cc878.sample" ]
+dest_files=["res://.godot/imported/elevator_start.wav-050a09e24c111feac1602040802cc878.sample"]
 
 [params]
 

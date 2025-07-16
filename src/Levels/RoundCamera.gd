@@ -1,13 +1,13 @@
 extends Camera2D
 
-export var decay = 0.8  # How quickly the shaking stops [0, 1].
-export var max_offset = Vector2(0, 15)  # Maximum hor/ver shake in pixels.
-export var max_roll = 0.0  # Maximum rotation in radians (use sparingly).
+@export var decay = 0.8  # How quickly the shaking stops [0, 1].
+@export var max_offset = Vector2(0, 15)  # Maximum hor/ver shake in pixels.
+@export var max_roll = 0.0  # Maximum rotation in radians (use sparingly).
 var target : Node  # Assign the node this camera will follow.
 
 var following_target := true
 
-export var trauma = 0.0  # Current shake strength.
+@export var trauma = 0.0  # Current shake strength.
 var trauma_power = 2  # Trauma exponent. Use [2, 3].
 var timer := 0.0
 var shake_step := 0.032
@@ -21,21 +21,21 @@ var new_limit_left := 0.0
 
 var abrupt_movement_time := 0.0
 
-onready var drag_top := drag_margin_top
-onready var drag_bottom := drag_margin_bottom
+@onready var drag_top := drag_top_margin
+@onready var drag_bottom := drag_bottom_margin
 var should_reduce_drag := false
 
-onready var original_drag_down := drag_margin_bottom
-onready var original_drag_top := drag_margin_top
+@onready var original_drag_down := drag_bottom_margin
+@onready var original_drag_top := drag_top_margin
 
-onready var original_limit_right := limit_right
-onready var original_limit_down := limit_bottom
-onready var original_limit_left := limit_left
-onready var original_limit_top := limit_top
+@onready var original_limit_right := limit_right
+@onready var original_limit_down := limit_bottom
+@onready var original_limit_left := limit_left
+@onready var original_limit_top := limit_top
 
 func _ready():
 	timer += 0.5
-	Engine.set_target_fps(Engine.get_iterations_per_second())
+	Engine.set_target_fps(Engine.get_physics_ticks_per_second())
 	GameManager.camera = self
 	Event.listen("screenshake",self,"add_trauma")
 	Event.listen("new_camera_focus",self,"change_camera_focus")
@@ -57,7 +57,7 @@ func set_camera_ahead(ahead):
 	camera_ahead_distance = ahead
 
 func on_camera_center():
-	Log.msg("Camera: Centering camera")
+	Log.msg("Camera3D: Centering camera")
 	camera_ahead = false
 	pass
 
@@ -89,8 +89,8 @@ func move_camera(new_pos : Vector2, timing := 2.1):
 
 func lerp_drag(destiny_value := 0.2): #default is 0.2
 	var tween = create_tween()
-	tween.tween_property(self, "drag_margin_top", destiny_value, 0.5)
-	tween.parallel().tween_property(self, "drag_margin_bottom", destiny_value, 0.5)
+	tween.tween_property(self, "drag_top_margin", destiny_value, 0.5)
+	tween.parallel().tween_property(self, "drag_bottom_margin", destiny_value, 0.5)
 
 
 func move_camera_y(new_pos : float, timing := 0.5):
@@ -98,22 +98,22 @@ func move_camera_y(new_pos : float, timing := 0.5):
 		var final_pos = Vector2 (global_position.x, new_pos)
 		var tween = create_tween()
 		tween.tween_property(self, "position", final_pos, timing)
-		tween.tween_property(self, "drag_margin_top", 0.2, 0.1)
-		tween.parallel().tween_property(self, "drag_margin_bottom", 0.2, 0.1)
+		tween.tween_property(self, "drag_top_margin", 0.2, 0.1)
+		tween.parallel().tween_property(self, "drag_bottom_margin", 0.2, 0.1)
 
 
 func resume_drag():
-	drag_margin_top = drag_top
-	drag_margin_bottom = drag_bottom
+	drag_top_margin = drag_top
+	drag_bottom_margin = drag_bottom
 	should_reduce_drag = false
 
 func reduce_drag(_delta):
 	if should_reduce_drag:
-		drag_margin_bottom = lerp(drag_margin_bottom, 0, 0.01) 
-		drag_margin_top = lerp(drag_margin_top, 0, 0.01) 
+		drag_bottom_margin = lerp(drag_bottom_margin, 0, 0.01) 
+		drag_top_margin = lerp(drag_top_margin, 0, 0.01) 
 	else:
-		drag_margin_bottom = lerp(drag_margin_bottom, original_drag_down,0.01) 
-		drag_margin_top = lerp(drag_margin_top, original_drag_top, 0.01) 
+		drag_bottom_margin = lerp(drag_bottom_margin, original_drag_down,0.01) 
+		drag_top_margin = lerp(drag_top_margin, original_drag_top, 0.01) 
 
 func add_trauma(amount):
 	trauma = min(trauma + amount, 1.0)
@@ -170,7 +170,7 @@ func handle_trauma(delta):
 	
 
 func change_camera_focus(new_focus : Node) -> void:
-	Log.msg("Camera: Changing focus to: " + new_focus.name)
+	Log.msg("Camera3D: Changing focus to: " + new_focus.name)
 	Log.msg("at : " +str(new_focus.position))
 	target = new_focus
 
@@ -179,8 +179,8 @@ func _on_debug_text():
 
 func shake():
 	var amount = pow(trauma, trauma_power)
-	offset.x = max_offset.x * amount * rand_range(-1, 1)
-	offset.y = max_offset.y * amount * rand_range(-1, 1)
+	offset.x = max_offset.x * amount * randf_range(-1, 1)
+	offset.y = max_offset.y * amount * randf_range(-1, 1)
 
 func check_for_boundaries() -> void:
 	pass

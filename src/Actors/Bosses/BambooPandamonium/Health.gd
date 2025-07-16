@@ -1,6 +1,6 @@
 extends Node
 
-export var current_health := 32
+@export var current_health := 32
 
 signal zero_health
 signal reduced_health

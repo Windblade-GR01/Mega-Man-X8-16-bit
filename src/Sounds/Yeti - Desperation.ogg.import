@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/Yeti - Desperation.ogg-2893d5fddf20af51b62524c24ff5ec8b.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bsota53m81rfj"
+path="res://.godot/imported/Yeti - Desperation.ogg-2893d5fddf20af51b62524c24ff5ec8b.oggvorbisstr"
 
 [deps]
 
 source_file="res://src/Sounds/Yeti - Desperation.ogg"
-dest_files=[ "res://.import/Yeti - Desperation.ogg-2893d5fddf20af51b62524c24ff5ec8b.oggstr" ]
+dest_files=["res://.godot/imported/Yeti - Desperation.ogg-2893d5fddf20af51b62524c24ff5ec8b.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

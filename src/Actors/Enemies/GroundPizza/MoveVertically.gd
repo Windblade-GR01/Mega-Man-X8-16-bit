@@ -1,12 +1,12 @@
 extends AttackAbility
-onready var damage_on_touch: DamageOnTouch = $"../DamageOnTouch"
+@onready var damage_on_touch: DamageOnTouch = $"../DamageOnTouch"
 var speed := 0.0
 var initial_pos := Vector2.ZERO
-onready var up: RayCast2D = $up
-onready var down: RayCast2D = $down
-onready var animated_sprite: AnimatedSprite = $"../animatedSprite"
-onready var up_2: RayCast2D = $up2
-onready var down_2: RayCast2D = $down2
+@onready var up: RayCast2D = $up
+@onready var down: RayCast2D = $down
+@onready var animated_sprite: AnimatedSprite2D = $"../animatedSprite"
+@onready var up_2: RayCast2D = $up2
+@onready var down_2: RayCast2D = $down2
 
 func _ready() -> void:
 	speed = horizontal_velocity
@@ -14,19 +14,19 @@ func _ready() -> void:
 	call_deferred("setup_direction")
 
 func _Setup() -> void:
-	._Setup()
+	super._Setup()
 	set_vertical_speed(speed)
 
 func setup_direction() -> void:
 	if character.get_direction() == -1 and animated_sprite.rotation_degrees != -90:
 		animated_sprite.rotation_degrees = -90
 		animatedSprite.position.x = 4
-		up_2.cast_to.x = 16
-		down_2.cast_to.x = 16
+		up_2.target_position.x = 16
+		down_2.target_position.x = 16
 	elif character.get_direction() == 1 and animated_sprite.rotation_degrees != 90:
 		animated_sprite.rotation_degrees = 90
-		up_2.cast_to.x = -16
-		down_2.cast_to.x = -16
+		up_2.target_position.x = -16
+		down_2.target_position.x = -16
 
 func _Update(_delta) -> void:
 	if attack_stage == 0 and has_finished_last_animation():

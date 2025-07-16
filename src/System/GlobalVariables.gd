@@ -30,7 +30,7 @@ func exists(key) -> bool:
 	return key in variables
 
 func listen(event_name : String, listener, method_to_call : String):
-	var error_code = connect(event_name,listener,method_to_call)
+	var error_code = connect(event_name, Callable(listener, method_to_call))
 	if error_code != 0:
 		print_debug ("GlobalVariables: Connection error. Code: " + str(error_code))
 		print_debug (listener.name + "'s method "+ method_to_call + " on event " + event_name)

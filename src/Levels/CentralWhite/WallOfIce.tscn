@@ -1,16 +1,16 @@
 [gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://src/Levels/CentralWhite/iceblock.png" type="Texture" id=1]
+[ext_resource path="res://src/Levels/CentralWhite/iceblock.png" type="Texture2D" id=1]
 [ext_resource path="res://src/Levels/CentralWhite/WallOfIce.gd" type="Script" id=2]
-[ext_resource path="res://src/Effects/Textures/explosion.png" type="Texture" id=3]
+[ext_resource path="res://src/Effects/Textures/explosion.png" type="Texture2D" id=3]
 [ext_resource path="res://src/Effects/Materials/iceblock_explosion_mat.tres" type="Material" id=4]
 [ext_resource path="res://src/Effects/Materials/iceblock_shatter_mat.tres" type="Material" id=5]
-[ext_resource path="res://src/Actors/Bosses/AvalancheYeti/ice_remains.png" type="Texture" id=6]
+[ext_resource path="res://src/Actors/Bosses/AvalancheYeti/ice_remains.png" type="Texture2D" id=6]
 [ext_resource path="res://src/Sounds/Ice Break.wav" type="AudioStream" id=7]
 [ext_resource path="res://src/Sounds/MMX - Enemy Helmet Hit.ogg" type="AudioStream" id=8]
 [ext_resource path="res://src/Actors/Enemies/EnemyShield.gd" type="Script" id=9]
 [ext_resource path="res://src/Effects/Materials/ice_sparkles_block_mat.tres" type="Material" id=10]
-[ext_resource path="res://src/Effects/Textures/snow_sparkle.png" type="Texture" id=11]
+[ext_resource path="res://src/Effects/Textures/snow_sparkle.png" type="Texture2D" id=11]
 [ext_resource path="res://src/Levels/CentralWhite/target_attractor.gd" type="Script" id=12]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -58,14 +58,14 @@ particles_anim_loop = false
 [node name="WallOfIce" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="animatedSprite" type="AnimatedSprite" parent="."]
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
 frames = SubResource( 2 )
 
-[node name="animatedSprite2" type="AnimatedSprite" parent="."]
+[node name="animatedSprite2" type="AnimatedSprite2D" parent="."]
 position = Vector2( 0, -50 )
 frames = SubResource( 2 )
 
-[node name="animatedSprite3" type="AnimatedSprite" parent="."]
+[node name="animatedSprite3" type="AnimatedSprite2D" parent="."]
 position = Vector2( 0, -100 )
 frames = SubResource( 2 )
 
@@ -87,7 +87,7 @@ collision_mask = 6
 position = Vector2( 79, -65 )
 shape = SubResource( 4 )
 
-[node name="Explosion Particles" type="Particles2D" parent="."]
+[node name="Explosion Particles" type="GPUParticles2D" parent="."]
 material = SubResource( 5 )
 position = Vector2( -1, -35 )
 z_index = 5
@@ -99,7 +99,7 @@ local_coords = false
 process_material = ExtResource( 4 )
 texture = ExtResource( 3 )
 
-[node name="remains_particles" type="Particles2D" parent="."]
+[node name="remains_particles" type="GPUParticles2D" parent="."]
 material = SubResource( 6 )
 position = Vector2( 0, -46 )
 emitting = false
@@ -112,7 +112,7 @@ process_material = ExtResource( 5 )
 texture = ExtResource( 6 )
 
 [node name="icebreak" type="AudioStreamPlayer2D" parent="."]
-pause_mode = 2
+process_mode = 3
 stream = ExtResource( 7 )
 volume_db = -12.671
 pitch_scale = 0.77
@@ -139,7 +139,7 @@ max_distance = 1200.0
 attenuation = 1e-05
 bus = "SFX"
 
-[node name="particles2D" type="Particles2D" parent="."]
+[node name="particles2D" type="GPUParticles2D" parent="."]
 material = SubResource( 8 )
 position = Vector2( 0, -49 )
 lifetime = 0.5

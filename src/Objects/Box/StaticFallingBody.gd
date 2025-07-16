@@ -1,20 +1,20 @@
 class_name NewBox extends StaticBody2D
 
-export var debug := false
-export var active:= true
-export var gravity:= true
-export var timer := 0.0
+@export var debug := false
+@export var active:= true
+@export var gravity:= true
+@export var timer := 0.0
 var velocity := Vector2.ZERO
 var on_ground := false
 var ground_checked
 
-onready var ground_check: RayCast2D = $ground_check
-onready var ground_check_2: RayCast2D = $ground_check2
-onready var ground_check_3: RayCast2D = $ground_check3
-onready var left_wall_check: RayCast2D = $left_wall_check
-onready var right_wall_check: RayCast2D = $right_wall_check
+@onready var ground_check: RayCast2D = $ground_check
+@onready var ground_check_2: RayCast2D = $ground_check2
+@onready var ground_check_3: RayCast2D = $ground_check3
+@onready var left_wall_check: RayCast2D = $left_wall_check
+@onready var right_wall_check: RayCast2D = $right_wall_check
 
-onready var collider: CollisionShape2D = $collisionShape2D
+@onready var collider: CollisionShape2D = $collisionShape2D
 
 signal activated
 signal falling

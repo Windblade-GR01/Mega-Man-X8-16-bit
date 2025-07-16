@@ -10,9 +10,9 @@
 [ext_resource path="res://src/Actors/Enemies/LineObstacle/3DIllusion.gd" type="Script" id=9]
 [ext_resource path="res://src/Sounds/56 - MMX - Enemy Death.wav" type="AudioStream" id=10]
 [ext_resource path="res://src/Sounds/HIT.wav" type="AudioStream" id=11]
-[ext_resource path="res://src/Actors/Enemies/LaserLine/laser_line3.png" type="Texture" id=13]
-[ext_resource path="res://src/Actors/Enemies/LaserLine/laser_line2.png" type="Texture" id=14]
-[ext_resource path="res://src/Actors/Enemies/LaserLine/laser_line1.png" type="Texture" id=15]
+[ext_resource path="res://src/Actors/Enemies/LaserLine/laser_line3.png" type="Texture2D" id=13]
+[ext_resource path="res://src/Actors/Enemies/LaserLine/laser_line2.png" type="Texture2D" id=14]
+[ext_resource path="res://src/Actors/Enemies/LaserLine/laser_line1.png" type="Texture2D" id=15]
 [ext_resource path="res://src/Actors/Enemies/LineObstacle/line_obstacle.res" type="SpriteFrames" id=17]
 
 [sub_resource type="RectangleShape2D" id=79]
@@ -28,7 +28,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=239]
 curve = SubResource( 238 )
 
-[sub_resource type="ParticlesMaterial" id=244]
+[sub_resource type="ParticleProcessMaterial" id=244]
 resource_local_to_scene = true
 resource_name = "explosion"
 emission_shape = 1
@@ -50,7 +50,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=243]
 curve = SubResource( 242 )
 
-[sub_resource type="ParticlesMaterial" id=245]
+[sub_resource type="ParticleProcessMaterial" id=245]
 resource_local_to_scene = true
 resource_name = "remains_single"
 flag_disable_z = true
@@ -63,14 +63,14 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[node name="LineObstacle" type="KinematicBody2D" groups=["Enemies"]]
+[node name="LineObstacle" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 8 )
 debug_logs = true
 spawn_direction = 1
 
-[node name="animatedSprite" type="AnimatedSprite" parent="."]
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
 self_modulate = Color( 0.764706, 0.752941, 0.662745, 1 )
 z_index = -1
 frames = ExtResource( 17 )
@@ -81,13 +81,13 @@ script = ExtResource( 3 )
 line_frames = [ ExtResource( 13 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 15 ) ]
 
 [node name="line" type="Line2D" parent="animatedSprite"]
-points = PoolVector2Array( 0, 0, 32, 0 )
+points = PackedVector2Array( 0, 0, 32, 0 )
 width = 16.0
 default_color = Color( 1, 1, 1, 1 )
 texture = ExtResource( 14 )
 texture_mode = 2
 
-[node name="collision" type="AnimatedSprite" parent="animatedSprite"]
+[node name="collision" type="AnimatedSprite2D" parent="animatedSprite"]
 position = Vector2( 32, 0 )
 z_index = 32
 frames = ExtResource( 17 )
@@ -100,7 +100,7 @@ visible = false
 position = Vector2( 1.5, 0 )
 shape = SubResource( 79 )
 
-[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 visible = false
 position = Vector2( -1.52588e-05, -2.66667 )
 scale = Vector2( 200.5, 2.66667 )
@@ -154,7 +154,7 @@ bus = "SFX"
 [node name="3DIllusion" type="Node2D" parent="."]
 script = ExtResource( 9 )
 
-[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 process_parent = true
 physics_process_parent = true
 

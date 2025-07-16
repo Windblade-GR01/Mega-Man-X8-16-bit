@@ -1,6 +1,6 @@
 extends "res://src/Objects/Door/Close.gd"
 
-export var signal_to_emit := "boss_door_closed"
+@export var signal_to_emit := "boss_door_closed"
 
 func _Interrupt() -> void:
 	if signal_to_emit != "none":

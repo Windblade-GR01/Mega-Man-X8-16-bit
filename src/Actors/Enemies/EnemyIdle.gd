@@ -1,14 +1,14 @@
 extends Movement
 class_name EnemyIdle
 
-onready var animatedSprite = get_parent().get_node("animatedSprite")
+@onready var animatedSprite = get_parent().get_node("animatedSprite")
 var current_animation := ""
 var finished_animation := "'"
-export var should_turn := true
+@export var should_turn := true
 
 func _ready() -> void:
 	if active:
-		animatedSprite.connect("animation_finished",self,"on_finished_animation")
+		animatedSprite.connect("animation_finished", Callable(self, "on_finished_animation"))
 
 func _StartCondition() -> bool:
 	return character.animatedSprite.visible

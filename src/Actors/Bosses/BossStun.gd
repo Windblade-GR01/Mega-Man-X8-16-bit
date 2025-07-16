@@ -1,13 +1,13 @@
 extends AttackAbility
 
 var side_hit := 0
-onready var damage: Node2D = $"../Damage"
-onready var boss_ai: Node2D = $"../BossAI"
+@onready var damage: Node2D = $"../Damage"
+@onready var boss_ai: Node2D = $"../BossAI"
 
-export var stop_at_land:= false
+@export var stop_at_land:= false
 
 func _ready() -> void:
-	var _s = damage.connect("charged_weakness_hit",self,"start_stun")
+	var _s = damage.connect("charged_weakness_hit", Callable(self, "start_stun"))
 
 func start_stun(hit_direction : int) -> void:
 	if active and character.has_health():

@@ -7,10 +7,10 @@ var last_emitted_land := 0.0
 var land_particle_duration := 0.16
 var vertical_buildup := 0.0
 
-onready var ground_check := $_raycasts.get_node("GroundCast")
-onready var land_particles := $"animatedSprite/Smoke Particles"
-onready var land_audio := $audioStreamPlayer2D
-onready var riden: Node2D = $Riden
+@onready var ground_check := $_raycasts.get_node("GroundCast")
+@onready var land_particles := $"animatedSprite/Smoke Particles"
+@onready var land_audio := $audioStreamPlayer2D
+@onready var riden: Node2D = $Riden
 
 
 func _ready() -> void:
@@ -34,12 +34,12 @@ func cutscene_activate() -> void:
 
 func _physics_process(delta: float) -> void:
 	if onscreen:
-		._physics_process(delta)
+		super._physics_process(delta)
 		timer += delta
 	else:
 		offscreen_timer += delta
 		if offscreen_timer < 3:
-			._physics_process(delta)
+			super._physics_process(delta)
 			timer += delta
 		elif offscreen_timer > 6:
 			destroy()
@@ -77,7 +77,14 @@ func stop_land_particles():
 func process_final_velocity() -> Vector2:
 	handle_slope_snap()
 	handle_wall_collision()
-	return move_and_slide_with_snap(final_velocity, snap_vector, up_direction,true,4,0.8)
+	set_velocity(final_velocity)
+	# TODOConverter3To4 looks that snap in Godot 4 is float, not vector like in Godot 3 - previous value `snap_vector`
+	set_up_direction(up_direction)
+	set_floor_stop_on_slope_enabled(true)
+	set_max_slides(4)
+	set_floor_max_angle(0.8)
+	move_and_slide()
+	return velocity
 
 func handle_wall_collision():
 	if get_facing_direction() == is_colliding_with_wall():
@@ -140,18 +147,18 @@ func is_facing_left_slope_down() -> bool:
 	return get_facing_direction() < 0 and get_ground_normal().x < -0.01
 
 func apply_damage_shader() -> void:
-	animatedSprite.material.set_shader_param("Flash", 1)
-	animatedSprite.material.set_shader_param("Should_Blink", 1)
+	animatedSprite.material.set_shader_parameter("Flash", 1)
+	animatedSprite.material.set_shader_parameter("Should_Blink", 1)
 
 func stop_damage_shader() -> void:
-	animatedSprite.material.set_shader_param("Flash", 0)
+	animatedSprite.material.set_shader_parameter("Flash", 0)
 
 func apply_invulnerability_shader():
-	animatedSprite.material.set_shader_param("Alpha_Blink", 1)
+	animatedSprite.material.set_shader_parameter("Alpha_Blink", 1)
 	full_alpha = false
 
 func remove_invulnerability_shader():
-	animatedSprite.material.set_shader_param("Alpha_Blink", 0)
+	animatedSprite.material.set_shader_parameter("Alpha_Blink", 0)
 	full_alpha = true
 
 func check_if_should_set_alpha_to_1():
@@ -174,7 +181,7 @@ func grab_eject() -> void:
 
 func destroy() -> void:
 	GameManager.bikes.erase(self)
-	.destroy()
+	super.destroy()
 
 func set_vertical_speed(speed: float, floor_snap := true):
 	if speed == 0 and floor_snap:

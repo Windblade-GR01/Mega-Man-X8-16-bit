@@ -1,13 +1,13 @@
 extends AttackAbility
-onready var fire_1: Particles2D = $fire1
-onready var fire_2: Particles2D = $fire2
-onready var fire_3: Particles2D = $fire3
-onready var knee: AudioStreamPlayer2D = $knee
-onready var charge: AudioStreamPlayer2D = $charge
-onready var land: AudioStreamPlayer2D = $land
+@onready var fire_1: GPUParticles2D = $fire1
+@onready var fire_2: GPUParticles2D = $fire2
+@onready var fire_3: GPUParticles2D = $fire3
+@onready var knee: AudioStreamPlayer2D = $knee
+@onready var charge: AudioStreamPlayer2D = $charge
+@onready var land: AudioStreamPlayer2D = $land
 
 func _Setup() -> void:
-	._Setup()
+	super._Setup()
 	charge.play()
 
 func _Update(_delta) -> void:
@@ -42,7 +42,7 @@ func _Update(_delta) -> void:
 		EndAbility()
 
 func _Interrupt() -> void:
-	._Interrupt()
+	super._Interrupt()
 	stop_fire()
 	kill_tweens(tween_list)
 

@@ -2,7 +2,7 @@ extends Movement
 class_name Fall
 
 
-export var shot_pos_adjust := Vector2 (4,-5)
+@export var shot_pos_adjust := Vector2 (4,-5)
 
 
 func get_shot_adust_position() -> Vector2:
@@ -41,14 +41,14 @@ func _Setup():
 
 func _Interrupt() -> void:
 	character.dashfall = false
-	._Interrupt()
+	super._Interrupt()
 
 func Initialize() -> void:
-	.Initialize()
+	super.Initialize()
 	jumpcast_timer = 0
 
 func BeforeEveryFrame(delta) -> void:
-	.BeforeEveryFrame(delta)
+	super.BeforeEveryFrame(delta)
 	activate_low_jumpcasts_after_delay(delta)
 	
 

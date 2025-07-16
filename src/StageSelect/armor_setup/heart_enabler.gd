@@ -1,5 +1,5 @@
 extends X8OptionButton
-onready var equip: AudioStreamPlayer = $"../../../equip"
+@onready var equip: AudioStreamPlayer = $"../../../equip"
 
 
 func setup() -> void:
@@ -7,7 +7,7 @@ func setup() -> void:
 		visible = false
 	dim()
 	display()
-	material.set_shader_param("grayscale",!GameManager.equip_hearts)
+	material.set_shader_parameter("grayscale",!GameManager.equip_hearts)
 
 func on_press() -> void:
 	increase_value()
@@ -17,7 +17,7 @@ func on_press() -> void:
 	else:
 		play_sound()
 		flash()
-	material.set_shader_param("grayscale",!GameManager.equip_hearts)
+	material.set_shader_parameter("grayscale",!GameManager.equip_hearts)
 
 func process_inputs() -> void:
 	pass

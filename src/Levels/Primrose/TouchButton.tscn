@@ -7,8 +7,8 @@
 
 [sub_resource type="RectangleShape2D" id=11]
 
-[node name="TouchButton" type="AnimatedSprite"]
-pause_mode = 2
+[node name="TouchButton" type="AnimatedSprite2D"]
+process_mode = 3
 frames = ExtResource( 2 )
 animation = "up"
 script = ExtResource( 1 )

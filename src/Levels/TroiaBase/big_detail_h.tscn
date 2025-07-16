@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/Levels/BoosterForest/ForegroundObject.gd" type="Script" id=1]
-[ext_resource path="res://src/Effects/Textures/troia_monitor.png" type="Texture" id=2]
+[ext_resource path="res://src/Effects/Textures/troia_monitor.png" type="Texture2D" id=2]
 
 [sub_resource type="AtlasTexture" id=101]
 atlas = ExtResource( 2 )
@@ -72,14 +72,14 @@ position = Vector2( 4295, -547 )
 z_index = 50
 script = ExtResource( 1 )
 
-[node name="sprite" type="AnimatedSprite" parent="."]
+[node name="sprite" type="AnimatedSprite2D" parent="."]
 z_index = 5
 frames = SubResource( 115 )
 frame = 6
 speed_scale = 0.8
 playing = true
 
-[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 visible = false
 scale = Vector2( 13.7, 1 )
 process_parent = true

@@ -1,6 +1,6 @@
 extends Enemy
 
-export var laser_direction := 1
+@export var laser_direction := 1
 
 func _ready() -> void:
 	set_direction_on_ready ()
@@ -13,5 +13,5 @@ func set_direction_on_ready () -> void:
 	update_facing_direction()
 
 func set_direction(dir: int, update:= false) -> void:
-	.set_direction(dir,update)
+	super.set_direction(dir,update)
 	#Log("setting dir " + str(dir))

@@ -7,7 +7,7 @@ using TiledImporter.Decompressors;
 
 namespace TiledImporter.Decoders
 {
-    public class Base64Decoder : Decoder
+    public partial class Base64Decoder : Decoder
     {
         protected byte[] DecodeToByteData(string encodedString)
         {

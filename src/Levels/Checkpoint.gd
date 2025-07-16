@@ -1,7 +1,7 @@
 extends Area2D
 
-export (NodePath) var last_door
-export var force_direction := 0
+@export var last_door: NodePath
+@export var force_direction := 0
 
 var settings : CheckpointSettings
 

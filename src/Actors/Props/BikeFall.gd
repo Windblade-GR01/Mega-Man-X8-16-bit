@@ -1,6 +1,6 @@
 extends BikeJump
 
-onready var jump: Node2D = $"../Jump"
+@onready var jump: Node2D = $"../Jump"
 var played_jump_feedback_sound := false
 
 func _Setup():

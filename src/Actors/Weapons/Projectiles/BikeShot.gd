@@ -6,5 +6,5 @@ func disable_damage():
 	#remove_from_group("Player Projectile")
 
 func deflect(_body) -> void:
-	.deflect(_body)
+	super.deflect(_body)
 	$deflect_particle.emit(facing_direction)

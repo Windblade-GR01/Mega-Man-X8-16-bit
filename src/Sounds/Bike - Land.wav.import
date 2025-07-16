@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Bike - Land.wav-673a8ab763ecc92015c581de71556d30.sample"
+type="AudioStreamWAV"
+uid="uid://d4s3ud4ewoai"
+path="res://.godot/imported/Bike - Land.wav-673a8ab763ecc92015c581de71556d30.sample"
 
 [deps]
 
 source_file="res://src/Sounds/Bike - Land.wav"
-dest_files=[ "res://.import/Bike - Land.wav-673a8ab763ecc92015c581de71556d30.sample" ]
+dest_files=["res://.godot/imported/Bike - Land.wav-673a8ab763ecc92015c581de71556d30.sample"]
 
 [params]
 

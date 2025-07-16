@@ -1,4 +1,4 @@
-extends AnimatedSprite
+extends AnimatedSprite2D
 
 var recording = []
 var game_frame := 0
@@ -31,7 +31,7 @@ func has_recording() -> bool:
 	return recording.size() > 0 and game_frame < recording.size()-1
 
 func is_ahead() -> bool:
-	if OS.get_ticks_msec() - GameManager.get_stage_start_msec() < recording[game_frame].time:
+	if Time.get_ticks_msec() - GameManager.get_stage_start_msec() < recording[game_frame].time:
 		print("RecPlayer: Is ahead.")
 		return true
 	return false

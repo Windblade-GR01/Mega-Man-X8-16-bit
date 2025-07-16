@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/MISSILE_MOUNT.wav-59a0c9262382d6b0d2c6306a2d114444.sample"
+type="AudioStreamWAV"
+uid="uid://c1a1xg1j3im2d"
+path="res://.godot/imported/MISSILE_MOUNT.wav-59a0c9262382d6b0d2c6306a2d114444.sample"
 
 [deps]
 
 source_file="res://src/Sounds/MISSILE_MOUNT.wav"
-dest_files=[ "res://.import/MISSILE_MOUNT.wav-59a0c9262382d6b0d2c6306a2d114444.sample" ]
+dest_files=["res://.godot/imported/MISSILE_MOUNT.wav-59a0c9262382d6b0d2c6306a2d114444.sample"]
 
 [params]
 

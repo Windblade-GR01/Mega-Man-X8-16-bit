@@ -1,8 +1,8 @@
 extends GenericIntro
 
-export var boss_vile := false
+@export var boss_vile := false
 const sprite_y := -19.0
-onready var beam_in: AudioStreamPlayer2D = $beam_in
+@onready var beam_in: AudioStreamPlayer2D = $beam_in
 
 func connect_start_events() -> void:
 	Event.listen("vile_door_open",self,"prepare_for_intro")
@@ -72,7 +72,7 @@ func _Interrupt() -> void:
 	if boss_vile:
 		deactivate_air_attacks()
 
-export var ignore_deactivate := false
+@export var ignore_deactivate := false
 func deactivate_air_attacks() -> void:
 	if ignore_deactivate:
 		return
@@ -84,4 +84,4 @@ func deactivate_air_attacks() -> void:
 func seen_dialog() -> bool:
 	if GameManager.has_beaten_the_game():
 		return true
-	return .seen_dialog()
+	return super.seen_dialog()

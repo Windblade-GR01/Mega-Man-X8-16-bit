@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/Panda - Drill Ground.ogg-dd5f14b66ef472b0978e8a17e1e51bdd.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://io5qfp3l7f7a"
+path="res://.godot/imported/Panda - Drill Ground.ogg-dd5f14b66ef472b0978e8a17e1e51bdd.oggvorbisstr"
 
 [deps]
 
 source_file="res://src/Sounds/Panda - Drill Ground.ogg"
-dest_files=[ "res://.import/Panda - Drill Ground.ogg-dd5f14b66ef472b0978e8a17e1e51bdd.oggstr" ]
+dest_files=["res://.godot/imported/Panda - Drill Ground.ogg-dd5f14b66ef472b0978e8a17e1e51bdd.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

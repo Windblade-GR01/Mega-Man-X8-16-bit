@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Seraph - LaserReady.wav-379b252b389aeb9853f6e9a5e8f0c675.sample"
+type="AudioStreamWAV"
+uid="uid://dxvs75j12o8sr"
+path="res://.godot/imported/Seraph - LaserReady.wav-379b252b389aeb9853f6e9a5e8f0c675.sample"
 
 [deps]
 
 source_file="res://src/Sounds/Seraph - LaserReady.wav"
-dest_files=[ "res://.import/Seraph - LaserReady.wav-379b252b389aeb9853f6e9a5e8f0c675.sample" ]
+dest_files=["res://.godot/imported/Seraph - LaserReady.wav-379b252b389aeb9853f6e9a5e8f0c675.sample"]
 
 [params]
 

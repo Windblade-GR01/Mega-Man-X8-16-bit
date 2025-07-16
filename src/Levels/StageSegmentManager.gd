@@ -1,9 +1,9 @@
 extends Node2D
 
-export var active := true
-export var debug_logs := false
-export var extra_rooms : Array
-export var VisibilityNotifierObject : PackedScene
+@export var active := true
+@export var debug_logs := false
+@export var extra_rooms : Array
+@export var VisibilityNotifierObject : PackedScene
 
 
 func _ready() -> void:
@@ -17,7 +17,7 @@ func _ready() -> void:
 func add_visibility_enabler(segment) -> void:
 	segment.visible = false
 	
-	var vn = VisibilityNotifierObject.instance()
+	var vn = VisibilityNotifierObject.instantiate()
 	vn.debug_logs = debug_logs
 	vn.global_position = segment.global_position
 	segment.add_child(vn)

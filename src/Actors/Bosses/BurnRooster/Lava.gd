@@ -1,8 +1,8 @@
 extends AttackAbility
-onready var damage_on_touch: Node2D = $"../DamageOnTouch"
-onready var fire_1: Particles2D = $fire1
-onready var fire_2: Particles2D = $fire2
-onready var fire_3: Particles2D = $fire3
+@onready var damage_on_touch: Node2D = $"../DamageOnTouch"
+@onready var fire_1: GPUParticles2D = $fire1
+@onready var fire_2: GPUParticles2D = $fire2
+@onready var fire_3: GPUParticles2D = $fire3
 
 func _Setup() -> void:
 	fire_1.emitting = true

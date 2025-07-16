@@ -1,11 +1,11 @@
 extends NewAbility
 
-export var walk_speed := 90.0
+@export var walk_speed := 90.0
 var sound_played := false
 
-onready var physics = Physics.new(get_parent())
-onready var animation = AnimationController.new($"../animatedSprite", self)
-onready var step: AudioStreamPlayer2D = $step
+@onready var physics = Physics.new(get_parent())
+@onready var animation = AnimationController.new($"../animatedSprite", self)
+@onready var step: AudioStreamPlayer2D = $step
 
 func _Setup() -> void:
 	animation.play("walk")

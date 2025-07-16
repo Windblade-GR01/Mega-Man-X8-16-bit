@@ -1,28 +1,28 @@
 extends CanvasLayer
 var timer := 0.0
-export var checked_inputs : Array
-export var show_boss_bar := true
-onready var x_info = $"X Debug Info"
-onready var i_info = $"Input Info"
-onready var b_info = $"Boss and Weapon Info"
-onready var chronometer: RichTextLabel = $Chronometer
-onready var boss_bar = $"Boss Bar"
-onready var boss_hp: TextureProgress = $"Boss Bar/textureProgress"
+@export var checked_inputs : Array
+@export var show_boss_bar := true
+@onready var x_info = $"X Debug Info"
+@onready var i_info = $"Input Info"
+@onready var b_info = $"Boss and Weapon Info"
+@onready var chronometer: RichTextLabel = $Chronometer
+@onready var boss_bar = $"Boss Bar"
+@onready var boss_hp: TextureProgressBar = $"Boss Bar/textureProgress"
 
 
-onready var player_bar = $"X Bar"
-onready var player_hp: TextureProgress = $"X Bar/textureProgress"
-onready var player_healable: TextureProgress = $"X Bar/textureProgress2"
+@onready var player_bar = $"X Bar"
+@onready var player_hp: TextureProgressBar = $"X Bar/textureProgress"
+@onready var player_healable: TextureProgressBar = $"X Bar/textureProgress2"
 
 
-onready var ride_bar: NinePatchRect = $"Ride Bar"
-onready var ride_hp: TextureProgress = $"Ride Bar/textureProgress"
+@onready var ride_bar: NinePatchRect = $"Ride Bar"
+@onready var ride_hp: TextureProgressBar = $"Ride Bar/textureProgress"
 
 
-onready var rec_info: RichTextLabel = $"Rec Info"
+@onready var rec_info: RichTextLabel = $"Rec Info"
 
-onready var black_screen = $BlackScreen
-onready var white_screen = $WhiteScreen
+@onready var black_screen = $BlackScreen
+@onready var white_screen = $WhiteScreen
 var boss_hp_filled := false
 var boss_filling_hp := 0
 var boss
@@ -40,7 +40,7 @@ var chronotimer := 0.0
 
 var last_message
 
-var ride_hp_tween : SceneTreeTween
+var ride_hp_tween : Tween
 
 func show_rng():
 	rec_info.text = "BossRNG: " + str(BossRNG.seed_rng)
@@ -62,11 +62,11 @@ func _ready() -> void:
 	Event.listen("fade_out",self,"start_fade_out")
 	Event.listen("final_fade_out",self,"start_final_fade_out")
 	Event.listen("new_camera_focus",self,"change_camera_focus")
-	Event.connect("beat_seraph_lumine",self,"stop_chronometer")
+	Event.connect("beat_seraph_lumine", Callable(self, "stop_chronometer"))
 	#Event.listen("player_death",self,"stop_chronometer")
 	#Event.listen("enemy_kill",self,"try_stop_chronometer")
-	BossRNG.connect("updated_rng",self,"show_rng")
-	BossRNG.connect("decided_boss_order",self,"show_boss_attack")
+	BossRNG.connect("updated_rng", Callable(self, "show_rng"))
+	BossRNG.connect("decided_boss_order", Callable(self, "show_boss_attack"))
 	call_deferred("connect_debug")
 	call_deferred("on_showdebug","ShowDebug")
 
@@ -98,9 +98,9 @@ func try_stop_chronometer(_boss) -> void:
 func change_camera_focus(new_focus):
 	debugging_character = new_focus
 	if new_focus == GameManager.player:
-		tween_focus_on_bar(player_bar,ride_bar,-14,Color.white)
+		tween_focus_on_bar(player_bar,ride_bar,-14,Color.WHITE)
 	else:
-		tween_focus_on_bar(ride_bar,player_bar,13,Color.gray)
+		tween_focus_on_bar(ride_bar,player_bar,13,Color.GRAY)
 		pass
 
 func tween_focus_on_bar(focus_bar,other_bar,x_pos,color) -> void: #TODO: move to Bars ControlNode
@@ -108,15 +108,15 @@ func tween_focus_on_bar(focus_bar,other_bar,x_pos,color) -> void: #TODO: move to
 			ride_hp_tween.kill()
 		ride_hp_tween = create_tween()
 		ride_hp_tween.set_parallel() # warning-ignore:return_value_discarded
-		ride_hp_tween.tween_property(focus_bar,"rect_position:x",8,0.2) # warning-ignore:return_value_discarded
-		ride_hp_tween.tween_property(other_bar,"rect_position:x",x_pos,0.2) # warning-ignore:return_value_discarded
+		ride_hp_tween.tween_property(focus_bar,"position:x",8,0.2) # warning-ignore:return_value_discarded
+		ride_hp_tween.tween_property(other_bar,"position:x",x_pos,0.2) # warning-ignore:return_value_discarded
 		ride_hp_tween.tween_property(player_bar,"modulate:r",color.r,0.2) # warning-ignore:return_value_discarded
 		ride_hp_tween.tween_property(player_bar,"modulate:g",color.g,0.2) # warning-ignore:return_value_discarded
 		ride_hp_tween.tween_property(player_bar,"modulate:b",color.b,0.2) # warning-ignore:return_value_discarded
 
 func setup_boss_health(_boss):
 	boss = _boss
-	boss.get_node("Damage").connect("took_damage",boss_bar,"blink")
+	boss.get_node("Damage").connect("took_damage", Callable(boss_bar, "blink"))
 
 func show_debug_text() -> void:
 	if is_instance_valid(debugging_character):
@@ -167,10 +167,10 @@ func process_player_bar_size():
 	if is_instance_valid(GameManager.player):
 		var health_rect_pos = 56 - (GameManager.player.max_health - 16) * 2
 		var health_rect_size = 52 + (GameManager.player.max_health - 16) * 2
-		if player_bar.rect_position.y != health_rect_pos:
+		if player_bar.position.y != health_rect_pos:
 			blink_player_bar()
-			player_bar.rect_position.y = health_rect_pos
-			player_bar.rect_size.y = health_rect_size
+			player_bar.position.y = health_rect_pos
+			player_bar.size.y = health_rect_size
 		
 func process_blink(delta):
 	if playerbar_blinking:
@@ -186,12 +186,12 @@ func hide_boss_hp():
 
 func stop_blink_player_bar():
 	playerbar_blinking = false
-	player_bar.material.set_shader_param("Flash",0)
+	player_bar.material.set_shader_parameter("Flash",0)
 	blink_timer = 0
 
 func blink_player_bar():
 	playerbar_blinking = true
-	player_bar.material.set_shader_param("Flash",1)
+	player_bar.material.set_shader_parameter("Flash",1)
 
 func fade():
 	if fade_out_to_white:
@@ -213,9 +213,9 @@ func show_boss_health_and_weapon(delta) -> String:
 	if is_instance_valid(GameManager.player):
 		var health = GameManager.player.current_health
 		if health > GameManager.player.max_health:
-			player_hp.modulate = Color.deepskyblue
+			player_hp.modulate = Color.DEEP_SKY_BLUE
 		else:
-			player_hp.modulate = Color.white
+			player_hp.modulate = Color.WHITE
 		player_hp.value = clamp(health,0,GameManager.player.max_health)
 		if health <= 0:
 			hide_healable_amount()

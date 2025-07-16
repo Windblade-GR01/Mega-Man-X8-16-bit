@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Manowar - StrongLightning.wav-996c59c9351dd719ef973d03c74242d3.sample"
+type="AudioStreamWAV"
+uid="uid://bv2nboecp4o4r"
+path="res://.godot/imported/Manowar - StrongLightning.wav-996c59c9351dd719ef973d03c74242d3.sample"
 
 [deps]
 
 source_file="res://src/Sounds/Manowar - StrongLightning.wav"
-dest_files=[ "res://.import/Manowar - StrongLightning.wav-996c59c9351dd719ef973d03c74242d3.sample" ]
+dest_files=["res://.godot/imported/Manowar - StrongLightning.wav-996c59c9351dd719ef973d03c74242d3.sample"]
 
 [params]
 

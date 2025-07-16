@@ -12,7 +12,7 @@ input_pickable = false
 
 [node name="collisionPolygon2D" type="CollisionPolygon2D" parent="playerDetector"]
 position = Vector2( 576.5, 0 )
-polygon = PoolVector2Array( -1088.5, -256, 844.25, -256, 1144, 256, -1088.5, 256 )
+polygon = PackedVector2Array( -1088.5, -256, 844.25, -256, 1144, 256, -1088.5, 256 )
 
 [connection signal="body_entered" from="playerDetector" to="." method="_on_playerDetector_body_entered"]
 [connection signal="body_exited" from="playerDetector" to="." method="_on_playerDetector_body_exited"]

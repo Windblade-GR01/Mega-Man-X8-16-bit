@@ -1,12 +1,12 @@
 extends AttackAbility
 class_name GenericIntro
 
-export var skip_intro := false
-export var manual_start := false
-export var dialogue : Resource
+@export var skip_intro := false
+@export var manual_start := false
+@export var dialogue : Resource
 var dialog_concluded := false
 var collectible := "_undefined"
-export var defeated_var := "_none"
+@export var defeated_var := "_none"
 
 func _ready() -> void:
 	setup_collectible_name()
@@ -33,7 +33,7 @@ func connect_start_events() -> void:
 	Event.listen("warning_done",self,"execute_intro")
 	
 func connect_dialogue() -> void:
-	GameManager.dialog_box.connect("dialog_concluded",self,"on_concluded_dialog")
+	GameManager.dialog_box.connect("dialog_concluded", Callable(self, "on_concluded_dialog"))
 
 func on_concluded_dialog() -> void:
 	dialog_concluded = true
@@ -45,7 +45,7 @@ func prepare_for_intro() -> void:
 func make_invisible() -> void:
 	animatedSprite.modulate = Color(1,1,1,0.01)
 	
-func make_visible() -> void:
+func _make_visible() -> void:
 	animatedSprite.modulate = Color(1,1,1,1)
 
 func execute_intro() -> void:
@@ -55,7 +55,7 @@ func _Setup():
 	GameManager.start_cutscene()
 
 func _Update(_delta) -> void:
-	make_visible()
+	_make_visible()
 	Event.emit_signal("play_boss_music")
 	Event.emit_signal("boss_health_appear", character)
 	EndAbility()

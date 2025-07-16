@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/FX - Explosion 2.wav-ab30e0c1b7c56b1deb9c583a63170e0c.sample"
+type="AudioStreamWAV"
+uid="uid://d1e6dbrkmymcj"
+path="res://.godot/imported/FX - Explosion 2.wav-ab30e0c1b7c56b1deb9c583a63170e0c.sample"
 
 [deps]
 
 source_file="res://src/Sounds/FX - Explosion 2.wav"
-dest_files=[ "res://.import/FX - Explosion 2.wav-ab30e0c1b7c56b1deb9c583a63170e0c.sample" ]
+dest_files=["res://.godot/imported/FX - Explosion 2.wav-ab30e0c1b7c56b1deb9c583a63170e0c.sample"]
 
 [params]
 

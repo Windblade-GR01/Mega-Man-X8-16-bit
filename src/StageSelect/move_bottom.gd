@@ -1,14 +1,14 @@
 extends NewAbility
 
-export var speed := 90.0
-export var final_position_y := -139.0
-export var destination_condition := 0.0
+@export var speed := 90.0
+@export var final_position_y := -139.0
+@export var destination_condition := 0.0
 var destination : Vector2
-onready var map := get_parent()
-onready var tween := TweenController.new(self)
+@onready var map := get_parent()
+@onready var tween := TweenController.new(self)
 
 func _ready() -> void:
-	$"../../StageSelectUI".connect("picked_stage",self,"endtween")
+	$"../../StageSelectUI".connect("picked_stage", Callable(self, "endtween"))
 
 func _on_reposition_map(pos) -> void:
 	destination = pos

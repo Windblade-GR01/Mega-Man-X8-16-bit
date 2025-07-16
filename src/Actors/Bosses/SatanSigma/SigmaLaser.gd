@@ -1,6 +1,6 @@
 extends Node2D
-onready var damage: Node2D = $DamageOnTouch
-onready var animation: AnimatedSprite = $animatedSprite
+@onready var damage: Node2D = $DamageOnTouch
+@onready var animation: AnimatedSprite2D = $animatedSprite
 
 
 func _ready() -> void:

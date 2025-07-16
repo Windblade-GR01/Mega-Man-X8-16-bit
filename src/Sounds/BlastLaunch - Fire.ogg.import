@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/BlastLaunch - Fire.ogg-6074505e7218528bbf9166a611f8e1b2.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://4ceicu6iw2w4"
+path="res://.godot/imported/BlastLaunch - Fire.ogg-6074505e7218528bbf9166a611f8e1b2.oggvorbisstr"
 
 [deps]
 
 source_file="res://src/Sounds/BlastLaunch - Fire.ogg"
-dest_files=[ "res://.import/BlastLaunch - Fire.ogg-6074505e7218528bbf9166a611f8e1b2.oggstr" ]
+dest_files=["res://.godot/imported/BlastLaunch - Fire.ogg-6074505e7218528bbf9166a611f8e1b2.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

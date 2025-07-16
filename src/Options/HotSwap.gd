@@ -1,12 +1,12 @@
 extends Node2D
 
 const travel_distance := 40.0
-export var locked_icon : Texture
-onready var cursor: Sprite = $cursor
-onready var tweenx := TweenController.new(self,false)
-onready var tweeny := TweenController.new(self,false)
+@export var locked_icon : Texture2D
+@onready var cursor: Sprite2D = $cursor
+@onready var tweenx := TweenController.new(self,false)
+@onready var tweeny := TweenController.new(self,false)
 var idle_time := 0.0
-onready var choice: AudioStreamPlayer2D = $choice
+@onready var choice: AudioStreamPlayer2D = $choice
 
 var active := true
 
@@ -62,7 +62,7 @@ func _ready() -> void:
 	Event.listen("weapon_select_buster",self,"selected_buster")
 	Event.listen("weapon_select_right",self,"selected_buster")
 	Event.listen("weapon_select_left",self,"selected_buster")
-	Event.connect("player_death",self,"deactivate")
+	Event.connect("player_death", Callable(self, "deactivate"))
 
 func deactivate():
 	active = false

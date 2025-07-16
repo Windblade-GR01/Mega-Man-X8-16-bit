@@ -1,6 +1,6 @@
 extends GenericIntro
-onready var tween := TweenController.new(self,false)
-onready var damage: Node2D = $"../DamageOnTouch"
+@onready var tween := TweenController.new(self,false)
+@onready var damage: Node2D = $"../DamageOnTouch"
 
 func prepare_for_intro() -> void:
 	Log("Preparing for Intro")
@@ -11,7 +11,7 @@ var beam_in_resets := 0.15
 var reset_sprite_pos := -160
 
 func beam_in():
-	make_visible()
+	_make_visible()
 	play_animation("idle")
 	tween.create()
 	tween.set_sequential()

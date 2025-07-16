@@ -1,11 +1,11 @@
 extends Respawner
 
-onready var portal: Node2D = $"../Portal"
+@onready var portal: Node2D = $"../Portal"
 
-export var spawn_at_start := false
+@export var spawn_at_start := false
 
 func _ready() -> void:
-	portal.connect("teleported",self,"deactivate")
+	portal.connect("teleported", Callable(self, "deactivate"))
 	if spawn_at_start:
 		Tools.timer(0.1,"_on_checkpoint_start",self)
 	

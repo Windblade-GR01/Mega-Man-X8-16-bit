@@ -1,8 +1,8 @@
 extends Node
 
-export var list : Array
+@export var list : Array
 
-onready var objects_to_destroy : Array
+@onready var objects_to_destroy : Array
 
 func _ready() -> void:
 	for nodepath in list:

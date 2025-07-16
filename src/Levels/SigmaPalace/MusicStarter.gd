@@ -1,9 +1,9 @@
 extends Area2D
 
-onready var music: AudioStreamPlayer = $"../../Music Player"
+@onready var music: AudioStreamPlayer = $"../../Music Player"
 
-export var intro : AudioStream
-export var loop : AudioStream
+@export var intro : AudioStream
+@export var loop : AudioStream
 
 var started = false
 

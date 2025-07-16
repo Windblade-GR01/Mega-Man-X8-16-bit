@@ -1,7 +1,7 @@
 extends Area2D
 
-export var health_path : NodePath
-export var active := true
+@export var health_path : NodePath
+@export var active := true
 var health
 signal received_damage(damage,inflicter)
 signal got_hit

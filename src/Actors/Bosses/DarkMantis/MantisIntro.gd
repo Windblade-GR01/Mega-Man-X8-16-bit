@@ -1,7 +1,7 @@
 extends GenericIntro
-onready var wallhit: AudioStreamPlayer2D = $wallhit
-onready var land: AudioStreamPlayer2D = $land
-onready var jump: AudioStreamPlayer2D = $jump
+@onready var wallhit: AudioStreamPlayer2D = $wallhit
+@onready var land: AudioStreamPlayer2D = $land
+@onready var jump: AudioStreamPlayer2D = $jump
 
 func prepare_for_intro() -> void:
 	animatedSprite.visible = true
@@ -11,7 +11,7 @@ func prepare_for_intro() -> void:
 	character.modulate = Color(0,0,0,0.5)
 
 func _Setup() -> void:
-	._Setup()
+	super._Setup()
 	var tween = get_tree().create_tween()
 	tween.tween_property(character,"modulate",Color(1,1,1,1),0.5)
 

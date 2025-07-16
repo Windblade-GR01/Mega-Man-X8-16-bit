@@ -1,12 +1,12 @@
 extends AttackAbility
 
 var walljump_count := 0
-onready var jump: AudioStreamPlayer2D = $jump
-onready var dive: AudioStreamPlayer2D = $dive
-onready var land: AudioStreamPlayer2D = $land
+@onready var jump: AudioStreamPlayer2D = $jump
+@onready var dive: AudioStreamPlayer2D = $dive
+@onready var land: AudioStreamPlayer2D = $land
 
 func _Setup() -> void:
-	._Setup()
+	super._Setup()
 	walljump_count = 0
 
 func start_wallslide() -> void:
@@ -92,15 +92,15 @@ func _Update(delta):
 
 func decay_vert_speed(duration : float = 0.15) -> void:
 	var tween = get_tree().create_tween()
-	tween.tween_method(self,"set_vertical_speed",-50.0,0.0,duration)
+	tween.tween_method(Callable(self, "set_vertical_speed"), -50.0, 0.0, duration)
 
 func decay_move_speed(duration : float = 0.15) -> void:
 	var tween = get_tree().create_tween()
-	tween.tween_method(self,"force_movement",get_horizontal_velocity(),0.0,duration)
+	tween.tween_method(Callable(self, "force_movement"), get_horizontal_velocity(), 0.0, duration)
 
 func _Interrupt() -> void:
 	play_animation_once("idle")
-	._Interrupt()
+	super._Interrupt()
 
 func process_gravity(_delta:float, gravity := default_gravity) -> void:
 	character.add_vertical_speed(gravity * _delta)

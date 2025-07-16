@@ -6,14 +6,14 @@ var tween
 
 func _Setup() -> void:
 	tween = create_tween()
-	tween.tween_method(self,"force_movement",get_actual_speed(),horizontal_velocity/1.25,duration/2) # warning-ignore:return_value_discarded 
+	tween.tween_method(Callable(self, "force_movement"), get_actual_speed(), horizontal_velocity/1.25, duration/2) # warning-ignore:return_value_discarded 
 	
 func _Update(_delta) -> void:
 	process_gravity(_delta)
 	update_values()
 	if attack_stage == 0 and timer > 0.5:
 		tween = create_tween()
-		tween.tween_method(self,"force_movement",get_actual_speed(),horizontal_velocity,duration) # warning-ignore:return_value_discarded 
+		tween.tween_method(Callable(self, "force_movement"), get_actual_speed(), horizontal_velocity, duration) # warning-ignore:return_value_discarded 
 		play_animation("wheelie_start")
 		next_attack_stage()
 	
@@ -25,7 +25,7 @@ func _Update(_delta) -> void:
 		if timer > duration or is_player_is_behind():
 			play_animation_once("wheelie_end")
 			tween = create_tween()
-			tween.tween_method(self,"force_movement",get_actual_speed(),horizontal_velocity,duration) # warning-ignore:return_value_discarded 
+			tween.tween_method(Callable(self, "force_movement"), get_actual_speed(), horizontal_velocity, duration) # warning-ignore:return_value_discarded 
 			next_attack_stage()
 
 	elif attack_stage == 3 and has_finished_last_animation():

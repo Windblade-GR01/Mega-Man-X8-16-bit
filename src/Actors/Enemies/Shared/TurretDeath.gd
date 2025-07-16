@@ -2,7 +2,7 @@ extends EnemyDeath
 
 
 func _ready() -> void:
-	Event.connect("stage_rotate",self,"ons")
+	Event.connect("stage_rotate", Callable(self, "ons"))
 	pass
 
 func emit_remains_particles():

@@ -1,7 +1,7 @@
 extends Node2D
 class_name LifeUp
 
-export var collectible_name := "life_up_0"
+@export var collectible_name := "life_up_0"
 var timer := 0.0
 var last_time_increased := 0.0
 var amount_to_increase := 2

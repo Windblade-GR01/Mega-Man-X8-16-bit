@@ -1,4 +1,4 @@
-extends AnimatedSprite
+extends AnimatedSprite2D
 
 func _ready() -> void:
 	Event.listen("capsule_open",self,"start")
@@ -6,7 +6,7 @@ func _ready() -> void:
 	Event.listen("stopped_talking",self,"idle")
 	Event.listen("capsule_dialogue_end",self,"vanish")
 # warning-ignore:return_value_discarded
-	connect("animation_finished",self,"finish_intro")
+	connect("animation_finished", Callable(self, "finish_intro"))
 
 func finish_intro() ->void:
 	if animation == "appear":

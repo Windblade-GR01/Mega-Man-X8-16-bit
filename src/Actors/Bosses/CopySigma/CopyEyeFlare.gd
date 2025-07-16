@@ -1,11 +1,11 @@
 extends AttackAbility
-onready var stun: Node2D = $"../BossStun"
-onready var eye: Node2D = $"../animatedSprite/Eye"
-onready var eye2: Node2D = $"../animatedSprite/Eye2"
-onready var charge: AudioStreamPlayer2D = $charge
-onready var beam: AudioStreamPlayer2D = $beam
-onready var flash: Sprite = $flash
-onready var copy_dash: Node2D = $"../CopyDash"
+@onready var stun: Node2D = $"../BossStun"
+@onready var eye: Node2D = $"../animatedSprite/Eye"
+@onready var eye2: Node2D = $"../animatedSprite/Eye2"
+@onready var charge: AudioStreamPlayer2D = $charge
+@onready var beam: AudioStreamPlayer2D = $beam
+@onready var flash: Sprite2D = $flash
+@onready var copy_dash: Node2D = $"../CopyDash"
 
 func _Setup() -> void:
 	character.emit_signal("damage_reduction", 0.5)
@@ -48,7 +48,7 @@ func _Update(_delta) -> void:
 		EndAbility()
 
 func _Interrupt():
-	._Interrupt()
+	super._Interrupt()
 	eye.end()
 	eye2.end()
 	beam.stop()

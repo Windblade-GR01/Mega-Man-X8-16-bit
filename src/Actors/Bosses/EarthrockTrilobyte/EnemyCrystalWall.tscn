@@ -3,9 +3,9 @@
 [ext_resource path="res://src/Actors/Modules/Enemy/DamageOnTouch.gd" type="Script" id=1]
 [ext_resource path="res://src/Actors/Bosses/EarthrockTrilobyte/enemy_crystal_wall.res" type="SpriteFrames" id=2]
 [ext_resource path="res://src/Actors/Bosses/EarthrockTrilobyte/EnemyCrystalWall.gd" type="Script" id=3]
-[ext_resource path="res://src/Effects/Textures/explosion.png" type="Texture" id=4]
+[ext_resource path="res://src/Effects/Textures/explosion.png" type="Texture2D" id=4]
 [ext_resource path="res://src/Effects/Materials/RemainsParticle.tres" type="Material" id=5]
-[ext_resource path="res://src/Effects/Textures/remains_purple.png" type="Texture" id=6]
+[ext_resource path="res://src/Effects/Textures/remains_purple.png" type="Texture2D" id=6]
 [ext_resource path="res://src/Effects/Materials/ExplosionParticles.tres" type="Material" id=7]
 [ext_resource path="res://src/Actors/Modules/Enemy/EnemyDamage.gd" type="Script" id=8]
 [ext_resource path="res://src/Sounds/HIT.wav" type="AudioStream" id=9]
@@ -47,7 +47,7 @@ extents = Vector2( 16, 33.5 )
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 34, 33.5 )
 
-[node name="EnemyCrystalWall" type="KinematicBody2D"]
+[node name="EnemyCrystalWall" type="CharacterBody2D"]
 z_index = -2
 script = ExtResource( 3 )
 max_health = 8.0
@@ -73,7 +73,7 @@ modulate = Color( 0.756863, 1, 0, 1 )
 position = Vector2( -7, 4 )
 shape = SubResource( 10 )
 
-[node name="animatedSprite" type="AnimatedSprite" parent="."]
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
 material = ExtResource( 10 )
 z_index = 1
 frames = ExtResource( 2 )
@@ -105,13 +105,13 @@ shape = SubResource( 8 )
 [node name="wallCheck_left" type="RayCast2D" parent="."]
 position = Vector2( -11, 0 )
 enabled = true
-cast_to = Vector2( -50, 0 )
+target_position = Vector2( -50, 0 )
 collision_mask = 257
 
 [node name="wallCheck_right" type="RayCast2D" parent="."]
 position = Vector2( 11, 0 )
 enabled = true
-cast_to = Vector2( 50, 0 )
+target_position = Vector2( 50, 0 )
 collision_mask = 257
 
 [node name="collisionShape2D" type="CollisionShape2D" parent="."]
@@ -120,7 +120,7 @@ position = Vector2( 0, 3.5 )
 shape = SubResource( 2 )
 disabled = true
 
-[node name="explosion" type="Particles2D" parent="."]
+[node name="explosion" type="GPUParticles2D" parent="."]
 material = SubResource( 4 )
 z_index = 2
 emitting = false
@@ -132,7 +132,7 @@ local_coords = false
 process_material = ExtResource( 7 )
 texture = ExtResource( 4 )
 
-[node name="remains" type="Particles2D" parent="."]
+[node name="remains" type="GPUParticles2D" parent="."]
 material = SubResource( 5 )
 z_index = 2
 emitting = false
@@ -144,7 +144,7 @@ visibility_rect = Rect2( -600, -100, 1200, 200 )
 process_material = ExtResource( 5 )
 texture = ExtResource( 6 )
 
-[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="Damage" type="Node2D" parent="."]
 script = ExtResource( 8 )

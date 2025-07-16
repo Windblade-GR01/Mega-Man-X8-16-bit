@@ -1,23 +1,23 @@
-extends AnimatedSprite
-onready var option_holder: VBoxContainer = $"../Menu/OptionHolder"
+extends AnimatedSprite2D
+@onready var option_holder: VBoxContainer = $"../Menu/OptionHolder"
 var choices : Array
-onready var shot = get_child(0)
-onready var initial_shot_pos = get_child(0).position
-onready var menu: Control = $"../Menu"
+@onready var shot = get_child(0)
+@onready var initial_shot_pos = get_child(0).position
+@onready var menu: Control = $"../Menu"
 
 func _ready() -> void:
 	choices = []
 	choices = option_holder.get_children()
 	visible = false
 	for option in choices:
-		var _s = option.connect("focus_entered",self,"_on_focus",[option])
-		_s = option.connect("pressed",self,"_on_pressed",[option])
-	connect("animation_finished",self,"_on_anim_finished")
+		var _s = option.connect("focus_entered", Callable(self, "_on_focus").bind(option))
+		_s = option.connect("pressed", Callable(self, "_on_pressed").bind(option))
+	connect("animation_finished", Callable(self, "_on_anim_finished"))
 
 
 func _on_focus(option) -> void:
 	print_debug(option.name)
-	global_position.y = option.rect_global_position.y +7
+	global_position.y = option.global_position.y +7
 	frame = 0
 	play("recover")
 

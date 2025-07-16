@@ -1,7 +1,7 @@
 [gd_scene load_steps=28 format=2]
 
-[ext_resource path="res://src/Effects/Textures/ridearmorshot.png" type="Texture" id=1]
-[ext_resource path="res://src/Effects/Textures/ridearmorshotend.png" type="Texture" id=2]
+[ext_resource path="res://src/Effects/Textures/ridearmorshot.png" type="Texture2D" id=1]
+[ext_resource path="res://src/Effects/Textures/ridearmorshotend.png" type="Texture2D" id=2]
 [ext_resource path="res://src/Actors/NewStateMachine/audioplayer.gd" type="Script" id=3]
 [ext_resource path="res://src/Sounds/55 - MMX - Electric Bolt.wav" type="AudioStream" id=4]
 [ext_resource path="res://src/Actors/Props/RideArmor/RideArmorShot.gd" type="Script" id=7]
@@ -102,7 +102,7 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 26, 25 )
 
-[node name="RideArmorShot" type="KinematicBody2D" groups=["Player Projectile"]]
+[node name="RideArmorShot" type="CharacterBody2D" groups=["Player Projectile"]]
 z_index = 17
 collision_layer = 4
 collision_mask = 0
@@ -112,13 +112,13 @@ damage_to_bosses = 0.5
 damage_to_weakness = 10.0
 break_guards = true
 
-[node name="animatedSprite" type="AnimatedSprite" parent="."]
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
 frames = SubResource( 32 )
 frame = 10
 playing = true
 flip_h = true
 
-[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="collisionShape2D" type="CollisionShape2D" parent="."]
 z_index = -1

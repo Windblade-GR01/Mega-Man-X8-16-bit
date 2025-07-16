@@ -1,18 +1,18 @@
 extends Area2D
-onready var sprite: AnimatedSprite = $"../animatedSprite"
+@onready var sprite: AnimatedSprite2D = $"../animatedSprite"
 
 var active := true
 var hit_times := 0
-onready var hit: AudioStreamPlayer2D = $hit
+@onready var hit: AudioStreamPlayer2D = $hit
 
 signal destroyed
 
 func blink() -> void:
-	sprite.material.set_shader_param("Flash",1)
+	sprite.material.set_shader_parameter("Flash",1)
 	Tools.timer(0.033,"unblink",self)
 
 func unblink() -> void:
-	sprite.material.set_shader_param("Flash",0)
+	sprite.material.set_shader_parameter("Flash",0)
 
 func _on_ArrowDetector_body_entered(body: Node) -> void:
 	if active:

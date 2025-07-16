@@ -1,18 +1,18 @@
 extends AttackAbility
-export (PackedScene) var projectile
-export (PackedScene) var fast_projectile
+@export var projectile: PackedScene
+@export var fast_projectile: PackedScene
 var impulse := 60.0
-onready var highkick: Node2D = $highkick
-onready var lowkick: Node2D = $lowkick
-onready var phoenix_cry: AudioStreamPlayer2D = $phoenix
-onready var low_snd: AudioStreamPlayer2D = $lowkick2
-onready var high_snd: AudioStreamPlayer2D = $highkick2
-onready var round_snd: AudioStreamPlayer2D = $roundkick
-onready var land: AudioStreamPlayer2D = $land
-onready var fire_2: Particles2D = $fire_particles/fire2
-onready var fire_3: Particles2D = $fire_particles/fire3
-onready var fire_1: Particles2D = $fire_particles/fire1
-onready var fire_particles: Node2D = $fire_particles
+@onready var highkick: Node2D = $highkick
+@onready var lowkick: Node2D = $lowkick
+@onready var phoenix_cry: AudioStreamPlayer2D = $phoenix
+@onready var low_snd: AudioStreamPlayer2D = $lowkick2
+@onready var high_snd: AudioStreamPlayer2D = $highkick2
+@onready var round_snd: AudioStreamPlayer2D = $roundkick
+@onready var land: AudioStreamPlayer2D = $land
+@onready var fire_2: GPUParticles2D = $fire_particles/fire2
+@onready var fire_3: GPUParticles2D = $fire_particles/fire3
+@onready var fire_1: GPUParticles2D = $fire_particles/fire1
+@onready var fire_particles: Node2D = $fire_particles
 
 func emit_fire() -> void:
 	fire_particles.scale.x = character.get_facing_direction()
@@ -93,7 +93,7 @@ func relative_to_player_distance(speed, multiplier := 150.0) -> float:
 	return speed * abs(get_distance_to_player()/multiplier)
 
 func turn_and_face_player() -> void:
-	.turn_and_face_player()
+	super.turn_and_face_player()
 	highkick.handle_direction()
 	lowkick.handle_direction()
 

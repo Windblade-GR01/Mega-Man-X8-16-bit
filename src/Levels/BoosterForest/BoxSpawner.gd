@@ -1,13 +1,13 @@
 extends Node2D
 
-export var box : PackedScene
+@export var box : PackedScene
 
 func _ready() -> void:
 	call_deferred("spawn_box")
 
 func spawn_box() -> void:
 	if player_is_in_current_area():
-		var b = box.instance()
+		var b = box.instantiate()
 		get_parent().add_child(b)
 		b.global_position = global_position
 	Tools.timer(3.0,"spawn_box",self)

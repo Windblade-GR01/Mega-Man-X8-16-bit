@@ -1,9 +1,9 @@
-class_name AnimatedMirror extends AnimatedSprite
+class_name AnimatedMirror extends AnimatedSprite2D
 
-export var reference : NodePath
-export var copy_position := false
-export var copy_scale_x := false
-onready var main := get_node(reference)
+@export var reference : NodePath
+@export var copy_position := false
+@export var copy_scale_x := false
+@onready var main := get_node(reference)
 
 func _process(_delta: float) -> void:
 	if visible:

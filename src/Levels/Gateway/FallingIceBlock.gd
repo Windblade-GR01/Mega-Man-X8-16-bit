@@ -1,9 +1,9 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
-onready var tween := TweenController.new(self,false)
-onready var particles: Particles2D = $particles2D
+@onready var tween := TweenController.new(self,false)
+@onready var particles: GPUParticles2D = $particles2D
 
-export var fall_on_touch := false
+@export var fall_on_touch := false
 var falling := false
 
 func activate():

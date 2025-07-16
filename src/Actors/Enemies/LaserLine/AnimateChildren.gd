@@ -1,8 +1,8 @@
-extends AnimatedSprite
-onready var line: Line2D = $line
-onready var collision: AnimatedSprite = $collision
+extends AnimatedSprite2D
+@onready var line: Line2D = $line
+@onready var collision: AnimatedSprite2D = $collision
 
-export var line_frames : Array
+@export var line_frames : Array
 
 func _physics_process(_delta: float) -> void:
 	collision.frame = frame

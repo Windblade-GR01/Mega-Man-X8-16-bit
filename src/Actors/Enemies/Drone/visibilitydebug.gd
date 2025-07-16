@@ -1,6 +1,6 @@
 extends Node
 
-onready var drone: KinematicBody2D = $"../.."
+@onready var drone: CharacterBody2D = $"../.."
 
 #func _physics_process(delta: float) -> void:
 	#print(drone.active)

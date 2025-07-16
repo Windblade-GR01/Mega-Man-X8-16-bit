@@ -1,15 +1,15 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
-export var active:= true
+@export var active:= true
 var velocity := Vector2.ZERO
 var landed_interval := 0.0
 var ground_checked
 
-onready var ground_check: RayCast2D = $ground_check
-onready var ground_check_2: RayCast2D = $ground_check2
-onready var ground_check_3: RayCast2D = $ground_check3
+@onready var ground_check: RayCast2D = $ground_check
+@onready var ground_check_2: RayCast2D = $ground_check2
+@onready var ground_check_3: RayCast2D = $ground_check3
 
-onready var collider: CollisionShape2D = $collisionShape2D
+@onready var collider: CollisionShape2D = $collisionShape2D
 
 signal activated
 signal landed

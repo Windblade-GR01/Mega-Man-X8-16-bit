@@ -1,7 +1,7 @@
 extends AttackAbility
 class_name GrabAttack
 
-export var translate_duration := 0.032
+@export var translate_duration := 0.032
 
 var grabbed_player := false
 var mashes_pressed := 0

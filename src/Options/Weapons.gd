@@ -1,10 +1,10 @@
 extends VBoxContainer
 
 var choosen_weapon : Control
-onready var cover_screen: ColorRect = $"../../CoverScreen"
+@onready var cover_screen: ColorRect = $"../../CoverScreen"
 
-onready var weapons := get_children()
-onready var pause: CanvasLayer = $"../.."
+@onready var weapons := get_children()
+@onready var pause: CanvasLayer = $"../.."
 
 func set_weapon(choice : Control) -> void:
 	var last_weapon = choosen_weapon
@@ -33,8 +33,8 @@ func set_weapon_as_player_current_weapon() -> void:
 	
 
 func _ready() -> void:
-	var _s = pause.connect("pause_starting",self,"show_weapons")
-	_s = pause.connect("unlock_buttons",self,"on_unlock_buttons")
+	var _s = pause.connect("pause_starting", Callable(self, "show_weapons"))
+	_s = pause.connect("unlock_buttons", Callable(self, "on_unlock_buttons"))
 
 func show_weapons() -> void:
 	for weapon in weapons:

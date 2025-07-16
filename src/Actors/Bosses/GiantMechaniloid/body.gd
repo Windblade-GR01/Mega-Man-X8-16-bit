@@ -1,6 +1,6 @@
-extends AnimatedSprite
+extends AnimatedSprite2D
 
-onready var parent: AnimatedSprite = $".."
+@onready var parent: AnimatedSprite2D = $".."
 
 func _process(delta: float) -> void:
 	animation = parent.animation

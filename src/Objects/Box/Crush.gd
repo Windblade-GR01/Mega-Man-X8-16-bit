@@ -2,8 +2,8 @@ extends Node2D
 
 signal crush
 signal crush_end
-export var debug := false
-export var active:= true
+@export var debug := false
+@export var active:= true
 
 func activate() -> void:
 	active = true

@@ -1,15 +1,15 @@
 extends Node
 
-export var armor_scene : PackedScene
-onready var character := get_parent()
-onready var break_vfx: AnimatedSprite = $"../break_vfx"
+@export var armor_scene : PackedScene
+@onready var character := get_parent()
+@onready var break_vfx: AnimatedSprite2D = $"../break_vfx"
 var armor : Node2D
 signal removed_armor
 signal created_armor(armor)
 
 func _on_guard_break(projectile) -> void:
 	if not is_instance_valid(armor):
-		armor = armor_scene.instance()
+		armor = armor_scene.instantiate()
 		get_tree().current_scene.add_child(armor,true)
 		armor.set_global_position(character.global_position)
 		armor.start(projectile)

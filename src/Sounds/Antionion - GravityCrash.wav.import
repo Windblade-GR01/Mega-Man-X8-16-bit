@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Antionion - GravityCrash.wav-7f5cfc59aa808729e5a56e2c9f647c9d.sample"
+type="AudioStreamWAV"
+uid="uid://rrx4jb5v52fq"
+path="res://.godot/imported/Antionion - GravityCrash.wav-7f5cfc59aa808729e5a56e2c9f647c9d.sample"
 
 [deps]
 
 source_file="res://src/Sounds/Antionion - GravityCrash.wav"
-dest_files=[ "res://.import/Antionion - GravityCrash.wav-7f5cfc59aa808729e5a56e2c9f647c9d.sample" ]
+dest_files=["res://.godot/imported/Antionion - GravityCrash.wav-7f5cfc59aa808729e5a56e2c9f647c9d.sample"]
 
 [params]
 

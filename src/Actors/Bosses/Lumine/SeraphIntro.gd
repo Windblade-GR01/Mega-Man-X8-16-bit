@@ -1,19 +1,19 @@
 extends GenericIntro
 
-export var intro : AudioStream
-export var loop : AudioStream
-onready var sprite: AnimatedSprite = $"../animatedSprite"
-onready var tween := TweenController.new(self,false)
-onready var front_wings: AnimatedSprite = $"../frontWings"
-onready var back_wings: AnimatedSprite = $"../backWings"
-onready var windspark: Sprite = $windspark
-onready var woosh: AudioStreamPlayer2D = $woosh
-onready var flap: AudioStreamPlayer2D = $flap
-onready var feather_particles: Particles2D = $"../animatedSprite/feather_particles"
-onready var feather_explosion: Particles2D = $"../feather_explosion"
-onready var move_feathers: Particles2D = $"../animatedSprite/move_feathers"
-onready var space: Node = $"../Space"
-onready var flash_2: Sprite = $flash2
+@export var intro : AudioStream
+@export var loop : AudioStream
+@onready var sprite: AnimatedSprite2D = $"../animatedSprite"
+@onready var tween := TweenController.new(self,false)
+@onready var front_wings: AnimatedSprite2D = $"../frontWings"
+@onready var back_wings: AnimatedSprite2D = $"../backWings"
+@onready var windspark: Sprite2D = $windspark
+@onready var woosh: AudioStreamPlayer2D = $woosh
+@onready var flap: AudioStreamPlayer2D = $flap
+@onready var feather_particles: GPUParticles2D = $"../animatedSprite/feather_particles"
+@onready var feather_explosion: GPUParticles2D = $"../feather_explosion"
+@onready var move_feathers: GPUParticles2D = $"../animatedSprite/move_feathers"
+@onready var space: Node = $"../Space"
+@onready var flash_2: Sprite2D = $flash2
 
 
 func connect_start_events() -> void:
@@ -133,4 +133,4 @@ func flash():
 	
 
 func screenshake(value := 2.0):
-	.screenshake(value)
+	super.screenshake(value)

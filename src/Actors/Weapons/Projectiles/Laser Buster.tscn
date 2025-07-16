@@ -16,7 +16,7 @@ extents = Vector2( 351.5, 17 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 30, 30 )
 
-[node name="Laser Buster" type="KinematicBody2D" groups=["Player Projectile"]]
+[node name="Laser Buster" type="CharacterBody2D" groups=["Player Projectile"]]
 z_index = 4
 collision_layer = 4
 collision_mask = 0
@@ -32,13 +32,13 @@ deflectable = false
 flash_duration = 0.1
 foward_start = 48.0
 
-[node name="animatedSprite" type="AnimatedSprite" parent="."]
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
 frames = ExtResource( 1 )
 animation = "loop"
 frame = 3
 playing = true
 
-[node name="line" type="AnimatedSprite" parent="animatedSprite"]
+[node name="line" type="AnimatedSprite2D" parent="animatedSprite"]
 material = ExtResource( 9 )
 position = Vector2( 352.5, 16 )
 scale = Vector2( 19.5313, 1 )
@@ -50,7 +50,7 @@ offset = Vector2( 0, -15 )
 script = ExtResource( 7 )
 reference = NodePath("..")
 
-[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2( -0.500001, -1.90735e-06 )
 scale = Vector2( 2.65, 2.5 )
 
@@ -65,7 +65,7 @@ delete_after_fade = true
 undo_on_rotation_end = false
 
 [node name="point" type="AudioStreamPlayer2D" parent="."]
-pause_mode = 2
+process_mode = 3
 stream = ExtResource( 4 )
 volume_db = -9.109
 bus = "SFX"

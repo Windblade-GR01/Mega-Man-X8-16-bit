@@ -1,12 +1,12 @@
 extends Node
 const sequence := [[2],[1,3],[2],[1],[3]]
-export var lumine_version := false
-export var projectile : PackedScene
+@export var lumine_version := false
+@export var projectile : PackedScene
 var center : Vector2
 var current_position := 0
 var spawn_positions : Array
 var floor_position : float
-onready var character: KinematicBody2D = $"../.."
+@onready var character: CharacterBody2D = $"../.."
 
 func _on_start_desperation() -> void:
 	#if lumine_version:
@@ -19,7 +19,7 @@ func _on_start_desperation() -> void:
 	create_boxes()
 
 func create_box (box_position : int) -> void:
-	var p = projectile.instance()
+	var p = projectile.instantiate()
 	get_tree().current_scene.add_child(p,true)
 	p.global_position = get_spawn_position(box_position)
 	p.floor_position = floor_position

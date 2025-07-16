@@ -1,10 +1,10 @@
-extends Light2D
-onready var sublight: Light2D = $sublight
-onready var path: PathFollow2D = $".."
+extends PointLight2D
+@onready var sublight: PointLight2D = $sublight
+@onready var path: PathFollow2D = $".."
 
-export var debug := false
-export var path_speed := 50.0
-export var inverse_speed := false
+@export var debug := false
+@export var path_speed := 50.0
+@export var inverse_speed := false
 
 var timer := 0.0
 var activated := true

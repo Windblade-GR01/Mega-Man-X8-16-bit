@@ -1,11 +1,11 @@
 class_name BossAI extends Node2D
 
-export var debug_logs := false
-export var active := false
-export var time_between_attacks := Vector2(0.25, 1.5)
-export var desperation_threshold := 0.5
-export var play_desperation_music := true
-export var order_size := 32
+@export var debug_logs := false
+@export var active := false
+@export var time_between_attacks := Vector2(0.25, 1.5)
+@export var desperation_threshold := 0.5
+@export var play_desperation_music := true
+@export var order_size := 32
 var attack_moveset := []
 var order_of_attacks = []
 var attacks_used = 0
@@ -15,7 +15,7 @@ var exceptions = ["EnemyStun","BossStun","Intro","Idle","FlyIdle","BossDeath"]
 var timer := 0.0
 var timer_for_next_attack := 1.0
 var label: Label
-onready var character = get_parent()
+@onready var character = get_parent()
 
 signal activated
 
@@ -54,8 +54,8 @@ func update_moveset():
 				elif child.desperation_attack:
 					desperation_attack = child
 					
-				child.connect("ability_end",self,"attack_ended")
-				child.connect("deactivated",self,"_on_attack_deactivated",[child])
+				child.connect("ability_end", Callable(self, "attack_ended"))
+				child.connect("deactivated", Callable(self, "_on_attack_deactivated").bind(child))
 	
 	decide_order_of_attacks()
 
@@ -197,7 +197,7 @@ func attack_ended(_attack):
 func decide_time_for_next_attack():
 	var max_time = (character.current_health * time_between_attacks.y)/ character.max_health
 	
-	timer_for_next_attack = rand_range(time_between_attacks.x,max_time)
+	timer_for_next_attack = randf_range(time_between_attacks.x,max_time)
 
 func Log(message):
 	if debug_logs:

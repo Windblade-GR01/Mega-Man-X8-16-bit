@@ -1,5 +1,5 @@
 extends Node2D
-onready var animated_sprite: AnimatedSprite = $animatedSprite
+@onready var animated_sprite: AnimatedSprite2D = $animatedSprite
 
 signal disable_damage
 

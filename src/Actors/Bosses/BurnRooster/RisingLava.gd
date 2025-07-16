@@ -1,12 +1,12 @@
 extends Enemy
 
-onready var particles_2d: Particles2D = $particles2D
-onready var fire_2: Particles2D = $animatedSprite/fire2
-onready var fire_3: Particles2D = $animatedSprite/fire3
-onready var fire_1: Particles2D = $animatedSprite/fire1
-onready var particles :=[particles_2d,fire_1,fire_2,fire_3]
-onready var fire_loop: AudioStreamPlayer2D = $fire_loop
-onready var damage_on_touch: Node2D = $DamageOnTouch
+@onready var particles_2d: GPUParticles2D = $particles2D
+@onready var fire_2: GPUParticles2D = $animatedSprite/fire2
+@onready var fire_3: GPUParticles2D = $animatedSprite/fire3
+@onready var fire_1: GPUParticles2D = $animatedSprite/fire1
+@onready var particles :=[particles_2d,fire_1,fire_2,fire_3]
+@onready var fire_loop: AudioStreamPlayer2D = $fire_loop
+@onready var damage_on_touch: Node2D = $DamageOnTouch
 
 func _ready() -> void:
 	pass

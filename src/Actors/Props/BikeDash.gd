@@ -1,7 +1,7 @@
 extends Accelerate
 class_name BikeDash
 
-onready var particles = get_parent().get_node("animatedSprite").get_node("particles2D")
+@onready var particles = get_parent().get_node("animatedSprite").get_node("particles2D")
 
 func play_animation_on_initialize() -> void:
 	play_animation(animation)
@@ -9,7 +9,7 @@ func play_animation_on_initialize() -> void:
 func _ready() -> void:
 	if active:
 		# warning-ignore:return_value_discarded
-		character.get_node("animatedSprite").connect("animation_finished", self, "_on_animatedSprite_animation_finished")
+		character.get_node("animatedSprite").connect("animation_finished", Callable(self, "_on_animatedSprite_animation_finished"))
 
 func _StartCondition() -> bool:
 	if character.is_on_floor():
@@ -36,7 +36,7 @@ func _Interrupt():
 
 func process_gravity(_delta:float, _gravity := default_gravity, _s = "null") -> void:
 	#if not character.get_vertical_speed() < 0:
-	.process_gravity(_delta)
+	super.process_gravity(_delta)
 
 func process_speed():
 	if abs(get_actual_speed()) < horizontal_velocity:

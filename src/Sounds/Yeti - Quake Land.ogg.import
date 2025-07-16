@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/Yeti - Quake Land.ogg-cee3ad7065a4b9b9cf95c87cab2e08f5.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dci8l1n5xoqx4"
+path="res://.godot/imported/Yeti - Quake Land.ogg-cee3ad7065a4b9b9cf95c87cab2e08f5.oggvorbisstr"
 
 [deps]
 
 source_file="res://src/Sounds/Yeti - Quake Land.ogg"
-dest_files=[ "res://.import/Yeti - Quake Land.ogg-cee3ad7065a4b9b9cf95c87cab2e08f5.oggstr" ]
+dest_files=["res://.godot/imported/Yeti - Quake Land.ogg-cee3ad7065a4b9b9cf95c87cab2e08f5.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

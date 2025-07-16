@@ -1,9 +1,9 @@
 extends StaticBody2D
 
-export var tiles := 10
-export var speed := 0.25
-export var screenshake := false
-onready var tween = TweenController.new(self,false)
+@export var tiles := 10
+@export var speed := 0.25
+@export var screenshake := false
+@onready var tween = TweenController.new(self,false)
 var max_position := false
 var activated := false
 

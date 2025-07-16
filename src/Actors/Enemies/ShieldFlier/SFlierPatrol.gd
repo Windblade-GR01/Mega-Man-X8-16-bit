@@ -1,14 +1,14 @@
 extends AttackAbility
 class_name SFlierPatrol
 
-export var travel_speed := 60.0
-export var travel_duration := 2.65
+@export var travel_speed := 60.0
+@export var travel_duration := 2.65
 var distance_limit := 160.0
 #var tween
 var current_speed := 0.0
 var moving := false
 
-onready var tween := TweenController.new(self,false)
+@onready var tween := TweenController.new(self,false)
 
 var initial_pos : Vector2
 
@@ -49,5 +49,5 @@ func _Update(_delta) -> void:
 			go_to_attack_stage_on_next_frame(0)
 
 func _Interrupt():
-	._Interrupt()
+	super._Interrupt()
 	tween.reset()

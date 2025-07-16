@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 6 )
 
-[node name="AmmoPickup" type="KinematicBody2D"]
+[node name="AmmoPickup" type="CharacterBody2D"]
 z_index = 10
 collision_layer = 0
 collision_mask = 66049
@@ -21,8 +21,8 @@ collision_mask = 2
 [node name="collisionShape2D" type="CollisionShape2D" parent="area2D"]
 shape = SubResource( 1 )
 
-[node name="animatedSprite" type="AnimatedSprite" parent="."]
-pause_mode = 1
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+process_mode = 1
 frames = ExtResource( 1 )
 animation = "falling"
 playing = true

@@ -1,17 +1,17 @@
-extends Sprite
+extends Sprite2D
 
-export var animation_z := 0.0
-export var armor_piece := "undefined"
-export var shared := false
-export var armorless : Texture
+@export var animation_z := 0.0
+@export var armor_piece := "undefined"
+@export var shared := false
+@export var armorless : Texture2D
 
 const debug_current_armor = ["no_head","no_body","icarus_arms","hermes_legs"]
 
 var armor_name : String
 
 func _ready() -> void:
-	var _s = get_parent().connect("color",self,"change_palette")
-	_s = $"../..".connect("reset",self,"reset_palette")
+	var _s = get_parent().connect("color", Callable(self, "change_palette"))
+	_s = $"../..".connect("reset", Callable(self, "reset_palette"))
 	if shared:
 		return
 	for collectible in GameManager.current_armor:
@@ -24,10 +24,10 @@ func change_palette(weapon : WeaponResource) -> void:
 	if not material:
 		return
 	if "hermes" in armor_name:
-		material.set_shader_param("palette",weapon.hermes_palette)
+		material.set_shader_parameter("palette",weapon.hermes_palette)
 		return
 	else:
-		material.set_shader_param("palette",weapon.icarus_palette)
+		material.set_shader_parameter("palette",weapon.icarus_palette)
 
 func reset_palette() -> void:
-	material.set_shader_param("palette",null)
+	material.set_shader_parameter("palette",null)

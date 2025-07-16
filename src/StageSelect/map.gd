@@ -1,11 +1,11 @@
-extends Sprite
+extends Sprite2D
 
 const positions := [-139,-71, 227, 352]
 const duration := 1.0
 const speed := 90.0
 var going_bottom := false
 
-onready var tween := TweenController.new(self,false)
+@onready var tween := TweenController.new(self,false)
 
 func _on_reposition_map(destination : Vector2) -> void:
 	if is_destination_bottom(destination):

@@ -3,8 +3,8 @@ extends AttackAbility
 const pursuit_timeout := 1.0
 var escape_timer := 0.0
 
-export var nearby_distance : Vector2
-onready var wallcheck: RayCast2D = $PunchHitbox/area2D/collisionShape2D/wallcheck
+@export var nearby_distance : Vector2
+@onready var wallcheck: RayCast2D = $PunchHitbox/area2D/collisionShape2D/wallcheck
 signal grounded
 signal walled
 signal player_nearby

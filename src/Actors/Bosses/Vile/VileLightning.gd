@@ -1,16 +1,16 @@
 extends AttackAbility
 
-export var damage_reduction := 0.5
+@export var damage_reduction := 0.5
 var desperation_finished := false
-onready var lightnings := [$VileLightning,$VileLightning3,$VileLightning5]
-onready var lightnings2 := [$VileLightning2,$VileLightning4,$VileLightning6]
-onready var space: Node = $"../Space"
-onready var tween := TweenController.new(self)
-onready var lightning: AudioStreamPlayer2D = $lightning
-onready var warning: AudioStreamPlayer2D = $warning
-onready var lightning_loop: AudioStreamPlayer2D = $lightning_loop
-onready var end: AudioStreamPlayer2D = $end
-onready var flash: Sprite = $flash
+@onready var lightnings := [$VileLightning,$VileLightning3,$VileLightning5]
+@onready var lightnings2 := [$VileLightning2,$VileLightning4,$VileLightning6]
+@onready var space: Node = $"../Space"
+@onready var tween := TweenController.new(self)
+@onready var lightning: AudioStreamPlayer2D = $lightning
+@onready var warning: AudioStreamPlayer2D = $warning
+@onready var lightning_loop: AudioStreamPlayer2D = $lightning_loop
+@onready var end: AudioStreamPlayer2D = $end
+@onready var flash: Sprite2D = $flash
 
 signal stop
 signal ready_for_stun

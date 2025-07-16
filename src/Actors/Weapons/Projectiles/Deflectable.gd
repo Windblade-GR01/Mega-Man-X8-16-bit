@@ -1,6 +1,6 @@
 extends RigidBody2D
-onready var projectile: = $".."
-export var deflect_particle : NodePath
+@onready var projectile: = $".."
+@export var deflect_particle : NodePath
 const break_guards := true
 
 func deflect(_body) -> void:

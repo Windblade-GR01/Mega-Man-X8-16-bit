@@ -1,13 +1,13 @@
 extends AttackAbility
-export var flash :PackedScene
+@export var flash :PackedScene
 
-onready var space: Node = $"../Space"
-onready var tween := TweenController.new(self)
+@onready var space: Node = $"../Space"
+@onready var tween := TweenController.new(self)
 var reached_pos := false
 var time_to_return := 1.0
 signal stop
-onready var prepare: AudioStreamPlayer2D = $prepare
-onready var move: AudioStreamPlayer2D = $"../move"
+@onready var prepare: AudioStreamPlayer2D = $prepare
+@onready var move: AudioStreamPlayer2D = $"../move"
 
 func _Update(_delta) -> void:
 	if attack_stage == 0:
@@ -69,11 +69,11 @@ func create_flashs() -> void:
 
 func create_flash(global_pos, rotate:= 0.0) -> void:
 	if executing:
-		var projectile = flash.instance()
+		var projectile = flash.instantiate()
 		projectile.global_position = global_pos
 		projectile.rotate_degrees(rotate)
 		get_tree().current_scene.add_child(projectile)
-		var _s = connect("stop",projectile,"queue_free")
+		var _s = connect("stop", Callable(projectile, "queue_free"))
 	
 
 func go_to_closest_position() -> void:

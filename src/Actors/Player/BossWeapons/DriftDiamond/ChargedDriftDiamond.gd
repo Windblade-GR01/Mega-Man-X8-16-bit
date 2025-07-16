@@ -1,13 +1,13 @@
 extends SimplePlayerProjectile
-onready var remains: Particles2D = $remains_particles
-onready var particles: Particles2D = $particles2D
+@onready var remains: GPUParticles2D = $remains_particles
+@onready var particles: GPUParticles2D = $particles2D
 
 func _Setup() -> void:
-	._Setup()
+	super._Setup()
 	set_horizontal_speed(400 * get_facing_direction())
 
 func _Update(delta) -> void:
-	._Update(delta)
+	super._Update(delta)
 	var rotate_speed = (delta * 12) * get_facing_direction()
 	animatedSprite.rotate(rotate_speed)
 	
@@ -27,6 +27,6 @@ func shatter() -> void:
 	particles.emitting = false
 	disable_visuals()
 	var sound = $crash
-	sound.pitch_scale = rand_range(0.9,1.1)
+	sound.pitch_scale = randf_range(0.9,1.1)
 	sound.play()
 	

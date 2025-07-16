@@ -7,11 +7,11 @@ var target_list = []
 var character : Character
 signal finish
 signal disabled
-onready var tween := TweenController.new(self,false)
-onready var remains_particles: Particles2D = $remains_particles
-onready var particles: Particles2D = $particles2D
-onready var dash_particle: Sprite = $dash_particle
-onready var collision: CollisionShape2D = $collisionShape2D
+@onready var tween := TweenController.new(self,false)
+@onready var remains_particles: GPUParticles2D = $remains_particles
+@onready var particles: GPUParticles2D = $particles2D
+@onready var dash_particle: Sprite2D = $dash_particle
+@onready var collision: CollisionShape2D = $collisionShape2D
 
 func _ready() -> void:
 	tween.connect_reset("finish")

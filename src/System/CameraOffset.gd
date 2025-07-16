@@ -1,9 +1,9 @@
 extends Node
 
-onready var camera: Camera2D = $".."
+@onready var camera: Camera2D = $".."
 var target := Vector2.ZERO
 var current := Vector2.ZERO
-var tween : SceneTreeTween
+var tween : Tween
 
 func _ready() -> void:
 	Event.listen("camera_offset",self,"on_receive_offset")

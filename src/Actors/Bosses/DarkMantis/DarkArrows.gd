@@ -1,11 +1,11 @@
 extends AttackAbility
-export var projectiles : Array
+@export var projectiles : Array
 
 var proj_speed := Vector2(15, -520)
-onready var arrowshot: AudioStreamPlayer2D = $arrowshot
+@onready var arrowshot: AudioStreamPlayer2D = $arrowshot
 
 func _Setup() -> void:
-	._Setup()
+	super._Setup()
 	proj_speed = Vector2(15, -520)
 
 func _Update(_delta) -> void:

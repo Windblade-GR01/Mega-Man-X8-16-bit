@@ -2,17 +2,17 @@ extends SimplePlayerProjectile
 
 const destroyer := true
 
-export var duration := 5.0
+@export var duration := 5.0
 var shattered := false
-onready var stage := AbilityStage.new(self,false)
-onready var animation := AnimationController.new($animatedSprite)
-onready var break_s: AudioStreamPlayer2D = $break
-onready var wall_check_left: RayCast2D = $platform/wallCheck_left
-onready var wall_check_right: RayCast2D = $platform/wallCheck_right
-onready var collider: CollisionShape2D = $platform/collisionShape2D
-onready var remains: Particles2D = $remains
-onready var ceiling_check: Array = [$platform/wallCheck_up,$platform/wallCheck_up2,$platform/wallCheck_up3]
-onready var appear: AudioStreamPlayer2D = $appear
+@onready var stage := AbilityStage.new(self,false)
+@onready var animation := AnimationController.new($animatedSprite)
+@onready var break_s: AudioStreamPlayer2D = $break
+@onready var wall_check_left: RayCast2D = $platform/wallCheck_left
+@onready var wall_check_right: RayCast2D = $platform/wallCheck_right
+@onready var collider: CollisionShape2D = $platform/collisionShape2D
+@onready var remains: GPUParticles2D = $remains
+@onready var ceiling_check: Array = [$platform/wallCheck_up,$platform/wallCheck_up2,$platform/wallCheck_up3]
+@onready var appear: AudioStreamPlayer2D = $appear
 
 var player_direction := 0
 
@@ -152,7 +152,7 @@ func _on_playerDetector_right_body_exited(_body: Node) -> void:
 
 
 func disable_damage() -> void:
-	set_collision_layer_bit(2,false)
+	set_collision_layer_value(2,false)
 
 		
 func _OnHit(_target_remaining_HP) -> void: #override

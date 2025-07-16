@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/11 - MMX - X Die.wav-c409263382dc2794cbdf1f1e869ac629.sample"
+type="AudioStreamWAV"
+uid="uid://dnbyev0p3ucfu"
+path="res://.godot/imported/11 - MMX - X Die.wav-c409263382dc2794cbdf1f1e869ac629.sample"
 
 [deps]
 
 source_file="res://src/Sounds/11 - MMX - X Die.wav"
-dest_files=[ "res://.import/11 - MMX - X Die.wav-c409263382dc2794cbdf1f1e869ac629.sample" ]
+dest_files=["res://.godot/imported/11 - MMX - X Die.wav-c409263382dc2794cbdf1f1e869ac629.sample"]
 
 [params]
 

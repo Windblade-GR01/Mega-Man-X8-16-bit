@@ -1,11 +1,11 @@
 extends Node2D
 class_name DamageOnTouch
 
-export var active := true
-export var debug_logs := false
-export var damage := 1.0
-export var damage_group := "Player"
-export var disable_on_death := true
+@export var active := true
+@export var debug_logs := false
+@export var damage := 1.0
+@export var damage_group := "Player"
+@export var disable_on_death := true
 var damage_frequency := 0.016
 var can_hit = true
 var next_damage_time := 0.02
@@ -49,13 +49,13 @@ func connect_area_events():
 	for child in get_children():
 		if child is Area2D:
 			area2D = child
-			child.connect("body_entered",self,"_on_area2D_body_entered")
-			child.connect("body_exited",self,"_on_area2D_body_exited")
+			child.connect("body_entered", Callable(self, "_on_area2D_body_entered"))
+			child.connect("body_exited", Callable(self, "_on_area2D_body_exited"))
 			Log("Connected Area2D events")
 			return
 	area2D = get_parent().get_node("area2D")
-	area2D.connect("body_entered",self,"_on_area2D_body_entered")
-	area2D.connect("body_exited",self,"_on_area2D_body_exited")
+	area2D.connect("body_entered", Callable(self, "_on_area2D_body_entered"))
+	area2D.connect("body_exited", Callable(self, "_on_area2D_body_exited"))
 	
 
 func _on_area2D_body_entered(_body: Node) -> void:

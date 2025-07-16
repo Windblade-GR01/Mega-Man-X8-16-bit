@@ -1,16 +1,16 @@
 extends ParallaxLayer
 
-onready var sigmapalace_map: Node2D = $"../../sigmapalace_map"
-onready var hole_fillers: CollisionShape2D = $"../../hole_blocker/collisionShape2D"
-onready var final_clouds: Node2D = $"../../FinalClouds"
-onready var foreground: ParallaxLayer = $"../../../parallaxBackground2/foreground"
-onready var final_platform: Node2D = $"../../final_platform"
+@onready var sigmapalace_map: Node2D = $"../../sigmapalace_map"
+@onready var hole_fillers: CollisionShape2D = $"../../hole_blocker/collisionShape2D"
+@onready var final_clouds: Node2D = $"../../FinalClouds"
+@onready var foreground: ParallaxLayer = $"../../../parallaxBackground2/foreground"
+@onready var final_platform: Node2D = $"../../final_platform"
 
-onready var tween := TweenController.new(self,false)
+@onready var tween := TweenController.new(self,false)
 
 func _ready() -> void:
-	Event.connect("lumine_went_seraph",self,"activate")
-	Event.connect("lumine_desperation",self,"start_dark_mode")
+	Event.connect("lumine_went_seraph", Callable(self, "activate"))
+	Event.connect("lumine_desperation", Callable(self, "start_dark_mode"))
 
 func activate():
 	visible = true

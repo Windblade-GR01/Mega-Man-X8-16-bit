@@ -1,6 +1,6 @@
-extends AnimatedSprite
+extends AnimatedSprite2D
 
-onready var animated_sprite: AnimatedSprite = $"../animatedSprite"
+@onready var animated_sprite: AnimatedSprite2D = $"../animatedSprite"
 
 func activate() -> void:
 	animated_sprite.modulate.a = 0.01

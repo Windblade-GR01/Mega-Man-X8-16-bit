@@ -1,21 +1,21 @@
 extends Node2D
 
-onready var explosions: Particles2D = $explosion_particles
-onready var smoke: Particles2D = $smoke
-onready var audio: AudioStreamPlayer2D = $final_explosion
-onready var animation := AnimationController.new($"../animatedSprite")
-onready var character: Panda = $".."
-onready var tween := TweenController.new(self,false)
-onready var space: Node = $"../Space"
-onready var light: Sprite = $background_light
-onready var fullscreen_light: Sprite = $fullscreen_light
-onready var idle: Node2D = $"../Idle"
-onready var feather_particles: Particles2D = $"../animatedSprite/feather_particles"
-onready var back_wings: AnimatedSprite = $"../backWings"
-onready var front_wings: AnimatedSprite = $"../frontWings"
-onready var damage: Node2D = $"../Damage"
-onready var windspark: Sprite = $windspark
-onready var flash: Sprite = $flash
+@onready var explosions: GPUParticles2D = $explosion_particles
+@onready var smoke: GPUParticles2D = $smoke
+@onready var audio: AudioStreamPlayer2D = $final_explosion
+@onready var animation := AnimationController.new($"../animatedSprite")
+@onready var character: Panda = $".."
+@onready var tween := TweenController.new(self,false)
+@onready var space: Node = $"../Space"
+@onready var light: Sprite2D = $background_light
+@onready var fullscreen_light: Sprite2D = $fullscreen_light
+@onready var idle: Node2D = $"../Idle"
+@onready var feather_particles: GPUParticles2D = $"../animatedSprite/feather_particles"
+@onready var back_wings: AnimatedSprite2D = $"../backWings"
+@onready var front_wings: AnimatedSprite2D = $"../frontWings"
+@onready var damage: Node2D = $"../Damage"
+@onready var windspark: Sprite2D = $windspark
+@onready var flash: Sprite2D = $flash
 
 signal screen_flash
 const interval := 3.0
@@ -82,7 +82,7 @@ func flash():
 	flash.start()
 
 func blink():
-	animation.animatedSprite.material.set_shader_param("Flash", 1)
+	animation.animatedSprite.material.set_shader_parameter("Flash", 1)
 	windspark.emit()
 
 func set_weak_light():
@@ -119,13 +119,13 @@ func end():
 	GameManager.end_game()
 
 func set_light_alpha(value : float):
-	light.material.set_shader_param("Alpha",value)
+	light.material.set_shader_parameter("Alpha",value)
 
 func set_light_color(value : float):
-	light.material.set_shader_param("Color",value)
+	light.material.set_shader_parameter("Color",value)
 	
 func set_darken(value : float):
-	animation.animatedSprite.material.set_shader_param("Darken",value)
+	animation.animatedSprite.material.set_shader_parameter("Darken",value)
 
 func set_radius(value:float):
 	explosions.process_material.emission_sphere_radius = value

@@ -1,7 +1,7 @@
 extends VBoxContainer
 
-export (PackedScene) var input_holder
-onready var main: CanvasLayer = $"../../.."
+@export var input_holder: PackedScene
+@onready var main: CanvasLayer = $"../../.."
 
 var configurable = {
 	"move_left" : "LEFT_ACT",
@@ -25,7 +25,7 @@ var configurable = {
 	"reset_weapon" : "WPNRESET_ACT"
 }
 
-onready var exit: TextureButton = $"../../exit"
+@onready var exit: TextureButton = $"../../exit"
 
 func _ready() -> void:
 	Setup_actions()
@@ -37,15 +37,15 @@ func Setup_actions() -> void:
 	Set_neighbours(last_child)
 
 func instantiate(action) -> Node:
-	var instance = input_holder.instance()
+	var instance = input_holder.instantiate()
 	add_child(instance,true)
 	instance.setup(action, configurable[action], main)
 	return instance
 
 func Set_neighbours(last_child) -> void:
-	exit.focus_neighbour_top = last_child.get_child(0).get_path()
-	exit.focus_neighbour_bottom = get_child(0).get_child(0).get_path()
-	get_child(0).get_child(0).focus_neighbour_top = exit.get_path()
-	get_child(0).get_child(1).focus_neighbour_top = exit.get_path()
-	last_child.get_child(0).focus_neighbour_bottom = exit.get_path()
-	last_child.get_child(1).focus_neighbour_bottom = exit.get_path()
+	exit.focus_neighbor_top = last_child.get_child(0).get_path()
+	exit.focus_neighbor_bottom = get_child(0).get_child(0).get_path()
+	get_child(0).get_child(0).focus_neighbor_top = exit.get_path()
+	get_child(0).get_child(1).focus_neighbor_top = exit.get_path()
+	last_child.get_child(0).focus_neighbor_bottom = exit.get_path()
+	last_child.get_child(1).focus_neighbor_bottom = exit.get_path()

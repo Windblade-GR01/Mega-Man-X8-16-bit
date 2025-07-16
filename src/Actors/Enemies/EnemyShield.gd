@@ -1,7 +1,7 @@
 extends HitDetector
 class_name EnemyShield
 
-export var breakable := true
+@export var breakable := true
 var deflected = []
 
 var debug_count := 0

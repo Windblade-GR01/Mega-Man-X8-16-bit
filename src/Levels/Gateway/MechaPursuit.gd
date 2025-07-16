@@ -1,10 +1,10 @@
 extends NewAbility
 
-onready var physics := Physics.new($"..")
-onready var stage := AbilityStage.new(self)
-onready var animation := AnimationController.new($"../animatedSprite")
-onready var step: AudioStreamPlayer2D = $step
-onready var tween := TweenController.new(self)
+@onready var physics := Physics.new($"..")
+@onready var stage := AbilityStage.new(self)
+@onready var animation := AnimationController.new($"../animatedSprite")
+@onready var step: AudioStreamPlayer2D = $step
+@onready var tween := TweenController.new(self)
 
 func _ready() -> void:
 	#Tools.timer(4,"_on_signal",self)

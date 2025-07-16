@@ -1,13 +1,13 @@
 class_name FireDash extends SimplePlayerProjectile
 
-export var has_deflectable := true
+@export var has_deflectable := true
 const damage_frequency := 0.06
 var next_damage_time := 0.0
 var target_list = []
 var character : Character
 var emitted_finish := false
 
-onready var collision: CollisionShape2D = $collisionShape2D
+@onready var collision: CollisionShape2D = $collisionShape2D
 signal finish
 signal disabled
 
@@ -40,7 +40,7 @@ func _Update(_delta) -> void:
 
 func destroy() -> void:
 	Log("Destroying fire")
-	.destroy()
+	super.destroy()
 
 func set_visual_direction() -> void:
 	if GameManager.is_player_in_scene():

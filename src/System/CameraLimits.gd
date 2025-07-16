@@ -1,22 +1,22 @@
 extends Area2D
 class_name CameraLimits
-export var debug := false
-export var disabled := false
+@export var debug := false
+@export var disabled := false
 var can_be_disabled := true
 signal accessed
-onready var collider: CollisionShape2D = $collisionShape2D
+@onready var collider: CollisionShape2D = $collisionShape2D
 
-onready var limits = get_child(0)
+@onready var limits = get_child(0)
 
 func disable(_b = null) -> void:
 	if can_be_disabled:
 		disabled = true
-		modulate = Color.red
+		modulate = Color.RED
 		debug_print("disabled.")
 
 func enable(_b = null) -> void:
 	disabled = false
-	modulate = Color.white
+	modulate = Color.WHITE
 	collider.set_deferred("disabled",true)
 	collider.set_deferred("disabled",false)
 	debug_print("enabled.")

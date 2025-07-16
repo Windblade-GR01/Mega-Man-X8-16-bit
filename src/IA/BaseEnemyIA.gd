@@ -19,7 +19,7 @@ func turn_randomly(delta: float):
 	if timer > 2:
 		timer = 0
 		if current_action == last_action:
-			if rand_range(0,1) > 0.5:
+			if randf_range(0,1) > 0.5:
 				if character.get_facing_direction() != 1:
 					artificial_input("go_right")
 			else:

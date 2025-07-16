@@ -1,15 +1,15 @@
 [gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/Objects/Capsule.gd" type="Script" id=1]
-[ext_resource path="res://src/Objects/Light Capsule/capsule.res" type="SpriteFrames" id=2]
+[ext_resource path="res://src/Objects/Light3D Capsule/capsule.res" type="SpriteFrames" id=2]
 [ext_resource path="res://src/Sounds/55 - MMX - Electric Bolt.wav" type="AudioStream" id=3]
 [ext_resource path="res://src/Sounds/22 - MMX - Capsule Open.wav" type="AudioStream" id=4]
 [ext_resource path="res://src/Sounds/15 - MMX - X Powerup Infuse.wav" type="AudioStream" id=5]
 [ext_resource path="res://src/Sounds/16 - MMX - X Upgrade Complete.wav" type="AudioStream" id=6]
-[ext_resource path="res://src/Effects/Textures/capsule_beam.png" type="Texture" id=7]
+[ext_resource path="res://src/Effects/Textures/capsule_beam.png" type="Texture2D" id=7]
 [ext_resource path="res://src/DialogSystem/Dialogs/Capsules/DefaultCapsuleDialogue.tres" type="Resource" id=8]
-[ext_resource path="res://src/Objects/Light Capsule/light.res" type="SpriteFrames" id=9]
-[ext_resource path="res://src/Objects/Light Capsule/drLight.gd" type="Script" id=10]
+[ext_resource path="res://src/Objects/Light3D Capsule/light.res" type="SpriteFrames" id=9]
+[ext_resource path="res://src/Objects/Light3D Capsule/drLight.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24, 8 )
@@ -29,7 +29,7 @@ extents = Vector2( 51, 42 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 2, 22 )
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticleProcessMaterial" id=5]
 emission_shape = 2
 emission_box_extents = Vector3( 16, 1, 1 )
 flag_disable_z = true
@@ -45,7 +45,7 @@ z_index = 10
 script = ExtResource( 1 )
 dialogue = ExtResource( 8 )
 
-[node name="drLight" type="AnimatedSprite" parent="."]
+[node name="drLight" type="AnimatedSprite2D" parent="."]
 position = Vector2( 0, -36 )
 z_index = 4096
 z_as_relative = false
@@ -54,7 +54,7 @@ animation = "vanish"
 frame = 32
 script = ExtResource( 10 )
 
-[node name="animatedSprite" type="AnimatedSprite" parent="."]
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2( 0, -146 )
 frames = ExtResource( 2 )
 animation = "idle"
@@ -140,7 +140,7 @@ volume_db = -8.0
 max_distance = 600.0
 bus = "SFX"
 
-[node name="particles2D" type="Particles2D" parent="."]
+[node name="particles2D" type="GPUParticles2D" parent="."]
 position = Vector2( 0, -61 )
 z_index = -1
 emitting = false

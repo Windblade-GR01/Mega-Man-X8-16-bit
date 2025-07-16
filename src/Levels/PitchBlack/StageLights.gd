@@ -1,16 +1,16 @@
 extends CanvasModulate
 class_name StageLights
 
-export var normal_color : Color
-export var darkness : Color
-export var alarm_color : Color
-export var alarm_color2 : Color
+@export var normal_color : Color
+@export var darkness : Color
+@export var alarm_color : Color
+@export var alarm_color2 : Color
 
-export var alarm_duration := 16.0
+@export var alarm_duration := 16.0
 
-export var alarm := false
+@export var alarm := false
 var went_to_black := false
-export var darkness_area := false
+@export var darkness_area := false
 var went_to_darkness := false
 var timer := 0.0
 var lights_turned_on := false

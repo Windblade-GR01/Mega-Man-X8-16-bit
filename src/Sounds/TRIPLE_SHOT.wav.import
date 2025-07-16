@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/TRIPLE_SHOT.wav-338b25d6a678615e6f0e82bd36739674.sample"
+type="AudioStreamWAV"
+uid="uid://xes06ooupxyg"
+path="res://.godot/imported/TRIPLE_SHOT.wav-338b25d6a678615e6f0e82bd36739674.sample"
 
 [deps]
 
 source_file="res://src/Sounds/TRIPLE_SHOT.wav"
-dest_files=[ "res://.import/TRIPLE_SHOT.wav-338b25d6a678615e6f0e82bd36739674.sample" ]
+dest_files=["res://.godot/imported/TRIPLE_SHOT.wav-338b25d6a678615e6f0e82bd36739674.sample"]
 
 [params]
 

@@ -1,17 +1,17 @@
 extends Node
 
-export var debug_logs := false
-export (Resource) var subtank
-export var active := false #
-export var capacity := 16
+@export var debug_logs := false
+@export var subtank: Resource
+@export var active := false #
+@export var capacity := 16
 var current_health := 0
 var timer := 0.0
 var last_time_increased := 0.0
 var healing := false
-onready var player: KinematicBody2D = $"../.."
-onready var sound: AudioStreamPlayer = $heal
-onready var charge: AudioStreamPlayer = $charge
-onready var full: AudioStreamPlayer = $full
+@onready var player: CharacterBody2D = $"../.."
+@onready var sound: AudioStreamPlayer = $heal
+@onready var charge: AudioStreamPlayer = $charge
+@onready var full: AudioStreamPlayer = $full
 
 signal activated
 signal max_capacity

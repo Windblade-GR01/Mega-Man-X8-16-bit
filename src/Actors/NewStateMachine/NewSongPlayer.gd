@@ -1,17 +1,17 @@
 extends AudioStreamPlayer
 
-onready var loop: AudioStreamPlayer = get_node_or_null("loop")
-onready var tween := TweenController.new(self,false)
-onready var base_volume := volume_db
-onready var should_loop := false
+@onready var loop: AudioStreamPlayer = get_node_or_null("loop")
+@onready var tween := TweenController.new(self,false)
+@onready var base_volume := volume_db
+@onready var should_loop := false
 var queued:= false
 var has_loop := false
 
 func _ready() -> void:
 	has_loop = loop != null
-	Event.connect("half_music_volume",self,"set_volume",[base_volume-10])
-	Event.connect("normal_music_volume",self,"set_volume",[base_volume])
-	Event.connect("player_death",self,"fade_out",[6])
+	Event.connect("half_music_volume", Callable(self, "set_volume").bind(base_volume-10))
+	Event.connect("normal_music_volume", Callable(self, "set_volume").bind(base_volume))
+	Event.connect("player_death", Callable(self, "fade_out").bind(6))
 	if has_loop:
 		loop.volume_db = base_volume
 
@@ -59,12 +59,12 @@ func play(from_position:= 0.0):
 		if loop.playing:
 			return
 	
-	.play(from_position)
+	super.play(from_position)
 	if has_loop:
 		queue_loop()
 
 func stop():
 	loop.stop()
 	queued = false
-	.stop()
+	super.stop()
 	fading = false

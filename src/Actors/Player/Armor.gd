@@ -1,36 +1,36 @@
 extends Node2D
 
-export var show_head := false
-export var show_body := false
-export var show_arms := false
-export var show_legs := false
+@export var show_head := false
+@export var show_body := false
+@export var show_arms := false
+@export var show_legs := false
 var last_armor_collected := "nothing"
 
-export var NeutralColor1 : Color
-export var NeutralColor2 : Color
-export var NeutralColor3 : Color
-export var HermesColor1 : Color
-export var HermesColor2 : Color
-export var HermesColor3 : Color
-export var IcarusColor1 : Color
-export var IcarusColor2 : Color
-export var IcarusColor3 : Color
-export var BodyColor1 : Color
-export var BodyColor2 : Color
-onready var NeutralColors = [NeutralColor1,NeutralColor2,NeutralColor3]
-onready var HermesColors = [HermesColor1,HermesColor2,HermesColor3]
-onready var IcarusColors = [IcarusColor1,IcarusColor2,IcarusColor3]
-onready var BodyColors = [Color.pink, BodyColor1,BodyColor2]
+@export var NeutralColor1 : Color
+@export var NeutralColor2 : Color
+@export var NeutralColor3 : Color
+@export var HermesColor1 : Color
+@export var HermesColor2 : Color
+@export var HermesColor3 : Color
+@export var IcarusColor1 : Color
+@export var IcarusColor2 : Color
+@export var IcarusColor3 : Color
+@export var BodyColor1 : Color
+@export var BodyColor2 : Color
+@onready var NeutralColors = [NeutralColor1,NeutralColor2,NeutralColor3]
+@onready var HermesColors = [HermesColor1,HermesColor2,HermesColor3]
+@onready var IcarusColors = [IcarusColor1,IcarusColor2,IcarusColor3]
+@onready var BodyColors = [Color.PINK, BodyColor1,BodyColor2]
 var transition_time = 0.0
 
-onready var character = get_parent()
-onready var playerSprite = character.get_node("animatedSprite")
-onready var head_armor = playerSprite.get_node("head_armor")
-onready var body_armor = playerSprite.get_node("body_armor")
-onready var arms_armor = playerSprite.get_node("arms_armor")
-onready var cann_armor = playerSprite.get_node("cannon_armor")
-onready var legs_armor = playerSprite.get_node("legs_armor")
-onready var armor = [head_armor,body_armor,arms_armor,cann_armor,legs_armor]
+@onready var character = get_parent()
+@onready var playerSprite = character.get_node("animatedSprite")
+@onready var head_armor = playerSprite.get_node("head_armor")
+@onready var body_armor = playerSprite.get_node("body_armor")
+@onready var arms_armor = playerSprite.get_node("arms_armor")
+@onready var cann_armor = playerSprite.get_node("cannon_armor")
+@onready var legs_armor = playerSprite.get_node("legs_armor")
+@onready var armor = [head_armor,body_armor,arms_armor,cann_armor,legs_armor]
 
 func _ready() -> void:
 	Event.listen("collected", self, "collected")
@@ -87,9 +87,9 @@ func apply_family_color(family_name : String) -> void:
 			change_colors(part,HermesColors)
 
 func change_colors(part, new_colors):
-	part.material.set_shader_param("R_MainColor4", new_colors[0])
-	part.material.set_shader_param("R_MainColor5", new_colors[1])
-	part.material.set_shader_param("R_MainColor6", new_colors[2])
+	part.material.set_shader_parameter("R_MainColor4", new_colors[0])
+	part.material.set_shader_parameter("R_MainColor5", new_colors[1])
+	part.material.set_shader_parameter("R_MainColor6", new_colors[2])
 
 func _process(_delta: float) -> void:
 	handle_armor_visibleness()
@@ -111,16 +111,16 @@ func turn_yellow_over_time():
 		part.go_to_neutral_colors()
 
 func synchronize_shaders() -> void:
-	var _chargecolor = character.animatedSprite.material.get_shader_param("Color")
-	var _charge = character.animatedSprite.material.get_shader_param("Charge")
-	var _alpha = character.animatedSprite.material.get_shader_param("Alpha")
-	var _flash = character.animatedSprite.material.get_shader_param("Flash")
+	var _chargecolor = character.animatedSprite.material.get_shader_parameter("Color")
+	var _charge = character.animatedSprite.material.get_shader_parameter("Charge")
+	var _alpha = character.animatedSprite.material.get_shader_parameter("Alpha")
+	var _flash = character.animatedSprite.material.get_shader_parameter("Flash")
 	
 	for part in armor:
-		part.material.set_shader_param("Color", _chargecolor)
-		part.material.set_shader_param("Charge", _charge)
-		part.material.set_shader_param("Alpha", _alpha)
-		part.material.set_shader_param("Flash", _flash)
+		part.material.set_shader_parameter("Color", _chargecolor)
+		part.material.set_shader_parameter("Charge", _charge)
+		part.material.set_shader_parameter("Alpha", _alpha)
+		part.material.set_shader_parameter("Flash", _flash)
 
 
 func synchronize_part_animations(character_animation :String)-> void:

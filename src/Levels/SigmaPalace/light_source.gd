@@ -1,6 +1,6 @@
-extends Sprite
+extends Sprite2D
 
-export var max_alpha := 0.5
+@export var max_alpha := 0.5
 var timer := 0.0
 
 func _ready() -> void:

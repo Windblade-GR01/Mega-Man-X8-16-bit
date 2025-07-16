@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/Levels/SigmaPalace/lightsource.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/Levels/SigmaPalace/torchflame.png" type="Texture" id=2]
+[ext_resource path="res://src/Levels/SigmaPalace/torchflame.png" type="Texture2D" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -62,7 +62,7 @@ animations = [ {
 [node name="bluelight" instance=ExtResource( 1 )]
 modulate = Color( 0, 0.717647, 1, 1 )
 
-[node name="animatedSprite" type="AnimatedSprite" parent="." index="1"]
+[node name="animatedSprite" type="AnimatedSprite2D" parent="." index="1"]
 position = Vector2( 0, -1 )
 z_index = -10
 frames = SubResource( 13 )

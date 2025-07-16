@@ -1,14 +1,14 @@
-tool
+@tool
 class_name SpawnerSwitcher extends Node
 
 var objects_node : Node2D
 var spawners : Array
 
-export var spawner_holders : Array
+@export var spawner_holders : Array
 
-export var start := false
-export var switch := false
-export var delete := false
+@export var start := false
+@export var switch := false
+@export var delete := false
 
 func _ready() -> void:
 	print("SpawnerSwitcher added to scene")
@@ -53,7 +53,7 @@ func delete_all_spawners():
 	print ("Finished deleting spawners: " + str(i))
 
 func create_object_in_scene(spawner : Spawner):
-	var enemy : Enemy = spawner.object_to_spawn.instance()
+	var enemy : Enemy = spawner.object_to_spawn.instantiate()
 	if spawner.set_direction_to_right:
 		enemy.spawn_direction = 1
 	else:

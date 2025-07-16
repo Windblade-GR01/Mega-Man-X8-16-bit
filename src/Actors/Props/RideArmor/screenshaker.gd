@@ -1,6 +1,6 @@
 extends Node
 
-export var active := true
+@export var active := true
 
 func _on_RideArmor_land() -> void:
 	if active:

@@ -5,7 +5,7 @@ using System.IO.Compression;
 
 namespace TiledImporter.Decompressors
 {
-    public class ZLibDecompressor : Decompressor
+    public partial class ZLibDecompressor : Decompressor
     {
         public override byte[] Decompress(byte[] compressedData)
         {

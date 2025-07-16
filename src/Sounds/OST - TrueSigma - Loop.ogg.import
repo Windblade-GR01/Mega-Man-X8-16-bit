@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/OST - TrueSigma - Loop.ogg-23a37d9f69cf2a52d77a873656b2de81.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://y7lm2r17xmre"
+path="res://.godot/imported/OST - TrueSigma - Loop.ogg-23a37d9f69cf2a52d77a873656b2de81.oggvorbisstr"
 
 [deps]
 
 source_file="res://src/Sounds/OST - TrueSigma - Loop.ogg"
-dest_files=[ "res://.import/OST - TrueSigma - Loop.ogg-23a37d9f69cf2a52d77a873656b2de81.oggstr" ]
+dest_files=["res://.godot/imported/OST - TrueSigma - Loop.ogg-23a37d9f69cf2a52d77a873656b2de81.oggvorbisstr"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

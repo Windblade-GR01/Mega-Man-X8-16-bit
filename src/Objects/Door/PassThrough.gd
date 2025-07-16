@@ -3,8 +3,8 @@ extends NewAbility
 const travel_speed := 20
 const travel_distance := 21
 var player
-onready var tween = TweenController.new(self)
-onready var direction = get_parent().scale.x
+@onready var tween = TweenController.new(self)
+@onready var direction = get_parent().scale.x
 
 func _Setup() -> void:
 	player = GameManager.player

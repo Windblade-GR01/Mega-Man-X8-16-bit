@@ -1,13 +1,13 @@
 extends GenericIntro
-onready var riding_vile: AnimatedSprite = $"../vile"
-onready var flying_vile: AnimatedSprite = $"../flying_prop_vile"
-onready var tween := TweenController.new(self,false)
-onready var startup: AudioStreamPlayer2D = $"../startup"
-onready var step: AudioStreamPlayer2D = $"../step"
-onready var land: Particles2D = $"../land"
-onready var traverse: AudioStreamPlayer2D = $"../flying_prop_vile/traverse"
-onready var punch: AudioStreamPlayer2D = $"../punch"
-onready var wind: Sprite = $"../animatedSprite/wind"
+@onready var riding_vile: AnimatedSprite2D = $"../vile"
+@onready var flying_vile: AnimatedSprite2D = $"../flying_prop_vile"
+@onready var tween := TweenController.new(self,false)
+@onready var startup: AudioStreamPlayer2D = $"../startup"
+@onready var step: AudioStreamPlayer2D = $"../step"
+@onready var land: GPUParticles2D = $"../land"
+@onready var traverse: AudioStreamPlayer2D = $"../flying_prop_vile/traverse"
+@onready var punch: AudioStreamPlayer2D = $"../punch"
+@onready var wind: Sprite2D = $"../animatedSprite/wind"
 
 func prepare_for_intro() -> void:
 	riding_vile.visible = false

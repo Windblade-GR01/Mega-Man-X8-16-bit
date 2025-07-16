@@ -1,11 +1,11 @@
 extends NewAbility
 
-export var horizontal_speed := 90.0
-export var current_horizontal_speed := 90.0
+@export var horizontal_speed := 90.0
+@export var current_horizontal_speed := 90.0
 
-onready var physics = Physics.new(get_parent())
-onready var animation = AnimationController.new($"../animatedSprite", self)
-onready var tween = TweenController.new(self)
+@onready var physics = Physics.new(get_parent())
+@onready var animation = AnimationController.new($"../animatedSprite", self)
+@onready var tween = TweenController.new(self)
 
 func should_execute() -> bool:
 	return active and character.ride.is_executing() and current_conflicts.size() == 0

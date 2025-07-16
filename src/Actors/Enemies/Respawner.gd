@@ -1,10 +1,10 @@
 class_name Respawner extends Node2D
 
-export var active := true
-export var minimum_death_duration := 3.0
-export var on_exit_despawn_after := 10.0
-export var minimum_exit_duration := 0.0
-export var next_checkpoint := -8
+@export var active := true
+@export var minimum_death_duration := 3.0
+@export var on_exit_despawn_after := 10.0
+@export var minimum_exit_duration := 0.0
+@export var next_checkpoint := -8
 var enemies : Array
 var starter_enemies : Array
 var extras : Array
@@ -33,9 +33,9 @@ func _initialize_enemies_watched_list():
 			extras.append(child)
 
 func connect_death_and_screen_signals(enemy : Watched):
-	enemy.object.connect("death",self,"mark_for_respawn",[enemy])
-	enemy.object.get_visibility_notifier().connect("screen_exited",self,"on_enemy_exit_screen",[enemy])
-	enemy.object.get_visibility_notifier().connect("screen_entered",self,"on_enemy_enter_screen",[enemy])
+	enemy.object.connect("death", Callable(self, "mark_for_respawn").bind(enemy))
+	enemy.object.get_visibility_notifier().connect("screen_exited", Callable(self, "on_enemy_exit_screen").bind(enemy))
+	enemy.object.get_visibility_notifier().connect("screen_entered", Callable(self, "on_enemy_enter_screen").bind(enemy))
 
 func on_enemy_exit_screen(enemy : Watched):
 	if is_instance_valid(enemy.object):
@@ -62,7 +62,7 @@ func despawn(enemy : Watched):
 
 func mark_for_respawn(enemy : Watched, death_duration = minimum_death_duration):
 	if active:
-		var mark := respawn_marker.instance()
+		var mark := respawn_marker.instantiate()
 		enemy.parent.add_child(mark,true)
 		mark.global_position = enemy.position
 		mark.rect = enemy.notifier_size
@@ -70,11 +70,11 @@ func mark_for_respawn(enemy : Watched, death_duration = minimum_death_duration):
 			Tools.timer(death_duration,"activate",mark)
 		else:
 			mark.activate()
-		mark.connect("ready_for_respawn",self,"respawn",[enemy])
+		mark.connect("ready_for_respawn", Callable(self, "respawn").bind(enemy))
 
 func respawn(enemy : Watched):
 	if active and not is_instance_valid(enemy.object):
-		var spawn = enemy.scene.instance()
+		var spawn = enemy.scene.instantiate()
 		enemy.parent.add_child(spawn,true)
 		spawn.global_position = enemy.position
 		enemy.object = spawn

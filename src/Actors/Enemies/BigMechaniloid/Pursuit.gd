@@ -1,7 +1,7 @@
 extends AttackAbility
 
-onready var tween = TweenController.new(self)
-onready var step: AudioStreamPlayer2D = $step
+@onready var tween = TweenController.new(self)
+@onready var step: AudioStreamPlayer2D = $step
 var ignore := true #bandaid to fix screenshake at start
  
 signal stop

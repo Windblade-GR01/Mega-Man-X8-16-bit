@@ -1,7 +1,7 @@
 extends Node
 
-export var every_frame := false
-export var inputs : Array
+@export var every_frame := false
+@export var inputs : Array
 var pressing := false
 
 signal pressed
@@ -11,14 +11,14 @@ signal released
 var waiting_for_unpause : Array
 
 func _ready() -> void:
-	pause_mode = Node.PAUSE_MODE_PROCESS
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	Event.listen("unpause",self,"on_unpause")
 	#get_parent().get_parent().listen("listening_to_inputs",self,"set_process_input")
 
 func set_process_input(b : bool) -> void:
 	if not b:
 		release_button_press()
-	.set_process_input(b)
+	super.set_process_input(b)
 
 func _input(event: InputEvent) -> void:
 	if every_frame:

@@ -21,4 +21,4 @@ func hit(target):
 
 func deflect(_body) -> void:
 	if is_in_group("Player Projectile"):
-		.deflect(_body)
+		super.deflect(_body)

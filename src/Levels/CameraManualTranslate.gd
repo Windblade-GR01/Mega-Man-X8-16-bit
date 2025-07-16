@@ -6,7 +6,7 @@ var initial_camera_position : Vector2
 var timer := 0.0
 
 func activate(_target) -> void:
-	.activate(_target)
+	super.activate(_target)
 	start_translate()
 
 func start_translate() -> void:

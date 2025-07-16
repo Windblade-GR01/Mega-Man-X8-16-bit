@@ -1,5 +1,5 @@
 extends AttackAbility
-onready var land: AudioStreamPlayer2D = $land
+@onready var land: AudioStreamPlayer2D = $land
 
 
 	

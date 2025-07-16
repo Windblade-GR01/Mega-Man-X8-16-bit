@@ -36,7 +36,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=239]
 curve = SubResource( 240 )
 
-[sub_resource type="ParticlesMaterial" id=245]
+[sub_resource type="ParticleProcessMaterial" id=245]
 resource_local_to_scene = true
 resource_name = "explosion"
 emission_shape = 1
@@ -58,7 +58,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=243]
 curve = SubResource( 244 )
 
-[sub_resource type="ParticlesMaterial" id=246]
+[sub_resource type="ParticleProcessMaterial" id=246]
 resource_local_to_scene = true
 resource_name = "remains_single"
 flag_disable_z = true
@@ -77,13 +77,13 @@ extents = Vector2( 11.5, 29.5 )
 [sub_resource type="RectangleShape2D" id=82]
 extents = Vector2( 9, 42 )
 
-[node name="Ventilador" type="KinematicBody2D" groups=["Enemies"]]
+[node name="Ventilador" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 8 )
 spawn_direction = 1
 
-[node name="animatedSprite" type="AnimatedSprite" parent="."]
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
 material = SubResource( 63 )
 position = Vector2( 2, 0 )
 z_index = 10
@@ -92,7 +92,7 @@ animation = "front"
 frame = 5
 playing = true
 
-[node name="animatedSprite2" type="AnimatedSprite" parent="."]
+[node name="animatedSprite2" type="AnimatedSprite2D" parent="."]
 material = SubResource( 63 )
 position = Vector2( 2, 0 )
 z_index = -6
@@ -106,7 +106,7 @@ visible = false
 position = Vector2( 1.5, 0 )
 shape = SubResource( 79 )
 
-[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 visible = false
 position = Vector2( 0, -14.3333 )
 scale = Vector2( 12, 15.3333 )
@@ -191,7 +191,7 @@ max_distance = 1200.0
 attenuation = 1e-05
 bus = "SFX"
 
-[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 scale = Vector2( 3, 4.2 )
 pause_particles = false
 process_parent = true

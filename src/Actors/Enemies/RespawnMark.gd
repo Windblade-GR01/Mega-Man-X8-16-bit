@@ -1,4 +1,4 @@
-extends VisibilityNotifier2D
+extends VisibleOnScreenNotifier2D
 
 var active := false
 var first_frame := true

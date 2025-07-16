@@ -1,11 +1,11 @@
 extends AttackAbility
-onready var punch_sfx: AudioStreamPlayer2D = $"../punch"
-onready var jump_sound: AudioStreamPlayer2D = $"../jump_sound"
-onready var step: AudioStreamPlayer2D = $"../step"
-onready var anim := AnimationController.new($"../animatedSprite")
-onready var land: Particles2D = $"../land"
-onready var wind: Sprite = $"../animatedSprite/wind"
-onready var punch_collider: Node2D = $punch
+@onready var punch_sfx: AudioStreamPlayer2D = $"../punch"
+@onready var jump_sound: AudioStreamPlayer2D = $"../jump_sound"
+@onready var step: AudioStreamPlayer2D = $"../step"
+@onready var anim := AnimationController.new($"../animatedSprite")
+@onready var land: GPUParticles2D = $"../land"
+@onready var wind: Sprite2D = $"../animatedSprite/wind"
+@onready var punch_collider: Node2D = $punch
 
 func _Setup() -> void:
 	turn_and_face_player()

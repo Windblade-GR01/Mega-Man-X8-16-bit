@@ -1,19 +1,19 @@
 extends AudioStreamPlayer
 class_name MusicPlayer
 
-export var debug_logs := false
-export var stop_song_on_dialogue := true
-export var boss_intro : AudioStream
-export var boss_song : AudioStream
-export var angry_boss_intro : AudioStream
-export var angry_boss_song : AudioStream
-export var stage_clear_song : AudioStream
-export var capsule_song : AudioStream
-export var stage_intro : AudioStream
-export var stage_song : AudioStream
-export var miniboss_intro : AudioStream
-export var miniboss_song : AudioStream
-export var play_angry_boss_theme := true
+@export var debug_logs := false
+@export var stop_song_on_dialogue := true
+@export var boss_intro : AudioStream
+@export var boss_song : AudioStream
+@export var angry_boss_intro : AudioStream
+@export var angry_boss_song : AudioStream
+@export var stage_clear_song : AudioStream
+@export var capsule_song : AudioStream
+@export var stage_intro : AudioStream
+@export var stage_song : AudioStream
+@export var miniboss_intro : AudioStream
+@export var miniboss_song : AudioStream
+@export var play_angry_boss_theme := true
 var fade_in := false
 var fade_out := false
 var slow_fade_out := false

@@ -1,12 +1,12 @@
 extends GenericIntro
-onready var sprite: AnimatedSprite = $"../animatedSprite"
-onready var tween := TweenController.new(self,false)
-onready var space: Node = $"../Space"
-onready var rotating_crystals: Node2D = $"../RotatingCrystals"
+@onready var sprite: AnimatedSprite2D = $"../animatedSprite"
+@onready var tween := TweenController.new(self,false)
+@onready var space: Node = $"../Space"
+@onready var rotating_crystals: Node2D = $"../RotatingCrystals"
 
-export var song_intro : AudioStream
-export var song_loop : AudioStream
-export var boss_bar : Texture
+@export var song_intro : AudioStream
+@export var song_loop : AudioStream
+@export var boss_bar : Texture2D
 
 func connect_start_events() -> void:
 	call_deferred("prepare_for_intro")

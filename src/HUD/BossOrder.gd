@@ -1,25 +1,25 @@
 extends Control
 
-export var _exit_focus : NodePath
-onready var exit_focus := get_node(_exit_focus)
+@export var _exit_focus : NodePath
+@onready var exit_focus := get_node(_exit_focus)
 var boss_order : Array
 var current_position := 1
 
-onready var sunflower: Button = $"1"
-onready var panda: Button = $"2"
-onready var rooster: Button = $"3"
-onready var manowar: Button = $"4"
-onready var yeti: Button = $"5"
-onready var mantis: Button = $"6"
-onready var antonion: Button = $"7"
-onready var trilobyte: Button = $"8"
+@onready var sunflower: Button = $"1"
+@onready var panda: Button = $"2"
+@onready var rooster: Button = $"3"
+@onready var manowar: Button = $"4"
+@onready var yeti: Button = $"5"
+@onready var mantis: Button = $"6"
+@onready var antonion: Button = $"7"
+@onready var trilobyte: Button = $"8"
 
 var buttons : Array
 
 func _ready() -> void:
 	var i = 0
 	for child in get_children():
-		child.connect("pressed",self,"on_boss_press",[i,child])
+		child.connect("pressed", Callable(self, "on_boss_press").bind(i,child))
 		buttons.append(child)
 		i += 1
 	
@@ -40,7 +40,7 @@ func on_boss_press(boss_number : int, button : Button):
 	if current_position == 1 or current_position > 8 or boss_number in boss_order:
 		reset()
 	
-	button.pressed = true
+	button.button_pressed = true
 	boss_order.append(boss_number)
 	label.text = str(current_position)
 	current_position += 1
@@ -58,7 +58,7 @@ func reset():
 	current_position = 1
 	for child in buttons:
 		child.get_node("label").text = " "
-		child.pressed = false
+		child.button_pressed = false
 
 
 func _on_DebugAndCheats_cheat_pressed(visibility : bool) -> void:

@@ -1,17 +1,17 @@
 extends Node
 
-onready var lines: Node2D = $"../lines"
-onready var lines_2: Node2D = $"../lines2"
-onready var bg_cover: Sprite = $"../BGCover"
-onready var secret_rooms: TileMap = $"../../Scenery/secret_rooms"
-onready var foreground: ParallaxLayer = $"../../Scenery/parallaxBackground2/foreground"
+@onready var lines: Node2D = $"../lines"
+@onready var lines_2: Node2D = $"../lines2"
+@onready var bg_cover: Sprite2D = $"../BGCover"
+@onready var secret_rooms: TileMap = $"../../Scenery/secret_rooms"
+@onready var foreground: ParallaxLayer = $"../../Scenery/parallaxBackground2/foreground"
 
-export var cut_color1 : Color
-export var cut_color2 : Color
-export var cut_color3 : Color
-export var r_color1 : Color
-export var r_color2 : Color
-export var r_color3 : Color
+@export var cut_color1 : Color
+@export var cut_color2 : Color
+@export var cut_color3 : Color
+@export var r_color1 : Color
+@export var r_color2 : Color
+@export var r_color3 : Color
 
 var queued_signal := "none"
 
@@ -21,9 +21,9 @@ func activate() -> void:
 	bg_cover.visible = true
 	var t := create_tween()
 	t.tween_property(bg_cover,"modulate:a",1.0,2.0)
-	t.tween_callback(lines,"start_loop")
+	t.tween_callback(Callable(lines, "start_loop"))
 	t.tween_interval(2.0)
-	t.tween_callback(lines_2,"start_loop")
+	t.tween_callback(Callable(lines_2, "start_loop"))
 	Event.emit_signal(queued_signal)
 
 func deactivate() -> void:

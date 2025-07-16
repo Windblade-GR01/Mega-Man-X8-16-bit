@@ -1,10 +1,10 @@
 extends BikeMovement
 class_name HyperDash
 
-export var duration := 0.75
-export var charges := 0
-onready var effect := get_node("hyperdash_effect")
-onready var particles = get_parent().get_node("animatedSprite").get_node("particles2D")
+@export var duration := 0.75
+@export var charges := 0
+@onready var effect := get_node("hyperdash_effect")
+@onready var particles = get_parent().get_node("animatedSprite").get_node("particles2D")
 
 var initial_vertical_position : float
 var changed_vertical_position := false
@@ -24,7 +24,7 @@ func _Setup():
 	disable_camera_offset()
 	set_vertical_speed(0)
 	emit_particles(particles)
-	effect.set_modulate(Color.white)
+	effect.set_modulate(Color.WHITE)
 	effect.scale.x = character.get_facing_direction()
 	charges -=1
 	effect.visible = true

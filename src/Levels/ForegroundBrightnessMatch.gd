@@ -1,7 +1,7 @@
 extends TileMap
 
-onready var original_color = modulate
-onready var map5: Node2D = get_node_or_null("../Stage Segments/_centralwhite_5")
+@onready var original_color = modulate
+@onready var map5: Node2D = get_node_or_null("../Stage Segments/_centralwhite_5")
 
 func _ready() -> void:
 	Event.listen("enemy_kill",self,"_on_enemy_death")

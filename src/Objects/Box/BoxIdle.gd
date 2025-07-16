@@ -1,5 +1,5 @@
 extends AttackAbility
-export var gravity := false
+@export var gravity := false
 
 func _Setup() -> void:
 	pass

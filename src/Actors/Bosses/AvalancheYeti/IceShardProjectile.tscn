@@ -4,7 +4,7 @@
 [ext_resource path="res://src/Effects/enemy_shader.tres" type="Shader" id=2]
 [ext_resource path="res://src/Actors/Enemies/AI.gd" type="Script" id=3]
 [ext_resource path="res://src/Actors/Modules/Enemy/DamageOnTouch.gd" type="Script" id=4]
-[ext_resource path="res://src/Actors/Bosses/AvalancheYeti/ice_remains.png" type="Texture" id=5]
+[ext_resource path="res://src/Actors/Bosses/AvalancheYeti/ice_remains.png" type="Texture2D" id=5]
 [ext_resource path="res://src/Actors/Bosses/GravityAntonion/GravityBox.gd" type="Script" id=6]
 [ext_resource path="res://src/Actors/Bosses/AvalancheYeti/ShardMovemenent.gd" type="Script" id=7]
 [ext_resource path="res://src/Actors/Bosses/GravityAntonion/BoxCrash.gd" type="Script" id=8]
@@ -12,7 +12,7 @@
 [ext_resource path="res://src/Sounds/HIT.wav" type="AudioStream" id=10]
 [ext_resource path="res://src/Actors/Enemies/Shared/QuickEnemyDeath.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/Sounds/Ice Break.wav" type="AudioStream" id=12]
-[ext_resource path="res://src/Effects/Textures/blue_explosion.png" type="Texture" id=13]
+[ext_resource path="res://src/Effects/Textures/blue_explosion.png" type="Texture2D" id=13]
 
 [sub_resource type="RectangleShape2D" id=72]
 extents = Vector2( 51.5, 30 )
@@ -38,7 +38,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=239]
 curve = SubResource( 238 )
 
-[sub_resource type="ParticlesMaterial" id=247]
+[sub_resource type="ParticleProcessMaterial" id=247]
 resource_local_to_scene = true
 resource_name = "explosion"
 emission_shape = 1
@@ -60,7 +60,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=243]
 curve = SubResource( 242 )
 
-[sub_resource type="ParticlesMaterial" id=248]
+[sub_resource type="ParticleProcessMaterial" id=248]
 resource_local_to_scene = true
 resource_name = "remains_single"
 flag_disable_z = true
@@ -80,7 +80,7 @@ particles_anim_h_frames = 3
 particles_anim_v_frames = 2
 particles_anim_loop = false
 
-[node name="IceShard" type="KinematicBody2D" groups=["Enemies"]]
+[node name="IceShard" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 6 )
@@ -101,7 +101,7 @@ visible = false
 position = Vector2( -0.5, 0 )
 shape = SubResource( 72 )
 
-[node name="animatedSprite" type="AnimatedSprite" parent="."]
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
 material = SubResource( 63 )
 z_index = 1
 frames = ExtResource( 9 )
@@ -110,7 +110,7 @@ playing = true
 [node name="collisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 249 )
 
-[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 visible = false
 scale = Vector2( 6, 4.8 )
 rect = Rect2( -5, -5, 10, 10 )

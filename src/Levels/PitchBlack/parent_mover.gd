@@ -1,7 +1,7 @@
 extends Node
 
-onready var new_parent: CanvasLayer = $"../../../Scenery/canvasLayer"
-onready var deathshock: Node2D = $".."
+@onready var new_parent: CanvasLayer = $"../../../Scenery/canvasLayer"
+@onready var deathshock: Node2D = $".."
 
 func move() -> void:
 	Tools.timer(0.1,"reparent",self)

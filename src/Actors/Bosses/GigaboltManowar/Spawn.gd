@@ -1,15 +1,15 @@
 extends AttackAbility
 
-export var jellyfish : PackedScene
-onready var spin: AudioStreamPlayer2D = $spin
+@export var jellyfish : PackedScene
+@onready var spin: AudioStreamPlayer2D = $spin
 
 var rolled_around := false
 var at_end_position := false
 var wait := 0.0
-onready var collider: CollisionShape2D = $"../collisionShape2D"
-onready var tween = TweenController.new(self)
-onready var space: Node = $"../Space"
-onready var move: AudioStreamPlayer2D = $"../move"
+@onready var collider: CollisionShape2D = $"../collisionShape2D"
+@onready var tween = TweenController.new(self)
+@onready var space: Node = $"../Space"
+@onready var move: AudioStreamPlayer2D = $"../move"
 
 signal stop
 

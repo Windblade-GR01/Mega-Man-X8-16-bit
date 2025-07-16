@@ -1,5 +1,5 @@
 extends SimplePlayerProjectile
-onready var flash: AnimatedSprite = $flash
+@onready var flash: AnimatedSprite2D = $flash
 var enabled_damage := false
 
 func _ready() -> void:
@@ -38,7 +38,7 @@ func randomize_visual() -> void:
 		animatedSprite.flip_v = true
 
 func enable_damage() -> void:
-	.enable_damage()
+	super.enable_damage()
 	enabled_damage = true
 	
 func _OnHit(_target_remaining_HP) -> void:

@@ -3,7 +3,7 @@ extends TileMap
 var rotate := false
 var delay := 0.0
 var last_rotate := 0.0
-onready var parent = get_parent()
+@onready var parent = get_parent()
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("alt_fire"):

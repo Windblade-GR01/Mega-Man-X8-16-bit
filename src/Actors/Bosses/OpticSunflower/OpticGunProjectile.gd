@@ -4,14 +4,14 @@ const speed := 150
 var stop_positions = []
 var starting_direction := 0
 
-onready var line: Line2D = $animatedSprite/line
-onready var collision: AnimatedSprite = $animatedSprite/collision
-onready var ray: RayCast2D = $rayCast2D
-onready var collider: CollisionShape2D = $DamageOnTouch/area2D/collisionShape2D
-onready var tween := TweenController.new(self,false)
-onready var damage_on_touch: Node2D = $DamageOnTouch
-onready var animated_sprite: AnimatedSprite = $animatedSprite
-onready var collision_noise: AudioStreamPlayer2D = $animatedSprite/collision/collision_noise
+@onready var line: Line2D = $animatedSprite/line
+@onready var collision: AnimatedSprite2D = $animatedSprite/collision
+@onready var ray: RayCast2D = $rayCast2D
+@onready var collider: CollisionShape2D = $DamageOnTouch/area2D/collisionShape2D
+@onready var tween := TweenController.new(self,false)
+@onready var damage_on_touch: Node2D = $DamageOnTouch
+@onready var animated_sprite: AnimatedSprite2D = $animatedSprite
+@onready var collision_noise: AudioStreamPlayer2D = $animatedSprite/collision/collision_noise
 
 func _ready() -> void:
 	rotation_degrees = 90

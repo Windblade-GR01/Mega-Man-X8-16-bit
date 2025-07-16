@@ -9,7 +9,7 @@ func _init(_owner, reset_signal := "no_signal") -> void:
 
 func connect_reset(end_signal := "stop") -> void:
 	if end_signal != "no_signal":
-		owner.connect(end_signal,self,"reset") # warning-ignore:return_value_discarded
+		owner.connect(end_signal, Callable(self, "reset")) # warning-ignore:return_value_discarded
 
 func reset(_discard = null) -> void:
 	for timer in timer_list:

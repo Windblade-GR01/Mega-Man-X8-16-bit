@@ -14,7 +14,7 @@ func _Setup():
 	Log("Starting Engine")
 	mount_audio.play()
 	audio.pitch_scale = 0.2
-	._Setup()
+	super._Setup()
 	
 func _Eject() -> void:
 	if Input.is_action_pressed("dash"):
@@ -28,7 +28,7 @@ func _Eject() -> void:
 
 func _Interrupt() -> void:
 	disable_camera_offset()
-	._Interrupt()
+	super._Interrupt()
 
 func _physics_process(delta: float) -> void:
 	if engine_started:

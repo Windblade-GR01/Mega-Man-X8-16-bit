@@ -1,9 +1,9 @@
 extends AttackAbility
 
-export var _wind : PackedScene
-export var _ball : PackedScene
-onready var raycast: RayCast2D = $"../animatedSprite/rayCast2D"
-onready var punch: AudioStreamPlayer2D = $punch
+@export var _wind : PackedScene
+@export var _ball : PackedScene
+@onready var raycast: RayCast2D = $"../animatedSprite/rayCast2D"
+@onready var punch: AudioStreamPlayer2D = $punch
 
 func _ready() -> void:
 	pass
@@ -31,17 +31,17 @@ func _Update(delta) -> void:
 		EndAbility()
 
 func _Interrupt():
-	._Interrupt()
+	super._Interrupt()
 	raycast.enabled = false
 
 func create_wind():
-	var wind = _wind.instance()
+	var wind = _wind.instantiate()
 	get_tree().current_scene.add_child(wind)
 	wind.global_position = Vector2(global_position.x + 24 * get_facing_direction(),global_position.y + 3)
 	wind.set_direction(get_facing_direction())
 	
 func create_ball():
-	var ball = _ball.instance()
+	var ball = _ball.instantiate()
 	get_tree().current_scene.add_child(ball)
 	ball.global_position = raycast.get_collision_point() - Vector2(24*get_facing_direction(),0)
 	if is_player_above(48):

@@ -9,7 +9,7 @@
 extents = Vector2( 4, 4 )
 
 [node name="LifeUp" type="Node2D"]
-pause_mode = 2
+process_mode = 3
 z_index = 10
 script = ExtResource( 1 )
 
@@ -20,8 +20,8 @@ collision_mask = 2
 [node name="collisionShape2D" type="CollisionShape2D" parent="area2D"]
 shape = SubResource( 1 )
 
-[node name="animatedSprite" type="AnimatedSprite" parent="."]
-pause_mode = 1
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+process_mode = 1
 frames = ExtResource( 2 )
 frame = 15
 playing = true

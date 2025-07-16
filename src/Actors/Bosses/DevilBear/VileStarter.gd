@@ -1,10 +1,10 @@
 extends Node
 
-export var threshold := 200.0
+@export var threshold := 200.0
 var total_health := -1.0
-onready var devilbear: KinematicBody2D = $".."
-onready var vile: AnimatedSprite = $"../vile"
-onready var vile_riding: CollisionShape2D = $"../DamageOnTouch/area2D/VileRiding"
+@onready var devilbear: CharacterBody2D = $".."
+@onready var vile: AnimatedSprite2D = $"../vile"
+@onready var vile_riding: CollisionShape2D = $"../DamageOnTouch/area2D/VileRiding"
 
 func _ready() -> void:
 	Tools.timer(0.1,"get_health",self)

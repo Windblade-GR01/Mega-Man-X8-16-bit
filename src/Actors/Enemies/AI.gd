@@ -1,20 +1,20 @@
 extends Node2D
 class_name AI
 
-export var active := true
+@export var active := true
 
-export var on_enter_screen : Array
-export var on_exit_screen : Array
-export var on_idle : Array
-export var on_see_player : Array
-export var on_touch_player : Array
-export var on_damage_on_touch_player : Array
-export var on_get_hit : Array
-export var on_shield_hit : Array
-export var on_guard_break : Array
-export var on_death : Array
-export var on_hit_wall : Array
-export var on_external_event : Array
+@export var on_enter_screen : Array
+@export var on_exit_screen : Array
+@export var on_idle : Array
+@export var on_see_player : Array
+@export var on_touch_player : Array
+@export var on_damage_on_touch_player : Array
+@export var on_get_hit : Array
+@export var on_shield_hit : Array
+@export var on_guard_break : Array
+@export var on_death : Array
+@export var on_hit_wall : Array
+@export var on_external_event : Array
 
 var _on_enter_screen : Array
 var _on_exit_screen : Array
@@ -29,14 +29,14 @@ var _on_death : Array
 var _on_hit_wall : Array
 var _on_external_event : Array
 
-onready var visibility := $"../visibilityNotifier2D"
-onready var vision = $vision
-onready var character = get_parent()
+@onready var visibility := $"../visibilityNotifier2D"
+@onready var vision = $vision
+@onready var character = get_parent()
 var current_direction := 1
 var target
 
 var timer := 0.0
-onready var animated_sprite: AnimatedSprite = $"../animatedSprite"
+@onready var animated_sprite: AnimatedSprite2D = $"../animatedSprite"
 
 func populate_nodes() -> void:
 	populate_list(on_enter_screen,_on_enter_screen)
@@ -65,14 +65,14 @@ func _ready() -> void:
 	character.listen("got_hit",self,"on_got_hit")
 	character.listen("shield_hit",self,"on_shield_been_hit")
 	character.listen("damage_target", self, "on_damage_on_touch_target")
-	visibility.connect("screen_entered",self,"on_screen_entered")# warning-ignore:return_value_discarded
-	visibility.connect("screen_exited",self,"on_screen_exited")  # warning-ignore:return_value_discarded
+	visibility.connect("screen_entered", Callable(self, "on_screen_entered"))# warning-ignore:return_value_discarded
+	visibility.connect("screen_exited", Callable(self, "on_screen_exited"))  # warning-ignore:return_value_discarded
 	
 	populate_nodes()
 	
 	if on_touch_player.size() > 0:
 		# warning-ignore:return_value_discarded
-		$"../DamageOnTouch".connect("touch_target", self, "on_touch_target")
+		$"../DamageOnTouch".connect("touch_target", Callable(self, "on_touch_target"))
 
 func on_external_event_heard() -> void:
 	if active:

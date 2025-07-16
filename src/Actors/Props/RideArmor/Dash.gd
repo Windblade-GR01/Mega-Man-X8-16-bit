@@ -1,15 +1,15 @@
 extends NewAbility
 
-export var dash_speed := 210.0
-export var duration := 0.5
+@export var dash_speed := 210.0
+@export var duration := 0.5
 var quantity := 1
 var ground_dash := false
 var able := true
-onready var stage = AbilityStage.new(self)
-onready var physics = Physics.new(get_parent())
-onready var animation = AnimationController.new($"../animatedSprite", self)
-onready var dash_particles: Particles2D = $dash_particles
-onready var dash: AudioStreamPlayer2D = $dash_sound
+@onready var stage = AbilityStage.new(self)
+@onready var physics = Physics.new(get_parent())
+@onready var animation = AnimationController.new($"../animatedSprite", self)
+@onready var dash_particles: GPUParticles2D = $dash_particles
+@onready var dash: AudioStreamPlayer2D = $dash_sound
 
 var pressed_direction := 0
 

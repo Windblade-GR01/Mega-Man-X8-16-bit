@@ -1,15 +1,15 @@
 extends Node2D
 
-export var song : AudioStream
-onready var tween := TweenController.new(self,false)
-onready var visuals: Node2D = $Visuals
-onready var credits_bg: Sprite = $CreditsBG
-onready var musicplayer: AudioStreamPlayer = $"Music Player"
-onready var screencover: Sprite = $screencover
-onready var credits: Node2D = $Credits
-onready var bottom_cover: Sprite = $bottom_cover
-onready var top_cover: Sprite = $top_cover
-onready var loop: AudioStreamPlayer2D = $Visuals/ElevatorPlatform/loop
+@export var song : AudioStream
+@onready var tween := TweenController.new(self,false)
+@onready var visuals: Node2D = $Visuals
+@onready var credits_bg: Sprite2D = $CreditsBG
+@onready var musicplayer: AudioStreamPlayer = $"Music Player"
+@onready var screencover: Sprite2D = $screencover
+@onready var credits: Node2D = $Credits
+@onready var bottom_cover: Sprite2D = $bottom_cover
+@onready var top_cover: Sprite2D = $top_cover
+@onready var loop: AudioStreamPlayer2D = $Visuals/ElevatorPlatform/loop
 
 func _ready() -> void:
 	screencover.visible = true
@@ -50,7 +50,7 @@ func turn_on_covers():
 
 func fade_in():
 	screencover.visible = true
-	screencover.modulate = Color.black
+	screencover.modulate = Color.BLACK
 	tween.attribute("modulate:a",0.0,3.0,screencover)
 
 func roll_up_credits():

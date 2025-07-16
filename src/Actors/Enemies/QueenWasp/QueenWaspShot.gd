@@ -1,7 +1,7 @@
 extends MultipleShot
 
-export var point_time := 1.0
-export var charge_time := 1.0
+@export var point_time := 1.0
+@export var charge_time := 1.0
 
 func _Update(_delta) -> void:
 	if attack_stage == 0:#

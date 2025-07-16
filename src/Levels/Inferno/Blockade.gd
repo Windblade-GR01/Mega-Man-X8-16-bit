@@ -1,6 +1,6 @@
 extends StaticBody2D
-onready var visual_block: Node2D = $"../../../Scenery/Stage Segments/_inferno_2/HiddenPassage"
-onready var collider: CollisionShape2D = $collisionShape2D
+@onready var visual_block: Node2D = $"../../../Scenery/Stage Segments/_inferno_2/HiddenPassage"
+@onready var collider: CollisionShape2D = $collisionShape2D
 
 var disappearing := false
 var timer := 0.0

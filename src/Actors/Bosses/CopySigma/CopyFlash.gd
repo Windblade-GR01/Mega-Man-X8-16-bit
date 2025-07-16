@@ -1,9 +1,9 @@
 extends AttackAbility
-onready var charge: AudioStreamPlayer2D = $charge
-onready var beam: AudioStreamPlayer2D = $beam
-onready var flash: Sprite = $flash
-onready var tween := TweenController.new(self,false)
-onready var flash_area: Node2D = $flash_area
+@onready var charge: AudioStreamPlayer2D = $charge
+@onready var beam: AudioStreamPlayer2D = $beam
+@onready var flash: Sprite2D = $flash
+@onready var tween := TweenController.new(self,false)
+@onready var flash_area: Node2D = $flash_area
 
 
 func _Setup() -> void:
@@ -44,10 +44,10 @@ func _Update(_delta) -> void:
 		EndAbility()
 
 func _Interrupt() -> void:
-	._Interrupt()
+	super._Interrupt()
 	tween.reset()
 	flash.modulate.a = 0
 
 
 func set_flash_radius(value := 0.0):
-	flash.material.set_shader_param("radius",value)
+	flash.material.set_shader_parameter("radius",value)

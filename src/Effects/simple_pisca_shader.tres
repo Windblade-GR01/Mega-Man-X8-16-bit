@@ -3,26 +3,26 @@
 [sub_resource type="VisualShaderNodeTexture" id=8]
 source = 2
 
-[sub_resource type="VisualShaderNodeScalarOp" id=9]
+[sub_resource type="VisualShaderNodeFloatOp" id=9]
 default_input_values = [ 0, 0.0, 1, 0.3 ]
 operator = 1
 
 [sub_resource type="VisualShaderNodeInput" id=2]
 input_name = "time"
 
-[sub_resource type="VisualShaderNodeScalarFunc" id=3]
+[sub_resource type="VisualShaderNodeFloatFunc" id=3]
 function = 12
 
 [sub_resource type="VisualShaderNodeVectorFunc" id=4]
 function = 14
 
-[sub_resource type="VisualShaderNodeScalarFunc" id=5]
+[sub_resource type="VisualShaderNodeFloatFunc" id=5]
 function = 15
 
-[sub_resource type="VisualShaderNodeScalarOp" id=6]
+[sub_resource type="VisualShaderNodeFloatOp" id=6]
 operator = 2
 
-[sub_resource type="VisualShaderNodeScalarOp" id=7]
+[sub_resource type="VisualShaderNodeFloatOp" id=7]
 default_input_values = [ 0, 0.0, 1, 42.0 ]
 operator = 2
 
@@ -65,4 +65,4 @@ nodes/fragment/10/node = SubResource( 8 )
 nodes/fragment/10/position = Vector2( 0, 160 )
 nodes/fragment/11/node = SubResource( 9 )
 nodes/fragment/11/position = Vector2( 220, 600 )
-nodes/fragment/connections = PoolIntArray( 10, 1, 7, 0, 9, 0, 5, 0, 5, 0, 4, 0, 6, 0, 7, 1, 4, 0, 11, 0, 11, 0, 6, 0 )
+nodes/fragment/connections = PackedInt32Array( 10, 1, 7, 0, 9, 0, 5, 0, 5, 0, 4, 0, 6, 0, 7, 1, 4, 0, 11, 0, 11, 0, 6, 0 )

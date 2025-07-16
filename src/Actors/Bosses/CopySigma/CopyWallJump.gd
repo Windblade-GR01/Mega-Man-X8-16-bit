@@ -1,13 +1,13 @@
 extends AttackAbility
 
 const speed := Vector2(800,-150)
-onready var sword: AudioStreamPlayer2D = $"../sword"
-onready var land: AudioStreamPlayer2D = $land
-onready var jump: AudioStreamPlayer2D = $jump
-onready var dive: AudioStreamPlayer2D = $dive
-export var projectile : PackedScene
-onready var low: CollisionShape2D = $"../area2D/low"
-onready var high_2: CollisionShape2D = $"../area2D/high2"
+@onready var sword: AudioStreamPlayer2D = $"../sword"
+@onready var land: AudioStreamPlayer2D = $land
+@onready var jump: AudioStreamPlayer2D = $jump
+@onready var dive: AudioStreamPlayer2D = $dive
+@export var projectile : PackedScene
+@onready var low: CollisionShape2D = $"../area2D/low"
+@onready var high_2: CollisionShape2D = $"../area2D/high2"
 
 func _Setup() -> void:
 	turn_and_face_player()
@@ -92,7 +92,7 @@ func jump_and_next_stage() -> void:
 
 func decay_vert_speed(duration : float = 0.15) -> void:
 	var tween = get_tree().create_tween()
-	tween.tween_method(self,"set_vertical_speed",-50.0,0.0,duration)
+	tween.tween_method(Callable(self, "set_vertical_speed"), -50.0, 0.0, duration)
 
 func create_wave():
 	var shot = instantiate(projectile) 
@@ -106,7 +106,7 @@ func create_wave():
 	shot2.set_horizontal_speed(200)
 
 func _Interrupt():
-	._Interrupt()
+	super._Interrupt()
 	reset_collider()
 
 func reduce_collider():

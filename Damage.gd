@@ -1,17 +1,17 @@
 extends Movement
 class_name Damage
 
-export var duration_time := 0.6
-export var invulnerability_time : float
-export var prevent_knockbacks := false
-export var damage_reduction := 0.0
-export var death_protection := 1
+@export var duration_time := 0.6
+@export var invulnerability_time : float
+@export var prevent_knockbacks := false
+@export var damage_reduction := 0.0
+@export var death_protection := 1
 var damage_taken : float
 var enemy
 var damage_direction : int
 var has_set_vertical_speed := false
-onready var sparks: AnimatedSprite = get_node_or_null("sparks")
-onready var back: AnimatedSprite = get_node_or_null("back")
+@onready var sparks: AnimatedSprite2D = get_node_or_null("sparks")
+@onready var back: AnimatedSprite2D = get_node_or_null("back")
 
 signal reduced_health(damage)
 
@@ -24,7 +24,7 @@ func play_animation_on_initialize():
 	if damage_reduction > 0.0:
 		play_animation("damage_resist")
 	else:
-		.play_animation_on_initialize()
+		super.play_animation_on_initialize()
 
 func _Setup() -> void:
 	has_set_vertical_speed = false

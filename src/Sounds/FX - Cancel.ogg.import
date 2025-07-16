@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/FX - Cancel.ogg-db57fb56f97c99da6c6545a0deae99b1.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dip3re4aimiwx"
+path="res://.godot/imported/FX - Cancel.ogg-db57fb56f97c99da6c6545a0deae99b1.oggvorbisstr"
 
 [deps]
 
 source_file="res://src/Sounds/FX - Cancel.ogg"
-dest_files=[ "res://.import/FX - Cancel.ogg-db57fb56f97c99da6c6545a0deae99b1.oggstr" ]
+dest_files=["res://.godot/imported/FX - Cancel.ogg-db57fb56f97c99da6c6545a0deae99b1.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

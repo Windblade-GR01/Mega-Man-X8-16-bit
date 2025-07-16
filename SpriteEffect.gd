@@ -1,12 +1,12 @@
-extends Sprite
+extends Sprite2D
 class_name SpriteEffect
 
-export var max_duration := 0.0
-export var animation_speed := 40.0
-export var one_shot := false
-export var horizontal_flip_chance := 0.0
-export var vertical_flip_chance := 0.0
-export var copy_rotation := false
+@export var max_duration := 0.0
+@export var animation_speed := 40.0
+@export var one_shot := false
+@export var horizontal_flip_chance := 0.0
+@export var vertical_flip_chance := 0.0
+@export var copy_rotation := false
 var actual_particle := false
 var emitter : Node2D
 var _anim_speed := 0.0
@@ -50,10 +50,10 @@ func emit(scale_x := 1):
 		
 	
 	if horizontal_flip_chance > 0:
-		_particle.flip_h = rand_range(0.0,1.0) <= horizontal_flip_chance
+		_particle.flip_h = randf_range(0.0,1.0) <= horizontal_flip_chance
 			
 	if vertical_flip_chance > 0:
-		var rng = rand_range(0.0,1.0)
+		var rng = randf_range(0.0,1.0)
 		_particle.flip_v = rng <= vertical_flip_chance
 	
 	if copy_rotation:

@@ -4,18 +4,18 @@ var camera_center
 var jump_duration := 0.5
 var time_between_cuts := .45
 var short_time_between_cuts := .15
-onready var tween := TweenController.new(self,false)
-onready var lighttween := TweenController.new(self,false)
-onready var slash_fx : Light2D = $light2D
-onready var slash_hitbox: Node2D = $SlashHitbox
-onready var jump: AudioStreamPlayer2D = $jump
-onready var land: AudioStreamPlayer2D = $land
-onready var darkslash: AudioStreamPlayer2D = $darkslash
-onready var desperation: AudioStreamPlayer2D = $desperation
+@onready var tween := TweenController.new(self,false)
+@onready var lighttween := TweenController.new(self,false)
+@onready var slash_fx : PointLight2D = $light2D
+@onready var slash_hitbox: Node2D = $SlashHitbox
+@onready var jump: AudioStreamPlayer2D = $jump
+@onready var land: AudioStreamPlayer2D = $land
+@onready var darkslash: AudioStreamPlayer2D = $darkslash
+@onready var desperation: AudioStreamPlayer2D = $desperation
 signal ready_for_stun
 
 func _Setup() -> void:
-	._Setup()
+	super._Setup()
 	character.emit_signal("damage_reduction", 0.5)
 
 func slash() -> void:
@@ -191,7 +191,7 @@ func create_hitbox_and_vfx() -> void:
 		slash_vfx_right()
 
 func turn() -> void:
-	.turn()
+	super.turn()
 	slash_hitbox.handle_direction()
 	
 func slash_vfx_left() -> void:

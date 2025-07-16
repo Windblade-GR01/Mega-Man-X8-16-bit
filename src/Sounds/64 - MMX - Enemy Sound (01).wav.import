@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/64 - MMX - Enemy Sound (01).wav-51fb65ce6badf49e6c86bd1669002576.sample"
+type="AudioStreamWAV"
+uid="uid://c220j71dbetfy"
+path="res://.godot/imported/64 - MMX - Enemy Sound (01).wav-51fb65ce6badf49e6c86bd1669002576.sample"
 
 [deps]
 
 source_file="res://src/Sounds/64 - MMX - Enemy Sound (01).wav"
-dest_files=[ "res://.import/64 - MMX - Enemy Sound (01).wav-51fb65ce6badf49e6c86bd1669002576.sample" ]
+dest_files=["res://.godot/imported/64 - MMX - Enemy Sound (01).wav-51fb65ce6badf49e6c86bd1669002576.sample"]
 
 [params]
 

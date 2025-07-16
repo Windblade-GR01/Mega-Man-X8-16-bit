@@ -35,7 +35,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=239]
 curve = SubResource( 247 )
 
-[sub_resource type="ParticlesMaterial" id=245]
+[sub_resource type="ParticleProcessMaterial" id=245]
 resource_local_to_scene = true
 resource_name = "explosion"
 emission_shape = 1
@@ -57,7 +57,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=243]
 curve = SubResource( 248 )
 
-[sub_resource type="ParticlesMaterial" id=246]
+[sub_resource type="ParticleProcessMaterial" id=246]
 resource_local_to_scene = true
 resource_name = "remains_single"
 flag_disable_z = true
@@ -73,7 +73,7 @@ anim_speed_curve = SubResource( 243 )
 [sub_resource type="RectangleShape2D" id=49]
 extents = Vector2( 9, 11.0625 )
 
-[node name="Pizza" type="KinematicBody2D" groups=["Enemies"]]
+[node name="Pizza" type="CharacterBody2D" groups=["Enemies"]]
 z_index = 2
 collision_layer = 0
 collision_mask = 513
@@ -95,7 +95,7 @@ input_pickable = false
 visible = false
 shape = SubResource( 14 )
 
-[node name="animatedSprite" type="AnimatedSprite" parent="."]
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
 material = ExtResource( 12 )
 frames = ExtResource( 16 )
 animation = "closed"
@@ -107,7 +107,7 @@ visible = false
 position = Vector2( 0, 18.5 )
 shape = SubResource( 50 )
 
-[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 visible = false
 scale = Vector2( 2, 2 )
 rect = Rect2( -5, -5, 10, 10 )
@@ -139,7 +139,7 @@ input_pickable = false
 [node name="collisionShape2D" type="CollisionShape2D" parent="Projectile_DoT/projectile"]
 shape = SubResource( 48 )
 
-[node name="lilpizza" type="AnimatedSprite" parent="Projectile_DoT/projectile"]
+[node name="lilpizza" type="AnimatedSprite2D" parent="Projectile_DoT/projectile"]
 material = ExtResource( 12 )
 z_index = -1
 frames = ExtResource( 16 )
@@ -190,28 +190,28 @@ jump_velocity = 20.0
 visible = false
 position = Vector2( -16, 20 )
 enabled = true
-cast_to = Vector2( 0, 16 )
+target_position = Vector2( 0, 16 )
 collision_mask = 65537
 
 [node name="cast_right" type="RayCast2D" parent="MoveHorizontally"]
 visible = false
 position = Vector2( 16, 20 )
 enabled = true
-cast_to = Vector2( 0, 16 )
+target_position = Vector2( 0, 16 )
 collision_mask = 65537
 
 [node name="cast_left2" type="RayCast2D" parent="MoveHorizontally"]
 visible = false
 position = Vector2( -16, 20 )
 enabled = true
-cast_to = Vector2( -16, 0 )
+target_position = Vector2( -16, 0 )
 collision_mask = 65537
 
 [node name="cast_right2" type="RayCast2D" parent="MoveHorizontally"]
 visible = false
 position = Vector2( 16, 20 )
 enabled = true
-cast_to = Vector2( 16, 0 )
+target_position = Vector2( 16, 0 )
 collision_mask = 65537
 
 [node name="Deflect" type="Node2D" parent="."]

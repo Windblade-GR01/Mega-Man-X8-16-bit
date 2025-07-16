@@ -1,6 +1,6 @@
 extends Node2D
-onready var tween := TweenController.new(self,false)
-onready var tween_brightness := TweenController.new(self,false)
+@onready var tween := TweenController.new(self,false)
+@onready var tween_brightness := TweenController.new(self,false)
 var crystals : Array
 
 func _ready() -> void:

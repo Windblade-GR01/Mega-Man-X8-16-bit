@@ -1,17 +1,17 @@
 extends Node2D
-onready var animated_sprite: AnimatedSprite = $animatedSprite
-onready var remains_particles: Particles2D = $remains_particles
-onready var damage: Node2D = $DamageOnTouch
+@onready var animated_sprite: AnimatedSprite2D = $animatedSprite
+@onready var remains_particles: GPUParticles2D = $remains_particles
+@onready var damage: Node2D = $DamageOnTouch
 var direction := 1
 var count := 63
 var active = false
 var start_time := 0.4
-onready var right_vray: RayCast2D = $vertical_rayr
-onready var left_vray: RayCast2D = $vertical_rayl
-onready var right_hray: RayCast2D = $horizontal_rayr
-onready var left_hray: RayCast2D = $horizontal_rayl
-onready var shatter_sfx: AudioStreamPlayer2D = $shatter
-onready var start_sfx: AudioStreamPlayer2D = $start_sfx
+@onready var right_vray: RayCast2D = $vertical_rayr
+@onready var left_vray: RayCast2D = $vertical_rayl
+@onready var right_hray: RayCast2D = $horizontal_rayr
+@onready var left_hray: RayCast2D = $horizontal_rayl
+@onready var shatter_sfx: AudioStreamPlayer2D = $shatter
+@onready var start_sfx: AudioStreamPlayer2D = $start_sfx
 
 var expiring := false
 
@@ -20,7 +20,7 @@ func _ready() -> void:
 	animated_sprite.play("prepare")
 	Tools.timer(0.032,"prepare_next_spike",self)
 	Tools.timer(start_time,"start",self)
-	Event.connect("first_secret2_death",self,"queue_free")
+	Event.connect("first_secret2_death", Callable(self, "queue_free"))
 
 
 func prepare_next_spike():

@@ -1,5 +1,5 @@
 extends AttackAbility
-onready var laser_eye: Node2D = $"../animatedSprite/LaserEye"
+@onready var laser_eye: Node2D = $"../animatedSprite/LaserEye"
 
 func _Setup() -> void:
 	play_animation("laser_prepare")

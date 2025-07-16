@@ -1,7 +1,7 @@
 extends GenericIntro
-onready var land: AudioStreamPlayer2D = $land
-onready var jump: AudioStreamPlayer2D = $jump
-onready var kick: AudioStreamPlayer2D = $kick
+@onready var land: AudioStreamPlayer2D = $land
+@onready var jump: AudioStreamPlayer2D = $jump
+@onready var kick: AudioStreamPlayer2D = $kick
 signal prepared
 
 func prepare_for_intro() -> void:
@@ -95,6 +95,6 @@ func go_to_start_position() -> void:
 	var tween = get_tree().create_tween()
 	tween.set_parallel()
 	tween.tween_property(character,"global_position:x",global_position.x+120,1)
-	tween.tween_property(animatedSprite,"modulate",Color.white,1)
+	tween.tween_property(animatedSprite,"modulate",Color.WHITE,1)
 	tween.tween_property(character,"scale",Vector2(1.0,1.0),1)
 

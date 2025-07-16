@@ -1,13 +1,13 @@
 extends AttackAbility
 
-export var projectile : PackedScene
+@export var projectile : PackedScene
 var gravity_scaling := 800.0
-onready var jump_projectile_pos: Position2D = $"../animatedSprite/jump_projectile_pos"
-onready var projectile_sfx: AudioStreamPlayer2D = $projectile_sfx
-onready var dive: Node2D = $dive
-onready var land: AudioStreamPlayer2D = $land
-onready var jump: AudioStreamPlayer2D = $jump
-onready var land_particles: Particles2D = $"../animatedSprite/land_particles"
+@onready var jump_projectile_pos: Marker2D = $"../animatedSprite/jump_projectile_pos"
+@onready var projectile_sfx: AudioStreamPlayer2D = $projectile_sfx
+@onready var dive: Node2D = $dive
+@onready var land: AudioStreamPlayer2D = $land
+@onready var jump: AudioStreamPlayer2D = $jump
+@onready var land_particles: GPUParticles2D = $"../animatedSprite/land_particles"
 
 func _Setup() -> void:
 	turn_and_face_player()
@@ -95,7 +95,7 @@ func _Update(delta) -> void:
 		EndAbility()
 
 func _Interrupt():
-	._Interrupt()
+	super._Interrupt()
 	dive.deactivate()
 
 func process_gravity(_delta:float, gravity := default_gravity) -> void:
@@ -119,5 +119,5 @@ func set_player_direction() -> void:
 	target_dir = (GameManager.get_player_position() - global_position).normalized()
 	
 func turn_and_face_player():
-	.turn_and_face_player()
+	super.turn_and_face_player()
 	dive.handle_direction()

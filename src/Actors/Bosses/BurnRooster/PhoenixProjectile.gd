@@ -1,10 +1,10 @@
 extends GenericProjectile
-onready var anim: AnimatedSprite = $animatedSprite
+@onready var anim: AnimatedSprite2D = $animatedSprite
 var dying := false
-onready var collider: CollisionShape2D = $area2D/collisionShape2D
-onready var fire_1: Particles2D = $fire1
-onready var fire_2: Particles2D = $fire2
-onready var fire_3: Particles2D = $fire3
+@onready var collider: CollisionShape2D = $area2D/collisionShape2D
+@onready var fire_1: GPUParticles2D = $fire1
+@onready var fire_2: GPUParticles2D = $fire2
+@onready var fire_3: GPUParticles2D = $fire3
 
 func _Setup():
 	set_vertical_speed(-255)
@@ -30,4 +30,4 @@ func phoenix_end() -> void:
 		fire_3.emitting = false
 		var tween = get_tree().create_tween()
 		tween.tween_property(self,"velocity",Vector2.ZERO,0.35)
-		tween.tween_callback(self,"destroy")
+		tween.tween_callback(Callable(self, "destroy"))

@@ -9,13 +9,13 @@ var strong
 var crt_shader : CanvasLayer
 
 func _ready() -> void:
-	crt_shader = crt.instance()
+	crt_shader = crt.instantiate()
 	get_parent().call_deferred("add_child",crt_shader)
 	Tools.timer(0.1,"late_initialization",self)
 
 
 func late_initialization():
-	light = crt_shader.get_node("Light")
+	light = crt_shader.get_node("Light3D")
 	strong = crt_shader.get_node("Strong")
 	Configurations.listen("value_changed",self,"on_value_change")
 	crt_changed()

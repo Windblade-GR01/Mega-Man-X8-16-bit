@@ -1,4 +1,4 @@
-tool
+@tool
 extends EditorInspectorPlugin
 
 const InspectorDock = preload("sprite_inspector_dock.tscn")
@@ -6,10 +6,10 @@ const InspectorDock = preload("sprite_inspector_dock.tscn")
 var config
 var file_system: EditorFileSystem
 
-var _sprite: Sprite
+var _sprite: Sprite2D
 
 func can_handle(object):
-	return object is Sprite
+	return object is Sprite2D
 
 
 func parse_begin(object):
@@ -17,7 +17,7 @@ func parse_begin(object):
 
 
 func parse_end():
-	var dock = InspectorDock.instance()
+	var dock = InspectorDock.instantiate()
 	dock.sprite = _sprite
 	dock.config = config
 	dock.file_system = file_system

@@ -4,15 +4,15 @@
 [ext_resource path="res://src/Effects/Materials/EnemyDeathExplosionParticles.tres" type="Material" id=2]
 [ext_resource path="res://src/Sounds/59 - MMX - Enemy Die (4).wav" type="AudioStream" id=3]
 [ext_resource path="res://src/Actors/Enemies/Shared/TurnReploidDeath.gd" type="Script" id=4]
-[ext_resource path="res://src/Effects/Textures/explosion.png" type="Texture" id=5]
+[ext_resource path="res://src/Effects/Textures/explosion.png" type="Texture2D" id=5]
 [ext_resource path="res://src/Sounds/MM - Equip.wav" type="AudioStream" id=6]
 [ext_resource path="res://src/Effects/Materials/default_material.tres" type="Material" id=7]
 [ext_resource path="res://src/Actors/Enemies/Shared/reploiddeathtransform.gd" type="Script" id=8]
-[ext_resource path="res://src/Effects/Textures/fake_boss_death.png" type="Texture" id=9]
+[ext_resource path="res://src/Effects/Textures/fake_boss_death.png" type="Texture2D" id=9]
 [ext_resource path="res://src/Effects/Remains.gd" type="Script" id=10]
 [ext_resource path="res://src/Effects/Materials/RemainsMat.tres" type="Material" id=11]
 [ext_resource path="res://src/Levels/Primrose/rotation_disabler.gd" type="Script" id=12]
-[ext_resource path="res://src/Actors/Enemies/SwordReploid/reploid_remains_palette.png" type="Texture" id=13]
+[ext_resource path="res://src/Actors/Enemies/SwordReploid/reploid_remains_palette.png" type="Texture2D" id=13]
 
 [sub_resource type="CanvasItemMaterial" id=71]
 particles_animation = true
@@ -33,7 +33,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=243]
 curve = SubResource( 244 )
 
-[sub_resource type="ParticlesMaterial" id=245]
+[sub_resource type="ParticleProcessMaterial" id=245]
 resource_local_to_scene = true
 resource_name = "remains_single"
 flag_disable_z = true
@@ -97,7 +97,7 @@ animations = [ {
 [node name="BossDeath" type="Node2D"]
 script = ExtResource( 4 )
 
-[node name="Explosion Particles" type="Particles2D" parent="."]
+[node name="Explosion Particles" type="GPUParticles2D" parent="."]
 material = SubResource( 71 )
 position = Vector2( 0, 0.5 )
 z_index = 2
@@ -115,7 +115,7 @@ max_distance = 600.0
 attenuation = 0.951366
 bus = "SFX"
 
-[node name="Remains" type="Particles2D" parent="."]
+[node name="Remains" type="GPUParticles2D" parent="."]
 material = SubResource( 66 )
 position = Vector2( 0, 0.5 )
 z_index = 10
@@ -128,7 +128,7 @@ process_material = SubResource( 245 )
 texture = ExtResource( 5 )
 script = ExtResource( 10 )
 
-[node name="remains_particles" type="Particles2D" parent="Remains"]
+[node name="remains_particles" type="GPUParticles2D" parent="Remains"]
 material = ExtResource( 11 )
 z_index = -1
 emitting = false
@@ -145,8 +145,8 @@ script = ExtResource( 12 )
 fade_out = true
 undo_on_rotation_end = false
 
-[node name="reploid" type="AnimatedSprite" parent="."]
-pause_mode = 2
+[node name="reploid" type="AnimatedSprite2D" parent="."]
+process_mode = 3
 visible = false
 material = ExtResource( 7 )
 frames = SubResource( 247 )

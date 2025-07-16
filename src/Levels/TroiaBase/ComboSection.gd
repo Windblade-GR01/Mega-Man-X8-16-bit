@@ -2,14 +2,14 @@ extends Node2D
 
 const rankings := {"e":0,"d":1,"c":2,"b":3,"a":4,"s":5}
 
-export var debug_logs := false
-export var s_time_limit := 40.0
+@export var debug_logs := false
+@export var s_time_limit := 40.0
 
-export var s_ranking := 100.0
-export var a_ranking := 70.0
-export var b_ranking := 50.0
-export var c_ranking := 25.0
-export var d_ranking := 10.0
+@export var s_ranking := 100.0
+@export var a_ranking := 70.0
+@export var b_ranking := 50.0
+@export var c_ranking := 25.0
+@export var d_ranking := 10.0
 
 var active := false
 var enemies_activated := false
@@ -19,9 +19,9 @@ var last_hits : Array
 var current_combo := 0.0
 var current_ranking := "e"
 var enemies : Array
-onready var player: KinematicBody2D = $"../../X"
-onready var visual: Label = $"../../X/combo_label"
-onready var visual_ranking: Node2D = $"../../StateCamera/VisualRanking"
+@onready var player: CharacterBody2D = $"../../X"
+@onready var visual: Label = $"../../X/combo_label"
+@onready var visual_ranking: Node2D = $"../../StateCamera/VisualRanking"
 
 const intro = preload("res://src/Sounds/OST - TroiaBase 2 - Intro.ogg")
 const loop = preload("res://src/Sounds/OST - TroiaBase 2 - Loop.ogg")
@@ -48,14 +48,14 @@ func _ready() -> void:
 	Event.listen("reached_checkpoint",self,"on_checkpoint")
 	Event.listen("moved_player_to_checkpoint",self,"on_checkpoint")
 	
-	var _c = connect("started",visual_ranking,"start")
-	_c = connect("rank_changed",visual_ranking,"set_ranking")
-	_c = connect("combo_fill",visual_ranking,"on_fill_bar")
-	_c = connect("combo_value_changed",visual_ranking,"react")
-	_c = connect("finish",visual_ranking,"finish")
-	if not Event.is_connected("player_death",visual_ranking,"on_death"):
-		_c = Event.connect("player_death",visual_ranking,"on_death")
-	_c = Event.connect("player_death",self,"on_death")
+	var _c = connect("started", Callable(visual_ranking, "start"))
+	_c = connect("rank_changed", Callable(visual_ranking, "set_ranking"))
+	_c = connect("combo_fill", Callable(visual_ranking, "on_fill_bar"))
+	_c = connect("combo_value_changed", Callable(visual_ranking, "react"))
+	_c = connect("finish", Callable(visual_ranking, "finish"))
+	if not Event.is_connected("player_death", Callable(visual_ranking, "on_death")):
+		_c = Event.connect("player_death", Callable(visual_ranking, "on_death"))
+	_c = Event.connect("player_death", Callable(self, "on_death"))
 	call_deferred("deactivate_all_enemies")
 
 func prepare() -> void:
@@ -144,7 +144,7 @@ func get_timer() -> float:
 	if timer < s_time_limit:
 		return s_time_limit - timer
 	else:
-		visual_ranking.set_timer_color(Color.lightcoral)
+		visual_ranking.set_timer_color(Color.LIGHT_CORAL)
 		return abs(timer - s_time_limit)
 
 func on_checkpoint(checkpoint : CheckpointSettings) -> void:

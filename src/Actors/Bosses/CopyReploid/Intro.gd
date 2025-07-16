@@ -1,21 +1,21 @@
 extends NewAbility
 
-onready var physics := Physics.new($"..")
-onready var animation := AnimationController.new($"../animatedSprite", self)
-onready var stage := AbilityStage.new(self)
-onready var tween := TweenController.new(self)
-onready var flash: Sprite = $"../flash"
+@onready var physics := Physics.new($"..")
+@onready var animation := AnimationController.new($"../animatedSprite", self)
+@onready var stage := AbilityStage.new(self)
+@onready var tween := TweenController.new(self)
+@onready var flash: Sprite2D = $"../flash"
 const new_death = preload("res://src/Actors/Enemies/Shared/TurnReploidDeath.tscn")
-onready var land: AudioStreamPlayer2D = $land
-onready var pick: AudioStreamPlayer2D = $pick
-onready var start_transform: AudioStreamPlayer2D = $start_transform
-onready var transfx: AudioStreamPlayer2D = $transform
+@onready var land: AudioStreamPlayer2D = $land
+@onready var pick: AudioStreamPlayer2D = $pick
+@onready var start_transform: AudioStreamPlayer2D = $start_transform
+@onready var transfx: AudioStreamPlayer2D = $transform
 
 func _ready() -> void:
-	var boss = character.boss.instance()
+	var boss = character.boss.instantiate()
 	Tools.timer(0.1,"queue_free",self,boss)
 	character.visible = false
-	character.connect("enter_battle",self,"execute")
+	character.connect("enter_battle", Callable(self, "execute"))
 
 func _Setup() -> void:
 	character.visible = true
@@ -67,14 +67,14 @@ func descent():
 	tween.add_callback("next",stage)
 
 func spawn_boss():
-	var boss : Panda = character.boss.instance()
+	var boss : Panda = character.boss.instantiate()
 	var intro = boss.get_node("Intro")
 	var achievement = boss.get_node("AchievementHandler")
 	var ai = boss.get_node("BossAI")
 	var death = boss.get_node("BossDeath")
 	death.queue_free()
 	achievement.queue_free()
-	boss.add_child(new_death.instance(),true)
+	boss.add_child(new_death.instantiate(),true)
 	boss.spawn_direction = physics.get_player_direction_relative()
 	boss.visible = false
 	boss.current_health = 120.0
@@ -106,7 +106,7 @@ func spawn_boss():
 	intro.play_animation_once("idle")
 	intro.emit_signal("ability_start",intro)
 	boss.modulate = Color(5,5,5,1)
-	tween.attribute("modulate",Color.white,.75,boss)
+	tween.attribute("modulate",Color.WHITE,.75,boss)
 	tween.add_callback("EndAbility",intro)
 	tween.add_callback("EndAbility")
 

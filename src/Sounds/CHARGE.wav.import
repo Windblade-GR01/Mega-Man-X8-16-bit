@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/CHARGE.wav-34f0b729a69efb3da503dfc3a57b0dad.sample"
+type="AudioStreamWAV"
+uid="uid://b0eqb4jgthln4"
+path="res://.godot/imported/CHARGE.wav-34f0b729a69efb3da503dfc3a57b0dad.sample"
 
 [deps]
 
 source_file="res://src/Sounds/CHARGE.wav"
-dest_files=[ "res://.import/CHARGE.wav-34f0b729a69efb3da503dfc3a57b0dad.sample" ]
+dest_files=["res://.godot/imported/CHARGE.wav-34f0b729a69efb3da503dfc3a57b0dad.sample"]
 
 [params]
 

@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/CopySigma - Charge.wav-a3365356e149c3fe76a02da5b5d71b50.sample"
+type="AudioStreamWAV"
+uid="uid://dk1bi2nexq4uq"
+path="res://.godot/imported/CopySigma - Charge.wav-a3365356e149c3fe76a02da5b5d71b50.sample"
 
 [deps]
 
 source_file="res://src/Sounds/CopySigma - Charge.wav"
-dest_files=[ "res://.import/CopySigma - Charge.wav-a3365356e149c3fe76a02da5b5d71b50.sample" ]
+dest_files=["res://.godot/imported/CopySigma - Charge.wav-a3365356e149c3fe76a02da5b5d71b50.sample"]
 
 [params]
 

@@ -1,19 +1,19 @@
 extends Node2D
 class_name Spawner
 
-export var active := true
-export var debug_logs := false
-export var debug_extra_info := false
-export (PackedScene) var object_to_spawn
-export var spawn_at_start := false
-export var precise_area_spawn := false
-export var make_child_of_this_object := false
-export var wait_time_before_respawn := 6.0
-export var set_direction_to_right := true
-export var start_inverted := false
-export var despawnable := true
-export var connect_teleport_events := true
-export var active_time_offscreen := 8.0
+@export var active := true
+@export var debug_logs := false
+@export var debug_extra_info := false
+@export var object_to_spawn: PackedScene
+@export var spawn_at_start := false
+@export var precise_area_spawn := false
+@export var make_child_of_this_object := false
+@export var wait_time_before_respawn := 6.0
+@export var set_direction_to_right := true
+@export var start_inverted := false
+@export var despawnable := true
+@export var connect_teleport_events := true
+@export var active_time_offscreen := 8.0
 var has_spawned_once := false
 var has_spawned := false
 var timer := 0.0
@@ -24,9 +24,9 @@ var spawned_object : Node2D
 var debug_shutdown := false
 
 
-export var custom_vars : Dictionary
+@export var custom_vars : Dictionary
 
-onready var visibility = $visibilityNotifier2D
+@onready var visibility = $visibilityNotifier2D
 
 signal object_death
 signal actual_enemy_death
@@ -44,8 +44,8 @@ func _ready() -> void:
 func connect_stage_teleport_events():
 	if connect_teleport_events:
 		Log("Connecting teleport events")
-		Event.connect("stage_teleport",self,"deactivate")
-		Event.connect("stage_teleport_end",self,"activate")
+		Event.connect("stage_teleport", Callable(self, "deactivate"))
+		Event.connect("stage_teleport_end", Callable(self, "activate"))
 	
 
 func deactivate() -> void:
@@ -121,9 +121,9 @@ func spawn() -> void:
 	time_of_spawn = timer
 	time_outside_screen = 0
 	if spawned_object.has_signal("spawned_child"):
-		spawned_object.connect("spawned_child",self,"object_spawned_child")# warning-ignore:return_value_discarded
-	spawned_object.connect("zero_health",self,"on_object_death")# warning-ignore:return_value_discarded
-	spawned_object.connect("death",self,"emit_signal",["actual_enemy_death"])# warning-ignore:return_value_discarded
+		spawned_object.connect("spawned_child", Callable(self, "object_spawned_child"))# warning-ignore:return_value_discarded
+	spawned_object.connect("zero_health", Callable(self, "on_object_death"))# warning-ignore:return_value_discarded
+	spawned_object.connect("death", Callable(self, "emit_signal").bind("actual_enemy_death"))# warning-ignore:return_value_discarded
 	call_deferred("debug_info")
 
 func respawn() -> void:
@@ -140,7 +140,7 @@ func setup_custom_variables() -> void:
 		spawned_object.set(key,custom_vars[key])
 
 func add_spawn_to_scene() -> void:
-	spawned_object = object_to_spawn.instance()
+	spawned_object = object_to_spawn.instantiate()
 	if make_child_of_this_object:
 		get_parent().call_deferred("add_child",spawned_object)
 	else:
@@ -158,7 +158,7 @@ func object_spawned_child(spawned_child,should_despawn = true) -> void:
 func on_object_spawn(spawned_child) ->void:
 	has_spawned = true
 	spawned_object = spawned_child
-	spawned_object.connect("zero_health",self,"on_object_death")# warning-ignore:return_value_discarded
+	spawned_object.connect("zero_health", Callable(self, "on_object_death"))# warning-ignore:return_value_discarded
 	time_of_death = 0.0
 	time_outside_screen = 0
 

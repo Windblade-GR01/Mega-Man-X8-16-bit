@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/15 - MMX - X Powerup Infuse.wav-cc2a2cd0ca8fa771d2d7a81f00c3d20e.sample"
+type="AudioStreamWAV"
+uid="uid://diqarulk2r8kv"
+path="res://.godot/imported/15 - MMX - X Powerup Infuse.wav-cc2a2cd0ca8fa771d2d7a81f00c3d20e.sample"
 
 [deps]
 
 source_file="res://src/Sounds/15 - MMX - X Powerup Infuse.wav"
-dest_files=[ "res://.import/15 - MMX - X Powerup Infuse.wav-cc2a2cd0ca8fa771d2d7a81f00c3d20e.sample" ]
+dest_files=["res://.godot/imported/15 - MMX - X Powerup Infuse.wav-cc2a2cd0ca8fa771d2d7a81f00c3d20e.sample"]
 
 [params]
 

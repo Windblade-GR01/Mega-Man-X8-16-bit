@@ -20,7 +20,7 @@ start_event = "jump"
 force_start = true
 damage_value = 5
 
-[node name="shield_effect" type="AnimatedSprite" parent="."]
+[node name="shield_effect" type="AnimatedSprite2D" parent="."]
 visible = false
 scale = Vector2( 0.8, 0.8 )
 frames = ExtResource( 3 )

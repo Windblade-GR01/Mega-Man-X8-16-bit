@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace TiledImporter.MapBuilder
 {
-    public class TileMapBuilder
+    public partial class TileMapBuilder
     {
         private List<int> atlasFirstTileGIDs = new List<int>();
         private List<int> singleTileGIDs = new List<int>();
@@ -300,7 +300,7 @@ namespace TiledImporter.MapBuilder
             Vector2? spriteSize = null
             )
         {
-            var spriteTile = new Godot.Sprite();
+            var spriteTile = new Godot.Sprite2D();
             spriteTile.RotationDegrees = rotation;
             spriteTile.FlipH = horizontallyFlipped;
             spriteTile.FlipV = verticallyFlipped;
@@ -308,7 +308,7 @@ namespace TiledImporter.MapBuilder
 
             if (singleTileGIDsSet.Contains((int)tileGID))
             { // If drawing tile is a sigle tile.
-                spriteTile.Texture = mapTileSet.TileGetTexture((int)tileGID);
+                spriteTile.Texture2D = mapTileSet.TileGetTexture((int)tileGID);
             }
             else
             {                                       // If drawing tile is an atlas tile.
@@ -324,17 +324,17 @@ namespace TiledImporter.MapBuilder
                     tileYIndex * tileSize.y,
                     tileSize
                 );
-                spriteTile.Texture = mapTileSet.TileGetTexture((int)atlasFirstGID);
+                spriteTile.Texture2D = mapTileSet.TileGetTexture((int)atlasFirstGID);
             }
 
-            if (spriteTile.Texture != null && isObjectLayerSpriteTile)
+            if (spriteTile.Texture2D != null && isObjectLayerSpriteTile)
             {
-                spriteTile.Offset = new Vector2(spriteTile.Offset.x, -spriteTile.Texture.GetSize().y);
-                if (spriteSize != null && spriteTile.Texture != null)
+                spriteTile.Offset = new Vector2(spriteTile.Offset.x, -spriteTile.Texture2D.GetSize().y);
+                if (spriteSize != null && spriteTile.Texture2D != null)
                 {
                     var spriteScale = new Vector2(
-                        spriteSize.GetValueOrDefault().x / spriteTile.Texture.GetSize().x,
-                        spriteSize.GetValueOrDefault().y / spriteTile.Texture.GetSize().y
+                        spriteSize.GetValueOrDefault().x / spriteTile.Texture2D.GetSize().x,
+                        spriteSize.GetValueOrDefault().y / spriteTile.Texture2D.GetSize().y
                     );
                     spriteTile.Scale = spriteScale;
                 }
@@ -394,7 +394,7 @@ namespace TiledImporter.MapBuilder
             {
                 Structures.Tile tileData = tileSetData.tiles[i];
                 var tilePath = $"res://{mapFileDirectoryPath}{tileData.image}";
-                var tileTexture = Godot.ResourceLoader.Load(tilePath) as Godot.Texture;
+                var tileTexture = Godot.ResourceLoader.Load(tilePath) as Godot.Texture2D;
                 if (tileTexture == null)
                 {
                     GD.PushError("Loaded tile texture is null!");
@@ -427,7 +427,7 @@ namespace TiledImporter.MapBuilder
         {
             int firstGID = (int)tileSetData.firstGID;
             var texturePath = $"res://{mapFileDirectoryPath}{tileSetData.image}";
-            var texture = Godot.ResourceLoader.Load(texturePath) as Texture;
+            var texture = Godot.ResourceLoader.Load(texturePath) as Texture2D;
             if (texture == null)
             {
                 GD.PushError("Loaded atlas texture is null!");

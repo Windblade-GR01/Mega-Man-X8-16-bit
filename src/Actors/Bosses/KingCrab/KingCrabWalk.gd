@@ -1,14 +1,14 @@
 extends AttackAbility
 class_name KingCrabWalk
 
-export var walk_speed := 30
-export var max_distance := 64
+@export var walk_speed := 30
+@export var max_distance := 64
 var max_time := 1.0
 var direction := -1
-onready var footstep: AudioStreamPlayer2D = $footstep
-onready var footstep_2: AudioStreamPlayer2D = $footstep2
+@onready var footstep: AudioStreamPlayer2D = $footstep
+@onready var footstep_2: AudioStreamPlayer2D = $footstep2
 
-onready var initial_position := global_position.x
+@onready var initial_position := global_position.x
 
 func _Setup() -> void:
 	direction = decide_direction()
@@ -33,7 +33,7 @@ func _Update(_delta) -> void:
 			footstep_2.play()
 
 func decide_direction() -> int:
-	var r = rand_range(-1.0,1.0)
+	var r = randf_range(-1.0,1.0)
 	if r > 0:
 		Log("Direction Backwards")
 		return 1
@@ -55,7 +55,7 @@ func _EndCondition() -> bool:
 	return false
 
 func _Interrupt() -> void:
-	._Interrupt()
+	super._Interrupt()
 	play_animation("idle")
 	
 

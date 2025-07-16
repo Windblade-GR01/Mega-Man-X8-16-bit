@@ -6,14 +6,14 @@
 
 [node name="node" type="Node"]
 
-[node name="lumine" type="AnimatedSprite" parent="."]
+[node name="lumine" type="AnimatedSprite2D" parent="."]
 position = Vector2( 195, 107 )
 frames = ExtResource( 2 )
 animation = "fly_up"
 frame = 2
 playing = true
 
-[node name="rooster" type="AnimatedSprite" parent="lumine"]
+[node name="rooster" type="AnimatedSprite2D" parent="lumine"]
 visible = false
 position = Vector2( 0, -13 )
 frames = ExtResource( 6 )

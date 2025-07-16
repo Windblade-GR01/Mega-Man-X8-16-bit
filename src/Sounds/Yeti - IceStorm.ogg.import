@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/Yeti - IceStorm.ogg-142e69bb469ade0bea741a997bbc6718.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dqv4uhx2onjtq"
+path="res://.godot/imported/Yeti - IceStorm.ogg-142e69bb469ade0bea741a997bbc6718.oggvorbisstr"
 
 [deps]
 
 source_file="res://src/Sounds/Yeti - IceStorm.ogg"
-dest_files=[ "res://.import/Yeti - IceStorm.ogg-142e69bb469ade0bea741a997bbc6718.oggstr" ]
+dest_files=["res://.godot/imported/Yeti - IceStorm.ogg-142e69bb469ade0bea741a997bbc6718.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

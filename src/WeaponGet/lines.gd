@@ -1,17 +1,17 @@
 extends Node2D
 
-export var start_on_ready := false
-onready var tween := TweenController.new(self,false)
-export var initial_color : Color
-export var middle_color : Color
-export var middle_color2 : Color
-export var final_color : Color
-export var duration := 4.0
-export var scale_change:= Vector2(0.25,5.0)
+@export var start_on_ready := false
+@onready var tween := TweenController.new(self,false)
+@export var initial_color : Color
+@export var middle_color : Color
+@export var middle_color2 : Color
+@export var final_color : Color
+@export var duration := 4.0
+@export var scale_change:= Vector2(0.25,5.0)
 var line_color := Color(1,1,1,0)
-onready var h_line: Line2D = $HLine
-onready var v_line: Line2D = $VLine
-export var ignore_pause := true
+@onready var h_line: Line2D = $HLine
+@onready var v_line: Line2D = $VLine
+@export var ignore_pause := true
 signal delayed_signal
 
 func _ready() -> void:

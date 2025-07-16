@@ -1,12 +1,12 @@
 extends X8TextureButton
 
 func _ready() -> void:
-	var _s = get_parent().connect("visibility_changed",self,"_on_visibility_changed")
+	var _s = get_parent().connect("visibility_changed", Callable(self, "_on_visibility_changed"))
 
 func on_press() -> void:
 	modulate = Color(3,3,3,1)
 	reset_tween()
-	tween.tween_property(self,"modulate",Color.white,.35) # warning-ignore:return_value_discarded
+	tween.tween_property(self,"modulate",Color.WHITE,.35) # warning-ignore:return_value_discarded
 	menu.end()
 
 

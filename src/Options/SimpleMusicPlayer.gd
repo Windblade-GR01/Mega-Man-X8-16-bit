@@ -1,14 +1,14 @@
 extends AudioStreamPlayer
 
-export var loop : AudioStream
-export var play_on_start := true
+@export var loop : AudioStream
+@export var play_on_start := true
 var started_loop := false
 
 func _ready() -> void:
 	if play_on_start:
 		play()
 	if loop:
-		connect("finished",self,"play_loop")
+		connect("finished", Callable(self, "play_loop"))
 
 func play_loop() -> void:
 	if loop and not started_loop:
@@ -23,4 +23,4 @@ func fade_out() -> void:
 
 func play(from_position: float = 0.0) -> void:
 	print_debug("playing")
-	.play()
+	super.play()

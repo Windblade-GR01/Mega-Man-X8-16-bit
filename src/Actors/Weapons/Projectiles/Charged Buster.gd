@@ -13,7 +13,7 @@ func _on_visibilityNotifier2D_screen_exited() -> void:
 	countdown_to_destruction = 0.01
 
 func emit_hit_particle():
-	.emit_hit_particle()
+	super.emit_hit_particle()
 	hit_particle.scale = direction
 
 func deflect(_d) -> void:

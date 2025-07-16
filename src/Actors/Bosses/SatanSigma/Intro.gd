@@ -1,15 +1,15 @@
 extends GenericIntro
 
-export var boss_bar : Texture
-onready var throne: TileMap = $"../Throne"
-onready var throne_particles: Particles2D = $"../throne_particles"
-onready var throne_explosion: AudioStreamPlayer2D = $"../throne_explosion"
-onready var flash: Sprite = $flash
+@export var boss_bar : Texture2D
+@onready var throne: TileMap = $"../Throne"
+@onready var throne_particles: GPUParticles2D = $"../throne_particles"
+@onready var throne_explosion: AudioStreamPlayer2D = $"../throne_explosion"
+@onready var flash: Sprite2D = $flash
 
 func connect_start_events() -> void:
 	Log("Connecting boss events")
 	Event.listen("warning_done",self,"execute_intro")
-	Event.connect("character_talking",self,"on_talk")
+	Event.connect("character_talking", Callable(self, "on_talk"))
 
 func on_talk(character):
 	if character == "Sigma":

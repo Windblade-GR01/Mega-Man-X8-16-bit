@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/electric.wav-2d1d3d545fb762f2aeec149d3195b863.sample"
+type="AudioStreamWAV"
+uid="uid://dmgv4rb7eytyh"
+path="res://.godot/imported/electric.wav-2d1d3d545fb762f2aeec149d3195b863.sample"
 
 [deps]
 
 source_file="res://src/Actors/Bosses/DarkMantis/electric.wav"
-dest_files=[ "res://.import/electric.wav-2d1d3d545fb762f2aeec149d3195b863.sample" ]
+dest_files=["res://.godot/imported/electric.wav-2d1d3d545fb762f2aeec149d3195b863.sample"]
 
 [params]
 

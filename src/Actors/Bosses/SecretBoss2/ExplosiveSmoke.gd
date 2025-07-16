@@ -1,8 +1,8 @@
 extends Node2D
 
-onready var smoke: AnimatedSprite = $smoke
+@onready var smoke: AnimatedSprite2D = $smoke
 
-export var explosion : PackedScene
+@export var explosion : PackedScene
 
 
 func _ready() -> void:
@@ -14,7 +14,7 @@ func _ready() -> void:
 	else:
 		Tools.timer(0.25,"alternate_sequence",self)
 	Tools.timer(3.0,"queue_free",self)
-	Event.connect("first_secret2_death",self,"queue_free")
+	Event.connect("first_secret2_death", Callable(self, "queue_free"))
 
 
 func start():
@@ -24,7 +24,7 @@ func start():
 	
 func sequence():
 	create_explosion(Vector2(0,0))
-	var delay = rand_range(0.0,0.5)
+	var delay = randf_range(0.0,0.5)
 	Tools.timer_p(0.25 + delay/2,"create_explosion",self,Vector2(-10,-10))
 	Tools.timer_p(0.5 + delay,"create_explosion",self,Vector2(10,10))
 	Tools.timer_p(0.75 + delay,"create_explosion",self,Vector2(-20,20))
@@ -32,14 +32,14 @@ func sequence():
 	
 func alternate_sequence():
 	create_explosion(Vector2(-15,20))
-	var delay = rand_range(0.15,0.4)
+	var delay = randf_range(0.15,0.4)
 	Tools.timer_p(0.25 + delay/2,"create_explosion",self,Vector2(20,0))
 	Tools.timer_p(0.5 + delay,"create_explosion",self,Vector2(5,-15))
 	Tools.timer_p(0.75 + delay/2,"create_explosion",self,Vector2(-15,-20))
 	Tools.timer_p(1.0 + delay,"create_explosion",self,Vector2(20,20))
 
 func create_explosion(pos : Vector2):
-	var instance = explosion.instance()
+	var instance = explosion.instantiate()
 	call_deferred("add_child",instance)
 	instance.position = pos
 	instance.rotation_degrees = -rotation_degrees

@@ -4,13 +4,13 @@ class_name Walk
 var minimum_time := 0.02
 var starting_from_stop := false
 
-export var shot_pos_adjust := Vector2 (6,-2)
+@export var shot_pos_adjust := Vector2 (6,-2)
 func get_shot_adust_position() -> Vector2:
 	return shot_pos_adjust
 
 func _ready() -> void:
 # warning-ignore:return_value_discarded
-	character.get_node("animatedSprite").connect("animation_finished", self, "_on_animatedSprite_animation_finished")
+	character.get_node("animatedSprite").connect("animation_finished", Callable(self, "_on_animatedSprite_animation_finished"))
 
 func _StartCondition() -> bool:
 	if not character.is_on_floor():

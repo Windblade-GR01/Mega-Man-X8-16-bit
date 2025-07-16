@@ -1,8 +1,8 @@
 extends "res://src/Levels/BoosterForest/rising_platform.gd"
 
-export var _limit_to_deactivate: NodePath
-export var extra_limits_to_deactivate: Array
-onready var limit_to_deactivate := get_node(_limit_to_deactivate)
+@export var _limit_to_deactivate: NodePath
+@export var extra_limits_to_deactivate: Array
+@onready var limit_to_deactivate := get_node(_limit_to_deactivate)
 
 func _on_ElevatorStarter_body_entered(body: Node) -> void:
 	if not activated:

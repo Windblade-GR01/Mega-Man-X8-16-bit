@@ -1,10 +1,10 @@
 extends AttackAbility
 var times_fired := 0
 var fire_timer := 0.0
-export (PackedScene) var projectile
-export var proj_speed := 50.0
-onready var fire_origin: Node2D = $"../animatedSprite/fire_origin"
-onready var fire_loop: AudioStreamPlayer2D = $fire_loop
+@export var projectile: PackedScene
+@export var proj_speed := 50.0
+@onready var fire_origin: Node2D = $"../animatedSprite/fire_origin"
+@onready var fire_loop: AudioStreamPlayer2D = $fire_loop
 
 func _Setup() -> void:
 	attack_stage = 0
@@ -45,7 +45,7 @@ func _Update(delta) -> void:
 		EndAbility()
 
 func _Interrupt() -> void:
-	._Interrupt()
+	super._Interrupt()
 	stop_fireloop()
 
 func play_fireloop() -> void:

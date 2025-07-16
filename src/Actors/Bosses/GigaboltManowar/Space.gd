@@ -1,17 +1,17 @@
 extends Node
 
-export var define_at_start := true
-export(int, "UnclimbableWalls", "RegularWalls", "BaseOnCamera") var wall_check
-export var border_distance := 32
-export var low_height_segments := 1
+@export var define_at_start := true
+@export var wall_check # (int, "UnclimbableWalls", "RegularWalls", "BaseOnCamera")
+@export var border_distance := 32
+@export var low_height_segments := 1
 var arena_pos := Vector2.ZERO
 var arena_size := Vector2.ZERO
 var platform_height := 0.0
 var positions := [Vector2.ZERO,Vector2.ZERO,Vector2.ZERO,Vector2.ZERO]
 var center : = Vector2.ZERO
 var collision_layer := 256
-export var center_offset := 0.0
-onready var character = get_parent()
+@export var center_offset := 0.0
+@onready var character = get_parent()
 
 func _ready() -> void:
 	if define_at_start:

@@ -1,12 +1,12 @@
 extends GenericIntro
 
-onready var overlay: AnimatedSprite = $"../overlay"
-onready var song: AudioStreamPlayer = $song
-onready var tween := TweenController.new(self,false)
-onready var battle_song: AudioStreamPlayer = $BattleSong
-onready var effect: AudioStreamPlayer = $effect
-onready var damage: Node2D = $"../Damage"
-export var bar : Texture
+@onready var overlay: AnimatedSprite2D = $"../overlay"
+@onready var song: AudioStreamPlayer = $song
+@onready var tween := TweenController.new(self,false)
+@onready var battle_song: AudioStreamPlayer = $BattleSong
+@onready var effect: AudioStreamPlayer = $effect
+@onready var damage: Node2D = $"../Damage"
+@export var bar : Texture2D
 
 func _ready() -> void:
 	call_deferred("play_animation","intro")
@@ -38,7 +38,7 @@ func start_intro():
 func fadein():
 	animatedSprite.visible = true
 	tween.attribute("modulate:a",1.0,2.0,overlay)
-	tween.add_callback("make_visible")
+	tween.add_callback("_make_visible")
 	tween.add_attribute("modulate:a",0.0,2.0,overlay)
 	tween.add_callback("next_attack_stage")
 

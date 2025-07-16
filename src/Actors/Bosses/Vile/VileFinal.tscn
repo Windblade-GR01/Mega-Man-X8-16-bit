@@ -4,8 +4,8 @@
 [ext_resource path="res://src/Actors/Bosses/Vile/FinalIntro.gd" type="Script" id=2]
 [ext_resource path="res://src/Actors/Bosses/BossStun.gd" type="Script" id=3]
 [ext_resource path="res://src/Actors/Modules/Enemy/DamageOnTouch.gd" type="Script" id=4]
-[ext_resource path="res://src/Effects/Textures/explosion.png" type="Texture" id=5]
-[ext_resource path="res://src/Effects/Textures/smoke.png" type="Texture" id=6]
+[ext_resource path="res://src/Effects/Textures/explosion.png" type="Texture2D" id=5]
+[ext_resource path="res://src/Effects/Textures/smoke.png" type="Texture2D" id=6]
 [ext_resource path="res://src/Actors/Bosses/Vile/VileAirCannonAngled.gd" type="Script" id=7]
 [ext_resource path="res://src/Actors/Bosses/Vile/vile.res" type="SpriteFrames" id=8]
 [ext_resource path="res://src/Actors/Bosses/BossAI.gd" type="Script" id=9]
@@ -59,7 +59,7 @@ particles_anim_h_frames = 4
 particles_anim_v_frames = 4
 particles_anim_loop = false
 
-[node name="Vile" type="KinematicBody2D" groups=["Bosses", "Enemies"]]
+[node name="Vile" type="CharacterBody2D" groups=["Bosses", "Enemies"]]
 z_index = 5
 collision_layer = 8
 collision_mask = 257
@@ -83,7 +83,7 @@ order_size = 64
 [node name="collisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 62 )
 
-[node name="animatedSprite" type="AnimatedSprite" parent="."]
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
 material = ExtResource( 24 )
 position = Vector2( 0, -19 )
 z_index = 1
@@ -92,7 +92,7 @@ animation = "flight"
 frame = 5
 playing = true
 
-[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 visible = false
 position = Vector2( -6.5, 3.5 )
 scale = Vector2( 4.35, 4.25 )
@@ -124,17 +124,17 @@ max_flash_time = 0.35
 weakenesses = [ "DriftDiamond", "RideArmor" ]
 
 [node name="audioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Damage"]
-pause_mode = 2
+process_mode = 3
 stream = ExtResource( 25 )
 volume_db = -3.0
 max_distance = 600.0
 bus = "SFX"
 
 [node name="dps" type="RichTextLabel" parent="Damage"]
-margin_left = -18.0
-margin_top = -69.0
-margin_right = 59.0
-margin_bottom = -52.0
+offset_left = -18.0
+offset_top = -69.0
+offset_right = 59.0
+offset_bottom = -52.0
 text = "0.0"
 script = ExtResource( 28 )
 
@@ -250,7 +250,7 @@ max_distance = 1200.0
 attenuation = 1e-05
 bus = "SFX"
 
-[node name="land_particles" type="Particles2D" parent="VileAirDash"]
+[node name="land_particles" type="GPUParticles2D" parent="VileAirDash"]
 material = SubResource( 65 )
 position = Vector2( 0, -2 )
 z_index = 1
@@ -261,7 +261,7 @@ local_coords = false
 process_material = ExtResource( 11 )
 texture = ExtResource( 6 )
 
-[node name="dash_particles" type="Particles2D" parent="VileAirDash"]
+[node name="dash_particles" type="GPUParticles2D" parent="VileAirDash"]
 material = SubResource( 65 )
 position = Vector2( 0, -2 )
 z_index = 1
@@ -285,7 +285,7 @@ horizontal_velocity = 250.0
 jump_velocity = 450.0
 projectile = ExtResource( 14 )
 
-[node name="land_particles" type="Particles2D" parent="VileAirKnee"]
+[node name="land_particles" type="GPUParticles2D" parent="VileAirKnee"]
 material = SubResource( 65 )
 position = Vector2( 0, -2 )
 z_index = 1
@@ -335,7 +335,7 @@ animation = "defeat_fall"
 jump_velocity = 180.0
 
 [node name="explosion" type="AudioStreamPlayer2D" parent="BossDeath"]
-pause_mode = 2
+process_mode = 3
 stream = ExtResource( 27 )
 volume_db = -0.553
 max_distance = 600.0
@@ -343,7 +343,7 @@ attenuation = 0.951366
 bus = "SFX"
 
 [node name="sparks" type="AudioStreamPlayer2D" parent="BossDeath"]
-pause_mode = 2
+process_mode = 3
 stream = ExtResource( 34 )
 volume_db = -2.229
 pitch_scale = 1.05
@@ -351,8 +351,8 @@ max_distance = 600.0
 attenuation = 0.951366
 bus = "SFX"
 
-[node name="explosion_particles" type="Particles2D" parent="BossDeath"]
-pause_mode = 2
+[node name="explosion_particles" type="GPUParticles2D" parent="BossDeath"]
+process_mode = 3
 material = SubResource( 68 )
 position = Vector2( 0, 0.5 )
 z_index = 10

@@ -1,6 +1,6 @@
 extends EnemyDeath
 signal screen_flash
-onready var reploid: AnimatedSprite = $reploid
+@onready var reploid: AnimatedSprite2D = $reploid
 
 func get_spawn_item():
 	return GameManager.get_next_spawn_item(100,0,100,0,0,0)
@@ -25,4 +25,4 @@ func extra_actions_at_death_start() -> void: #override
 	character.set_horizontal_speed(0)
 	character.set_vertical_speed(0)
 	reploid.material = sprite.material
-	sprite.material.set_shader_param("Alpha_Blink", 1)
+	sprite.material.set_shader_parameter("Alpha_Blink", 1)

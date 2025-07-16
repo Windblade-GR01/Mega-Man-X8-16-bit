@@ -1,7 +1,7 @@
 extends EnemyDeath
-onready var bottom_sprite: AnimatedSprite = $"../bottomSprite"
-onready var screw_texture: Line2D = $"../ScrewTexture"
-onready var wall_area: StaticBody2D = $"../WallArea"
+@onready var bottom_sprite: AnimatedSprite2D = $"../bottomSprite"
+@onready var screw_texture: Line2D = $"../ScrewTexture"
+@onready var wall_area: StaticBody2D = $"../WallArea"
 
 func extra_actions_after_death() -> void: #override
 	bottom_sprite.visible = false

@@ -1,6 +1,6 @@
 extends ConfirmButton
 
-export var post_confirm : String
+@export var post_confirm : String
 
 func _ready() -> void:
 	pass

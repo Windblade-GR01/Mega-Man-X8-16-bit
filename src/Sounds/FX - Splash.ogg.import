@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/FX - Splash.ogg-1d4b3cd6175a5fbbe68f9487c7826c11.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b6yjwgf1dm56w"
+path="res://.godot/imported/FX - Splash.ogg-1d4b3cd6175a5fbbe68f9487c7826c11.oggvorbisstr"
 
 [deps]
 
 source_file="res://src/Sounds/FX - Splash.ogg"
-dest_files=[ "res://.import/FX - Splash.ogg-1d4b3cd6175a5fbbe68f9487c7826c11.oggstr" ]
+dest_files=["res://.godot/imported/FX - Splash.ogg-1d4b3cd6175a5fbbe68f9487c7826c11.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

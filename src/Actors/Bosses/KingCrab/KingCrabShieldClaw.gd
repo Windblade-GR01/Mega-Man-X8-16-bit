@@ -1,15 +1,15 @@
 extends AttackAbility
 class_name ShieldClaw
 
-export (PackedScene) var claw_attack
-onready var shield := $EnemyShield
-onready var damage_on_touch: Node2D = $DamageOnTouch
+@export var claw_attack: PackedScene
+@onready var shield := $EnemyShield
+@onready var damage_on_touch: Node2D = $DamageOnTouch
 var claw_projectile
 var wall_position : float
-onready var prepare: AudioStreamPlayer2D = $prepare
-onready var wallhit: AudioStreamPlayer2D = $wallhit
-onready var footstep: AudioStreamPlayer2D = $footstep
-onready var footstep_2: AudioStreamPlayer2D = $footstep2
+@onready var prepare: AudioStreamPlayer2D = $prepare
+@onready var wallhit: AudioStreamPlayer2D = $wallhit
+@onready var footstep: AudioStreamPlayer2D = $footstep
+@onready var footstep_2: AudioStreamPlayer2D = $footstep2
 
 func _Setup() -> void:
 	attack_stage = 0
@@ -59,7 +59,7 @@ func _Update(_delta) -> void:
 		EndAbility()
 
 func _Interrupt() -> void:
-	._Interrupt()
+	super._Interrupt()
 	shield.deactivate()
 	damage_on_touch.deactivate()
 

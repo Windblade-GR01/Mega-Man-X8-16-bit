@@ -1,4 +1,4 @@
-extends Reference
+extends RefCounted
 class_name AbilityStage
 
 var ability
@@ -9,7 +9,7 @@ var ended := false
 func _init(_ability, connect := true) -> void:
 	ability = _ability
 	if connect:
-		ability.connect("stop",self,"reset")
+		ability.connect("stop", Callable(self, "reset"))
 
 func reset(_d = null) -> void:
 	current_stage = 0

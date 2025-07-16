@@ -25,7 +25,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=243]
 curve = SubResource( 244 )
 
-[sub_resource type="ParticlesMaterial" id=245]
+[sub_resource type="ParticleProcessMaterial" id=245]
 resource_local_to_scene = true
 resource_name = "remains_single"
 flag_disable_z = true

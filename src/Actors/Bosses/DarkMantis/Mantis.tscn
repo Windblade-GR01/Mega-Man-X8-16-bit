@@ -24,9 +24,9 @@
 [ext_resource path="res://src/Actors/Bosses/DarkMantis/DarkSlash.gd" type="Script" id=22]
 [ext_resource path="res://src/Actors/MeleeEnemyAttack.gd" type="Script" id=23]
 [ext_resource path="res://src/Actors/Bosses/DarkMantis/DarkWave.tscn" type="PackedScene" id=24]
-[ext_resource path="res://src/Actors/Bosses/DarkMantis/DarkSlashLight.png" type="Texture" id=25]
-[ext_resource path="res://src/Actors/Bosses/DarkMantis/DarkSlash.png" type="Texture" id=26]
-[ext_resource path="res://src/Effects/Textures/smoke.png" type="Texture" id=27]
+[ext_resource path="res://src/Actors/Bosses/DarkMantis/DarkSlashLight.png" type="Texture2D" id=25]
+[ext_resource path="res://src/Actors/Bosses/DarkMantis/DarkSlash.png" type="Texture2D" id=26]
+[ext_resource path="res://src/Effects/Textures/smoke.png" type="Texture2D" id=27]
 [ext_resource path="res://src/AchievementSystem/Achievements/MANTISNODAMAGE.tres" type="Resource" id=28]
 [ext_resource path="res://src/Sounds/Mantis - Cut1.ogg" type="AudioStream" id=29]
 [ext_resource path="res://src/Actors/Bosses/DarkMantis/DarkArrow.tscn" type="PackedScene" id=30]
@@ -62,7 +62,7 @@ _data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
 [sub_resource type="CurveTexture" id=52]
 curve = SubResource( 50 )
 
-[sub_resource type="ParticlesMaterial" id=51]
+[sub_resource type="ParticleProcessMaterial" id=51]
 emission_shape = 1
 emission_sphere_radius = 0.01
 flag_disable_z = true
@@ -88,7 +88,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=54]
 curve = SubResource( 42 )
 
-[sub_resource type="ParticlesMaterial" id=53]
+[sub_resource type="ParticleProcessMaterial" id=53]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -100,7 +100,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 54 )
 
-[node name="Mantis" type="KinematicBody2D" groups=["Bosses"]]
+[node name="Mantis" type="CharacterBody2D" groups=["Bosses"]]
 z_index = 4
 collision_layer = 0
 script = ExtResource( 6 )
@@ -115,7 +115,7 @@ visible = false
 position = Vector2( 0, 17 )
 shape = SubResource( 75 )
 
-[node name="animatedSprite" type="AnimatedSprite" parent="."]
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
 material = ExtResource( 12 )
 z_index = 1
 frames = ExtResource( 17 )
@@ -131,7 +131,7 @@ input_pickable = false
 position = Vector2( 0, 15 )
 shape = SubResource( 77 )
 
-[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 visible = false
 position = Vector2( -6.5, 3.5 )
 scale = Vector2( 4.35, 4.25 )
@@ -173,17 +173,17 @@ max_flash_time = 0.35
 weakenesses = [ "OpticShield" ]
 
 [node name="audioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Damage"]
-pause_mode = 2
+process_mode = 3
 stream = ExtResource( 16 )
 volume_db = -3.0
 max_distance = 600.0
 bus = "SFX"
 
 [node name="dps" type="RichTextLabel" parent="Damage"]
-margin_left = -18.0
-margin_top = -69.0
-margin_right = 59.0
-margin_bottom = -52.0
+offset_left = -18.0
+offset_top = -69.0
+offset_right = 59.0
+offset_bottom = -52.0
 text = "0.0"
 script = ExtResource( 38 )
 
@@ -216,7 +216,7 @@ position = Vector2( 51, -4 )
 rotation = 1.5708
 shape = SubResource( 47 )
 
-[node name="dash_smoke" type="Particles2D" parent="DarkDash"]
+[node name="dash_smoke" type="GPUParticles2D" parent="DarkDash"]
 material = SubResource( 49 )
 position = Vector2( 0, 48 )
 z_index = 1
@@ -323,7 +323,7 @@ volume_db = -10.915
 max_distance = 900.0
 bus = "SFX"
 
-[node name="dash_smoke" type="Particles2D" parent="DarkHug"]
+[node name="dash_smoke" type="GPUParticles2D" parent="DarkHug"]
 material = SubResource( 49 )
 position = Vector2( 0, 48 )
 z_index = 1
@@ -348,12 +348,12 @@ animation = "desperation_prepare"
 jump_velocity = 600.0
 desperation_attack = true
 
-[node name="darkSlash" type="Sprite" parent="DarkSlash"]
+[node name="darkSlash" type="Sprite2D" parent="DarkSlash"]
 visible = false
 position = Vector2( -56, 48 )
 texture = ExtResource( 26 )
 
-[node name="light2D" type="Light2D" parent="DarkSlash"]
+[node name="light2D" type="PointLight2D" parent="DarkSlash"]
 position = Vector2( -56, 48 )
 texture = ExtResource( 25 )
 color = Color( 0.670588, 0.278431, 1, 1 )
@@ -373,7 +373,7 @@ collision_mask = 6
 input_pickable = false
 
 [node name="collisionPolygon2D" type="CollisionPolygon2D" parent="DarkSlash/SlashHitbox/area2D"]
-polygon = PoolVector2Array( -42, -52, -203, -52, -200, 169, 79, 167, 79, 143, -42, 71 )
+polygon = PackedVector2Array( -42, -52, -203, -52, -200, 169, 79, 167, 79, 143, -42, 71 )
 
 [node name="jump" type="AudioStreamPlayer2D" parent="DarkSlash"]
 stream = ExtResource( 36 )

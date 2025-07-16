@@ -1,19 +1,19 @@
 extends AttackAbility
 
-export var vertical_offset := 10.0
-export var strong_lightining : PackedScene
-export var damage_reduction_during_desperation := 0.5
+@export var vertical_offset := 10.0
+@export var strong_lightining : PackedScene
+@export var damage_reduction_during_desperation := 0.5
 var travel_duration := 1.0
 var cast_times := 0
 signal stop
 signal ready_for_stun
-onready var space: Node = $"../Space"
-onready var tween := TweenController.new(self)
-onready var raycasts: Array = [$check,$check2,$check3,$check4,$check5]
+@onready var space: Node = $"../Space"
+@onready var tween := TweenController.new(self)
+@onready var raycasts: Array = [$check,$check2,$check3,$check4,$check5]
 var current_lightnings : Array
-onready var spin: AudioStreamPlayer2D = $spin
-onready var lightning_sfx: AudioStreamPlayer2D = $lightning
-onready var move: AudioStreamPlayer2D = $"../move"
+@onready var spin: AudioStreamPlayer2D = $spin
+@onready var lightning_sfx: AudioStreamPlayer2D = $lightning
+@onready var move: AudioStreamPlayer2D = $"../move"
 
 var current_crystal_walls : Array
 
@@ -22,11 +22,11 @@ var sequence2 : Array = [[1,4],[2,3,5],[1,4,5],[1,3,5],[2,4], [2,5], [1,2,3],[1,
 var sequence : Array = [[2,5],[1,3,5],[2,3,5],[2,4],[1,3,5], [1,5], [2,3,4],[1,3,5]]
 var current_sequence
 var final_storms : Array
-onready var flash: Sprite = $flash
+@onready var flash: Sprite2D = $flash
 
 
 func _ready() -> void:
-	Event.connect("crystal_wall_created",self,"on_wall_created")
+	Event.connect("crystal_wall_created", Callable(self, "on_wall_created"))
 
 func on_wall_created(wall) -> void:
 	current_crystal_walls.append(wall)
@@ -197,14 +197,14 @@ func cast_final_warnings() -> void:
 	
 
 func create_lightning(collision_point, warning := 0.75) -> Node2D:
-	var lightning : StrongLightning = strong_lightining.instance()
+	var lightning : StrongLightning = strong_lightining.instantiate()
 	lightning.global_position = character.global_position
 	get_tree().current_scene.add_child(lightning)
 	lightning.position_end(collision_point)
 	lightning.update_joints()
 	lightning.prepare(warning)
 	current_lightnings.append(lightning)
-	var _s = lightning.connect("expired",self,"remove_lightning")
+	var _s = lightning.connect("expired", Callable(self, "remove_lightning"))
 	return lightning
 	
 func cast_extra_warnings(final := false) -> void:

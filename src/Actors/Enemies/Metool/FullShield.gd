@@ -4,9 +4,9 @@ func _ready() -> void:
 	pass
 
 func activate() -> void:
-	.activate()
+	super.activate()
 	character.add_invulnerability(name)
 	
 func deactivate() -> void:
-	.deactivate()
+	super.deactivate()
 	character.remove_invulnerability(name)

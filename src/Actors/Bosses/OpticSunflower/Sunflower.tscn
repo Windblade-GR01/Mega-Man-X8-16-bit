@@ -32,12 +32,12 @@
 [ext_resource path="res://src/Actors/NewStateMachine/audioplayer.gd" type="Script" id=30]
 [ext_resource path="res://src/Sounds/Sunflower - Desperation.ogg" type="AudioStream" id=31]
 [ext_resource path="res://src/Effects/Materials/plant_laser_leaves_material.tres" type="Material" id=32]
-[ext_resource path="res://src/Effects/leaves/leaves.png" type="Texture" id=33]
+[ext_resource path="res://src/Effects/leaves/leaves.png" type="Texture2D" id=33]
 [ext_resource path="res://src/Effects/Materials/sunflower_leaves_particle.tres" type="Material" id=34]
 [ext_resource path="res://src/DialogSystem/Dialogs/Stages/Sunflower_Dialogue.tres" type="Resource" id=35]
 [ext_resource path="res://src/Actors/Enemies/Shared/LongBossDeath.tscn" type="PackedScene" id=36]
 [ext_resource path="res://src/Actors/Bosses/GigaboltManowar/Space.gd" type="Script" id=37]
-[ext_resource path="res://src/HUD/Boss_bar.png" type="Texture" id=38]
+[ext_resource path="res://src/HUD/Boss_bar.png" type="Texture2D" id=38]
 [ext_resource path="res://src/AchievementSystem/BossAchievementHandler.gd" type="Script" id=39]
 [ext_resource path="res://src/AchievementSystem/Achievements/SUNFLOWERNODAMAGE.tres" type="Resource" id=40]
 [ext_resource path="res://src/AchievementSystem/Achievements/SUNFLOWERNAKED.tres" type="Resource" id=41]
@@ -59,7 +59,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=65]
 curve = SubResource( 42 )
 
-[sub_resource type="ParticlesMaterial" id=61]
+[sub_resource type="ParticleProcessMaterial" id=61]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -71,7 +71,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 65 )
 
-[node name="Sunflower" type="KinematicBody2D" groups=["Bosses"]]
+[node name="Sunflower" type="CharacterBody2D" groups=["Bosses"]]
 z_index = 5
 collision_layer = 0
 script = ExtResource( 1 )
@@ -92,7 +92,7 @@ order_size = 48
 position = Vector2( 0, 18.5 )
 shape = SubResource( 63 )
 
-[node name="animatedSprite" type="AnimatedSprite" parent="."]
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
 material = ExtResource( 13 )
 z_index = 1
 frames = ExtResource( 6 )
@@ -111,7 +111,7 @@ input_pickable = false
 position = Vector2( 1, 14.375 )
 shape = SubResource( 48 )
 
-[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 visible = false
 position = Vector2( -6.5, 3.5 )
 scale = Vector2( 4.35, 4.25 )
@@ -177,7 +177,7 @@ attenuation = 1.93187
 bus = "SFX"
 script = ExtResource( 30 )
 
-[node name="leaves" type="Particles2D" parent="OpticTeleport"]
+[node name="leaves" type="GPUParticles2D" parent="OpticTeleport"]
 material = ExtResource( 32 )
 position = Vector2( 0, 12 )
 z_index = 1
@@ -219,17 +219,17 @@ max_flash_time = 0.35
 weakenesses = [ "BlastLaunch" ]
 
 [node name="audioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Damage"]
-pause_mode = 2
+process_mode = 3
 stream = ExtResource( 14 )
 volume_db = -3.0
 max_distance = 600.0
 bus = "SFX"
 
 [node name="dps" type="RichTextLabel" parent="Damage"]
-margin_left = -18.0
-margin_top = -69.0
-margin_right = 59.0
-margin_bottom = -52.0
+offset_left = -18.0
+offset_top = -69.0
+offset_right = 59.0
+offset_bottom = -52.0
 text = "0.0"
 script = ExtResource( 9 )
 

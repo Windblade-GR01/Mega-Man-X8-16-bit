@@ -1,8 +1,8 @@
 extends Node2D
-onready var anim: AnimatedSprite = $animatedSprite
-onready var collision: CollisionShape2D = $collision/collisionShape2D
-onready var remains_particles: Particles2D = $remains_particles
-onready var icebreak: AudioStreamPlayer2D = $icebreak
+@onready var anim: AnimatedSprite2D = $animatedSprite
+@onready var collision: CollisionShape2D = $collision/collisionShape2D
+@onready var remains_particles: GPUParticles2D = $remains_particles
+@onready var icebreak: AudioStreamPlayer2D = $icebreak
 
 func _ready() -> void:
 	anim.playing = true

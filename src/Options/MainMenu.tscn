@@ -1,26 +1,26 @@
 [gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://src/Fonts/Xclassicfont.fnt" type="BitmapFont" id=1]
-[ext_resource path="res://src/Fonts/X8Bossfont.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://src/Fonts/Xclassicfont.fnt" type="FontFile" id=1]
+[ext_resource path="res://src/Fonts/X8Bossfont.fnt" type="FontFile" id=2]
 [ext_resource path="res://src/Options/KeyConfig.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Options/Options.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Options/CoverScreen.gd" type="Script" id=5]
-[ext_resource path="res://src/Title/title_x8_06.png" type="Texture" id=6]
+[ext_resource path="res://src/Title/title_x8_06.png" type="Texture2D" id=6]
 [ext_resource path="res://src/Options/MainMenu.gd" type="Script" id=7]
 [ext_resource path="res://src/Options/GameStartButton.gd" type="Script" id=8]
 [ext_resource path="res://src/Options/AutonomousMenuButton.gd" type="Script" id=9]
 [ext_resource path="res://src/Sounds/CHARGED_SHOT.wav" type="AudioStream" id=10]
 [ext_resource path="res://src/Sounds/FX - Menu Switch.ogg" type="AudioStream" id=11]
-[ext_resource path="res://src/Title/title_megaman.png" type="Texture" id=12]
-[ext_resource path="res://src/Title/title_bg.png" type="Texture" id=13]
-[ext_resource path="res://src/Fonts/x8_bitmapfont.tres" type="BitmapFont" id=14]
+[ext_resource path="res://src/Title/title_megaman.png" type="Texture2D" id=12]
+[ext_resource path="res://src/Title/title_bg.png" type="Texture2D" id=13]
+[ext_resource path="res://src/Fonts/x8_bitmapfont.tres" type="FontFile" id=14]
 [ext_resource path="res://src/Actors/Player/x_sprites/x.res" type="SpriteFrames" id=15]
 [ext_resource path="res://src/Options/LilMegamanOnScreen.gd" type="Script" id=16]
 [ext_resource path="res://src/Actors/Weapons/Projectiles/medium_shot.res" type="SpriteFrames" id=17]
-[ext_resource path="res://src/Actors/Player/x_sprites/x_crystal_pallette.png" type="Texture" id=18]
+[ext_resource path="res://src/Actors/Player/x_sprites/x_crystal_pallette.png" type="Texture2D" id=18]
 [ext_resource path="res://addons/PaletteSwap/PaletteSwap.gdshader" type="Shader" id=19]
 
-[sub_resource type="ShortCut" id=1]
+[sub_resource type="Shortcut" id=1]
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 19 )
@@ -30,7 +30,7 @@ shader_param/fps = 6.0
 shader_param/palette = ExtResource( 18 )
 
 [node name="MainMenu" type="CanvasLayer"]
-pause_mode = 2
+process_mode = 3
 layer = 2
 script = ExtResource( 7 )
 menu_path = NodePath("Menu")
@@ -43,23 +43,23 @@ anchor_bottom = 1.0
 [node name="bg" type="TextureRect" parent="Menu"]
 visible = false
 modulate = Color( 0, 0, 0, 1 )
-margin_top = 2.0
-margin_right = 398.0
-margin_bottom = 226.0
+offset_top = 2.0
+offset_right = 398.0
+offset_bottom = 226.0
 texture = ExtResource( 13 )
 
 [node name="MegaMan" type="TextureRect" parent="Menu"]
-margin_left = 83.0
-margin_top = 12.0
-margin_right = 236.0
-margin_bottom = 107.0
+offset_left = 83.0
+offset_top = 12.0
+offset_right = 236.0
+offset_bottom = 107.0
 texture = ExtResource( 12 )
 
 [node name="X8" type="TextureRect" parent="Menu"]
-margin_left = 135.0
-margin_top = -34.0
-margin_right = 385.0
-margin_bottom = 146.0
+offset_left = 135.0
+offset_top = -34.0
+offset_right = 385.0
+offset_bottom = 146.0
 texture = ExtResource( 6 )
 
 [node name="Title" type="Control" parent="Menu"]
@@ -68,21 +68,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -30.0
-margin_top = -106.0
-margin_right = 30.0
-margin_bottom = -90.0
-rect_min_size = Vector2( 0, 16 )
+offset_left = -30.0
+offset_top = -106.0
+offset_right = 30.0
+offset_bottom = -90.0
+custom_minimum_size = Vector2( 0, 16 )
 
 [node name="text" type="Label" parent="Menu/Title"]
 modulate = Color( 0.407843, 0.792157, 1, 1 )
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -42.0
-margin_right = 40.0
-margin_bottom = 14.0
-custom_colors/font_color_shadow = Color( 0.372549, 0.372549, 0.372549, 1 )
-custom_fonts/font = ExtResource( 2 )
+offset_left = -42.0
+offset_right = 40.0
+offset_bottom = 14.0
+theme_override_colors/font_shadow_color = Color( 0.372549, 0.372549, 0.372549, 1 )
+theme_override_fonts/font = ExtResource( 2 )
 text = "stage select"
 align = 1
 uppercase = true
@@ -93,12 +93,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -51.0
-margin_top = -7.0
-margin_right = 48.0
-margin_bottom = 7.0
-custom_colors/font_color_shadow = Color( 0.372549, 0.372549, 0.372549, 1 )
-custom_fonts/font = ExtResource( 2 )
+offset_left = -51.0
+offset_top = -7.0
+offset_right = 48.0
+offset_bottom = 7.0
+theme_override_colors/font_shadow_color = Color( 0.372549, 0.372549, 0.372549, 1 )
+theme_override_fonts/font = ExtResource( 2 )
 text = "-                 -"
 align = 1
 uppercase = true
@@ -108,19 +108,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -43.0
-margin_top = 35.0
-margin_right = 157.0
-margin_bottom = 89.0
+offset_left = -43.0
+offset_top = 35.0
+offset_right = 157.0
+offset_bottom = 89.0
 grow_horizontal = 2
-custom_constants/separation = 3
+theme_override_constants/separation = 3
 
 [node name="GameStart" type="TextureButton" parent="Menu/OptionHolder"]
 modulate = Color( 0.407843, 0.792157, 1, 1 )
 self_modulate = Color( 1, 1, 1, 0 )
-margin_right = 200.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 200, 16 )
+offset_right = 200.0
+offset_bottom = 16.0
+custom_minimum_size = Vector2( 200, 16 )
 action_mode = 0
 script = ExtResource( 8 )
 idle_color = Color( 0.407843, 0.792157, 1, 1 )
@@ -131,22 +131,22 @@ pick_sound = NodePath("../../../pick")
 [node name="text" type="Label" parent="Menu/OptionHolder/GameStart"]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -7.0
-margin_right = 189.0
-margin_bottom = 7.0
-custom_colors/font_color_shadow = Color( 0.415686, 0.415686, 0.415686, 1 )
-custom_constants/shadow_offset_x = 1
-custom_constants/shadow_offset_y = 1
-custom_fonts/font = ExtResource( 1 )
+offset_top = -7.0
+offset_right = 189.0
+offset_bottom = 7.0
+theme_override_colors/font_shadow_color = Color( 0.415686, 0.415686, 0.415686, 1 )
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource( 1 )
 text = "GAME_START"
 uppercase = true
 
 [node name="Options" type="TextureButton" parent="Menu/OptionHolder"]
 modulate = Color( 0.407843, 0.792157, 1, 1 )
-margin_top = 19.0
-margin_right = 200.0
-margin_bottom = 35.0
-rect_min_size = Vector2( 18, 16 )
+offset_top = 19.0
+offset_right = 200.0
+offset_bottom = 35.0
+custom_minimum_size = Vector2( 18, 16 )
 action_mode = 0
 shortcut = SubResource( 1 )
 script = ExtResource( 9 )
@@ -163,23 +163,23 @@ visible = false
 [node name="text" type="Label" parent="Menu/OptionHolder/Options"]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -7.0
-margin_right = 82.0
-margin_bottom = 7.0
-rect_min_size = Vector2( 64, 14 )
-custom_colors/font_color_shadow = Color( 0.415686, 0.415686, 0.415686, 1 )
-custom_constants/shadow_offset_x = 1
-custom_constants/shadow_offset_y = 1
-custom_fonts/font = ExtResource( 1 )
+offset_top = -7.0
+offset_right = 82.0
+offset_bottom = 7.0
+custom_minimum_size = Vector2( 64, 14 )
+theme_override_colors/font_shadow_color = Color( 0.415686, 0.415686, 0.415686, 1 )
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource( 1 )
 text = "OPTIONS_START"
 uppercase = true
 
 [node name="Keycfg" type="TextureButton" parent="Menu/OptionHolder"]
 modulate = Color( 0.407843, 0.792157, 1, 1 )
-margin_top = 38.0
-margin_right = 200.0
-margin_bottom = 54.0
-rect_min_size = Vector2( 18, 16 )
+offset_top = 38.0
+offset_right = 200.0
+offset_bottom = 54.0
+custom_minimum_size = Vector2( 18, 16 )
 action_mode = 0
 shortcut = SubResource( 1 )
 script = ExtResource( 9 )
@@ -195,62 +195,62 @@ visible = false
 [node name="text" type="Label" parent="Menu/OptionHolder/Keycfg"]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -7.0
-margin_right = 64.0
-margin_bottom = 7.0
-rect_min_size = Vector2( 64, 14 )
-custom_colors/font_color_shadow = Color( 0.415686, 0.415686, 0.415686, 1 )
-custom_constants/shadow_offset_x = 1
-custom_constants/shadow_offset_y = 1
-custom_fonts/font = ExtResource( 1 )
+offset_top = -7.0
+offset_right = 64.0
+offset_bottom = 7.0
+custom_minimum_size = Vector2( 64, 14 )
+theme_override_colors/font_shadow_color = Color( 0.415686, 0.415686, 0.415686, 1 )
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource( 1 )
 text = "KEYCFG_START"
 uppercase = true
 
 [node name="demo_02" type="Label" parent="Menu"]
 modulate = Color( 1, 1, 1, 0.360784 )
-margin_left = 289.0
-margin_top = 222.0
-margin_right = 394.0
-margin_bottom = 249.0
-custom_colors/font_color = Color( 0.639216, 0.713726, 0.898039, 1 )
-custom_colors/font_color_shadow = Color( 0.270588, 0.270588, 0.270588, 1 )
-custom_fonts/font = ExtResource( 14 )
+offset_left = 289.0
+offset_top = 222.0
+offset_right = 394.0
+offset_bottom = 249.0
+theme_override_colors/font_color = Color( 0.639216, 0.713726, 0.898039, 1 )
+theme_override_colors/font_shadow_color = Color( 0.270588, 0.270588, 0.270588, 1 )
+theme_override_fonts/font = ExtResource( 14 )
 text = "Demo 02 V.0.3.0.2"
 align = 1
 
 [node name="shad" type="Label" parent="Menu"]
 visible = false
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 178.0
-margin_top = 121.0
-margin_right = 234.0
-margin_bottom = 148.0
-custom_colors/font_color = Color( 0.639216, 0.713726, 0.898039, 1 )
-custom_colors/font_color_shadow = Color( 0.270588, 0.270588, 0.270588, 1 )
-custom_fonts/font = ExtResource( 14 )
+offset_left = 178.0
+offset_top = 121.0
+offset_right = 234.0
+offset_bottom = 148.0
+theme_override_colors/font_color = Color( 0.639216, 0.713726, 0.898039, 1 )
+theme_override_colors/font_shadow_color = Color( 0.270588, 0.270588, 0.270588, 1 )
+theme_override_fonts/font = ExtResource( 14 )
 text = "16-bit"
 align = 1
 
 [node name="demo_03" type="Label" parent="Menu"]
 visible = false
-margin_left = 176.0
-margin_top = 119.0
-margin_right = 232.0
-margin_bottom = 146.0
-custom_colors/font_color = Color( 0.639216, 0.713726, 0.898039, 1 )
-custom_colors/font_color_shadow = Color( 0.270588, 0.270588, 0.270588, 1 )
-custom_fonts/font = ExtResource( 14 )
+offset_left = 176.0
+offset_top = 119.0
+offset_right = 232.0
+offset_bottom = 146.0
+theme_override_colors/font_color = Color( 0.639216, 0.713726, 0.898039, 1 )
+theme_override_colors/font_shadow_color = Color( 0.270588, 0.270588, 0.270588, 1 )
+theme_override_fonts/font = ExtResource( 14 )
 text = "16-bit"
 align = 1
 
-[node name="MegamanCursor" type="AnimatedSprite" parent="."]
+[node name="MegamanCursor" type="AnimatedSprite2D" parent="."]
 material = SubResource( 2 )
 position = Vector2( 110, 154 )
 frames = ExtResource( 15 )
 animation = "idle"
 script = ExtResource( 16 )
 
-[node name="shot" type="AnimatedSprite" parent="MegamanCursor"]
+[node name="shot" type="AnimatedSprite2D" parent="MegamanCursor"]
 visible = false
 position = Vector2( 13, 2 )
 z_index = -1
@@ -272,8 +272,8 @@ bus = "SFX"
 
 [node name="Fader" type="ColorRect" parent="."]
 visible = false
-margin_right = 398.0
-margin_bottom = 224.0
+offset_right = 398.0
+offset_bottom = 224.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 script = ExtResource( 5 )

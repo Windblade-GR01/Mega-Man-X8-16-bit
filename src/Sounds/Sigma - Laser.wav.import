@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Sigma - Laser.wav-67daf6308ac1efd43793f8e49df416c5.sample"
+type="AudioStreamWAV"
+uid="uid://chqv7xke51vu0"
+path="res://.godot/imported/Sigma - Laser.wav-67daf6308ac1efd43793f8e49df416c5.sample"
 
 [deps]
 
 source_file="res://src/Sounds/Sigma - Laser.wav"
-dest_files=[ "res://.import/Sigma - Laser.wav-67daf6308ac1efd43793f8e49df416c5.sample" ]
+dest_files=["res://.godot/imported/Sigma - Laser.wav-67daf6308ac1efd43793f8e49df416c5.sample"]
 
 [params]
 

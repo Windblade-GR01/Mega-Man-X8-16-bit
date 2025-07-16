@@ -1,10 +1,10 @@
 extends GenericProjectile
 var speed := 170.0
-export var tracker_update_interval := 0.02
-export var transform_time := 1.5
+@export var tracker_update_interval := 0.02
+@export var transform_time := 1.5
 var last_dir := Vector2(0,0)
 var emitted := false
-onready var hitparticle: Sprite = $"Hit Particle"
+@onready var hitparticle: Sprite2D = $"Hit Particle"
 
  
 signal guard_break 

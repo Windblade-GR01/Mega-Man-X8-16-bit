@@ -1,11 +1,11 @@
 extends NewAbility
 
-export var crash : PackedScene
-onready var animation := AnimationController.new($animatedSprite, self)
-onready var stage := AbilityStage.new(self)
+@export var crash : PackedScene
+@onready var animation := AnimationController.new($animatedSprite, self)
+@onready var stage := AbilityStage.new(self)
 signal projectile_started
 signal projectile_end(shot)
-onready var flash: AnimatedSprite = $flash
+@onready var flash: AnimatedSprite2D = $flash
 
 func _ready() -> void:
 	execute()
@@ -60,12 +60,12 @@ func on_death() -> void:
 	visible = false
 	
 func set_pause_mode_to_stop(_boss_name := null) -> void:
-	pause_mode = Node.PAUSE_MODE_STOP
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 func set_pause_mode_to_proccess(_boss_name := null) -> void:
-	pause_mode = Node.PAUSE_MODE_PROCESS
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func instantiate() -> void:
-	var c = crash.instance()
+	var c = crash.instantiate()
 	add_child(c, true)
 	c.global_position = GameManager.camera.global_position
 	c.initialize(1)

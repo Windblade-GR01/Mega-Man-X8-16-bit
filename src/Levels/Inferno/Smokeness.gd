@@ -1,6 +1,6 @@
 extends "res://src/Levels/PitchBlack/Darkness.gd"
 
-onready var smoke: Particles2D = $"../camera2D/parallaxBackground/parallaxLayer4/particles2D"
+@onready var smoke: GPUParticles2D = $"../camera2D/parallaxBackground/parallaxLayer4/particles2D"
 
 
 func _on_playerDetector_body_entered(_body: Node) -> void:

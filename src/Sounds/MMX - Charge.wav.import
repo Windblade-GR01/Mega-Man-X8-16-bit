@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/MMX - Charge.wav-1cbbe3a0aba983b2cc00826a5a399fc4.sample"
+type="AudioStreamWAV"
+uid="uid://cwb0v77c0vqlw"
+path="res://.godot/imported/MMX - Charge.wav-1cbbe3a0aba983b2cc00826a5a399fc4.sample"
 
 [deps]
 
 source_file="res://src/Sounds/MMX - Charge.wav"
-dest_files=[ "res://.import/MMX - Charge.wav-1cbbe3a0aba983b2cc00826a5a399fc4.sample" ]
+dest_files=["res://.godot/imported/MMX - Charge.wav-1cbbe3a0aba983b2cc00826a5a399fc4.sample"]
 
 [params]
 

@@ -1,6 +1,6 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
-onready var collider: CollisionShape2D = $collisionShape2D
+@onready var collider: CollisionShape2D = $collisionShape2D
 
 var player_inside_platform := false
 var player_in_surfzone := false

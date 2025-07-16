@@ -1,8 +1,8 @@
 extends Node2D
 
-export var direction := -1
-export var factor := 7.0
-onready var parallax_object = $sprite
+@export var direction := -1
+@export var factor := 7.0
+@onready var parallax_object = $sprite
 
 func _physics_process(_delta: float) -> void:
 	var new_x = get_x_relative_to_camera_center()

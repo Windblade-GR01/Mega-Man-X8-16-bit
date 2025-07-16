@@ -1,7 +1,7 @@
-extends Reference
+extends RefCounted
 class_name AnimationController
 
-var animatedSprite : AnimatedSprite
+var animatedSprite : AnimatedSprite2D
 var finished_animation : String
 var current_animation : String
 
@@ -9,9 +9,9 @@ signal animation_finished
 
 func _init(_animatedSprite, ability = false) -> void:
 	animatedSprite = _animatedSprite
-	animatedSprite.connect("animation_finished",self,"on_finished_animation") # warning-ignore:return_value_discarded
+	animatedSprite.connect("animation_finished", Callable(self, "on_finished_animation")) # warning-ignore:return_value_discarded
 	if ability:
-		ability.connect("stop",self,"reset") # warning-ignore:return_value_discarded
+		ability.connect("stop", Callable(self, "reset")) # warning-ignore:return_value_discarded
 
 func reset(_d = null) -> void:
 	finished_animation = ""
@@ -22,7 +22,7 @@ func on_finished_animation():
 	emit_signal("animation_finished")
 
 func on_finish(method, object) -> void:
-	connect("animation_finished",object,method) # warning-ignore:return_value_discarded
+	connect("animation_finished", Callable(object, method)) # warning-ignore:return_value_discarded
 
 func has_finished_last() -> bool:
 	return has_finished(current_animation)

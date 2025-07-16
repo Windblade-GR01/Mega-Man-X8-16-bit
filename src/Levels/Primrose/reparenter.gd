@@ -1,5 +1,5 @@
 extends Area2D
-export var active := true
+@export var active := true
 var done := false
 var box_list : Array
 var rotator_list : Array

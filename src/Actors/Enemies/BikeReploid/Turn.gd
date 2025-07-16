@@ -3,11 +3,11 @@ extends AttackAbility
 const original_velocity := 120.0
 const duration := 0.75
 
-var tween : SceneTreeTween
+var tween : Tween
 
 func _Setup() -> void:
 	tween = create_tween()
-	tween.tween_method(self,"force_movement",get_actual_speed(),0.0,duration) # warning-ignore:return_value_discarded 
+	tween.tween_method(Callable(self, "force_movement"), get_actual_speed(), 0.0, duration) # warning-ignore:return_value_discarded 
 
 func _Update(_delta) -> void:
 	process_gravity(_delta)
@@ -15,7 +15,7 @@ func _Update(_delta) -> void:
 		turn()
 		play_animation("turn")
 		tween = create_tween()
-		tween.tween_method(self,"force_movement",0.0,original_velocity,duration) # warning-ignore:return_value_discarded 
+		tween.tween_method(Callable(self, "force_movement"), 0.0, original_velocity, duration) # warning-ignore:return_value_discarded 
 		next_attack_stage()
 
 	elif attack_stage == 1 and timer > duration:

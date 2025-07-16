@@ -1,22 +1,22 @@
 extends NewAbility
 
-export var projectile : PackedScene
+@export var projectile : PackedScene
 
 const move := -12.0
 
-onready var shot_position: Node2D = $shot_position
+@onready var shot_position: Node2D = $shot_position
 
-onready var physics = Physics.new(get_parent())
-onready var tween = TweenController.new(self)
+@onready var physics = Physics.new(get_parent())
+@onready var tween = TweenController.new(self)
 
-onready var near_arm: AnimatedSprite = $"../animatedSprite/near_arm"
-onready var torso: AnimatedSprite = $"../animatedSprite/torso"
-onready var back: AnimatedSprite = $"../animatedSprite/back"
-onready var far_arm: AnimatedSprite = $"../animatedSprite/far_arm"
-onready var cannon: AnimatedSprite = $"../animatedSprite/cannon"
-onready var pieces = [torso,far_arm,back,cannon,near_arm]
-onready var shot: AudioStreamPlayer2D = $shot
-onready var fire: Sprite = $fire
+@onready var near_arm: AnimatedSprite2D = $"../animatedSprite/near_arm"
+@onready var torso: AnimatedSprite2D = $"../animatedSprite/torso"
+@onready var back: AnimatedSprite2D = $"../animatedSprite/back"
+@onready var far_arm: AnimatedSprite2D = $"../animatedSprite/far_arm"
+@onready var cannon: AnimatedSprite2D = $"../animatedSprite/cannon"
+@onready var pieces = [torso,far_arm,back,cannon,near_arm]
+@onready var shot: AudioStreamPlayer2D = $shot
+@onready var fire: Sprite2D = $fire
 
 func _Setup() -> void:
 	shot.play_rp()
@@ -50,7 +50,7 @@ func shot() -> void:
 	instantiate(projectile)
 
 func instantiate(scene : PackedScene) -> Node2D:
-	var instance = scene.instance()
+	var instance = scene.instantiate()
 	get_tree().current_scene.add_child(instance,true)
 	instance.set_global_position(shot_position.global_position) 
 	instance.set_creator(character)

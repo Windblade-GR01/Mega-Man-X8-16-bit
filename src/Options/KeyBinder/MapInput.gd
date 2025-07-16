@@ -6,14 +6,14 @@ var timer := 0.0
 var old_text := ""
 signal waiting
 signal updated_event
-onready var text: Label = $text
-onready var actionname: Label = $"../actionname"
+@onready var text: Label = $text
+@onready var actionname: Label = $"../actionname"
 
 var doubled_input
 
 func _ready() -> void:
-	InputManager.connect("double_check",self,"check_for_doubles")
-	InputManager.connect("double_detected",self,"double_warning")
+	InputManager.connect("double_check", Callable(self, "check_for_doubles"))
+	InputManager.connect("double_detected", Callable(self, "double_warning"))
 
 func check_for_doubles(new_button_text,_action):
 	pass
@@ -69,7 +69,7 @@ func set_new_action_event(event) -> void:
 
 func on_press() -> void:
 	if timer == 0:
-		.on_press()
+		super.on_press()
 		#action = $"..".action
 		old_text = get_text()
 		set_text("...")

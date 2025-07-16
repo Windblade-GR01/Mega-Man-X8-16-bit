@@ -7,7 +7,7 @@ func _ready() -> void:
 	Event.listen("input_dash", self, "on_dash_press")
 
 func _Setup() -> void:
-	._Setup()
+	super._Setup()
 	overridden = false
 	Event.emit_signal("dash")
 	character.dashjump_signal()
@@ -38,7 +38,7 @@ func move_away_from_wall(_delta: float):
 	character.set_horizontal_speed(horizontal_velocity * -character.get_facing_direction())
 
 func on_touch_floor() -> void:
-	.on_touch_floor()
+	super.on_touch_floor()
 	character.set_horizontal_speed(90 * character.get_pressed_axis())
 
 func execute_dashwalljump_on_input() -> bool:
@@ -52,11 +52,11 @@ func start_right_away() -> void:
 
 func play_sound_on_initialize() -> void:
 	if override_timer == 0:
-		.play_sound_on_initialize()
+		super.play_sound_on_initialize()
 
 func play_animation_on_initialize() -> void:
 	if override_timer == 0:
-		.play_animation_on_initialize()
+		super.play_animation_on_initialize()
 
 func _ResetCondition() -> bool:
 	if character.is_in_reach_for_walljump() and timer > 0.032:

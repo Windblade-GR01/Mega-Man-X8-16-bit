@@ -1,5 +1,5 @@
 extends NewAbility
-onready var skill := $".."
+@onready var skill := $".."
 var able_to_jump = true
 signal started
 signal cooldown_finished
@@ -35,6 +35,6 @@ func able_to_walk_again() -> void:
 
 func _StartCondition() -> bool:
 	if able_to_jump:
-		return ._StartCondition()
+		return super._StartCondition()
 	else:
 		return false

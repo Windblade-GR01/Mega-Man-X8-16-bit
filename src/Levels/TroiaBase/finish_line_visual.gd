@@ -1,9 +1,9 @@
-extends AnimatedSprite
+extends AnimatedSprite2D
 
 var activated := false
 
 func _ready() -> void:
-	get_parent().connect("body_entered",self,"_on_finish_line_body_entered")
+	get_parent().connect("body_entered", Callable(self, "_on_finish_line_body_entered"))
 
 func _on_finish_line_body_entered(body: Node) -> void:
 	if not activated:

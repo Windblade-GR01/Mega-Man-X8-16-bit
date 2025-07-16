@@ -1,16 +1,16 @@
 extends AttackAbility
 
 
-export var speed := 50.0
+@export var speed := 50.0
 var executed_once := false
 var reached_ceilling := false
 var collision_point : Vector2
-onready var screw_texture: Line2D = $"../ScrewTexture"
-onready var bottom_sprite: AnimatedSprite = $"../bottomSprite"
-onready var bottom_ray: RayCast2D = $"../bottomSprite/rayCast2D"
-onready var ceil_ray: RayCast2D = $ceilcast
-onready var damage_area: Area2D = $"../area2D"
-onready var wall_area: StaticBody2D = $"../WallArea"
+@onready var screw_texture: Line2D = $"../ScrewTexture"
+@onready var bottom_sprite: AnimatedSprite2D = $"../bottomSprite"
+@onready var bottom_ray: RayCast2D = $"../bottomSprite/rayCast2D"
+@onready var ceil_ray: RayCast2D = $ceilcast
+@onready var damage_area: Area2D = $"../area2D"
+@onready var wall_area: StaticBody2D = $"../WallArea"
 
 func _StartCondition() -> bool:
 	return not executed_once

@@ -2,7 +2,7 @@ extends Node2D
 
 const distance:= 28
 const interval:= 0.1
-export var damaging_explosion : PackedScene
+@export var damaging_explosion : PackedScene
 
 func _ready() -> void:
 	call_deferred("create_central_explosion")
@@ -27,6 +27,6 @@ func create_outer_explosion()-> void:
 	instantiate(global_position + Vector2(0,-d))
 
 func instantiate(instance_position := global_position):
-	var instance = damaging_explosion.instance()
+	var instance = damaging_explosion.instantiate()
 	get_tree().current_scene.add_child(instance,true)
 	instance.set_global_position(instance_position)

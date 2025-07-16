@@ -24,7 +24,7 @@ _data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
 [sub_resource type="CurveTexture" id=35]
 curve = SubResource( 52 )
 
-[sub_resource type="ParticlesMaterial" id=53]
+[sub_resource type="ParticleProcessMaterial" id=53]
 emission_shape = 1
 emission_sphere_radius = 0.01
 flag_disable_z = true
@@ -39,7 +39,7 @@ damping = 1.63
 anim_speed = 1.0
 anim_speed_curve = SubResource( 35 )
 
-[sub_resource type="ParticlesMaterial" id=54]
+[sub_resource type="ParticleProcessMaterial" id=54]
 emission_shape = 2
 emission_box_extents = Vector3( 3, 1, 1 )
 flag_disable_z = true
@@ -57,7 +57,7 @@ particles_anim_h_frames = 3
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="ParticlesMaterial" id=56]
+[sub_resource type="ParticleProcessMaterial" id=56]
 emission_shape = 2
 emission_box_extents = Vector3( -2, 3, 1 )
 flag_disable_z = true
@@ -74,7 +74,7 @@ particles_anim_h_frames = 4
 particles_anim_v_frames = 4
 particles_anim_loop = false
 
-[sub_resource type="ParticlesMaterial" id=58]
+[sub_resource type="ParticleProcessMaterial" id=58]
 lifetime_randomness = 0.14
 flag_disable_z = true
 spread = 0.0
@@ -84,7 +84,7 @@ orbit_velocity_random = 0.0
 color = Color( 0.470588, 0.847059, 0.941176, 1 )
 anim_speed = 1.0
 
-[sub_resource type="ParticlesMaterial" id=59]
+[sub_resource type="ParticleProcessMaterial" id=59]
 lifetime_randomness = 0.14
 flag_disable_z = true
 spread = 0.0
@@ -94,7 +94,7 @@ orbit_velocity_random = 0.0
 color = Color( 1, 0.94902, 0.529412, 1 )
 anim_speed = 1.0
 
-[sub_resource type="ParticlesMaterial" id=60]
+[sub_resource type="ParticleProcessMaterial" id=60]
 lifetime_randomness = 0.14
 flag_disable_z = true
 spread = 0.0
@@ -109,7 +109,7 @@ particles_anim_h_frames = 3
 particles_anim_v_frames = 2
 particles_anim_loop = true
 
-[sub_resource type="ParticlesMaterial" id=22]
+[sub_resource type="ParticleProcessMaterial" id=22]
 flag_disable_z = true
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
@@ -118,7 +118,7 @@ orbit_velocity = -0.55
 orbit_velocity_random = 0.0
 anim_speed = 6.0
 
-[sub_resource type="ParticlesMaterial" id=23]
+[sub_resource type="ParticleProcessMaterial" id=23]
 flag_disable_z = true
 direction = Vector3( 1, 1, 0 )
 spread = 0.0
@@ -128,7 +128,7 @@ orbit_velocity = -0.55
 orbit_velocity_random = 0.0
 anim_speed = 6.0
 
-[sub_resource type="ParticlesMaterial" id=24]
+[sub_resource type="ParticleProcessMaterial" id=24]
 flag_disable_z = true
 direction = Vector3( 0, 1, 0 )
 spread = 0.0
@@ -138,7 +138,7 @@ orbit_velocity = -0.55
 orbit_velocity_random = 0.0
 anim_speed = 6.0
 
-[sub_resource type="ParticlesMaterial" id=25]
+[sub_resource type="ParticleProcessMaterial" id=25]
 flag_disable_z = true
 direction = Vector3( -1, 1, 0 )
 spread = 0.0
@@ -148,7 +148,7 @@ orbit_velocity = -0.55
 orbit_velocity_random = 0.0
 anim_speed = 6.0
 
-[sub_resource type="ParticlesMaterial" id=26]
+[sub_resource type="ParticleProcessMaterial" id=26]
 flag_disable_z = true
 direction = Vector3( -1, 0, 0 )
 spread = 0.0
@@ -158,7 +158,7 @@ orbit_velocity = -0.55
 orbit_velocity_random = 0.0
 anim_speed = 6.0
 
-[sub_resource type="ParticlesMaterial" id=27]
+[sub_resource type="ParticleProcessMaterial" id=27]
 flag_disable_z = true
 direction = Vector3( -1, -1, 0 )
 spread = 0.0
@@ -168,7 +168,7 @@ orbit_velocity = -0.55
 orbit_velocity_random = 0.0
 anim_speed = 6.0
 
-[sub_resource type="ParticlesMaterial" id=28]
+[sub_resource type="ParticleProcessMaterial" id=28]
 flag_disable_z = true
 direction = Vector3( 1, -1, 0 )
 spread = 0.0
@@ -178,7 +178,7 @@ orbit_velocity = -0.55
 orbit_velocity_random = 0.0
 anim_speed = 6.0
 
-[sub_resource type="ParticlesMaterial" id=29]
+[sub_resource type="ParticleProcessMaterial" id=29]
 flag_disable_z = true
 direction = Vector3( 0, -1, 0 )
 spread = 0.0
@@ -195,13 +195,13 @@ particles_anim_v_frames = 2
 particles_anim_loop = false
 
 [sub_resource type="Gradient" id=65]
-offsets = PoolRealArray( 0.469828, 1 )
-colors = PoolColorArray( 0.621094, 0.71582, 1, 1, 0.212891, 0, 1, 0 )
+offsets = PackedFloat32Array( 0.469828, 1 )
+colors = PackedColorArray( 0.621094, 0.71582, 1, 1, 0.212891, 0, 1, 0 )
 
-[sub_resource type="GradientTexture" id=36]
+[sub_resource type="GradientTexture2D" id=36]
 gradient = SubResource( 65 )
 
-[sub_resource type="ParticlesMaterial" id=66]
+[sub_resource type="ParticleProcessMaterial" id=66]
 lifetime_randomness = 0.33
 emission_shape = 2
 emission_box_extents = Vector3( 0, 8, 0 )
@@ -242,7 +242,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=76]
 curve = SubResource( 71 )
 
-[sub_resource type="ParticlesMaterial" id=334]
+[sub_resource type="ParticleProcessMaterial" id=334]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -267,7 +267,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=77]
 curve = SubResource( 73 )
 
-[sub_resource type="ParticlesMaterial" id=335]
+[sub_resource type="ParticleProcessMaterial" id=335]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -286,10 +286,10 @@ particles_anim_h_frames = 6
 particles_anim_v_frames = 3
 particles_anim_loop = false
 
-[sub_resource type="GradientTexture" id=78]
+[sub_resource type="GradientTexture2D" id=78]
 gradient = ExtResource( 9 )
 
-[sub_resource type="ParticlesMaterial" id=75]
+[sub_resource type="ParticleProcessMaterial" id=75]
 emission_shape = 1
 emission_sphere_radius = 18.34
 flag_disable_z = true
@@ -303,7 +303,7 @@ color_ramp = SubResource( 78 )
 anim_offset = 1.0
 anim_offset_random = 1.0
 
-[sub_resource type="ParticlesMaterial" id=336]
+[sub_resource type="ParticleProcessMaterial" id=336]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -315,7 +315,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 76 )
 
-[sub_resource type="ParticlesMaterial" id=337]
+[sub_resource type="ParticleProcessMaterial" id=337]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -327,7 +327,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 77 )
 
-[sub_resource type="ParticlesMaterial" id=338]
+[sub_resource type="ParticleProcessMaterial" id=338]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -339,7 +339,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 76 )
 
-[sub_resource type="ParticlesMaterial" id=339]
+[sub_resource type="ParticleProcessMaterial" id=339]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -364,7 +364,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=552]
 curve = SubResource( 576 )
 
-[sub_resource type="ParticlesMaterial" id=340]
+[sub_resource type="ParticleProcessMaterial" id=340]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -391,7 +391,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=554]
 curve = SubResource( 578 )
 
-[sub_resource type="ParticlesMaterial" id=342]
+[sub_resource type="ParticleProcessMaterial" id=342]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -409,7 +409,7 @@ particles_anim_h_frames = 3
 particles_anim_v_frames = 2
 particles_anim_loop = false
 
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticleProcessMaterial" id=6]
 lifetime_randomness = 0.33
 emission_shape = 2
 emission_box_extents = Vector3( 8, 1, 0 )
@@ -436,7 +436,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=239]
 curve = SubResource( 238 )
 
-[sub_resource type="ParticlesMaterial" id=344]
+[sub_resource type="ParticleProcessMaterial" id=344]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -463,7 +463,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=243]
 curve = SubResource( 242 )
 
-[sub_resource type="ParticlesMaterial" id=345]
+[sub_resource type="ParticleProcessMaterial" id=345]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -475,7 +475,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=346]
+[sub_resource type="ParticleProcessMaterial" id=346]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -489,7 +489,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 552 )
 
-[sub_resource type="ParticlesMaterial" id=347]
+[sub_resource type="ParticleProcessMaterial" id=347]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -501,7 +501,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 554 )
 
-[sub_resource type="ParticlesMaterial" id=348]
+[sub_resource type="ParticleProcessMaterial" id=348]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -515,7 +515,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=349]
+[sub_resource type="ParticleProcessMaterial" id=349]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -527,7 +527,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=350]
+[sub_resource type="ParticleProcessMaterial" id=350]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -541,7 +541,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 552 )
 
-[sub_resource type="ParticlesMaterial" id=351]
+[sub_resource type="ParticleProcessMaterial" id=351]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -553,7 +553,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 554 )
 
-[sub_resource type="ParticlesMaterial" id=352]
+[sub_resource type="ParticleProcessMaterial" id=352]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -567,7 +567,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 552 )
 
-[sub_resource type="ParticlesMaterial" id=353]
+[sub_resource type="ParticleProcessMaterial" id=353]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -579,7 +579,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 554 )
 
-[sub_resource type="ParticlesMaterial" id=354]
+[sub_resource type="ParticleProcessMaterial" id=354]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -593,7 +593,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 552 )
 
-[sub_resource type="ParticlesMaterial" id=355]
+[sub_resource type="ParticleProcessMaterial" id=355]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -605,7 +605,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 554 )
 
-[sub_resource type="ParticlesMaterial" id=356]
+[sub_resource type="ParticleProcessMaterial" id=356]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -619,7 +619,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 552 )
 
-[sub_resource type="ParticlesMaterial" id=357]
+[sub_resource type="ParticleProcessMaterial" id=357]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -631,7 +631,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 554 )
 
-[sub_resource type="ParticlesMaterial" id=358]
+[sub_resource type="ParticleProcessMaterial" id=358]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -645,7 +645,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=359]
+[sub_resource type="ParticleProcessMaterial" id=359]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -657,7 +657,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=360]
+[sub_resource type="ParticleProcessMaterial" id=360]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -671,7 +671,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 552 )
 
-[sub_resource type="ParticlesMaterial" id=361]
+[sub_resource type="ParticleProcessMaterial" id=361]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -683,7 +683,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 554 )
 
-[sub_resource type="ParticlesMaterial" id=362]
+[sub_resource type="ParticleProcessMaterial" id=362]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -697,7 +697,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 552 )
 
-[sub_resource type="ParticlesMaterial" id=363]
+[sub_resource type="ParticleProcessMaterial" id=363]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -709,7 +709,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 554 )
 
-[sub_resource type="ParticlesMaterial" id=364]
+[sub_resource type="ParticleProcessMaterial" id=364]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -723,7 +723,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=365]
+[sub_resource type="ParticleProcessMaterial" id=365]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -735,7 +735,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=366]
+[sub_resource type="ParticleProcessMaterial" id=366]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -749,7 +749,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 552 )
 
-[sub_resource type="ParticlesMaterial" id=367]
+[sub_resource type="ParticleProcessMaterial" id=367]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -768,7 +768,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=13]
 curve = SubResource( 368 )
 
-[sub_resource type="ParticlesMaterial" id=369]
+[sub_resource type="ParticleProcessMaterial" id=369]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -787,7 +787,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=371]
 curve = SubResource( 370 )
 
-[sub_resource type="ParticlesMaterial" id=372]
+[sub_resource type="ParticleProcessMaterial" id=372]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -799,10 +799,10 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 371 )
 
-[sub_resource type="GradientTexture" id=45]
+[sub_resource type="GradientTexture2D" id=45]
 gradient = ExtResource( 9 )
 
-[sub_resource type="ParticlesMaterial" id=46]
+[sub_resource type="ParticleProcessMaterial" id=46]
 emission_shape = 1
 emission_sphere_radius = 18.34
 flag_disable_z = true
@@ -816,7 +816,7 @@ color_ramp = SubResource( 45 )
 anim_offset = 1.0
 anim_offset_random = 1.0
 
-[sub_resource type="ParticlesMaterial" id=373]
+[sub_resource type="ParticleProcessMaterial" id=373]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -828,7 +828,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 13 )
 
-[sub_resource type="ParticlesMaterial" id=374]
+[sub_resource type="ParticleProcessMaterial" id=374]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -840,7 +840,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 371 )
 
-[sub_resource type="ParticlesMaterial" id=375]
+[sub_resource type="ParticleProcessMaterial" id=375]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -852,7 +852,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 13 )
 
-[sub_resource type="ParticlesMaterial" id=376]
+[sub_resource type="ParticleProcessMaterial" id=376]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -864,7 +864,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 371 )
 
-[sub_resource type="ParticlesMaterial" id=377]
+[sub_resource type="ParticleProcessMaterial" id=377]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -876,7 +876,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 13 )
 
-[sub_resource type="ParticlesMaterial" id=378]
+[sub_resource type="ParticleProcessMaterial" id=378]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -888,7 +888,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 371 )
 
-[sub_resource type="ParticlesMaterial" id=379]
+[sub_resource type="ParticleProcessMaterial" id=379]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -900,7 +900,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 13 )
 
-[sub_resource type="ParticlesMaterial" id=380]
+[sub_resource type="ParticleProcessMaterial" id=380]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -919,7 +919,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=382]
 curve = SubResource( 381 )
 
-[sub_resource type="ParticlesMaterial" id=383]
+[sub_resource type="ParticleProcessMaterial" id=383]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -938,7 +938,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=385]
 curve = SubResource( 384 )
 
-[sub_resource type="ParticlesMaterial" id=386]
+[sub_resource type="ParticleProcessMaterial" id=386]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -950,10 +950,10 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 385 )
 
-[sub_resource type="GradientTexture" id=387]
+[sub_resource type="GradientTexture2D" id=387]
 gradient = ExtResource( 9 )
 
-[sub_resource type="ParticlesMaterial" id=388]
+[sub_resource type="ParticleProcessMaterial" id=388]
 emission_shape = 1
 emission_sphere_radius = 18.34
 flag_disable_z = true
@@ -967,7 +967,7 @@ color_ramp = SubResource( 387 )
 anim_offset = 1.0
 anim_offset_random = 1.0
 
-[sub_resource type="ParticlesMaterial" id=389]
+[sub_resource type="ParticleProcessMaterial" id=389]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -979,7 +979,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 382 )
 
-[sub_resource type="ParticlesMaterial" id=390]
+[sub_resource type="ParticleProcessMaterial" id=390]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -991,7 +991,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 385 )
 
-[sub_resource type="ParticlesMaterial" id=391]
+[sub_resource type="ParticleProcessMaterial" id=391]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1003,7 +1003,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 382 )
 
-[sub_resource type="ParticlesMaterial" id=392]
+[sub_resource type="ParticleProcessMaterial" id=392]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1015,7 +1015,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 385 )
 
-[sub_resource type="ParticlesMaterial" id=393]
+[sub_resource type="ParticleProcessMaterial" id=393]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1027,7 +1027,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 382 )
 
-[sub_resource type="ParticlesMaterial" id=394]
+[sub_resource type="ParticleProcessMaterial" id=394]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1039,7 +1039,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 385 )
 
-[sub_resource type="ParticlesMaterial" id=395]
+[sub_resource type="ParticleProcessMaterial" id=395]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1051,7 +1051,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 382 )
 
-[sub_resource type="ParticlesMaterial" id=396]
+[sub_resource type="ParticleProcessMaterial" id=396]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1063,7 +1063,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 385 )
 
-[sub_resource type="ParticlesMaterial" id=397]
+[sub_resource type="ParticleProcessMaterial" id=397]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1075,7 +1075,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 382 )
 
-[sub_resource type="ParticlesMaterial" id=398]
+[sub_resource type="ParticleProcessMaterial" id=398]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1087,7 +1087,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 385 )
 
-[sub_resource type="ParticlesMaterial" id=399]
+[sub_resource type="ParticleProcessMaterial" id=399]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1099,7 +1099,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 382 )
 
-[sub_resource type="ParticlesMaterial" id=400]
+[sub_resource type="ParticleProcessMaterial" id=400]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1111,7 +1111,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 385 )
 
-[sub_resource type="ParticlesMaterial" id=401]
+[sub_resource type="ParticleProcessMaterial" id=401]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1123,7 +1123,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 382 )
 
-[sub_resource type="ParticlesMaterial" id=402]
+[sub_resource type="ParticleProcessMaterial" id=402]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1135,7 +1135,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 385 )
 
-[sub_resource type="ParticlesMaterial" id=403]
+[sub_resource type="ParticleProcessMaterial" id=403]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1149,7 +1149,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=404]
+[sub_resource type="ParticleProcessMaterial" id=404]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1161,7 +1161,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=405]
+[sub_resource type="ParticleProcessMaterial" id=405]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1175,7 +1175,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=406]
+[sub_resource type="ParticleProcessMaterial" id=406]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1187,7 +1187,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=407]
+[sub_resource type="ParticleProcessMaterial" id=407]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1201,7 +1201,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=408]
+[sub_resource type="ParticleProcessMaterial" id=408]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1213,7 +1213,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=409]
+[sub_resource type="ParticleProcessMaterial" id=409]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1227,7 +1227,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=410]
+[sub_resource type="ParticleProcessMaterial" id=410]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1239,7 +1239,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=411]
+[sub_resource type="ParticleProcessMaterial" id=411]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1253,7 +1253,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=412]
+[sub_resource type="ParticleProcessMaterial" id=412]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1265,7 +1265,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=413]
+[sub_resource type="ParticleProcessMaterial" id=413]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1279,7 +1279,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=414]
+[sub_resource type="ParticleProcessMaterial" id=414]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1291,7 +1291,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=415]
+[sub_resource type="ParticleProcessMaterial" id=415]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1305,7 +1305,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=416]
+[sub_resource type="ParticleProcessMaterial" id=416]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1317,7 +1317,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=417]
+[sub_resource type="ParticleProcessMaterial" id=417]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1331,7 +1331,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=418]
+[sub_resource type="ParticleProcessMaterial" id=418]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1343,7 +1343,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=419]
+[sub_resource type="ParticleProcessMaterial" id=419]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1357,7 +1357,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=420]
+[sub_resource type="ParticleProcessMaterial" id=420]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1369,7 +1369,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=421]
+[sub_resource type="ParticleProcessMaterial" id=421]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1383,7 +1383,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=422]
+[sub_resource type="ParticleProcessMaterial" id=422]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1395,7 +1395,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=423]
+[sub_resource type="ParticleProcessMaterial" id=423]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1409,7 +1409,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=424]
+[sub_resource type="ParticleProcessMaterial" id=424]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1421,7 +1421,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=425]
+[sub_resource type="ParticleProcessMaterial" id=425]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1435,7 +1435,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=426]
+[sub_resource type="ParticleProcessMaterial" id=426]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1447,7 +1447,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=427]
+[sub_resource type="ParticleProcessMaterial" id=427]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1461,7 +1461,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=428]
+[sub_resource type="ParticleProcessMaterial" id=428]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1479,7 +1479,7 @@ particles_anim_h_frames = 3
 particles_anim_v_frames = 2
 particles_anim_loop = false
 
-[sub_resource type="ParticlesMaterial" id=430]
+[sub_resource type="ParticleProcessMaterial" id=430]
 lifetime_randomness = 0.33
 emission_shape = 2
 emission_box_extents = Vector3( 8, 1, 0 )
@@ -1493,7 +1493,7 @@ orbit_velocity_random = 0.0
 color = Color( 0.972549, 0.972549, 0.972549, 1 )
 anim_speed = 1.0
 
-[sub_resource type="ParticlesMaterial" id=431]
+[sub_resource type="ParticleProcessMaterial" id=431]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1507,7 +1507,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=432]
+[sub_resource type="ParticleProcessMaterial" id=432]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1519,7 +1519,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=433]
+[sub_resource type="ParticleProcessMaterial" id=433]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1533,7 +1533,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=434]
+[sub_resource type="ParticleProcessMaterial" id=434]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1545,7 +1545,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=435]
+[sub_resource type="ParticleProcessMaterial" id=435]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1559,7 +1559,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=436]
+[sub_resource type="ParticleProcessMaterial" id=436]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1571,7 +1571,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=437]
+[sub_resource type="ParticleProcessMaterial" id=437]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1585,7 +1585,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=438]
+[sub_resource type="ParticleProcessMaterial" id=438]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1597,7 +1597,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=439]
+[sub_resource type="ParticleProcessMaterial" id=439]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1611,7 +1611,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=440]
+[sub_resource type="ParticleProcessMaterial" id=440]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1623,7 +1623,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=441]
+[sub_resource type="ParticleProcessMaterial" id=441]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1637,7 +1637,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=442]
+[sub_resource type="ParticleProcessMaterial" id=442]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1649,7 +1649,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=443]
+[sub_resource type="ParticleProcessMaterial" id=443]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1663,7 +1663,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=444]
+[sub_resource type="ParticleProcessMaterial" id=444]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1675,7 +1675,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=445]
+[sub_resource type="ParticleProcessMaterial" id=445]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1689,7 +1689,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=446]
+[sub_resource type="ParticleProcessMaterial" id=446]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1701,7 +1701,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=447]
+[sub_resource type="ParticleProcessMaterial" id=447]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1715,7 +1715,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=448]
+[sub_resource type="ParticleProcessMaterial" id=448]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1727,7 +1727,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=449]
+[sub_resource type="ParticleProcessMaterial" id=449]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1741,7 +1741,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=450]
+[sub_resource type="ParticleProcessMaterial" id=450]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1753,7 +1753,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=451]
+[sub_resource type="ParticleProcessMaterial" id=451]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1767,7 +1767,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=452]
+[sub_resource type="ParticleProcessMaterial" id=452]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1779,7 +1779,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=453]
+[sub_resource type="ParticleProcessMaterial" id=453]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1793,7 +1793,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=454]
+[sub_resource type="ParticleProcessMaterial" id=454]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1811,7 +1811,7 @@ particles_anim_h_frames = 3
 particles_anim_v_frames = 2
 particles_anim_loop = false
 
-[sub_resource type="ParticlesMaterial" id=455]
+[sub_resource type="ParticleProcessMaterial" id=455]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1825,7 +1825,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=456]
+[sub_resource type="ParticleProcessMaterial" id=456]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1837,7 +1837,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=457]
+[sub_resource type="ParticleProcessMaterial" id=457]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1851,7 +1851,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=458]
+[sub_resource type="ParticleProcessMaterial" id=458]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1863,7 +1863,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=459]
+[sub_resource type="ParticleProcessMaterial" id=459]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1877,7 +1877,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=460]
+[sub_resource type="ParticleProcessMaterial" id=460]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1889,7 +1889,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=461]
+[sub_resource type="ParticleProcessMaterial" id=461]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1903,7 +1903,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=462]
+[sub_resource type="ParticleProcessMaterial" id=462]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1915,7 +1915,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=463]
+[sub_resource type="ParticleProcessMaterial" id=463]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1929,7 +1929,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=464]
+[sub_resource type="ParticleProcessMaterial" id=464]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1941,7 +1941,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=465]
+[sub_resource type="ParticleProcessMaterial" id=465]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1955,7 +1955,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=466]
+[sub_resource type="ParticleProcessMaterial" id=466]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1967,7 +1967,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=467]
+[sub_resource type="ParticleProcessMaterial" id=467]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -1981,7 +1981,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=468]
+[sub_resource type="ParticleProcessMaterial" id=468]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -1993,7 +1993,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=469]
+[sub_resource type="ParticleProcessMaterial" id=469]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -2007,7 +2007,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=470]
+[sub_resource type="ParticleProcessMaterial" id=470]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -2019,7 +2019,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=471]
+[sub_resource type="ParticleProcessMaterial" id=471]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -2033,7 +2033,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=472]
+[sub_resource type="ParticleProcessMaterial" id=472]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -2045,7 +2045,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=473]
+[sub_resource type="ParticleProcessMaterial" id=473]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -2059,7 +2059,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=474]
+[sub_resource type="ParticleProcessMaterial" id=474]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -2071,7 +2071,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=475]
+[sub_resource type="ParticleProcessMaterial" id=475]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -2085,7 +2085,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=476]
+[sub_resource type="ParticleProcessMaterial" id=476]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -2097,7 +2097,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[sub_resource type="ParticlesMaterial" id=477]
+[sub_resource type="ParticleProcessMaterial" id=477]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -2111,7 +2111,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 239 )
 
-[sub_resource type="ParticlesMaterial" id=478]
+[sub_resource type="ParticleProcessMaterial" id=478]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -2130,7 +2130,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=479]
 curve = SubResource( 33 )
 
-[sub_resource type="ParticlesMaterial" id=480]
+[sub_resource type="ParticleProcessMaterial" id=480]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 16.0
@@ -2144,7 +2144,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 479 )
 
-[sub_resource type="ParticlesMaterial" id=481]
+[sub_resource type="ParticleProcessMaterial" id=481]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 16.0
@@ -2158,7 +2158,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 479 )
 
-[sub_resource type="ParticlesMaterial" id=482]
+[sub_resource type="ParticleProcessMaterial" id=482]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 16.0
@@ -2179,7 +2179,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=214]
 curve = SubResource( 483 )
 
-[sub_resource type="ParticlesMaterial" id=484]
+[sub_resource type="ParticleProcessMaterial" id=484]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 16.0
@@ -2193,7 +2193,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 214 )
 
-[sub_resource type="ParticlesMaterial" id=485]
+[sub_resource type="ParticleProcessMaterial" id=485]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 16.0
@@ -2213,7 +2213,7 @@ particles_anim_h_frames = 3
 particles_anim_v_frames = 3
 particles_anim_loop = false
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticleProcessMaterial" id=5]
 emission_shape = 2
 emission_box_extents = Vector3( 16, 1, 1 )
 flag_disable_z = true
@@ -2230,7 +2230,7 @@ particles_anim_h_frames = 3
 particles_anim_v_frames = 2
 particles_anim_loop = false
 
-[sub_resource type="ParticlesMaterial" id=488]
+[sub_resource type="ParticleProcessMaterial" id=488]
 lifetime_randomness = 0.33
 emission_shape = 2
 emission_box_extents = Vector3( 8, 1, 0 )
@@ -2256,7 +2256,7 @@ _data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
 [sub_resource type="CurveTexture" id=30]
 curve = SubResource( 490 )
 
-[sub_resource type="ParticlesMaterial" id=491]
+[sub_resource type="ParticleProcessMaterial" id=491]
 emission_shape = 1
 emission_sphere_radius = 33.16
 flag_disable_z = true
@@ -2283,7 +2283,7 @@ _data = [ Vector2( 0, 0 ), 0.0, 1.4, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 [sub_resource type="CurveTexture" id=494]
 curve = SubResource( 493 )
 
-[sub_resource type="ParticlesMaterial" id=495]
+[sub_resource type="ParticleProcessMaterial" id=495]
 emission_shape = 2
 emission_box_extents = Vector3( 3, 1, 1 )
 flag_disable_z = true
@@ -2311,7 +2311,7 @@ _data = [ Vector2( 0, 0 ), 0.0, 1.4, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 [sub_resource type="CurveTexture" id=498]
 curve = SubResource( 497 )
 
-[sub_resource type="ParticlesMaterial" id=499]
+[sub_resource type="ParticleProcessMaterial" id=499]
 emission_shape = 2
 emission_box_extents = Vector3( 16, 1, 1 )
 flag_disable_z = true
@@ -2338,7 +2338,7 @@ _data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
 [sub_resource type="CurveTexture" id=502]
 curve = SubResource( 501 )
 
-[sub_resource type="ParticlesMaterial" id=503]
+[sub_resource type="ParticleProcessMaterial" id=503]
 emission_shape = 2
 emission_box_extents = Vector3( 24, 96, 1 )
 flag_disable_z = true
@@ -2363,7 +2363,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=505]
 curve = SubResource( 504 )
 
-[sub_resource type="ParticlesMaterial" id=506]
+[sub_resource type="ParticleProcessMaterial" id=506]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -2382,7 +2382,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=508]
 curve = SubResource( 507 )
 
-[sub_resource type="ParticlesMaterial" id=509]
+[sub_resource type="ParticleProcessMaterial" id=509]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -2394,10 +2394,10 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 508 )
 
-[sub_resource type="GradientTexture" id=510]
+[sub_resource type="GradientTexture2D" id=510]
 gradient = ExtResource( 9 )
 
-[sub_resource type="ParticlesMaterial" id=511]
+[sub_resource type="ParticleProcessMaterial" id=511]
 emission_shape = 1
 emission_sphere_radius = 18.34
 flag_disable_z = true
@@ -2423,7 +2423,7 @@ _data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
 [sub_resource type="CurveTexture" id=61]
 curve = SubResource( 513 )
 
-[sub_resource type="ParticlesMaterial" id=514]
+[sub_resource type="ParticleProcessMaterial" id=514]
 emission_shape = 2
 emission_box_extents = Vector3( 32, 64, 1 )
 flag_disable_z = true
@@ -2438,13 +2438,13 @@ anim_speed = 1.0
 anim_speed_curve = SubResource( 61 )
 
 [sub_resource type="Gradient" id=62]
-offsets = PoolRealArray( 0, 0.242424, 0.515152, 0.768939, 1 )
-colors = PoolColorArray( 0.898039, 0.113725, 0, 1, 1, 1, 0.0705882, 1, 0.918779, 0.321592, 0.0165882, 1, 0.978567, 0.820976, 0.0563382, 1, 0.893829, 0.113192, 0, 1 )
+offsets = PackedFloat32Array( 0, 0.242424, 0.515152, 0.768939, 1 )
+colors = PackedColorArray( 0.898039, 0.113725, 0, 1, 1, 1, 0.0705882, 1, 0.918779, 0.321592, 0.0165882, 1, 0.978567, 0.820976, 0.0563382, 1, 0.893829, 0.113192, 0, 1 )
 
-[sub_resource type="GradientTexture" id=515]
+[sub_resource type="GradientTexture2D" id=515]
 gradient = SubResource( 62 )
 
-[sub_resource type="ParticlesMaterial" id=516]
+[sub_resource type="ParticleProcessMaterial" id=516]
 emission_shape = 2
 emission_box_extents = Vector3( 128, 1, 1 )
 flag_disable_z = true
@@ -2472,7 +2472,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=517]
 curve = SubResource( 919 )
 
-[sub_resource type="ParticlesMaterial" id=518]
+[sub_resource type="ParticleProcessMaterial" id=518]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 32.0
@@ -2505,7 +2505,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=521]
 curve = SubResource( 520 )
 
-[sub_resource type="ParticlesMaterial" id=522]
+[sub_resource type="ParticleProcessMaterial" id=522]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -2521,1252 +2521,1252 @@ anim_speed_curve = SubResource( 521 )
 script = ExtResource( 7 )
 scene_path = "res://src/Levels/Inferno/Stage_Inferno.tscn"
 
-[node name="Particles2D" type="Node2D" parent="."]
+[node name="GPUParticles2D" type="Node2D" parent="."]
 
-[node name="Dash Smoke Particles" type="Particles2D" parent="Particles2D"]
+[node name="Dash Smoke Particles" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 51 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 53 )
 
-[node name="WallSlide Particles" type="Particles2D" parent="Particles2D"]
+[node name="WallSlide Particles" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 51 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 54 )
 
-[node name="WallJump Particle" type="Particles2D" parent="Particles2D"]
+[node name="WallJump Particle" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 55 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 56 )
 
-[node name="ChargingParticle" type="Particles2D" parent="Particles2D"]
+[node name="ChargingParticle" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 57 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 58 )
 
-[node name="ChargedParticle" type="Particles2D" parent="Particles2D"]
+[node name="ChargedParticle" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 57 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 59 )
 
-[node name="SuperChargeParticle" type="Particles2D" parent="Particles2D"]
+[node name="SuperChargeParticle" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 57 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 60 )
 
-[node name="particles2D" type="Particles2D" parent="Particles2D"]
+[node name="particles2D" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 21 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 22 )
 
-[node name="particles2D2" type="Particles2D" parent="Particles2D"]
+[node name="particles2D2" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 21 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 23 )
 
-[node name="particles2D3" type="Particles2D" parent="Particles2D"]
+[node name="particles2D3" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 21 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 24 )
 
-[node name="particles2D4" type="Particles2D" parent="Particles2D"]
+[node name="particles2D4" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 21 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 25 )
 
-[node name="particles2D5" type="Particles2D" parent="Particles2D"]
+[node name="particles2D5" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 21 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 26 )
 
-[node name="particles2D6" type="Particles2D" parent="Particles2D"]
+[node name="particles2D6" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 21 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 27 )
 
-[node name="particles2D7" type="Particles2D" parent="Particles2D"]
+[node name="particles2D7" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 21 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 28 )
 
-[node name="particles2D8" type="Particles2D" parent="Particles2D"]
+[node name="particles2D8" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 21 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 29 )
 
-[node name="particles2D9" type="Particles2D" parent="Particles2D"]
+[node name="particles2D9" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 64 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 66 )
 
-[node name="HorizontalSmoke" type="Particles2D" parent="Particles2D"]
+[node name="HorizontalSmoke" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 1 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = ExtResource( 4 )
 
-[node name="VerticalSmoke" type="Particles2D" parent="Particles2D"]
+[node name="VerticalSmoke" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 333 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = ExtResource( 5 )
 
-[node name="Explosion Particles" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 210 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 334 )
 
-[node name="Remains" type="Particles2D" parent="Particles2D"]
+[node name="Remains" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 332 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 335 )
 
-[node name="remains_particles" type="Particles2D" parent="Particles2D"]
+[node name="remains_particles" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 225 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 75 )
 
-[node name="Explosion Particles2" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles2" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 210 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 336 )
 
-[node name="Remains2" type="Particles2D" parent="Particles2D"]
+[node name="Remains2" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 332 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 337 )
 
-[node name="Explosion Particles3" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles3" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 210 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 338 )
 
-[node name="Remains3" type="Particles2D" parent="Particles2D"]
+[node name="Remains3" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 332 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 339 )
 
-[node name="Explosion Particles4" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles4" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 551 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 340 )
 
-[node name="Remains4" type="Particles2D" parent="Particles2D"]
+[node name="Remains4" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 341 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 342 )
 
-[node name="remains_particles2" type="Particles2D" parent="Particles2D"]
+[node name="remains_particles2" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 225 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = ExtResource( 8 )
 
-[node name="particles2D10" type="Particles2D" parent="Particles2D"]
+[node name="particles2D10" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 343 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 6 )
 
-[node name="Explosion Particles5" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles5" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 344 )
 
-[node name="Remains5" type="Particles2D" parent="Particles2D"]
+[node name="Remains5" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 345 )
 
-[node name="Explosion Particles6" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles6" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 551 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 346 )
 
-[node name="Remains6" type="Particles2D" parent="Particles2D"]
+[node name="Remains6" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 341 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 347 )
 
-[node name="Explosion Particles7" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles7" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 348 )
 
-[node name="Remains7" type="Particles2D" parent="Particles2D"]
+[node name="Remains7" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 349 )
 
-[node name="Explosion Particles8" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles8" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 551 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 350 )
 
-[node name="Remains8" type="Particles2D" parent="Particles2D"]
+[node name="Remains8" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 341 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 351 )
 
-[node name="Explosion Particles9" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles9" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 551 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 352 )
 
-[node name="Remains9" type="Particles2D" parent="Particles2D"]
+[node name="Remains9" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 341 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 353 )
 
-[node name="Explosion Particles10" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles10" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 551 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 354 )
 
-[node name="Remains10" type="Particles2D" parent="Particles2D"]
+[node name="Remains10" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 341 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 355 )
 
-[node name="Explosion Particles11" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles11" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 551 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 356 )
 
-[node name="Remains11" type="Particles2D" parent="Particles2D"]
+[node name="Remains11" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 341 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 357 )
 
-[node name="Explosion Particles12" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles12" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 358 )
 
-[node name="Remains12" type="Particles2D" parent="Particles2D"]
+[node name="Remains12" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 359 )
 
-[node name="Explosion Particles13" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles13" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 551 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 360 )
 
-[node name="Remains13" type="Particles2D" parent="Particles2D"]
+[node name="Remains13" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 341 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 361 )
 
-[node name="Explosion Particles14" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles14" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 551 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 362 )
 
-[node name="Remains14" type="Particles2D" parent="Particles2D"]
+[node name="Remains14" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 341 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 363 )
 
-[node name="Explosion Particles15" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles15" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 364 )
 
-[node name="Remains15" type="Particles2D" parent="Particles2D"]
+[node name="Remains15" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 365 )
 
-[node name="Explosion Particles16" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles16" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 551 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 366 )
 
-[node name="Remains16" type="Particles2D" parent="Particles2D"]
+[node name="Remains16" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 341 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 367 )
 
-[node name="Explosion Particles17" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles17" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 210 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 369 )
 
-[node name="Remains17" type="Particles2D" parent="Particles2D"]
+[node name="Remains17" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 332 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 372 )
 
-[node name="remains_particles3" type="Particles2D" parent="Particles2D"]
+[node name="remains_particles3" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 225 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 46 )
 
-[node name="Explosion Particles18" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles18" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 210 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 373 )
 
-[node name="Remains18" type="Particles2D" parent="Particles2D"]
+[node name="Remains18" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 332 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 374 )
 
-[node name="Explosion Particles19" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles19" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 210 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 375 )
 
-[node name="Remains19" type="Particles2D" parent="Particles2D"]
+[node name="Remains19" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 332 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 376 )
 
-[node name="Explosion Particles20" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles20" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 210 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 377 )
 
-[node name="Remains20" type="Particles2D" parent="Particles2D"]
+[node name="Remains20" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 332 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 378 )
 
-[node name="Explosion Particles21" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles21" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 210 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 379 )
 
-[node name="Remains21" type="Particles2D" parent="Particles2D"]
+[node name="Remains21" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 332 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 380 )
 
-[node name="Explosion Particles22" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles22" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 210 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 383 )
 
-[node name="Remains22" type="Particles2D" parent="Particles2D"]
+[node name="Remains22" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 332 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 386 )
 
-[node name="remains_particles4" type="Particles2D" parent="Particles2D"]
+[node name="remains_particles4" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 225 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 388 )
 
-[node name="Explosion Particles23" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles23" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 210 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 389 )
 
-[node name="Remains23" type="Particles2D" parent="Particles2D"]
+[node name="Remains23" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 332 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 390 )
 
-[node name="Explosion Particles24" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles24" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 210 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 391 )
 
-[node name="Remains24" type="Particles2D" parent="Particles2D"]
+[node name="Remains24" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 332 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 392 )
 
-[node name="Explosion Particles25" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles25" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 210 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 393 )
 
-[node name="Remains25" type="Particles2D" parent="Particles2D"]
+[node name="Remains25" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 332 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 394 )
 
-[node name="Explosion Particles26" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles26" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 210 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 395 )
 
-[node name="Remains26" type="Particles2D" parent="Particles2D"]
+[node name="Remains26" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 332 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 396 )
 
-[node name="Explosion Particles27" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles27" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 210 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 397 )
 
-[node name="Remains27" type="Particles2D" parent="Particles2D"]
+[node name="Remains27" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 332 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 398 )
 
-[node name="Explosion Particles28" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles28" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 210 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 399 )
 
-[node name="Remains28" type="Particles2D" parent="Particles2D"]
+[node name="Remains28" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 332 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 400 )
 
-[node name="Explosion Particles29" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles29" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 210 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 401 )
 
-[node name="Remains29" type="Particles2D" parent="Particles2D"]
+[node name="Remains29" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 332 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 402 )
 
-[node name="Explosion Particles30" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles30" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 403 )
 
-[node name="Remains30" type="Particles2D" parent="Particles2D"]
+[node name="Remains30" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 404 )
 
-[node name="Explosion Particles31" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles31" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 405 )
 
-[node name="Remains31" type="Particles2D" parent="Particles2D"]
+[node name="Remains31" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 406 )
 
-[node name="Explosion Particles32" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles32" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 407 )
 
-[node name="Remains32" type="Particles2D" parent="Particles2D"]
+[node name="Remains32" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 408 )
 
-[node name="Explosion Particles33" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles33" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 409 )
 
-[node name="Remains33" type="Particles2D" parent="Particles2D"]
+[node name="Remains33" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 410 )
 
-[node name="Explosion Particles34" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles34" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 411 )
 
-[node name="Remains34" type="Particles2D" parent="Particles2D"]
+[node name="Remains34" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 412 )
 
-[node name="Explosion Particles35" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles35" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 413 )
 
-[node name="Remains35" type="Particles2D" parent="Particles2D"]
+[node name="Remains35" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 414 )
 
-[node name="Explosion Particles36" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles36" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 415 )
 
-[node name="Remains36" type="Particles2D" parent="Particles2D"]
+[node name="Remains36" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 416 )
 
-[node name="Explosion Particles37" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles37" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 417 )
 
-[node name="Remains37" type="Particles2D" parent="Particles2D"]
+[node name="Remains37" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 418 )
 
-[node name="Explosion Particles38" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles38" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 419 )
 
-[node name="Remains38" type="Particles2D" parent="Particles2D"]
+[node name="Remains38" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 420 )
 
-[node name="Explosion Particles39" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles39" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 421 )
 
-[node name="Remains39" type="Particles2D" parent="Particles2D"]
+[node name="Remains39" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 422 )
 
-[node name="Explosion Particles40" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles40" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 423 )
 
-[node name="Remains40" type="Particles2D" parent="Particles2D"]
+[node name="Remains40" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 424 )
 
-[node name="Explosion Particles41" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles41" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 425 )
 
-[node name="Remains41" type="Particles2D" parent="Particles2D"]
+[node name="Remains41" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 426 )
 
-[node name="Explosion Particles42" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles42" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 427 )
 
-[node name="Remains42" type="Particles2D" parent="Particles2D"]
+[node name="Remains42" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 428 )
 
-[node name="particles2D11" type="Particles2D" parent="Particles2D"]
+[node name="particles2D11" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 429 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 430 )
 
-[node name="Explosion Particles43" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles43" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 431 )
 
-[node name="Remains43" type="Particles2D" parent="Particles2D"]
+[node name="Remains43" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 432 )
 
-[node name="Explosion Particles44" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles44" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 433 )
 
-[node name="Remains44" type="Particles2D" parent="Particles2D"]
+[node name="Remains44" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 434 )
 
-[node name="Explosion Particles45" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles45" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 435 )
 
-[node name="Remains45" type="Particles2D" parent="Particles2D"]
+[node name="Remains45" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 436 )
 
-[node name="Explosion Particles46" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles46" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 437 )
 
-[node name="Remains46" type="Particles2D" parent="Particles2D"]
+[node name="Remains46" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 438 )
 
-[node name="Explosion Particles47" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles47" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 439 )
 
-[node name="Remains47" type="Particles2D" parent="Particles2D"]
+[node name="Remains47" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 440 )
 
-[node name="Explosion Particles48" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles48" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 441 )
 
-[node name="Remains48" type="Particles2D" parent="Particles2D"]
+[node name="Remains48" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 442 )
 
-[node name="Explosion Particles49" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles49" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 443 )
 
-[node name="Remains49" type="Particles2D" parent="Particles2D"]
+[node name="Remains49" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 444 )
 
-[node name="Explosion Particles50" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles50" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 445 )
 
-[node name="Remains50" type="Particles2D" parent="Particles2D"]
+[node name="Remains50" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 446 )
 
-[node name="Explosion Particles51" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles51" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 447 )
 
-[node name="Remains51" type="Particles2D" parent="Particles2D"]
+[node name="Remains51" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 448 )
 
-[node name="Explosion Particles52" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles52" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 449 )
 
-[node name="Remains52" type="Particles2D" parent="Particles2D"]
+[node name="Remains52" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 450 )
 
-[node name="Explosion Particles53" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles53" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 451 )
 
-[node name="Remains53" type="Particles2D" parent="Particles2D"]
+[node name="Remains53" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 452 )
 
-[node name="Explosion Particles54" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles54" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 453 )
 
-[node name="Remains54" type="Particles2D" parent="Particles2D"]
+[node name="Remains54" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 454 )
 
-[node name="particles2D12" type="Particles2D" parent="Particles2D"]
+[node name="particles2D12" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 771 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = ExtResource( 11 )
 
-[node name="Explosion Particles55" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles55" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 455 )
 
-[node name="Remains55" type="Particles2D" parent="Particles2D"]
+[node name="Remains55" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 456 )
 
-[node name="Explosion Particles56" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles56" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 457 )
 
-[node name="Remains56" type="Particles2D" parent="Particles2D"]
+[node name="Remains56" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 458 )
 
-[node name="Explosion Particles57" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles57" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 459 )
 
-[node name="Remains57" type="Particles2D" parent="Particles2D"]
+[node name="Remains57" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 460 )
 
-[node name="Explosion Particles58" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles58" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 461 )
 
-[node name="Remains58" type="Particles2D" parent="Particles2D"]
+[node name="Remains58" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 462 )
 
-[node name="Explosion Particles59" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles59" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 463 )
 
-[node name="Remains59" type="Particles2D" parent="Particles2D"]
+[node name="Remains59" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 464 )
 
-[node name="Explosion Particles60" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles60" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 465 )
 
-[node name="Remains60" type="Particles2D" parent="Particles2D"]
+[node name="Remains60" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 466 )
 
-[node name="Explosion Particles61" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles61" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 467 )
 
-[node name="Remains61" type="Particles2D" parent="Particles2D"]
+[node name="Remains61" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 468 )
 
-[node name="Explosion Particles62" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles62" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 469 )
 
-[node name="Remains62" type="Particles2D" parent="Particles2D"]
+[node name="Remains62" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 470 )
 
-[node name="Explosion Particles63" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles63" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 471 )
 
-[node name="Remains63" type="Particles2D" parent="Particles2D"]
+[node name="Remains63" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 472 )
 
-[node name="Explosion Particles64" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles64" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 473 )
 
-[node name="Remains64" type="Particles2D" parent="Particles2D"]
+[node name="Remains64" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 474 )
 
-[node name="Explosion Particles65" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles65" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 475 )
 
-[node name="Remains65" type="Particles2D" parent="Particles2D"]
+[node name="Remains65" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 476 )
 
-[node name="Explosion Particles66" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles66" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 237 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 477 )
 
-[node name="Remains66" type="Particles2D" parent="Particles2D"]
+[node name="Remains66" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 241 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 478 )
 
-[node name="Explosion Particles67" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles67" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 210 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 480 )
 
-[node name="Explosion Particles68" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles68" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 210 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 481 )
 
-[node name="Explosion Particles69" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles69" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 210 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 482 )
 
-[node name="Explosion Particles70" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles70" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 210 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 484 )
 
-[node name="Explosion Particles71" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles71" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 210 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 485 )
 
-[node name="particles2D13" type="Particles2D" parent="Particles2D"]
+[node name="particles2D13" type="GPUParticles2D" parent="GPUParticles2D"]
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = ExtResource( 3 )
 
-[node name="fire2" type="Particles2D" parent="Particles2D"]
+[node name="fire2" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 486 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = ExtResource( 2 )
 
-[node name="fire10" type="Particles2D" parent="Particles2D"]
+[node name="fire10" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 486 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = ExtResource( 1 )
 
-[node name="particles2D14" type="Particles2D" parent="Particles2D"]
+[node name="particles2D14" type="GPUParticles2D" parent="GPUParticles2D"]
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 5 )
 
-[node name="particles2D15" type="Particles2D" parent="Particles2D"]
+[node name="particles2D15" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 487 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 488 )
 
-[node name="fire1" type="Particles2D" parent="Particles2D"]
+[node name="fire1" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 489 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 491 )
 
-[node name="fire3" type="Particles2D" parent="Particles2D"]
+[node name="fire3" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 492 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 495 )
 
-[node name="fire4" type="Particles2D" parent="Particles2D"]
+[node name="fire4" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 496 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = ExtResource( 6 )
 
-[node name="land" type="Particles2D" parent="Particles2D"]
+[node name="land" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 496 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 499 )
 
-[node name="fire5" type="Particles2D" parent="Particles2D"]
+[node name="fire5" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 500 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 503 )
 
-[node name="Explosion Particles72" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles72" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 210 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 506 )
 
-[node name="Remains67" type="Particles2D" parent="Particles2D"]
+[node name="Remains67" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 332 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 509 )
 
-[node name="remains_particles5" type="Particles2D" parent="Particles2D"]
+[node name="remains_particles5" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 225 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 511 )
 
-[node name="fire6" type="Particles2D" parent="Particles2D"]
+[node name="fire6" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 512 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 514 )
 
-[node name="particles2D16" type="Particles2D" parent="Particles2D"]
+[node name="particles2D16" type="GPUParticles2D" parent="GPUParticles2D"]
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 516 )
 
-[node name="Explosion Particles73" type="Particles2D" parent="Particles2D"]
+[node name="Explosion Particles73" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 221 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = SubResource( 518 )
 
-[node name="Smoke Particles" type="Particles2D" parent="Particles2D"]
+[node name="Smoke Particles" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 920 )
 emitting = false
 lifetime = 0.1
 one_shot = true
 process_material = ExtResource( 10 )
 
-[node name="Remains68" type="Particles2D" parent="Particles2D"]
+[node name="Remains68" type="GPUParticles2D" parent="GPUParticles2D"]
 material = SubResource( 519 )
 emitting = false
 lifetime = 0.1

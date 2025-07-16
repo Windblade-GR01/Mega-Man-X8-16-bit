@@ -1,5 +1,5 @@
-extends Particles2D
-onready var manta_ray: KinematicBody2D = $"../MantaRay"
+extends GPUParticles2D
+@onready var manta_ray: CharacterBody2D = $"../MantaRay"
 
 func _physics_process(_delta: float) -> void:
 	if is_instance_valid(manta_ray):

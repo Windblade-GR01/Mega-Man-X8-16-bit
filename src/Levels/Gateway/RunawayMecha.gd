@@ -1,5 +1,5 @@
 extends Actor
-onready var pursuit: Node2D = $Pursuit
+@onready var pursuit: Node2D = $Pursuit
 
 
 func activate() -> void:

@@ -1,6 +1,6 @@
 extends Node
 
-export var dialogue : Resource
+@export var dialogue : Resource
 var started := false
 func _ready() -> void:
 	Tools.timer(3,"start",self)

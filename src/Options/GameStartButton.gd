@@ -1,6 +1,6 @@
 extends X8TextureButton
 
-export var pick_sound : NodePath
+@export var pick_sound : NodePath
 
 func on_press() -> void:
 	get_node(pick_sound).play()
@@ -8,7 +8,7 @@ func on_press() -> void:
 	strong_flash()
 	menu.lock_buttons()
 	menu.fader.SoftFadeOut()
-	yield(menu.fader,"finished")
+	await menu.fader.finished
 	GameManager.seen_dialogues.clear()
 	go_to_next_scene() 
 	

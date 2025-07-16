@@ -5,14 +5,14 @@
 [ext_resource path="res://src/Sounds/MEDIUM_SHOT.wav" type="AudioStream" id=3]
 [ext_resource path="res://src/Effects/Basic Hit.tscn" type="PackedScene" id=4]
 [ext_resource path="res://SpriteEffect.gd" type="Script" id=5]
-[ext_resource path="res://src/Effects/Deflect/medium_deflect.png" type="Texture" id=6]
+[ext_resource path="res://src/Effects/Deflect/medium_deflect.png" type="Texture2D" id=6]
 [ext_resource path="res://src/Effects/Materials/buster_medium_particles.tres" type="Material" id=7]
 [ext_resource path="res://src/Levels/Primrose/rotation_disabler.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 15, 16 )
 
-[node name="Medium" type="KinematicBody2D" groups=["Player Projectile"]]
+[node name="Medium" type="CharacterBody2D" groups=["Player Projectile"]]
 z_index = 6
 collision_layer = 4
 collision_mask = 0
@@ -22,7 +22,7 @@ damage_to_bosses = 5.0
 damage_to_weakness = 10.0
 fire_sound = ExtResource( 3 )
 
-[node name="animatedSprite" type="AnimatedSprite" parent="."]
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
 frames = ExtResource( 1 )
 animation = "loop"
 frame = 6
@@ -32,12 +32,12 @@ playing = true
 position = Vector2( 1, 0 )
 shape = SubResource( 5 )
 
-[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 visible = false
 position = Vector2( -3, -2.98023e-07 )
 scale = Vector2( 1, 0.3 )
 
-[node name="particles2D" type="Particles2D" parent="."]
+[node name="particles2D" type="GPUParticles2D" parent="."]
 position = Vector2( -10, 0 )
 amount = 4
 lifetime = 0.54
@@ -45,7 +45,7 @@ local_coords = false
 process_material = ExtResource( 7 )
 
 [node name="audioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-pause_mode = 2
+process_mode = 3
 volume_db = -13.761
 pitch_scale = 0.7
 bus = "SFX"
@@ -57,7 +57,7 @@ position = Vector2( 18, 0 )
 script = ExtResource( 8 )
 fade_out = true
 
-[node name="deflect_particle" type="Sprite" parent="."]
+[node name="deflect_particle" type="Sprite2D" parent="."]
 visible = false
 position = Vector2( 20, -1 )
 z_index = 6

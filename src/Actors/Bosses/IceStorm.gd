@@ -1,12 +1,12 @@
 extends AttackAbility
 
-export var damage_reduction_during_desperation := 0.5
+@export var damage_reduction_during_desperation := 0.5
 
-onready var shooter = $IceShooter
-onready var particles = get_all_particles()
-onready var prepare = $prepare
-onready var storm = $storm
-onready var scream = $scream
+@onready var shooter = $IceShooter
+@onready var particles = get_all_particles()
+@onready var prepare = $prepare
+@onready var storm = $storm
+@onready var scream = $scream
 
 signal ready_for_stun
 
@@ -51,7 +51,7 @@ func _Update(_delta):
 		EndAbility()
 
 func _Interrupt():
-	._Interrupt()
+	super._Interrupt()
 	character.emit_signal("damage_reduction", 1)
 	for particle in particles:
 		particle.emitting = false

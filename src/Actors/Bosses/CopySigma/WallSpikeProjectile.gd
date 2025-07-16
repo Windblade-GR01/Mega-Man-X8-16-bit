@@ -1,9 +1,9 @@
 extends GenericProjectile
 var exploded := false
-onready var vanish: AudioStreamPlayer2D = $vanish
-onready var fire_1: Particles2D = $animatedSprite/fire1
-onready var fire_2: Particles2D = $animatedSprite/fire2
-onready var fire_3: Particles2D = $animatedSprite/fire3
+@onready var vanish: AudioStreamPlayer2D = $vanish
+@onready var fire_1: GPUParticles2D = $animatedSprite/fire1
+@onready var fire_2: GPUParticles2D = $animatedSprite/fire2
+@onready var fire_3: GPUParticles2D = $animatedSprite/fire3
 
 func _Update(delta) -> void:
 	if not exploded and is_on_ceiling():

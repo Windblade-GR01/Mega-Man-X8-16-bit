@@ -1,18 +1,18 @@
 extends Line2D
 
-export var length := 50
+@export var length := 50
 var point : Vector2
-export var object_to_follow : NodePath
-onready var character := get_node(object_to_follow)
+@export var object_to_follow : NodePath
+@onready var character := get_node(object_to_follow)
 var timer := 0.0
 var fading := false
 
 func _ready() -> void:
 	modulate = default_color
-	var _s = character.connect("visibled",self,"make_visible")
-	_s = character.connect("hidden",self,"make_invisible")
+	var _s = character.connect("visibled", Callable(self, "_make_visible"))
+	_s = character.connect("hidden", Callable(self, "make_invisible"))
 	
-func make_visible() -> void:
+func _make_visible() -> void:
 	visible = true
 
 func make_invisible() -> void:

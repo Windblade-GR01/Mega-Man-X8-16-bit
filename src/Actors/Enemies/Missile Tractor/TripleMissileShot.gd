@@ -1,9 +1,9 @@
 extends AttackAbility
-onready var prepare: AudioStreamPlayer2D = $prepare
-onready var shot_sound: AudioStreamPlayer2D = $shot_sound
+@onready var prepare: AudioStreamPlayer2D = $prepare
+@onready var shot_sound: AudioStreamPlayer2D = $shot_sound
 
-onready var turn: AudioStreamPlayer2D = $turn
-export var projectiles : Array
+@onready var turn: AudioStreamPlayer2D = $turn
+@export var projectiles : Array
 var projectile_number := 0
 var second_volley := false
 
