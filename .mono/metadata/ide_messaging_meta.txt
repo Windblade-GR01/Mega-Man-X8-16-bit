@@ -1,2 +1,0 @@
-﻿49383
-C:/Dev/Godot 3/Godot_v3.6.1-stable_mono_win64.exe

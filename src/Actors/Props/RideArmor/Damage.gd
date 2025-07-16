@@ -5,10 +5,12 @@ onready var dmg: AudioStreamPlayer2D = $dmg
 onready var tween = TweenController.new(self)
 
 var damage_direction := 0
+var damage_ammount := 0
 
 signal knockback
 
 func _on_damage(_value, inflicter) -> void:
+	damage_ammount = _value
 	define_damage_direction(inflicter)
 	_on_signal()
 	
@@ -18,7 +20,8 @@ func should_execute() -> bool:
 func _Setup() -> void:
 	dmg.play_rp(0.05, 0.85)
 	character.flash(0.064)
-	character.blink()
+	if damage_ammount > 0:
+		character.blink()
 	tween.method("set_bonus_horizontal_speed",-250*damage_direction,0,0.15,physics)
 	tween.end_ability()
 	emit_signal("knockback")

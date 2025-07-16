@@ -1,11 +1,11 @@
 extends Actor
-#class_name RideArmor
+class_name RideArmor
 onready var ride: Node = $Ride
 
 export var song_intro : AudioStream
 export var song_loop : AudioStream
 var song_timer := 0.0
-export var damage_reduction := 0.7
+export var damage_reduction := 0.5
 var grounded := false
 var listening_to_inputs := true
 var queued_up_for_destruction := false
@@ -80,19 +80,33 @@ func get_all_abilities() -> Array:
 	return abilities
 
 func damage(value, inflicter = null) -> float:
-	if not is_invulnerable() and has_health():
-		emit_signal("damage",value,inflicter)
+	if is_invulnerable() or !has_health():
+		return current_health
+	
+	var objName = inflicter.get_name()
+	
+	if objName.begins_with("SimpleEnemyProjectile") and max_health > 20:
+		emit_signal("damage", 0, inflicter)
+	elif (inflicter is Enemy \
+		and !(inflicter is Panda) \
+		and objName != "RidearmorReploid" \
+	):
+		inflicter.damage(20, self)
+	elif objName == "Vile":
+		return current_health
+	else:
+		emit_signal("damage", value, inflicter)
 		reduce_health(value)
 		set_invulnerability(0.75)
 	return current_health
 
 func is_invulnerable() -> bool:
-	return not listening_to_inputs or invulnerability > 0 or toggleable_invulnerabilities.size() > 0
+	return not active or not listening_to_inputs or invulnerability > 0 or toggleable_invulnerabilities.size() > 0
 
 func reduce_health(value : float):
-	var health_to_reduce = value * (1 - damage_reduction)
-	if health_to_reduce < 1:
-		health_to_reduce = 0
+	if value <= 1:
+		current_health -= value
+	var health_to_reduce = floor(value * (1 - damage_reduction))
 	current_health -= health_to_reduce
 
 func flash(duration := 0.032):

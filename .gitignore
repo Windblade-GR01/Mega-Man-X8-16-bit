@@ -49,3 +49,13 @@ Thumbs.db
 *.wmv
 
 .import/
+
+# VSCode
+.vscode/*
+.mono/*
+.vs/*
+
+# C-Sharp
+[Bb]in/*
+[Oo]bj/*
+omnisharp.json

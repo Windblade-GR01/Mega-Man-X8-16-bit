@@ -16706,7 +16706,6 @@ position = Vector2( 0, 95 )
 
 [node name="animatedSprite" parent="X" index="3"]
 material = SubResource( 3 )
-frame = 23
 
 [node name="head_armor" parent="X/animatedSprite" index="0"]
 material = SubResource( 4 )
@@ -17461,31 +17460,26 @@ position = Vector2( 7193, -276 )
 [node name="spikes" parent="Objects/ConveyorBelts/SpikeConveyorBelt" index="0" instance=ExtResource( 33 )]
 position = Vector2( -171, 0 )
 z_index = 2
-frame = 5
 flip_h = true
 
 [node name="spikes2" parent="Objects/ConveyorBelts/SpikeConveyorBelt" index="1" instance=ExtResource( 33 )]
 position = Vector2( -151, 0 )
 z_index = 2
-frame = 4
 flip_h = true
 
 [node name="spikes3" parent="Objects/ConveyorBelts/SpikeConveyorBelt" index="2" instance=ExtResource( 33 )]
 position = Vector2( -131, 0 )
 z_index = 2
-frame = 5
 flip_h = true
 
 [node name="spikes4" parent="Objects/ConveyorBelts/SpikeConveyorBelt" index="3" instance=ExtResource( 33 )]
 position = Vector2( -111, 0 )
 z_index = 2
-frame = 4
 flip_h = true
 
 [node name="spikes5" parent="Objects/ConveyorBelts/SpikeConveyorBelt" index="4" instance=ExtResource( 33 )]
 position = Vector2( -91, 0 )
 z_index = 2
-frame = 4
 flip_h = true
 
 [node name="spikes6" parent="Objects/ConveyorBelts/SpikeConveyorBelt" index="5" instance=ExtResource( 33 )]
@@ -17496,7 +17490,6 @@ flip_h = true
 [node name="spikes7" parent="Objects/ConveyorBelts/SpikeConveyorBelt" index="6" instance=ExtResource( 33 )]
 position = Vector2( -51, 0 )
 z_index = 2
-frame = 4
 flip_h = true
 
 [node name="spikes8" parent="Objects/ConveyorBelts/SpikeConveyorBelt" index="7" instance=ExtResource( 33 )]
@@ -17507,19 +17500,16 @@ flip_h = true
 [node name="spikes9" parent="Objects/ConveyorBelts/SpikeConveyorBelt" index="8" instance=ExtResource( 33 )]
 position = Vector2( -11, 0 )
 z_index = 2
-frame = 5
 flip_h = true
 
 [node name="spikes10" parent="Objects/ConveyorBelts/SpikeConveyorBelt" index="9" instance=ExtResource( 33 )]
 position = Vector2( 9, 0 )
 z_index = 2
-frame = 4
 flip_h = true
 
 [node name="spikes11" parent="Objects/ConveyorBelts/SpikeConveyorBelt" index="10" instance=ExtResource( 33 )]
 position = Vector2( 29, 0 )
 z_index = 2
-frame = 4
 flip_h = true
 
 [node name="spikes12" parent="Objects/ConveyorBelts/SpikeConveyorBelt" index="11" instance=ExtResource( 33 )]
@@ -17530,7 +17520,6 @@ flip_h = true
 [node name="spikes13" parent="Objects/ConveyorBelts/SpikeConveyorBelt" index="12" instance=ExtResource( 33 )]
 position = Vector2( 69, 0 )
 z_index = 2
-frame = 4
 flip_h = true
 
 [node name="spikes14" parent="Objects/ConveyorBelts/SpikeConveyorBelt" index="13" instance=ExtResource( 33 )]
@@ -17541,7 +17530,6 @@ flip_h = true
 [node name="spikes15" parent="Objects/ConveyorBelts/SpikeConveyorBelt" index="14" instance=ExtResource( 33 )]
 position = Vector2( 109, 0 )
 z_index = 2
-frame = 4
 flip_h = true
 
 [node name="spikes16" parent="Objects/ConveyorBelts/SpikeConveyorBelt" index="15" instance=ExtResource( 33 )]
@@ -17552,7 +17540,6 @@ flip_h = true
 [node name="spikes17" parent="Objects/ConveyorBelts/SpikeConveyorBelt" index="16" instance=ExtResource( 33 )]
 position = Vector2( 149, 0 )
 z_index = 2
-frame = 2
 flip_h = true
 
 [node name="spikes18" parent="Objects/ConveyorBelts/SpikeConveyorBelt" index="17" instance=ExtResource( 33 )]
@@ -17563,13 +17550,11 @@ flip_h = true
 [node name="spikes19" parent="Objects/ConveyorBelts/SpikeConveyorBelt" index="18" instance=ExtResource( 33 )]
 position = Vector2( 189, 0 )
 z_index = 2
-frame = 2
 flip_h = true
 
 [node name="spikes20" parent="Objects/ConveyorBelts/SpikeConveyorBelt" index="19" instance=ExtResource( 33 )]
 position = Vector2( 209, 0 )
 z_index = 2
-frame = 8
 flip_h = true
 
 [node name="Conveyor Belt6" parent="Objects/ConveyorBelts/SpikeConveyorBelt" index="20" instance=ExtResource( 3 )]
@@ -17596,7 +17581,6 @@ position = Vector2( 10021, -279 )
 [node name="spikes" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="0" instance=ExtResource( 33 )]
 position = Vector2( -171, 0 )
 z_index = 2
-frame = 4
 
 [node name="spikes2" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="1" instance=ExtResource( 33 )]
 position = Vector2( -151, 0 )
@@ -17605,7 +17589,6 @@ z_index = 2
 [node name="spikes3" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="2" instance=ExtResource( 33 )]
 position = Vector2( -131, 0 )
 z_index = 2
-frame = 4
 
 [node name="spikes4" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="3" instance=ExtResource( 33 )]
 position = Vector2( -111, 0 )
@@ -17618,7 +17601,6 @@ z_index = 2
 [node name="spikes6" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="5" instance=ExtResource( 33 )]
 position = Vector2( -71, 0 )
 z_index = 2
-frame = 2
 
 [node name="spikes7" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="6" instance=ExtResource( 33 )]
 position = Vector2( -51, 0 )
@@ -17627,12 +17609,10 @@ z_index = 2
 [node name="spikes8" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="7" instance=ExtResource( 33 )]
 position = Vector2( -31, 0 )
 z_index = 2
-frame = 2
 
 [node name="spikes9" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="8" instance=ExtResource( 33 )]
 position = Vector2( -11, 0 )
 z_index = 2
-frame = 4
 
 [node name="spikes10" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="9" instance=ExtResource( 33 )]
 position = Vector2( 9, 0 )
@@ -17645,7 +17625,6 @@ z_index = 2
 [node name="spikes12" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="11" instance=ExtResource( 33 )]
 position = Vector2( 49, 0 )
 z_index = 2
-frame = 2
 
 [node name="spikes13" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="12" instance=ExtResource( 33 )]
 position = Vector2( 69, 0 )
@@ -17654,7 +17633,6 @@ z_index = 2
 [node name="spikes14" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="13" instance=ExtResource( 33 )]
 position = Vector2( 89, 0 )
 z_index = 2
-frame = 2
 
 [node name="spikes15" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="14" instance=ExtResource( 33 )]
 position = Vector2( 109, 0 )
@@ -17663,27 +17641,22 @@ z_index = 2
 [node name="spikes16" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="15" instance=ExtResource( 33 )]
 position = Vector2( 129, 0 )
 z_index = 2
-frame = 2
 
 [node name="spikes17" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="16" instance=ExtResource( 33 )]
 position = Vector2( 149, 0 )
 z_index = 2
-frame = 8
 
 [node name="spikes18" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="17" instance=ExtResource( 33 )]
 position = Vector2( 169, 0 )
 z_index = 2
-frame = 2
 
 [node name="spikes19" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="18" instance=ExtResource( 33 )]
 position = Vector2( 189, 0 )
 z_index = 2
-frame = 8
 
 [node name="spikes20" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="19" instance=ExtResource( 33 )]
 position = Vector2( 208, 0 )
 z_index = 2
-frame = 2
 
 [node name="spikes21" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="20" instance=ExtResource( 33 )]
 position = Vector2( 228, 0 )
@@ -17692,53 +17665,43 @@ z_index = 2
 [node name="spikes22" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="21" instance=ExtResource( 33 )]
 position = Vector2( 248, 0 )
 z_index = 2
-frame = 2
 
 [node name="spikes23" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="22" instance=ExtResource( 33 )]
 position = Vector2( 268, 0 )
 z_index = 2
-frame = 8
 
 [node name="spikes24" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="23" instance=ExtResource( 33 )]
 position = Vector2( 288, 0 )
 z_index = 2
-frame = 2
 
 [node name="spikes25" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="24" instance=ExtResource( 33 )]
 position = Vector2( 308, 0 )
 z_index = 2
-frame = 8
 
 [node name="spikes26" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="25" instance=ExtResource( 33 )]
 position = Vector2( 326, 0 )
 z_index = 2
-frame = 8
 
 [node name="spikes27" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="26" instance=ExtResource( 33 )]
 position = Vector2( 346, 0 )
 z_index = 2
-frame = 2
 
 [node name="spikes28" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="27" instance=ExtResource( 33 )]
 position = Vector2( 366, 0 )
 z_index = 2
-frame = 8
 
 [node name="spikes29" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="28" instance=ExtResource( 33 )]
 position = Vector2( 386, 0 )
 z_index = 2
-frame = 0
 
 [node name="spikes30" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="29" instance=ExtResource( 33 )]
 position = Vector2( 406, 0 )
 z_index = 2
-frame = 8
 
 [node name="spikes31" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="30" instance=ExtResource( 33 )]
 visible = false
 position = Vector2( 426, 0 )
 z_index = 2
-frame = 0
 
 [node name="Conveyor Belt6" parent="Objects/ConveyorBelts/SpikeConveyorBelt5" index="31" instance=ExtResource( 3 )]
 pause_mode = 1
@@ -17764,7 +17727,6 @@ position = Vector2( 9439, -453 )
 [node name="spikes" parent="Objects/ConveyorBelts/SpikeConveyorBelt2" index="0" instance=ExtResource( 33 )]
 position = Vector2( -171, 0 )
 z_index = 2
-frame = 4
 flip_h = true
 
 [node name="spikes2" parent="Objects/ConveyorBelts/SpikeConveyorBelt2" index="1" instance=ExtResource( 33 )]
@@ -17775,7 +17737,6 @@ flip_h = true
 [node name="spikes3" parent="Objects/ConveyorBelts/SpikeConveyorBelt2" index="2" instance=ExtResource( 33 )]
 position = Vector2( -131, 0 )
 z_index = 2
-frame = 4
 flip_h = true
 
 [node name="spikes4" parent="Objects/ConveyorBelts/SpikeConveyorBelt2" index="3" instance=ExtResource( 33 )]
@@ -17791,7 +17752,6 @@ flip_h = true
 [node name="spikes6" parent="Objects/ConveyorBelts/SpikeConveyorBelt2" index="5" instance=ExtResource( 33 )]
 position = Vector2( -71, 0 )
 z_index = 2
-frame = 2
 flip_h = true
 
 [node name="spikes7" parent="Objects/ConveyorBelts/SpikeConveyorBelt2" index="6" instance=ExtResource( 33 )]
@@ -17802,13 +17762,11 @@ flip_h = true
 [node name="spikes8" parent="Objects/ConveyorBelts/SpikeConveyorBelt2" index="7" instance=ExtResource( 33 )]
 position = Vector2( -31, 0 )
 z_index = 2
-frame = 2
 flip_h = true
 
 [node name="spikes9" parent="Objects/ConveyorBelts/SpikeConveyorBelt2" index="8" instance=ExtResource( 33 )]
 position = Vector2( -11, 0 )
 z_index = 2
-frame = 4
 flip_h = true
 
 [node name="spikes10" parent="Objects/ConveyorBelts/SpikeConveyorBelt2" index="9" instance=ExtResource( 33 )]
@@ -17824,7 +17782,6 @@ flip_h = true
 [node name="spikes12" parent="Objects/ConveyorBelts/SpikeConveyorBelt2" index="11" instance=ExtResource( 33 )]
 position = Vector2( 49, 0 )
 z_index = 2
-frame = 2
 flip_h = true
 
 [node name="spikes13" parent="Objects/ConveyorBelts/SpikeConveyorBelt2" index="12" instance=ExtResource( 33 )]
@@ -17835,7 +17792,6 @@ flip_h = true
 [node name="spikes14" parent="Objects/ConveyorBelts/SpikeConveyorBelt2" index="13" instance=ExtResource( 33 )]
 position = Vector2( 89, 0 )
 z_index = 2
-frame = 2
 flip_h = true
 
 [node name="spikes15" parent="Objects/ConveyorBelts/SpikeConveyorBelt2" index="14" instance=ExtResource( 33 )]
@@ -17846,26 +17802,22 @@ flip_h = true
 [node name="spikes16" parent="Objects/ConveyorBelts/SpikeConveyorBelt2" index="15" instance=ExtResource( 33 )]
 position = Vector2( 129, 0 )
 z_index = 2
-frame = 2
 flip_h = true
 
 [node name="spikes17" parent="Objects/ConveyorBelts/SpikeConveyorBelt2" index="16" instance=ExtResource( 33 )]
 position = Vector2( 149, 0 )
 z_index = 2
-frame = 8
 flip_h = true
 
 [node name="spikes18" parent="Objects/ConveyorBelts/SpikeConveyorBelt2" index="17" instance=ExtResource( 33 )]
 position = Vector2( 169, 0 )
 z_index = 2
-frame = 2
 flip_h = true
 
 [node name="spikes19" parent="Objects/ConveyorBelts/SpikeConveyorBelt2" index="18" instance=ExtResource( 33 )]
 visible = false
 position = Vector2( 189, 0 )
 z_index = 2
-frame = 8
 flip_h = true
 
 [node name="Conveyor Belt6" parent="Objects/ConveyorBelts/SpikeConveyorBelt2" index="19" instance=ExtResource( 3 )]
@@ -17891,7 +17843,6 @@ position = Vector2( 12294, -453 )
 [node name="spikes" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="0" instance=ExtResource( 33 )]
 position = Vector2( -171, 0 )
 z_index = 2
-frame = 4
 flip_h = true
 
 [node name="spikes2" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="1" instance=ExtResource( 33 )]
@@ -17902,7 +17853,6 @@ flip_h = true
 [node name="spikes3" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="2" instance=ExtResource( 33 )]
 position = Vector2( -131, 0 )
 z_index = 2
-frame = 4
 flip_h = true
 
 [node name="spikes4" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="3" instance=ExtResource( 33 )]
@@ -17918,7 +17868,6 @@ flip_h = true
 [node name="spikes6" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="5" instance=ExtResource( 33 )]
 position = Vector2( -71, 0 )
 z_index = 2
-frame = 2
 flip_h = true
 
 [node name="spikes7" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="6" instance=ExtResource( 33 )]
@@ -17929,13 +17878,11 @@ flip_h = true
 [node name="spikes8" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="7" instance=ExtResource( 33 )]
 position = Vector2( -31, 0 )
 z_index = 2
-frame = 2
 flip_h = true
 
 [node name="spikes9" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="8" instance=ExtResource( 33 )]
 position = Vector2( -11, 0 )
 z_index = 2
-frame = 4
 flip_h = true
 
 [node name="spikes10" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="9" instance=ExtResource( 33 )]
@@ -17951,7 +17898,6 @@ flip_h = true
 [node name="spikes12" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="11" instance=ExtResource( 33 )]
 position = Vector2( 49, 0 )
 z_index = 2
-frame = 2
 flip_h = true
 
 [node name="spikes13" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="12" instance=ExtResource( 33 )]
@@ -17962,7 +17908,6 @@ flip_h = true
 [node name="spikes14" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="13" instance=ExtResource( 33 )]
 position = Vector2( 89, 0 )
 z_index = 2
-frame = 2
 flip_h = true
 
 [node name="spikes15" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="14" instance=ExtResource( 33 )]
@@ -17973,67 +17918,56 @@ flip_h = true
 [node name="spikes16" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="15" instance=ExtResource( 33 )]
 position = Vector2( 129, 0 )
 z_index = 2
-frame = 2
 flip_h = true
 
 [node name="spikes17" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="16" instance=ExtResource( 33 )]
 position = Vector2( 149, 0 )
 z_index = 2
-frame = 8
 flip_h = true
 
 [node name="spikes18" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="17" instance=ExtResource( 33 )]
 position = Vector2( 169, 0 )
 z_index = 2
-frame = 2
 flip_h = true
 
 [node name="spikes19" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="18" instance=ExtResource( 33 )]
 position = Vector2( 189, 0 )
 z_index = 2
-frame = 8
 flip_h = true
 
 [node name="spikes20" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="19" instance=ExtResource( 33 )]
 position = Vector2( 209, 0 )
 z_index = 2
-frame = 2
 flip_h = true
 
 [node name="spikes21" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="20" instance=ExtResource( 33 )]
 position = Vector2( 229, 0 )
 z_index = 2
-frame = 8
 flip_h = true
 
 [node name="spikes22" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="21" instance=ExtResource( 33 )]
 position = Vector2( 249, 0 )
 z_index = 2
-frame = 2
 flip_h = true
 
 [node name="spikes23" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="22" instance=ExtResource( 33 )]
 position = Vector2( 269, 0 )
 z_index = 2
-frame = 8
 flip_h = true
 
 [node name="spikes24" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="23" instance=ExtResource( 33 )]
 position = Vector2( 289, 0 )
 z_index = 2
-frame = 0
 flip_h = true
 
 [node name="spikes25" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="24" instance=ExtResource( 33 )]
 position = Vector2( 309, 0 )
 z_index = 2
-frame = 8
 flip_h = true
 
 [node name="spikes26" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="25" instance=ExtResource( 33 )]
 position = Vector2( 329, 0 )
 z_index = 2
-frame = 0
 flip_h = true
 
 [node name="Conveyor Belt6" parent="Objects/ConveyorBelts/SpikeConveyorBelt3" index="26" instance=ExtResource( 3 )]
@@ -18056,7 +17990,6 @@ position = Vector2( 12817, -774 )
 [node name="spikes" parent="Objects/ConveyorBelts/SpikeConveyorBelt4" index="0" instance=ExtResource( 33 )]
 position = Vector2( -171, 0 )
 z_index = 2
-frame = 4
 flip_h = true
 
 [node name="spikes2" parent="Objects/ConveyorBelts/SpikeConveyorBelt4" index="1" instance=ExtResource( 33 )]
@@ -18067,7 +18000,6 @@ flip_h = true
 [node name="spikes3" parent="Objects/ConveyorBelts/SpikeConveyorBelt4" index="2" instance=ExtResource( 33 )]
 position = Vector2( -131, 0 )
 z_index = 2
-frame = 4
 flip_h = true
 
 [node name="spikes4" parent="Objects/ConveyorBelts/SpikeConveyorBelt4" index="3" instance=ExtResource( 33 )]
@@ -18083,7 +18015,6 @@ flip_h = true
 [node name="spikes6" parent="Objects/ConveyorBelts/SpikeConveyorBelt4" index="5" instance=ExtResource( 33 )]
 position = Vector2( -71, 0 )
 z_index = 2
-frame = 2
 flip_h = true
 
 [node name="spikes7" parent="Objects/ConveyorBelts/SpikeConveyorBelt4" index="6" instance=ExtResource( 33 )]
@@ -18094,13 +18025,11 @@ flip_h = true
 [node name="spikes8" parent="Objects/ConveyorBelts/SpikeConveyorBelt4" index="7" instance=ExtResource( 33 )]
 position = Vector2( -31, 0 )
 z_index = 2
-frame = 2
 flip_h = true
 
 [node name="spikes9" parent="Objects/ConveyorBelts/SpikeConveyorBelt4" index="8" instance=ExtResource( 33 )]
 position = Vector2( -11, 0 )
 z_index = 2
-frame = 4
 flip_h = true
 
 [node name="spikes10" parent="Objects/ConveyorBelts/SpikeConveyorBelt4" index="9" instance=ExtResource( 33 )]
@@ -18116,7 +18045,6 @@ flip_h = true
 [node name="spikes12" parent="Objects/ConveyorBelts/SpikeConveyorBelt4" index="11" instance=ExtResource( 33 )]
 position = Vector2( 49, 0 )
 z_index = 2
-frame = 2
 flip_h = true
 
 [node name="spikes13" parent="Objects/ConveyorBelts/SpikeConveyorBelt4" index="12" instance=ExtResource( 33 )]
@@ -18127,7 +18055,6 @@ flip_h = true
 [node name="spikes14" parent="Objects/ConveyorBelts/SpikeConveyorBelt4" index="13" instance=ExtResource( 33 )]
 position = Vector2( 89, 0 )
 z_index = 2
-frame = 2
 flip_h = true
 
 [node name="spikes15" parent="Objects/ConveyorBelts/SpikeConveyorBelt4" index="14" instance=ExtResource( 33 )]
@@ -18138,43 +18065,36 @@ flip_h = true
 [node name="spikes16" parent="Objects/ConveyorBelts/SpikeConveyorBelt4" index="15" instance=ExtResource( 33 )]
 position = Vector2( 129, 0 )
 z_index = 2
-frame = 2
 flip_h = true
 
 [node name="spikes17" parent="Objects/ConveyorBelts/SpikeConveyorBelt4" index="16" instance=ExtResource( 33 )]
 position = Vector2( 149, 0 )
 z_index = 2
-frame = 8
 flip_h = true
 
 [node name="spikes18" parent="Objects/ConveyorBelts/SpikeConveyorBelt4" index="17" instance=ExtResource( 33 )]
 position = Vector2( 169, 0 )
 z_index = 2
-frame = 2
 flip_h = true
 
 [node name="spikes19" parent="Objects/ConveyorBelts/SpikeConveyorBelt4" index="18" instance=ExtResource( 33 )]
 position = Vector2( 189, 0 )
 z_index = 2
-frame = 8
 flip_h = true
 
 [node name="spikes20" parent="Objects/ConveyorBelts/SpikeConveyorBelt4" index="19" instance=ExtResource( 33 )]
 position = Vector2( 209, 0 )
 z_index = 2
-frame = 2
 flip_h = true
 
 [node name="spikes21" parent="Objects/ConveyorBelts/SpikeConveyorBelt4" index="20" instance=ExtResource( 33 )]
 position = Vector2( 229, 0 )
 z_index = 2
-frame = 8
 flip_h = true
 
 [node name="spikes22" parent="Objects/ConveyorBelts/SpikeConveyorBelt4" index="21" instance=ExtResource( 33 )]
 position = Vector2( 249, 0 )
 z_index = 2
-frame = 2
 flip_h = true
 
 [node name="Conveyor Belt6" parent="Objects/ConveyorBelts/SpikeConveyorBelt4" index="22" instance=ExtResource( 3 )]

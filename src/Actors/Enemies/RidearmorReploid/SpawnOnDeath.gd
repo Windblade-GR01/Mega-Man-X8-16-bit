@@ -21,6 +21,8 @@ func instantiate_spawn() -> void:
 
 		if GameManager.is_player_in_scene():
 			if GameManager.player.ride and GameManager.player.ride.current_health > 0:
+				instance.song_intro = null
+				instance.song_loop = null
 				instance.set_deferred("current_health",0)
 			else:
 				instance.current_health = 16

@@ -17,5 +17,11 @@ func move_out() -> void:
 	set_process(false)
 
 func _process(_delta: float) -> void:
-	if GameManager.player.ride:
-		texture_progress.value = ceil(GameManager.player.ride.current_health)
+	if not GameManager.player.ride:
+		return
+	rect_position.y = 56 - (GameManager.player.ride.max_health - 16) * 2
+	rect_size.y =  52 + (GameManager.player.ride.max_health - 16) * 2
+	var sizeOffset = rect_size.y - 108
+	#texture_progress.rect_position.y = -28
+	var hpValue = ceil(GameManager.player.ride.current_health)
+	texture_progress.value = hpValue

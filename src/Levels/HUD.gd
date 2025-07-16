@@ -221,7 +221,7 @@ func show_boss_health_and_weapon(delta) -> String:
 			hide_healable_amount()
 	if is_instance_valid(GameManager.player) and is_instance_valid(GameManager.player.ride):
 		var health = GameManager.player.ride.current_health
-		ride_hp.value = ceil(health/2)
+		#ride_hp.value = ceil(health/2)
 		
 	if is_instance_valid(boss):
 		boss_bar.visible = true

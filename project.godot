@@ -629,6 +629,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Actors/Props/Ride.gd"
 }, {
+"base": "Actor",
+"class": "RideArmor",
+"language": "GDScript",
+"path": "res://src/Actors/Props/RideArmor/RideArmor.gd"
+}, {
 "base": "Ability",
 "class": "Rider",
 "language": "GDScript",
@@ -959,6 +964,7 @@ _global_script_class_icons={
 "ProjectileShot": "",
 "Respawner": "",
 "Ride": "",
+"RideArmor": "",
 "Rider": "",
 "SFlierPatrol": "",
 "ShieldClaw": "",

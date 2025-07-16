@@ -41,9 +41,7 @@ anim_speed = 1.0
 anim_speed_curve = SubResource( 9 )
 
 [node name="RideArmorNoCannon" instance=ExtResource( 1 )]
-song_intro = null
-song_loop = null
-damage_reduction = 0.45
+max_health = 16.0
 
 [node name="animatedSprite" parent="." index="4"]
 material = SubResource( 48 )
