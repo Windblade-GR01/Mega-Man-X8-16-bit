@@ -1,12 +1,12 @@
 extends AttackAbility
-@onready var space: Node = $"../Space"
-@onready var tween := TweenController.new(self)
+onready var space: Node = $"../Space"
+onready var tween := TweenController.new(self)
 var time_to_return := 1.0
 signal stop
-@onready var light_vfx: AnimatedSprite2D = $Hitbox/area2D/collisionShape2D/light_vfx
-@onready var hitbox: Node2D = $Hitbox
-@onready var bolt: AudioStreamPlayer2D = $bolt
-@onready var move: AudioStreamPlayer2D = $"../move"
+onready var light_vfx: AnimatedSprite = $Hitbox/area2D/collisionShape2D/light_vfx
+onready var hitbox: Node2D = $Hitbox
+onready var bolt: AudioStreamPlayer2D = $bolt
+onready var move: AudioStreamPlayer2D = $"../move"
 
 func _Update(_delta) -> void:
 	if attack_stage == 0:

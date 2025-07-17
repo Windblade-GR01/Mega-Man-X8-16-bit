@@ -1,8 +1,8 @@
 extends Line2D
 
-@export var length := 50
+export var length := 50
 var point : Vector2
-@onready var character: CharacterBody2D = $"../../../.."
+onready var character: KinematicBody2D = $"../../../.."
 var timer := 0.0
 var fading := false
 

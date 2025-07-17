@@ -1,10 +1,10 @@
 extends AttackAbility
-@onready var explosion: AudioStreamPlayer2D = $explosion
-@onready var beam_out: AudioStreamPlayer2D = $beam_out
-@onready var sparks: AudioStreamPlayer2D = $sparks
-@export var dialogue : Resource
+onready var explosion: AudioStreamPlayer2D = $explosion
+onready var beam_out: AudioStreamPlayer2D = $beam_out
+onready var sparks: AudioStreamPlayer2D = $sparks
+export var dialogue : Resource
 signal screen_flash
-@onready var battle_song: AudioStreamPlayer = $"../Intro/BattleSong"
+onready var battle_song: AudioStreamPlayer = $"../Intro/BattleSong"
 
 func _ready() -> void:
 	character.listen("zero_health",self,"start")
@@ -16,7 +16,7 @@ func start() -> void:
 
 func _Setup() -> void:
 	play_animation("defeat")
-	animatedSprite.process_mode = Node.PROCESS_MODE_ALWAYS
+	animatedSprite.pause_mode = Node.PAUSE_MODE_PROCESS
 	call_deferred("force_movement_regardless_of_direction", horizontal_velocity * -get_player_direction_relative())
 	set_vertical_speed(-jump_velocity)
 	explosion.play()

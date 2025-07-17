@@ -1,14 +1,14 @@
-extends AnimatedSprite2D
+extends AnimatedSprite
 
 var facing_direction := -1
 var destination := 0.0
 var tween := TweenController.new(self,false)
-@export var reploid_frames : SpriteFrames
-@onready var initial_color := modulate
-@onready var sigma_frames := frames
-@onready var flash: Sprite2D = $flash
-@onready var transformsfx: AudioStreamPlayer2D = $transform
-@onready var step: AudioStreamPlayer2D = $step
+export var reploid_frames : SpriteFrames
+onready var initial_color := modulate
+onready var sigma_frames := frames
+onready var flash: Sprite = $flash
+onready var transformsfx: AudioStreamPlayer2D = $transform
+onready var step: AudioStreamPlayer2D = $step
 
 func _ready() -> void:
 	reset()
@@ -26,7 +26,7 @@ func transform_into_reploid():
 	tween.attribute("modulate", Color(5,5,5,1),1.0)
 	tween.add_callback("start",flash)
 	tween.add_callback("change_frames_to_reploid")
-	tween.add_attribute("modulate", Color.WHITE,2.0)
+	tween.add_attribute("modulate", Color.white,2.0)
 
 func change_frames_to_reploid():
 	frames = reploid_frames
@@ -45,7 +45,7 @@ func reset():
 	frames = sigma_frames
 
 func color_to_light():
-	tween.attribute("modulate",Color.WHITE,4.0)
+	tween.attribute("modulate",Color.white,4.0)
 
 func move(new_destination := 0.0):
 	if new_destination != 0.0:
@@ -58,7 +58,7 @@ func move(new_destination := 0.0):
 func turn_and_step_foward():
 	play("turn")
 	z_index = 3
-	connect("animation_finished", Callable(self, "change_direction").bind("step_foward"))
+	connect("animation_finished",self,"change_direction",["step_foward"])
 
 func change_direction(next_method := "none"):
 	if facing_direction == 1:
@@ -97,11 +97,11 @@ func recover():
 	if facing_direction == 1:
 		play("turn")
 		z_index = 3
-		connect("animation_finished", Callable(self, "change_direction").bind("recover"))
+		connect("animation_finished",self,"change_direction",["recover"])
 	else:
 		play("shield_end")
 		set_frame(9)
-		connect("animation_finished", Callable(self, "idle"))
+		connect("animation_finished",self,"idle")
 
 func idle():
 	play("idle")
@@ -115,5 +115,5 @@ func moving_towards_back() -> bool:
 	return false
 
 func disconnect_finish(method_name : String):
-	if is_connected("animation_finished", Callable(self, method_name)):
-		disconnect("animation_finished", Callable(self, method_name))
+	if is_connected("animation_finished",self,method_name):
+		disconnect("animation_finished",self,method_name)

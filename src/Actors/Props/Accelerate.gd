@@ -1,7 +1,7 @@
 extends BikeMovement
 class_name Accelerate
 
-@export var acceleration := 400.0
+export var acceleration := 400.0
 #var camera_offset_set := false
 
 func _Setup() -> void:

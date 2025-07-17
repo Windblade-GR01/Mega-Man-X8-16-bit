@@ -9,7 +9,7 @@ func _init(_owner, connect := true) -> void:
 		connect_reset()
 
 func connect_reset(end_signal := "stop") -> void:
-	owner.connect(end_signal, Callable(self, "reset")) # warning-ignore:return_value_discarded
+	owner.connect(end_signal,self,"reset") # warning-ignore:return_value_discarded
 
 func create(ease_type := Tween.EASE_IN_OUT, trans_type := Tween.TRANS_LINEAR, parallel := false, loops := 1) -> void:
 	var tween := owner.create_tween()
@@ -32,17 +32,17 @@ func attribute(attribute : String, final_value=1.0, duration:=0.25, object = own
 func method(method : String, initial_value := 0.0, final_value:=1.0, duration:=0.25, object = owner) -> void:
 	var tween := owner.create_tween()
 # warning-ignore:return_value_discarded
-	tween.tween_method(Callable(object, method), initial_value, final_value, duration)
+	tween.tween_method(object, method, initial_value, final_value, duration)
 	tween_list.append(tween)
 
 func callback(method : String, delay := 1.0, object = owner, binds = []) -> void:
 	var tween := owner.create_tween() # warning-ignore:return_value_discarded
-	tween.tween_callback(Callable(object, method).bind(binds)).set_delay(delay)
+	tween.tween_callback(object,method,binds).set_delay(delay)
 	tween_list.append(tween)
 
 func add_callback(method : String, object = owner, binds = []) -> void:
 # warning-ignore:return_value_discarded
-	get_last().tween_callback(Callable(object, method).bind(binds))
+	get_last().tween_callback(object,method,binds)
 
 func add_attribute(attribute : String, final_value=1.0, duration:=0.25, object = owner) -> void:
 # warning-ignore:return_value_discarded
@@ -50,7 +50,7 @@ func add_attribute(attribute : String, final_value=1.0, duration:=0.25, object =
 
 func add_method(method : String, initial_value := 0.0, final_value:=1.0, duration:=0.25, object = owner, binds = []) -> void:
 # warning-ignore:return_value_discarded
-	get_last().tween_method(Callable(object, method).bind(binds), initial_value, final_value, duration)
+	get_last().tween_method(object, method, initial_value, final_value, duration, binds)
 
 func add_wait(wait_duration := 0.25) -> void:
 # warning-ignore:return_value_discarded
@@ -71,9 +71,9 @@ func set_parallel():
 	get_last().set_parallel(true)# warning-ignore:return_value_discarded
 
 func set_ignore_pause_mode():
-	get_last().set_process_mode(Tween.TWEEN_PAUSE_PROCESS)
+	get_last().set_pause_mode(SceneTreeTween.TWEEN_PAUSE_PROCESS)
 
-func get_last() -> Tween:
+func get_last() -> SceneTreeTween:
 	return tween_list.back()
 
 func pause() -> void:

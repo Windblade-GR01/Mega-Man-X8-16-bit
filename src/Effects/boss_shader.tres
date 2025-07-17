@@ -1,20 +1,20 @@
 [gd_resource type="VisualShader" load_steps=43 format=2]
 
-[sub_resource type="VisualShaderNodeFloatFunc" id=37]
+[sub_resource type="VisualShaderNodeScalarFunc" id=37]
 function = 12
 
-[sub_resource type="VisualShaderNodeFloatOp" id=39]
+[sub_resource type="VisualShaderNodeScalarOp" id=39]
 output_port_for_preview = 0
 operator = 2
 
-[sub_resource type="VisualShaderNodeFloatFunc" id=40]
+[sub_resource type="VisualShaderNodeScalarFunc" id=40]
 function = 29
 
-[sub_resource type="VisualShaderNodeFloatOp" id=41]
+[sub_resource type="VisualShaderNodeScalarOp" id=41]
 default_input_values = [ 0, 0.0, 1, 0.3 ]
 operator = 1
 
-[sub_resource type="VisualShaderNodeFloatParameter" id=42]
+[sub_resource type="VisualShaderNodeScalarUniform" id=42]
 uniform_name = "Flash"
 
 [sub_resource type="VisualShaderNodeIf" id=43]
@@ -23,21 +23,21 @@ default_input_values = [ 0, 0.0, 1, 0.0, 2, 1e-05, 3, Vector3( 0, 0, 0 ), 4, Vec
 [sub_resource type="VisualShaderNodeTexture" id=30]
 source = 2
 
-[sub_resource type="VisualShaderNodeFloatOp" id=44]
+[sub_resource type="VisualShaderNodeScalarOp" id=44]
 operator = 2
 
-[sub_resource type="VisualShaderNodeFloatParameter" id=45]
+[sub_resource type="VisualShaderNodeScalarUniform" id=45]
 uniform_name = "Should_Blink"
 
 [sub_resource type="VisualShaderNodeIf" id=46]
 default_input_values = [ 0, 0.0, 1, 0.3, 2, 1e-05, 3, Vector3( 0, 0, 0 ), 4, Vector3( 1, 1, 1 ), 5, Vector3( 0, 0, 0 ) ]
 
-[sub_resource type="VisualShaderNodeFloatConstant" id=47]
+[sub_resource type="VisualShaderNodeScalarConstant" id=47]
 
-[sub_resource type="VisualShaderNodeFloatConstant" id=48]
+[sub_resource type="VisualShaderNodeScalarConstant" id=48]
 constant = 1.0
 
-[sub_resource type="VisualShaderNodeFloatConstant" id=49]
+[sub_resource type="VisualShaderNodeScalarConstant" id=49]
 constant = 1.0
 
 [sub_resource type="VisualShaderNodeColorConstant" id=50]
@@ -48,69 +48,69 @@ default_input_values = [ 0, 0.0, 1, 0.5, 2, 1e-05, 3, Vector3( 0, 0, 0 ), 4, Vec
 
 [sub_resource type="VisualShaderNodeColorOp" id=52]
 
-[sub_resource type="VisualShaderNodeFloatParameter" id=53]
+[sub_resource type="VisualShaderNodeScalarUniform" id=53]
 uniform_name = "Darken"
 
 [sub_resource type="VisualShaderNodeColorOp" id=54]
 operator = 2
 
-[sub_resource type="VisualShaderNodeFloatParameter" id=56]
+[sub_resource type="VisualShaderNodeScalarUniform" id=56]
 uniform_name = "Alpha"
 
 [sub_resource type="VisualShaderNodeIf" id=57]
 default_input_values = [ 0, 0.0, 1, 0.3, 2, 1e-05, 3, Vector3( 0, 0, 0 ), 4, Vector3( 0, 0, 0 ), 5, Vector3( 0, 0, 0 ) ]
 
-[sub_resource type="VisualShaderNodeFloatFunc" id=62]
+[sub_resource type="VisualShaderNodeScalarFunc" id=62]
 function = 31
 
 [sub_resource type="VisualShaderNodeIf" id=64]
 
-[sub_resource type="VisualShaderNodeFloatOp" id=65]
+[sub_resource type="VisualShaderNodeScalarOp" id=65]
 default_input_values = [ 0, 0.0, 1, 0.15 ]
 
-[sub_resource type="VisualShaderNodeFloatOp" id=66]
+[sub_resource type="VisualShaderNodeScalarOp" id=66]
 operator = 2
 
-[sub_resource type="VisualShaderNodeFloatOp" id=67]
+[sub_resource type="VisualShaderNodeScalarOp" id=67]
 operator = 1
 
-[sub_resource type="VisualShaderNodeFloatFunc" id=68]
+[sub_resource type="VisualShaderNodeScalarFunc" id=68]
 function = 12
 
 [sub_resource type="VisualShaderNodeInput" id=32]
 input_name = "time"
 
-[sub_resource type="VisualShaderNodeFloatFunc" id=69]
+[sub_resource type="VisualShaderNodeScalarFunc" id=69]
 function = 31
 
-[sub_resource type="VisualShaderNodeFloatParameter" id=70]
+[sub_resource type="VisualShaderNodeScalarUniform" id=70]
 uniform_name = "SubAlpha"
 
-[sub_resource type="VisualShaderNodeFloatOp" id=71]
+[sub_resource type="VisualShaderNodeScalarOp" id=71]
 operator = 2
 
-[sub_resource type="VisualShaderNodeFloatParameter" id=72]
+[sub_resource type="VisualShaderNodeScalarUniform" id=72]
 uniform_name = "totalAlpha"
 
-[sub_resource type="VisualShaderNodeFloatConstant" id=73]
+[sub_resource type="VisualShaderNodeScalarConstant" id=73]
 constant = 0.277
 
 [sub_resource type="VisualShaderNodeTexture" id=74]
 source = 2
 
-[sub_resource type="VisualShaderNodeFloatOp" id=75]
+[sub_resource type="VisualShaderNodeScalarOp" id=75]
 operator = 2
 
-[sub_resource type="VisualShaderNodeFloatFunc" id=33]
+[sub_resource type="VisualShaderNodeScalarFunc" id=33]
 function = 1
 
-[sub_resource type="VisualShaderNodeFloatConstant" id=76]
+[sub_resource type="VisualShaderNodeScalarConstant" id=76]
 constant = 1.0
 
 [sub_resource type="VisualShaderNodeColorOp" id=77]
 operator = 2
 
-[sub_resource type="VisualShaderNodeFloatOp" id=35]
+[sub_resource type="VisualShaderNodeScalarOp" id=35]
 default_input_values = [ 0, 0.0, 1, 42.0 ]
 operator = 2
 
@@ -254,4 +254,4 @@ nodes/fragment/71/node = SubResource( 76 )
 nodes/fragment/71/position = Vector2( 1300, 1100 )
 nodes/fragment/72/node = SubResource( 77 )
 nodes/fragment/72/position = Vector2( 1500, 1000 )
-nodes/fragment/connections = PackedInt32Array( 7, 0, 12, 0, 12, 0, 16, 0, 16, 0, 15, 0, 9, 0, 7, 0, 14, 0, 18, 3, 21, 0, 18, 0, 2, 0, 23, 0, 22, 0, 21, 1, 15, 0, 14, 0, 18, 0, 37, 0, 2, 0, 37, 5, 36, 0, 38, 0, 23, 0, 38, 1, 38, 0, 37, 3, 38, 0, 37, 4, 17, 0, 14, 1, 17, 0, 21, 0, 30, 0, 23, 4, 34, 0, 23, 5, 34, 0, 23, 3, 37, 0, 40, 0, 39, 0, 40, 1, 6, 0, 9, 0, 2, 0, 43, 0, 2, 1, 43, 4, 52, 0, 43, 1, 2, 0, 54, 0, 43, 0, 54, 5, 52, 0, 55, 0, 55, 0, 54, 1, 54, 0, 56, 0, 56, 0, 57, 0, 43, 0, 57, 1, 57, 0, 58, 0, 60, 0, 56, 1, 61, 0, 60, 0, 42, 0, 52, 0, 58, 0, 62, 0, 63, 0, 62, 1, 68, 0, 0, 0, 68, 1, 69, 0, 72, 0, 69, 1, 68, 0, 72, 0, 71, 0, 72, 1, 69, 0, 0, 1 )
+nodes/fragment/connections = PoolIntArray( 7, 0, 12, 0, 12, 0, 16, 0, 16, 0, 15, 0, 9, 0, 7, 0, 14, 0, 18, 3, 21, 0, 18, 0, 2, 0, 23, 0, 22, 0, 21, 1, 15, 0, 14, 0, 18, 0, 37, 0, 2, 0, 37, 5, 36, 0, 38, 0, 23, 0, 38, 1, 38, 0, 37, 3, 38, 0, 37, 4, 17, 0, 14, 1, 17, 0, 21, 0, 30, 0, 23, 4, 34, 0, 23, 5, 34, 0, 23, 3, 37, 0, 40, 0, 39, 0, 40, 1, 6, 0, 9, 0, 2, 0, 43, 0, 2, 1, 43, 4, 52, 0, 43, 1, 2, 0, 54, 0, 43, 0, 54, 5, 52, 0, 55, 0, 55, 0, 54, 1, 54, 0, 56, 0, 56, 0, 57, 0, 43, 0, 57, 1, 57, 0, 58, 0, 60, 0, 56, 1, 61, 0, 60, 0, 42, 0, 52, 0, 58, 0, 62, 0, 63, 0, 62, 1, 68, 0, 0, 0, 68, 1, 69, 0, 72, 0, 69, 1, 68, 0, 72, 0, 71, 0, 72, 1, 69, 0, 0, 1 )

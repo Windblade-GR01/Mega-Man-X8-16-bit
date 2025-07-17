@@ -1,13 +1,13 @@
 extends Node
 
-@export var achievement : Resource
+export var achievement : Resource
 
 var used_checkpoint := false
 var rotated_stage := false
 
 func _ready() -> void:
-	Event.connect("moved_player_to_checkpoint", Callable(self, "checkpoint_check"))
-	Event.connect("rotate_stage_in_degrees", Callable(self, "on_rotation"))
+	Event.connect("moved_player_to_checkpoint",self,"checkpoint_check")
+	Event.connect("rotate_stage_in_degrees",self,"on_rotation")
 
 func on_rotation(_param := null, _param2 := null) -> void:
 	rotated_stage = true

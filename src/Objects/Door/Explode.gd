@@ -2,10 +2,10 @@ extends NewAbility
 
 var exploded := false
 
-@onready var animation = AnimationController.new($"../animatedSprite",self)
-@onready var particles: GPUParticles2D = $"Explosion Particles"
-@onready var explosion: AudioStreamPlayer2D = $explosion_sound
-@onready var collider: CollisionShape2D = $"../collisionShape2D"
+onready var animation = AnimationController.new($"../animatedSprite",self)
+onready var particles: Particles2D = $"Explosion Particles"
+onready var explosion: AudioStreamPlayer2D = $explosion_sound
+onready var collider: CollisionShape2D = $"../collisionShape2D"
 
 func _StartCondition() -> bool:
 	return character.able_to_explode and not exploded

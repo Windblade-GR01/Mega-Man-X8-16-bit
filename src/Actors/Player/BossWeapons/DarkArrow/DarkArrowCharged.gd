@@ -1,6 +1,6 @@
 extends SimplePlayerProjectile
-@onready var left_tracker: Area2D = $left_tracker
-@onready var right_tracker: Area2D = $right_tracker
+onready var left_tracker: Area2D = $left_tracker
+onready var right_tracker: Area2D = $right_tracker
 var tracking = false
 
 const bypass_shield := true
@@ -33,7 +33,7 @@ func track():
 	tracking = true
 
 func _Update(delta) -> void:
-	super._Update(delta)
+	._Update(delta)
 	if not tracking:
 		track()
 

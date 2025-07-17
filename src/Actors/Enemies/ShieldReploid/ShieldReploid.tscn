@@ -9,7 +9,7 @@
 [ext_resource path="res://src/Actors/Modules/Enemy/Enemy.gd" type="Script" id=10]
 [ext_resource path="res://src/Actors/Enemies/ShieldReploid/PursuitAndDefend.gd" type="Script" id=11]
 [ext_resource path="res://src/Sounds/HIT.wav" type="AudioStream" id=12]
-[ext_resource path="res://src/Actors/Enemies/SwordReploid/reploid_remains_palette.png" type="Texture2D" id=13]
+[ext_resource path="res://src/Actors/Enemies/SwordReploid/reploid_remains_palette.png" type="Texture" id=13]
 [ext_resource path="res://src/Actors/Enemies/ShieldReploid/shield_reploid.res" type="SpriteFrames" id=14]
 [ext_resource path="res://src/Actors/Enemies/EnemyShield.gd" type="Script" id=15]
 [ext_resource path="res://src/Sounds/MMX - Enemy Helmet Hit.ogg" type="AudioStream" id=16]
@@ -46,7 +46,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=239]
 curve = SubResource( 238 )
 
-[sub_resource type="ParticleProcessMaterial" id=244]
+[sub_resource type="ParticlesMaterial" id=244]
 resource_local_to_scene = true
 resource_name = "explosion"
 emission_shape = 1
@@ -68,7 +68,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=243]
 curve = SubResource( 242 )
 
-[sub_resource type="ParticleProcessMaterial" id=245]
+[sub_resource type="ParticlesMaterial" id=245]
 resource_local_to_scene = true
 resource_name = "remains_single"
 flag_disable_z = true
@@ -81,7 +81,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[node name="ShieldReploid" type="CharacterBody2D" groups=["Enemies"]]
+[node name="ShieldReploid" type="KinematicBody2D" groups=["Enemies"]]
 collision_layer = 0
 collision_mask = 513
 script = ExtResource( 10 )
@@ -104,7 +104,7 @@ input_pickable = false
 position = Vector2( -0.5, 0 )
 shape = SubResource( 67 )
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 63 )
 position = Vector2( 2, 0 )
 z_index = 1
@@ -114,7 +114,7 @@ frame = 7
 playing = true
 flip_h = true
 
-[node name="break_vfx" type="AnimatedSprite2D" parent="animatedSprite"]
+[node name="break_vfx" type="AnimatedSprite" parent="animatedSprite"]
 modulate = Color( 1, 1, 1, 0.670588 )
 position = Vector2( 18, 0 )
 z_index = 25
@@ -122,7 +122,7 @@ frames = ExtResource( 20 )
 frame = 9
 playing = true
 
-[node name="flying_shield" type="AnimatedSprite2D" parent="animatedSprite"]
+[node name="flying_shield" type="AnimatedSprite" parent="animatedSprite"]
 visible = false
 material = SubResource( 63 )
 z_index = 1
@@ -137,7 +137,7 @@ visible = false
 position = Vector2( 0, 3 )
 shape = SubResource( 68 )
 
-[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 visible = false
 scale = Vector2( 6, 4.8 )
 rect = Rect2( -2, -2, 4, 6 )

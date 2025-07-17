@@ -1,7 +1,7 @@
-extends AnimatedSprite2D
+extends AnimatedSprite
 
-@onready var tween := TweenController.new(self,false)
-@onready var label: Label = $"../label"
+onready var tween := TweenController.new(self,false)
+onready var label: Label = $"../label"
 
 var last_dir := 0
 func _ready() -> void:

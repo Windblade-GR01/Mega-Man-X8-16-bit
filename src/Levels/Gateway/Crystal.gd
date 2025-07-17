@@ -1,13 +1,13 @@
 extends Node2D
 
-@export var boss := "rooster"
-@export var color : Color
-@onready var animation: AnimatedSprite2D = $animatedSprite
-@onready var particles: GPUParticles2D = $particles2D
-@onready var sfx: AudioStreamPlayer2D = $get
-@onready var light: Sprite2D = $light
+export var boss := "rooster"
+export var color : Color
+onready var animation: AnimatedSprite = $animatedSprite
+onready var particles: Particles2D = $particles2D
+onready var sfx: AudioStreamPlayer2D = $get
+onready var light: Sprite = $light
 
-@onready var tween := TweenController.new(self,false)
+onready var tween := TweenController.new(self,false)
 
 func _ready() -> void:
 	animation.play(boss)
@@ -35,9 +35,9 @@ func activate() -> void:
 func reset():
 	animation.scale = Vector2.ONE
 	particles.emitting = true
-	animation.modulate = Color.WHITE
-	animation.self_modulate = Color.WHITE
-	particles.modulate = Color.WHITE
-	light.self_modulate = Color.WHITE
+	animation.modulate = Color.white
+	animation.self_modulate = Color.white
+	particles.modulate = Color.white
+	light.self_modulate = Color.white
 	light.modulate = color
 	light.scale = Vector2.ONE

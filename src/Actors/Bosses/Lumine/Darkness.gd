@@ -1,15 +1,15 @@
 extends AttackAbility
 
-@export var death_walls : PackedScene
-@export var music : AudioStream
-@onready var space: Node = $"../Space"
-@onready var tween := TweenController.new(self,false)
+export var death_walls : PackedScene
+export var music : AudioStream
+onready var space: Node = $"../Space"
+onready var tween := TweenController.new(self,false)
 var walls : Array
-@onready var feather_particles: GPUParticles2D = $"../animatedSprite/feather_particles"
-@onready var feather_decay: GPUParticles2D = $"../feather_decay"
-@onready var damage: Node2D = $"../Damage"
-@onready var dot: Node2D = $"../DamageOnTouch"
-@onready var flap: AudioStreamPlayer2D = $flap
+onready var feather_particles: Particles2D = $"../animatedSprite/feather_particles"
+onready var feather_decay: Particles2D = $"../feather_decay"
+onready var damage: Node2D = $"../Damage"
+onready var dot: Node2D = $"../DamageOnTouch"
+onready var flap: AudioStreamPlayer2D = $flap
 
 func _Setup():
 	go_to_center()
@@ -102,7 +102,7 @@ func get_horizontal_pos(pos_x):
 		return walls[1].position.x
 
 func create_wall(scalex : int):
-	var wall = death_walls.instantiate()
+	var wall = death_walls.instance()
 	var center = GameManager.camera.get_camera_screen_center()
 	
 	get_tree().current_scene.add_child(wall)
@@ -113,14 +113,14 @@ func create_wall(scalex : int):
 	walls.append(wall)
 
 func _Interrupt():
-	super._Interrupt()
+	._Interrupt()
 	animatedSprite.playing = true
 	feather_decay.emitting = false
 	for wall in walls:
 		wall.deactivate()
 
 func darken_feathers():
-	tween.attribute("modulate",Color.BLACK,3,feather_particles)
+	tween.attribute("modulate",Color.black,3,feather_particles)
 
 func go_to_center() -> void:
 	var center = GameManager.camera.get_camera_screen_center() + Vector2(0,-42)

@@ -2,10 +2,10 @@ extends AttackAbility
 var saved_last_pos : Vector2
 var path_speed : float = 45
 var current_path_speed : float
-@onready var scream: AudioStreamPlayer2D = $audioStreamPlayer2D
+onready var scream: AudioStreamPlayer2D = $audioStreamPlayer2D
 
-@onready var path : PathFollow2D
-@onready var spotlight: PointLight2D = $"../sublight"
+onready var path : PathFollow2D
+onready var spotlight: Light2D = $"../sublight"
 
 var increase_pitch := false
 

@@ -1,11 +1,11 @@
-extends CharacterBody2D
+extends KinematicBody2D
 class_name Actor
 
-@export var debug_logs := false
-@export var active := true
-@export var max_health:= 32.0
-@onready var current_health := max_health
-@onready var animatedSprite := get_node("animatedSprite")
+export var debug_logs := false
+export var active := true
+export var max_health:= 32.0
+onready var current_health := max_health
+onready var animatedSprite := get_node("animatedSprite")
 
 var conveyor_belt_speed = 0.0
 
@@ -74,14 +74,7 @@ func process_zero_health():
 		emit_zero_health_signal()
 
 func process_final_velocity() -> Vector2:
-	set_velocity(final_velocity)
-	# TODOConverter3To4 looks that snap in Godot 4 is float, not vector like in Godot 3 - previous value `snap_vector`
-	set_up_direction(up_direction)
-	set_floor_stop_on_slope_enabled(true)
-	set_max_slides(4)
-	set_floor_max_angle(0.8)
-	move_and_slide()
-	return velocity
+	return move_and_slide_with_snap(final_velocity, snap_vector, up_direction,true,4,0.8)
 
 func damage(value, inflicter = null) -> float:
 	if not is_invulnerable():
@@ -215,7 +208,7 @@ func destroy() -> void:
 	queue_free()
 
 func listen(event_name : String, listener, method_to_call : String):
-	var error_code = connect(event_name, Callable(listener, method_to_call))
+	var error_code = connect(event_name,listener,method_to_call)
 	if error_code != 0:
 		print_debug (name + ".listen: Connection error. Code: " + str(error_code))
 		print_debug (listener.name + "'s method "+ method_to_call + " on event " + event_name)

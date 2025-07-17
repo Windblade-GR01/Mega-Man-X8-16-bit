@@ -3,13 +3,13 @@ extends Node2D
 var duration := .85
 
 var fired := false
-@export var windshot : PackedScene
-@onready var tween := TweenController.new(self,false)
-@onready var particles: GPUParticles2D = $particles2D3
-@onready var particles2: GPUParticles2D = $particles2D4
-@onready var punch: AudioStreamPlayer2D = $punch
+export var windshot : PackedScene
+onready var tween := TweenController.new(self,false)
+onready var particles: Particles2D = $particles2D3
+onready var particles2: Particles2D = $particles2D4
+onready var punch: AudioStreamPlayer2D = $punch
 
-@onready var start: GPUParticles2D = $start
+onready var start: Particles2D = $start
 
 func _ready() -> void:
 	start()
@@ -19,7 +19,7 @@ func start():
 	particles2.emitting = true
 	particles.emitting = true
 	tween.attribute("modulate",Color(0.75,.75,.75),.25)
-	tween.add_attribute("modulate",Color.WHITE,duration)
+	tween.add_attribute("modulate",Color.white,duration)
 	tween.add_callback("doubleshot")
 
 func doubleshot():
@@ -27,8 +27,8 @@ func doubleshot():
 		return
 	punch.play_rp()
 	fired = true
-	var wind = windshot.instantiate()
-	var wind2 = windshot.instantiate()
+	var wind = windshot.instance()
+	var wind2 = windshot.instance()
 	get_tree().current_scene.call_deferred("add_child",wind)
 	wind.global_position = global_position
 	wind.set_direction(1)

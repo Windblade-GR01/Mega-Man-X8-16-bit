@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://dn7k32kni15bh"
-path="res://.godot/imported/100 - MMX -Ride Armor Step.wav-978bd39865ca17f3636e57132106f4e6.sample"
+type="AudioStreamSample"
+path="res://.import/100 - MMX -Ride Armor Step.wav-978bd39865ca17f3636e57132106f4e6.sample"
 
 [deps]
 
 source_file="res://src/Sounds/100 - MMX -Ride Armor Step.wav"
-dest_files=["res://.godot/imported/100 - MMX -Ride Armor Step.wav-978bd39865ca17f3636e57132106f4e6.sample"]
+dest_files=[ "res://.import/100 - MMX -Ride Armor Step.wav-978bd39865ca17f3636e57132106f4e6.sample" ]
 
 [params]
 

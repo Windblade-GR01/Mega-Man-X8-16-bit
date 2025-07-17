@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://cbamlaggi6j57"
-path="res://.godot/imported/Manowar - Warning.wav-5017ff00ea4febe7e52c16b2695d5a11.sample"
+type="AudioStreamSample"
+path="res://.import/Manowar - Warning.wav-5017ff00ea4febe7e52c16b2695d5a11.sample"
 
 [deps]
 
 source_file="res://src/Sounds/Manowar - Warning.wav"
-dest_files=["res://.godot/imported/Manowar - Warning.wav-5017ff00ea4febe7e52c16b2695d5a11.sample"]
+dest_files=[ "res://.import/Manowar - Warning.wav-5017ff00ea4febe7e52c16b2695d5a11.sample" ]
 
 [params]
 

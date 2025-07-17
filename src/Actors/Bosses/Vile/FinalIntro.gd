@@ -1,9 +1,9 @@
 extends GenericIntro
 
 var devilbear : Node2D
-@onready var space: Node = $"../Space"
-@onready var tween := TweenController.new(self,false)
-@onready var traverse: AudioStreamPlayer2D = $traverse
+onready var space: Node = $"../Space"
+onready var tween := TweenController.new(self,false)
+onready var traverse: AudioStreamPlayer2D = $traverse
 
 func connect_start_events() -> void:
 	Event.listen("boss_door_open",self,"prepare_for_intro")

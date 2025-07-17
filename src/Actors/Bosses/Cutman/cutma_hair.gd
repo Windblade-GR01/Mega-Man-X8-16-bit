@@ -2,8 +2,8 @@ extends "res://src/Actors/InheritorAnimatedSprite.gd"
 
 
 func _ready() -> void:
-	Event.connect("cutman_throw", Callable(self, "hide_hair"))
-	Event.connect("cutman_received", Callable(self, "show_hair"))
+	Event.connect("cutman_throw",self,"hide_hair")
+	Event.connect("cutman_received",self,"show_hair")
 	
 	pass
 

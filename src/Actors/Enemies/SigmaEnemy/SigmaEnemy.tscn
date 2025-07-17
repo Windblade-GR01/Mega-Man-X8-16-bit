@@ -22,8 +22,8 @@
 [ext_resource path="res://src/Sounds/MM - Equip.wav" type="AudioStream" id=20]
 [ext_resource path="res://src/Actors/Enemies/EnemyShield.gd" type="Script" id=21]
 [ext_resource path="res://src/Actors/Enemies/SigmaEnemy/transform.gd" type="Script" id=22]
-[ext_resource path="res://src/Effects/Textures/fake_boss_death.png" type="Texture2D" id=23]
-[ext_resource path="res://src/Actors/Enemies/SwordReploid/reploid_remains_palette.png" type="Texture2D" id=24]
+[ext_resource path="res://src/Effects/Textures/fake_boss_death.png" type="Texture" id=23]
+[ext_resource path="res://src/Actors/Enemies/SwordReploid/reploid_remains_palette.png" type="Texture" id=24]
 
 [sub_resource type="RectangleShape2D" id=69]
 extents = Vector2( 326, 59 )
@@ -41,7 +41,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=80]
 curve = SubResource( 10 )
 
-[sub_resource type="ParticleProcessMaterial" id=81]
+[sub_resource type="ParticlesMaterial" id=81]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -62,7 +62,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=70]
 curve = SubResource( 42 )
 
-[sub_resource type="ParticleProcessMaterial" id=82]
+[sub_resource type="ParticlesMaterial" id=82]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -122,7 +122,7 @@ animations = [ {
 "speed": 24.0
 } ]
 
-[node name="SigmaEnemy" type="CharacterBody2D" groups=["Enemies"]]
+[node name="SigmaEnemy" type="KinematicBody2D" groups=["Enemies"]]
 collision_layer = 0
 collision_mask = 513
 script = ExtResource( 15 )
@@ -142,7 +142,7 @@ input_pickable = false
 [node name="collisionShape2D" type="CollisionShape2D" parent="AI/vision"]
 shape = SubResource( 69 )
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 8 )
 position = Vector2( 0, -7 )
 z_index = 1
@@ -154,7 +154,7 @@ flip_h = true
 position = Vector2( 0, 2.5 )
 shape = SubResource( 66 )
 
-[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 visible = false
 scale = Vector2( 6, 4.8 )
 rect = Rect2( -5, -5, 10, 10 )
@@ -170,7 +170,7 @@ collision_mask = 6
 input_pickable = false
 
 [node name="collisionShape2D" type="CollisionPolygon2D" parent="EnemyShield/hittable_area"]
-polygon = PackedVector2Array( 24, 33, 53, 6, 53, -30, 24, -55 )
+polygon = PoolVector2Array( 24, 33, 53, 6, 53, -30, 24, -55 )
 
 [node name="hitSound" type="AudioStreamPlayer2D" parent="EnemyShield"]
 stream = ExtResource( 9 )
@@ -211,7 +211,7 @@ reactivate_shield_on_end = false
 stun_duration = 1.65
 recover_animation = ""
 
-[node name="break_vfx" type="AnimatedSprite2D" parent="EnemyStun"]
+[node name="break_vfx" type="AnimatedSprite" parent="EnemyStun"]
 modulate = Color( 1, 1, 1, 0.670588 )
 position = Vector2( 12, 0 )
 z_index = 25
@@ -305,8 +305,8 @@ process_material = SubResource( 82 )
 amount = 7
 texture = ExtResource( 24 )
 
-[node name="reploid" type="AnimatedSprite2D" parent="."]
-process_mode = 3
+[node name="reploid" type="AnimatedSprite" parent="."]
+pause_mode = 2
 visible = false
 material = ExtResource( 8 )
 frames = SubResource( 79 )

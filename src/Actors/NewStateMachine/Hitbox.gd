@@ -1,7 +1,7 @@
 extends Area2D
 
-@export var active := true
-@export var group := "Everything"
+export var active := true
+export var group := "Everything"
 var active_objects : Array
 
 signal group_body_entered(body)

@@ -3,27 +3,27 @@
 [ext_resource path="res://src/System/CameraLimits.gd" type="Script" id=1]
 [ext_resource path="res://src/Levels/Test/test_tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://src/Sounds/OST - Dynasty - Intro.ogg" type="AudioStream" id=3]
-[ext_resource path="res://src/Levels/Dynasty/bg1.png" type="Texture2D" id=4]
-[ext_resource path="res://src/Levels/Dynasty/bg2.png" type="Texture2D" id=5]
+[ext_resource path="res://src/Levels/Dynasty/bg1.png" type="Texture" id=4]
+[ext_resource path="res://src/Levels/Dynasty/bg2.png" type="Texture" id=5]
 [ext_resource path="res://src/Objects/Door/NewDoor.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/Levels/Dynasty/bg4.png" type="Texture2D" id=7]
+[ext_resource path="res://src/Levels/Dynasty/bg4.png" type="Texture" id=7]
 [ext_resource path="res://src/Sounds/Press Open.ogg" type="AudioStream" id=8]
-[ext_resource path="res://src/Levels/Dynasty/bg5.png" type="Texture2D" id=9]
-[ext_resource path="res://src/Levels/Dynasty/bg6.png" type="Texture2D" id=10]
+[ext_resource path="res://src/Levels/Dynasty/bg5.png" type="Texture" id=9]
+[ext_resource path="res://src/Levels/Dynasty/bg6.png" type="Texture" id=10]
 [ext_resource path="res://src/Levels/BoosterForest/rising_platform.gd" type="Script" id=11]
 [ext_resource path="res://src/Sounds/Press Closing.ogg" type="AudioStream" id=12]
 [ext_resource path="res://src/Sounds/49 - MMX - Press Close.ogg" type="AudioStream" id=13]
 [ext_resource path="res://src/Objects/Spike.tscn" type="PackedScene" id=14]
-[ext_resource path="res://src/DialogSystem/font_colors/Light3D.png" type="Texture2D" id=15]
+[ext_resource path="res://src/DialogSystem/font_colors/Light.png" type="Texture" id=15]
 [ext_resource path="res://src/Actors/Spawner.tscn" type="PackedScene" id=16]
-[ext_resource path="res://src/Levels/Dynasty/bg3.png" type="Texture2D" id=17]
+[ext_resource path="res://src/Levels/Dynasty/bg3.png" type="Texture" id=17]
 [ext_resource path="res://src/Effects/Materials/dynasty_palette.tres" type="Material" id=18]
-[ext_resource path="res://src/Levels/Dynasty/bg11.png" type="Texture2D" id=19]
-[ext_resource path="res://src/Levels/Dynasty/bg7.png" type="Texture2D" id=20]
-[ext_resource path="res://src/Levels/Dynasty/elevator_slope.png" type="Texture2D" id=21]
+[ext_resource path="res://src/Levels/Dynasty/bg11.png" type="Texture" id=19]
+[ext_resource path="res://src/Levels/Dynasty/bg7.png" type="Texture" id=20]
+[ext_resource path="res://src/Levels/Dynasty/elevator_slope.png" type="Texture" id=21]
 [ext_resource path="res://src/Objects/Heal.tscn" type="PackedScene" id=22]
 [ext_resource path="res://src/Actors/Bosses/GigaboltManowar/Manowar.tscn" type="PackedScene" id=23]
-[ext_resource path="res://src/Objects/Light3D Capsule/LightCapsule.tscn" type="PackedScene" id=24]
+[ext_resource path="res://src/Objects/Light Capsule/LightCapsule.tscn" type="PackedScene" id=24]
 [ext_resource path="res://src/Objects/Pickups/ExtraLife.tscn" type="PackedScene" id=25]
 [ext_resource path="res://src/Objects/Button/Button.tscn" type="PackedScene" id=26]
 [ext_resource path="res://src/Objects/Pickups/Ammo.tscn" type="PackedScene" id=27]
@@ -31,9 +31,9 @@
 [ext_resource path="res://src/Levels/base_stage.tscn" type="PackedScene" id=29]
 [ext_resource path="res://src/Levels/Dynasty/MovingScenery.gd" type="Script" id=30]
 [ext_resource path="res://src/Levels/Dynasty/temporary_wall.gd" type="Script" id=31]
-[ext_resource path="res://src/Effects/Textures/long_smoke.png" type="Texture2D" id=32]
+[ext_resource path="res://src/Effects/Textures/long_smoke.png" type="Texture" id=32]
 [ext_resource path="res://src/Objects/Press.tscn" type="PackedScene" id=33]
-[ext_resource path="res://src/Levels/Dynasty/bg0.png" type="Texture2D" id=34]
+[ext_resource path="res://src/Levels/Dynasty/bg0.png" type="Texture" id=34]
 [ext_resource path="res://src/Actors/Spawners/BikeSpawner.tscn" type="PackedScene" id=35]
 [ext_resource path="res://src/Objects/Box/ExplodingBox.tscn" type="PackedScene" id=36]
 [ext_resource path="res://src/Objects/Door/VerticalBossDoor.tscn" type="PackedScene" id=37]
@@ -84,8 +84,8 @@
 [ext_resource path="res://src/Levels/SigmaPalace/VileSkipper.gd" type="Script" id=82]
 [ext_resource path="res://src/Actors/Enemies/Respawner.gd" type="Script" id=83]
 [ext_resource path="res://src/Levels/Gateway/Portal.tscn" type="PackedScene" id=84]
-[ext_resource path="res://src/Levels/Primrose/portal.png" type="Texture2D" id=85]
-[ext_resource path="res://src/Levels/Primrose/portal_deactivated.png" type="Texture2D" id=86]
+[ext_resource path="res://src/Levels/Primrose/portal.png" type="Texture" id=85]
+[ext_resource path="res://src/Levels/Primrose/portal_deactivated.png" type="Texture" id=86]
 [ext_resource path="res://src/Levels/IGTimer.tscn" type="PackedScene" id=87]
 
 [sub_resource type="RectangleShape2D" id=41]
@@ -105,7 +105,7 @@ extents = Vector2( 56, 86.5 )
 
 [sub_resource type="Curve2D" id=36]
 _data = {
-"points": PackedVector2Array( -93.6901, 44.7299, 93.6901, -44.7299, 182.476, -16.2344, -122.276, -18.5294, 122.276, 18.5294, 498.188, -30.4394, -63.5425, -34.5739, 63.5425, 34.5739, 797.487, -84.2156, -155.879, 158.697, 155.879, -158.697, 1434.7, 17.2489, -542.6, 42.6151, 542.6, -42.6151, 3275.87, 47.6883, -468.977, 834.316, 468.977, -834.316, 5440.48, -710.252 )
+"points": PoolVector2Array( -93.6901, 44.7299, 93.6901, -44.7299, 182.476, -16.2344, -122.276, -18.5294, 122.276, 18.5294, 498.188, -30.4394, -63.5425, -34.5739, 63.5425, 34.5739, 797.487, -84.2156, -155.879, 158.697, 155.879, -158.697, 1434.7, 17.2489, -542.6, 42.6151, 542.6, -42.6151, 3275.87, 47.6883, -468.977, 834.316, 468.977, -834.316, 5440.48, -710.252 )
 }
 
 [sub_resource type="RectangleShape2D" id=38]
@@ -116,12 +116,12 @@ extents = Vector2( 41.295, 236.412 )
 
 [sub_resource type="Curve2D" id=39]
 _data = {
-"points": PackedVector2Array( -93.6901, 44.7299, 93.6901, -44.7299, 169.925, -235.398, -122.276, -18.5294, 122.276, 18.5294, 498.188, -30.4394, -63.5425, -34.5739, 63.5425, 34.5739, 797.487, -84.2156, -254.62, 86.3, 254.62, -86.3, 1605.59, 17.2489, -439.266, 189.823, 439.266, -189.823, 2898.37, -134.948, -468.977, 834.316, 468.977, -834.316, 4675.82, -520.513 )
+"points": PoolVector2Array( -93.6901, 44.7299, 93.6901, -44.7299, 169.925, -235.398, -122.276, -18.5294, 122.276, 18.5294, 498.188, -30.4394, -63.5425, -34.5739, 63.5425, 34.5739, 797.487, -84.2156, -254.62, 86.3, 254.62, -86.3, 1605.59, 17.2489, -439.266, 189.823, 439.266, -189.823, 2898.37, -134.948, -468.977, 834.316, 468.977, -834.316, 4675.82, -520.513 )
 }
 
 [sub_resource type="Curve2D" id=40]
 _data = {
-"points": PackedVector2Array( -93.6901, 44.7299, 93.6901, -44.7299, 554.186, 29.4246, -41.1754, 121.492, 41.1754, -121.492, 548.393, -429.195, -42.0861, 103.942, 42.0861, -103.942, 608.252, -697.062, -254.62, 86.3, 254.62, -86.3, 624.665, -1117.12, -439.266, 189.823, 439.266, -189.823, 552.254, -1314.98, -67.4346, 112.745, 67.4346, -112.745, 977.065, -1622.42 )
+"points": PoolVector2Array( -93.6901, 44.7299, 93.6901, -44.7299, 554.186, 29.4246, -41.1754, 121.492, 41.1754, -121.492, 548.393, -429.195, -42.0861, 103.942, 42.0861, -103.942, 608.252, -697.062, -254.62, 86.3, 254.62, -86.3, 624.665, -1117.12, -439.266, 189.823, 439.266, -189.823, 552.254, -1314.98, -67.4346, 112.745, 67.4346, -112.745, 977.065, -1622.42 )
 }
 
 [sub_resource type="AtlasTexture" id=173]
@@ -323,7 +323,7 @@ position = Vector2( 960, -192 )
 visible = false
 
 [node name="UnclimbableWalls" parent="Scenery/Collision" index="0"]
-tile_data = PackedInt32Array( -9108643, 7, 0, -9043107, 7, 0, -8977571, 7, 0, -8912035, 7, 0, -8846499, 7, 0, -8780963, 7, 0, -8715427, 7, 0, -8649891, 7, 0, -8584355, 7, 0, -8518819, 7, 0, -8453283, 7, 0, -8387747, 7, 0, -8322211, 7, 0, -8256675, 7, 0, -8191139, 7, 0, -8125603, 7, 0, -8060067, 7, 0, -7994531, 7, 0, -7928995, 7, 0, -7863459, 7, 0, -7797923, 7, 0, -7732387, 7, 0, -7666851, 7, 0, -7601315, 7, 0, -196609, 7, 0, -131073, 7, 0, -65537, 7, 0, -1, 7, 0, 65535, 7, 0, 131071, 7, 0, 196607, 7, 0, 262143, 7, 0, 327679, 7, 0, 393215, 7, 0, 458751, 7, 0, 524287, 7, 0, 589823, 7, 0, 655359, 7, 0, 720895, 7, 0, 786431, 7, 0, 851967, 7, 0, 917503, 7, 0, 983039, 7, 0, 1048575, 7, 0, 1114111, 7, 0, 1179647, 7, 0, 1245183, 7, 0 )
+tile_data = PoolIntArray( -9108643, 7, 0, -9043107, 7, 0, -8977571, 7, 0, -8912035, 7, 0, -8846499, 7, 0, -8780963, 7, 0, -8715427, 7, 0, -8649891, 7, 0, -8584355, 7, 0, -8518819, 7, 0, -8453283, 7, 0, -8387747, 7, 0, -8322211, 7, 0, -8256675, 7, 0, -8191139, 7, 0, -8125603, 7, 0, -8060067, 7, 0, -7994531, 7, 0, -7928995, 7, 0, -7863459, 7, 0, -7797923, 7, 0, -7732387, 7, 0, -7666851, 7, 0, -7601315, 7, 0, -196609, 7, 0, -131073, 7, 0, -65537, 7, 0, -1, 7, 0, 65535, 7, 0, 131071, 7, 0, 196607, 7, 0, 262143, 7, 0, 327679, 7, 0, 393215, 7, 0, 458751, 7, 0, 524287, 7, 0, 589823, 7, 0, 655359, 7, 0, 720895, 7, 0, 786431, 7, 0, 851967, 7, 0, 917503, 7, 0, 983039, 7, 0, 1048575, 7, 0, 1114111, 7, 0, 1179647, 7, 0, 1245183, 7, 0 )
 
 [node name="StageSegments" parent="Scenery" index="2"]
 z_index = -1
@@ -374,7 +374,7 @@ cell_size = Vector2( 16, 16 )
 collision_layer = 256
 collision_mask = 256
 format = 1
-tile_data = PackedInt32Array( -11992187, 7, 0, -11992186, 7, 0, -11992185, 7, 0, -11992184, 7, 0, -11992183, 7, 0, -11992182, 7, 0, -11992181, 7, 0, -11992180, 7, 0, -11992174, 7, 0, -11992173, 7, 0, -11992172, 7, 0, -11992171, 7, 0, -11992170, 7, 0, -11992169, 7, 0, -11992168, 7, 0, -11992167, 7, 0, -11992166, 7, 0, -11992165, 7, 0, -11992164, 7, 0, -11992163, 7, 0, -11992162, 7, 0, -11992161, 7, 0, -11926651, 7, 0, -11926625, 7, 0, -11861115, 7, 0, -11861089, 7, 0, -11795579, 7, 0, -11795553, 7, 0, -11730043, 7, 0, -11730017, 7, 0, -11664507, 7, 0, -11664481, 7, 0, -11598971, 7, 0, -11598945, 7, 0, -11533435, 7, 0, -11533409, 7, 0, -11467899, 7, 0, -11467873, 7, 0, -11402363, 7, 0, -11402337, 7, 0, -11336827, 7, 0, -11336801, 7, 0, -11271291, 7, 0, -11271265, 7, 0, -11205755, 7, 0, -11205729, 7, 0, -11140219, 7, 0, -11140193, 7, 0, -11074683, 7, 0, -11074657, 7, 0, -11009147, 7, 0, -11009121, 7, 0, -10943611, 7, 0, -10943585, 7, 0, -10878075, 7, 0, -10878049, 7, 0, -10812539, 7, 0, -10812513, 7, 0, -10747003, 7, 0, -10747002, 7, 0, -10747001, 7, 0, -10747000, 7, 0, -10746999, 7, 0, -10746998, 7, 0, -10746997, 7, 0, -10746996, 7, 0, -10746995, 7, 0, -10746994, 7, 0, -10746993, 7, 0, -10746992, 7, 0, -10746991, 7, 0, -10746990, 7, 0, -10746989, 7, 0, -10746988, 7, 0, -10746987, 7, 0, -10746986, 7, 0, -10746985, 7, 0, -10746984, 7, 0, -10746983, 7, 0, -10746982, 7, 0, -10746981, 7, 0, -10746980, 7, 0, -10746979, 7, 0, -10746978, 7, 0, -10746977, 7, 0, -9108645, 7, 0, -9108644, 7, 0, -9043109, 7, 0, -9043108, 7, 0, -8977573, 7, 0, -8977572, 7, 0, -8912037, 7, 0, -8912036, 7, 0, -8846501, 7, 0, -8846500, 7, 0, -8780965, 7, 0, -8780964, 7, 0, -8715429, 7, 0, -8715428, 7, 0, -8649893, 7, 0, -8584357, 7, 0, -8518821, 7, 0, -8453285, 7, 0, -8387749, 7, 0, -8322213, 7, 0, -8256677, 7, 0, -8191141, 7, 0, -8125605, 7, 0, -8060069, 7, 0, -7994533, 7, 0, -7928997, 7, 0, -7863461, 7, 0, -7797925, 7, 0, -7732389, 7, 0, -7666853, 7, 0, -7601317, 7, 0, -7535781, 7, 0, -7535779, 7, 0, -7470245, 7, 0, -7470243, 7, 0, -7404709, 7, 0, -7404707, 7, 0, -7339173, 7, 0, -7339171, 7, 0, -7273637, 7, 0, -7273635, 7, 0, -7208101, 7, 0, -7208099, 7, 0, -7142565, 7, 0, -7142563, 7, 0, -7077029, 7, 0, -7077027, 7, 0, -7011493, 7, 0, -7011491, 7, 0, -6945957, 7, 0, -6945955, 7, 0, -6880421, 7, 0, -6880419, 7, 0, -6814885, 7, 0, -6814883, 7, 0, -6749349, 7, 0, -6749347, 7, 0, -6683813, 7, 0, -6683811, 7, 0, -6618277, 7, 0, -6618275, 7, 0, -6552741, 7, 0, -6552739, 7, 0, -6487205, 7, 0, -6487204, 7, 0, -6487203, 7, 0, -196609, 7, 0, -131073, 7, 0, -65537, 7, 0, -1, 7, 0, 65535, 7, 0, 131071, 7, 0, 196607, 7, 0, 262143, 7, 0, 327679, 7, 0, 393215, 7, 0, 458751, 7, 0, 524287, 7, 0, 589823, 7, 0, 655359, 7, 0, 720895, 7, 0, 786431, 7, 0, 851967, 7, 0, 917503, 7, 0, 983039, 7, 0, 1048575, 7, 0, 1114111, 7, 0, 1179647, 7, 0, 1245183, 7, 0 )
+tile_data = PoolIntArray( -11992187, 7, 0, -11992186, 7, 0, -11992185, 7, 0, -11992184, 7, 0, -11992183, 7, 0, -11992182, 7, 0, -11992181, 7, 0, -11992180, 7, 0, -11992174, 7, 0, -11992173, 7, 0, -11992172, 7, 0, -11992171, 7, 0, -11992170, 7, 0, -11992169, 7, 0, -11992168, 7, 0, -11992167, 7, 0, -11992166, 7, 0, -11992165, 7, 0, -11992164, 7, 0, -11992163, 7, 0, -11992162, 7, 0, -11992161, 7, 0, -11926651, 7, 0, -11926625, 7, 0, -11861115, 7, 0, -11861089, 7, 0, -11795579, 7, 0, -11795553, 7, 0, -11730043, 7, 0, -11730017, 7, 0, -11664507, 7, 0, -11664481, 7, 0, -11598971, 7, 0, -11598945, 7, 0, -11533435, 7, 0, -11533409, 7, 0, -11467899, 7, 0, -11467873, 7, 0, -11402363, 7, 0, -11402337, 7, 0, -11336827, 7, 0, -11336801, 7, 0, -11271291, 7, 0, -11271265, 7, 0, -11205755, 7, 0, -11205729, 7, 0, -11140219, 7, 0, -11140193, 7, 0, -11074683, 7, 0, -11074657, 7, 0, -11009147, 7, 0, -11009121, 7, 0, -10943611, 7, 0, -10943585, 7, 0, -10878075, 7, 0, -10878049, 7, 0, -10812539, 7, 0, -10812513, 7, 0, -10747003, 7, 0, -10747002, 7, 0, -10747001, 7, 0, -10747000, 7, 0, -10746999, 7, 0, -10746998, 7, 0, -10746997, 7, 0, -10746996, 7, 0, -10746995, 7, 0, -10746994, 7, 0, -10746993, 7, 0, -10746992, 7, 0, -10746991, 7, 0, -10746990, 7, 0, -10746989, 7, 0, -10746988, 7, 0, -10746987, 7, 0, -10746986, 7, 0, -10746985, 7, 0, -10746984, 7, 0, -10746983, 7, 0, -10746982, 7, 0, -10746981, 7, 0, -10746980, 7, 0, -10746979, 7, 0, -10746978, 7, 0, -10746977, 7, 0, -9108645, 7, 0, -9108644, 7, 0, -9043109, 7, 0, -9043108, 7, 0, -8977573, 7, 0, -8977572, 7, 0, -8912037, 7, 0, -8912036, 7, 0, -8846501, 7, 0, -8846500, 7, 0, -8780965, 7, 0, -8780964, 7, 0, -8715429, 7, 0, -8715428, 7, 0, -8649893, 7, 0, -8584357, 7, 0, -8518821, 7, 0, -8453285, 7, 0, -8387749, 7, 0, -8322213, 7, 0, -8256677, 7, 0, -8191141, 7, 0, -8125605, 7, 0, -8060069, 7, 0, -7994533, 7, 0, -7928997, 7, 0, -7863461, 7, 0, -7797925, 7, 0, -7732389, 7, 0, -7666853, 7, 0, -7601317, 7, 0, -7535781, 7, 0, -7535779, 7, 0, -7470245, 7, 0, -7470243, 7, 0, -7404709, 7, 0, -7404707, 7, 0, -7339173, 7, 0, -7339171, 7, 0, -7273637, 7, 0, -7273635, 7, 0, -7208101, 7, 0, -7208099, 7, 0, -7142565, 7, 0, -7142563, 7, 0, -7077029, 7, 0, -7077027, 7, 0, -7011493, 7, 0, -7011491, 7, 0, -6945957, 7, 0, -6945955, 7, 0, -6880421, 7, 0, -6880419, 7, 0, -6814885, 7, 0, -6814883, 7, 0, -6749349, 7, 0, -6749347, 7, 0, -6683813, 7, 0, -6683811, 7, 0, -6618277, 7, 0, -6618275, 7, 0, -6552741, 7, 0, -6552739, 7, 0, -6487205, 7, 0, -6487204, 7, 0, -6487203, 7, 0, -196609, 7, 0, -131073, 7, 0, -65537, 7, 0, -1, 7, 0, 65535, 7, 0, 131071, 7, 0, 196607, 7, 0, 262143, 7, 0, 327679, 7, 0, 393215, 7, 0, 458751, 7, 0, 524287, 7, 0, 589823, 7, 0, 655359, 7, 0, 720895, 7, 0, 786431, 7, 0, 851967, 7, 0, 917503, 7, 0, 983039, 7, 0, 1048575, 7, 0, 1114111, 7, 0, 1179647, 7, 0, 1245183, 7, 0 )
 
 [node name="parallaxBackground" type="ParallaxBackground" parent="Scenery" index="4"]
 script = ExtResource( 30 )
@@ -384,7 +384,7 @@ motion_scale = Vector2( 0.05, 0.065 )
 motion_offset = Vector2( 0, -140 )
 motion_mirroring = Vector2( 896, 0 )
 
-[node name="sprite" type="Sprite2D" parent="Scenery/parallaxBackground/Clouds" index="0"]
+[node name="sprite" type="Sprite" parent="Scenery/parallaxBackground/Clouds" index="0"]
 texture = ExtResource( 20 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 896, 384 )
@@ -394,7 +394,7 @@ motion_scale = Vector2( 0.095, 0.075 )
 motion_offset = Vector2( 0, 40 )
 motion_mirroring = Vector2( 896, 0 )
 
-[node name="sprite" type="Sprite2D" parent="Scenery/parallaxBackground/Horizon" index="0"]
+[node name="sprite" type="Sprite" parent="Scenery/parallaxBackground/Horizon" index="0"]
 texture = ExtResource( 10 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 896, 384 )
@@ -404,7 +404,7 @@ motion_scale = Vector2( 0.12, 0.075 )
 motion_offset = Vector2( 0, 40 )
 motion_mirroring = Vector2( 896, 0 )
 
-[node name="sprite" type="Sprite2D" parent="Scenery/parallaxBackground/VeryFarLights" index="0"]
+[node name="sprite" type="Sprite" parent="Scenery/parallaxBackground/VeryFarLights" index="0"]
 material = ExtResource( 18 )
 texture = ExtResource( 9 )
 region_enabled = true
@@ -415,7 +415,7 @@ motion_scale = Vector2( 0.15, 0.075 )
 motion_offset = Vector2( 0, 40 )
 motion_mirroring = Vector2( 896, 0 )
 
-[node name="sprite" type="Sprite2D" parent="Scenery/parallaxBackground/FarLights" index="0"]
+[node name="sprite" type="Sprite" parent="Scenery/parallaxBackground/FarLights" index="0"]
 material = ExtResource( 18 )
 texture = ExtResource( 7 )
 region_enabled = true
@@ -426,7 +426,7 @@ motion_scale = Vector2( 0.25, 0.085 )
 motion_offset = Vector2( 0, 40 )
 motion_mirroring = Vector2( 896, 0 )
 
-[node name="sprite" type="Sprite2D" parent="Scenery/parallaxBackground/FarBuildings" index="0"]
+[node name="sprite" type="Sprite" parent="Scenery/parallaxBackground/FarBuildings" index="0"]
 material = ExtResource( 18 )
 texture = ExtResource( 17 )
 region_enabled = true
@@ -437,7 +437,7 @@ motion_scale = Vector2( 0.35, 0.095 )
 motion_offset = Vector2( 0, 40 )
 motion_mirroring = Vector2( 896, 0 )
 
-[node name="sprite" type="Sprite2D" parent="Scenery/parallaxBackground/MainRoad" index="0"]
+[node name="sprite" type="Sprite" parent="Scenery/parallaxBackground/MainRoad" index="0"]
 material = ExtResource( 18 )
 texture = ExtResource( 5 )
 region_enabled = true
@@ -448,7 +448,7 @@ motion_scale = Vector2( 0.42, 0.1 )
 motion_offset = Vector2( 0, 40 )
 motion_mirroring = Vector2( 896, 0 )
 
-[node name="sprite" type="Sprite2D" parent="Scenery/parallaxBackground/NearBuildings" index="0"]
+[node name="sprite" type="Sprite" parent="Scenery/parallaxBackground/NearBuildings" index="0"]
 material = ExtResource( 18 )
 texture = ExtResource( 19 )
 region_enabled = true
@@ -459,7 +459,7 @@ motion_scale = Vector2( 0.5, 0.11 )
 motion_offset = Vector2( 0, 40 )
 motion_mirroring = Vector2( 896, 0 )
 
-[node name="sprite" type="Sprite2D" parent="Scenery/parallaxBackground/NearBushes" index="0"]
+[node name="sprite" type="Sprite" parent="Scenery/parallaxBackground/NearBushes" index="0"]
 material = ExtResource( 18 )
 texture = ExtResource( 4 )
 region_enabled = true
@@ -473,7 +473,7 @@ motion_scale = Vector2( 1, 0 )
 motion_offset = Vector2( 0, 100 )
 motion_mirroring = Vector2( 896, 0 )
 
-[node name="sprite" type="Sprite2D" parent="Scenery/parallaxBackground2/VeryCloseBuildings" index="0"]
+[node name="sprite" type="Sprite" parent="Scenery/parallaxBackground2/VeryCloseBuildings" index="0"]
 texture = ExtResource( 34 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 896, 384 )
@@ -483,10 +483,10 @@ position = Vector2( 14208, -2928 )
 tile_set = ExtResource( 47 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PackedInt32Array( 0, 1610613163, 0, 1, 1610613163, 0, 2, 1610613163, 0, 3, 1610613163, 0, 4, 1610613163, 0, 5, 1610613163, 0, 6, 1610613163, 0, 7, 1610613163, 0, 8, 1610613163, 0, 9, 1610613163, 0, 10, 1610613163, 0, 11, 1610613163, 0, 12, 1610613163, 0, 65536, 536870980, 0, 65537, 536870980, 0, 65538, 536870980, 0, 65539, 536870980, 0, 65540, 536870980, 0, 65541, 536870980, 0, 65542, 536870980, 0, 65543, 536870980, 0, 65544, 536870980, 0, 65545, 536870980, 0, 65546, 536870980, 0, 65547, 536870980, 0, 65548, 536870980, 0, 131072, 536870980, 0, 131073, 536870980, 0, 131074, 536870980, 0, 131075, 536870980, 0, 131076, 536870980, 0, 131077, 536870980, 0, 131078, 536870980, 0, 131079, 536870980, 0, 131080, 536870980, 0, 131081, 536870980, 0, 131082, 536870980, 0, 131083, 536870980, 0, 131084, 536870980, 0, 196608, 1610613163, 0, 196609, 1610613163, 0, 196610, 1610613163, 0, 196611, 1610613163, 0, 196612, 1610613163, 0, 196613, 1610613163, 0, 196614, 1610613163, 0, 196615, 1610613163, 0, 196616, 1610613163, 0, 196617, 1610613163, 0, 196618, 1610613163, 0, 196619, 1610613163, 0, 196620, 1610613163, 0, 262144, 1610613163, 0, 262145, 1610613163, 0, 262146, 1610613163, 0, 262147, 1610613163, 0, 262148, 1610613163, 0, 262149, 1610613163, 0, 262150, 1610613163, 0, 262151, 1610613163, 0, 262152, 1610613163, 0, 262153, 1610613163, 0, 262154, 1610613163, 0, 262155, 1610613163, 0, 262156, 1610613163, 0, 327680, 1610613163, 0, 327681, 1610613163, 0, 327682, 1610613163, 0, 327683, 1610613163, 0, 327684, 1610613163, 0, 327685, 1610613163, 0, 327686, 1610613163, 0, 327687, 1610613163, 0, 327688, 1610613163, 0, 327689, 1610613163, 0, 327690, 1610613163, 0, 327691, 1610613163, 0, 327692, 1610613163, 0, 393216, 1610613163, 0, 393217, 1610613163, 0, 393218, 1610613163, 0, 393219, 1610613163, 0, 393220, 1610613163, 0, 393221, 1610613163, 0, 393222, 1610613163, 0, 393223, 1610613163, 0, 393224, 1610613163, 0, 393225, 1610613163, 0, 393226, 1610613163, 0, 393227, 1610613163, 0, 393228, 1610613163, 0, 458752, 536870980, 0, 458753, 536870980, 0, 458754, 536870980, 0, 458755, 536870980, 0, 458756, 536870980, 0, 458757, 536870980, 0, 458758, 536870980, 0, 458759, 536870980, 0, 458760, 536870980, 0, 458761, 536870980, 0, 458762, 536870980, 0, 458763, 536870980, 0, 458764, 536870980, 0, 524288, 536870980, 0, 524289, 536870980, 0, 524290, 536870980, 0, 524291, 536870980, 0, 524292, 536870980, 0, 524293, 536870980, 0, 524294, 536870980, 0, 524295, 536870980, 0, 524296, 536870980, 0, 524297, 536870980, 0, 524298, 536870980, 0, 524299, 536870980, 0, 524300, 536870980, 0, 589824, 1610613163, 0, 589825, 1610613163, 0, 589826, 1610613163, 0, 589827, 1610613163, 0, 589828, 1610613163, 0, 589829, 1610613163, 0, 589830, 1610613163, 0, 589831, 1610613163, 0, 589832, 1610613163, 0, 589833, 1610613163, 0, 589834, 1610613163, 0, 589835, 1610613163, 0, 589836, 1610613163, 0, 655360, 1610613163, 0, 655361, 1610613163, 0, 655362, 1610613163, 0, 655363, 1610613163, 0, 655364, 1610613163, 0, 655365, 1610613163, 0, 655366, 1610613163, 0, 655367, 1610613163, 0, 655368, 1610613163, 0, 655369, 1610613163, 0, 655370, 1610613163, 0, 655371, 1610613163, 0, 655372, 1610613163, 0, 720896, 536871436, 0, 720897, 536871436, 0, 720898, 536871436, 0, 720899, 536871436, 0, 720900, 536871436, 0, 720901, 536871436, 0, 720902, 536871436, 0, 720903, 536871436, 0, 720904, 536871436, 0, 720905, 536871436, 0, 720906, 536871436, 0, 720907, 536871436, 0, 720908, 536871436, 0 )
+tile_data = PoolIntArray( 0, 1610613163, 0, 1, 1610613163, 0, 2, 1610613163, 0, 3, 1610613163, 0, 4, 1610613163, 0, 5, 1610613163, 0, 6, 1610613163, 0, 7, 1610613163, 0, 8, 1610613163, 0, 9, 1610613163, 0, 10, 1610613163, 0, 11, 1610613163, 0, 12, 1610613163, 0, 65536, 536870980, 0, 65537, 536870980, 0, 65538, 536870980, 0, 65539, 536870980, 0, 65540, 536870980, 0, 65541, 536870980, 0, 65542, 536870980, 0, 65543, 536870980, 0, 65544, 536870980, 0, 65545, 536870980, 0, 65546, 536870980, 0, 65547, 536870980, 0, 65548, 536870980, 0, 131072, 536870980, 0, 131073, 536870980, 0, 131074, 536870980, 0, 131075, 536870980, 0, 131076, 536870980, 0, 131077, 536870980, 0, 131078, 536870980, 0, 131079, 536870980, 0, 131080, 536870980, 0, 131081, 536870980, 0, 131082, 536870980, 0, 131083, 536870980, 0, 131084, 536870980, 0, 196608, 1610613163, 0, 196609, 1610613163, 0, 196610, 1610613163, 0, 196611, 1610613163, 0, 196612, 1610613163, 0, 196613, 1610613163, 0, 196614, 1610613163, 0, 196615, 1610613163, 0, 196616, 1610613163, 0, 196617, 1610613163, 0, 196618, 1610613163, 0, 196619, 1610613163, 0, 196620, 1610613163, 0, 262144, 1610613163, 0, 262145, 1610613163, 0, 262146, 1610613163, 0, 262147, 1610613163, 0, 262148, 1610613163, 0, 262149, 1610613163, 0, 262150, 1610613163, 0, 262151, 1610613163, 0, 262152, 1610613163, 0, 262153, 1610613163, 0, 262154, 1610613163, 0, 262155, 1610613163, 0, 262156, 1610613163, 0, 327680, 1610613163, 0, 327681, 1610613163, 0, 327682, 1610613163, 0, 327683, 1610613163, 0, 327684, 1610613163, 0, 327685, 1610613163, 0, 327686, 1610613163, 0, 327687, 1610613163, 0, 327688, 1610613163, 0, 327689, 1610613163, 0, 327690, 1610613163, 0, 327691, 1610613163, 0, 327692, 1610613163, 0, 393216, 1610613163, 0, 393217, 1610613163, 0, 393218, 1610613163, 0, 393219, 1610613163, 0, 393220, 1610613163, 0, 393221, 1610613163, 0, 393222, 1610613163, 0, 393223, 1610613163, 0, 393224, 1610613163, 0, 393225, 1610613163, 0, 393226, 1610613163, 0, 393227, 1610613163, 0, 393228, 1610613163, 0, 458752, 536870980, 0, 458753, 536870980, 0, 458754, 536870980, 0, 458755, 536870980, 0, 458756, 536870980, 0, 458757, 536870980, 0, 458758, 536870980, 0, 458759, 536870980, 0, 458760, 536870980, 0, 458761, 536870980, 0, 458762, 536870980, 0, 458763, 536870980, 0, 458764, 536870980, 0, 524288, 536870980, 0, 524289, 536870980, 0, 524290, 536870980, 0, 524291, 536870980, 0, 524292, 536870980, 0, 524293, 536870980, 0, 524294, 536870980, 0, 524295, 536870980, 0, 524296, 536870980, 0, 524297, 536870980, 0, 524298, 536870980, 0, 524299, 536870980, 0, 524300, 536870980, 0, 589824, 1610613163, 0, 589825, 1610613163, 0, 589826, 1610613163, 0, 589827, 1610613163, 0, 589828, 1610613163, 0, 589829, 1610613163, 0, 589830, 1610613163, 0, 589831, 1610613163, 0, 589832, 1610613163, 0, 589833, 1610613163, 0, 589834, 1610613163, 0, 589835, 1610613163, 0, 589836, 1610613163, 0, 655360, 1610613163, 0, 655361, 1610613163, 0, 655362, 1610613163, 0, 655363, 1610613163, 0, 655364, 1610613163, 0, 655365, 1610613163, 0, 655366, 1610613163, 0, 655367, 1610613163, 0, 655368, 1610613163, 0, 655369, 1610613163, 0, 655370, 1610613163, 0, 655371, 1610613163, 0, 655372, 1610613163, 0, 720896, 536871436, 0, 720897, 536871436, 0, 720898, 536871436, 0, 720899, 536871436, 0, 720900, 536871436, 0, 720901, 536871436, 0, 720902, 536871436, 0, 720903, 536871436, 0, 720904, 536871436, 0, 720905, 536871436, 0, 720906, 536871436, 0, 720907, 536871436, 0, 720908, 536871436, 0 )
 script = ExtResource( 31 )
 
-[node name="particles2D" type="GPUParticles2D" parent="Scenery" index="7"]
+[node name="particles2D" type="Particles2D" parent="Scenery" index="7"]
 modulate = Color( 0.933333, 1, 0.501961, 0.352941 )
 position = Vector2( 14848, -2783 )
 z_index = 10
@@ -496,7 +496,7 @@ visibility_rect = Rect2( -500, -100, 500, 200 )
 process_material = ExtResource( 78 )
 texture = ExtResource( 32 )
 
-[node name="sprite" type="Sprite2D" parent="Scenery" index="8"]
+[node name="sprite" type="Sprite" parent="Scenery" index="8"]
 modulate = Color( 0, 0, 0, 0.364706 )
 position = Vector2( 14560, -2800 )
 scale = Vector2( 280, 128 )
@@ -642,7 +642,7 @@ position = Vector2( -24, 0 )
 tile_set = ExtResource( 50 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PackedInt32Array( -196610, 582, 0, -196609, 583, 0, -262144, 583, 0, -262143, 583, 0, -262142, 583, 0, -262141, 583, 0, -262140, 590, 0, -131074, 536871545, 0, -131073, 626, 0, -196608, 627, 0, -196607, 627, 0, -196606, 627, 0, -196605, 632, 0, -196604, 633, 0, -65538, 677, 0, -65537, 536871587, 0, -131072, 492, 0, -131071, 493, 0, -131070, 494, 0, -131069, 675, 0, -131068, 676, 0, -2, 534, 0, -65535, 536, 0, -65532, 534, 0, 65534, 534, 0, 1, 534, 0, 4, 534, 0, 131070, 534, 0, 65537, 534, 0, 65540, 534, 0, 196606, 534, 0, 131073, 534, 0, 131076, 534, 0, 262142, 534, 0, 196609, 534, 0, 196612, 534, 0, 327678, 534, 0, 262145, 534, 0, 262148, 534, 0, 393214, 534, 0, 327681, 534, 0, 327684, 534, 0, 458750, 534, 0, 393217, 534, 0, 393220, 534, 0, 524286, 534, 0, 458753, 534, 0, 458756, 534, 0, 589822, 534, 0, 524289, 534, 0, 524292, 534, 0, 655358, 534, 0, 589825, 534, 0, 589828, 534, 0, 720894, 534, 0, 655361, 534, 0, 655364, 534, 0, 786430, 534, 0, 720897, 534, 0, 720900, 534, 0, 851966, 534, 0, 786433, 534, 0, 786436, 534, 0, 917502, 534, 0, 851969, 534, 0, 851972, 534, 0, 983038, 534, 0, 917505, 534, 0, 917508, 534, 0, 1048574, 534, 0, 983041, 534, 0, 983044, 534, 0, 1114110, 534, 0, 1048577, 534, 0, 1048580, 534, 0, 1179646, 534, 0, 1114113, 534, 0, 1114116, 534, 0, 1245182, 534, 0, 1179649, 534, 0, 1179652, 534, 0, 1310718, 534, 0, 1245185, 534, 0, 1245188, 534, 0, 1376254, 534, 0, 1310721, 534, 0, 1310724, 534, 0, 1441790, 534, 0, 1376257, 534, 0, 1376260, 534, 0, 1507326, 534, 0, 1441793, 534, 0, 1441796, 534, 0, 1572862, 534, 0, 1507329, 534, 0, 1507332, 534, 0, 1638398, 534, 0, 1572865, 534, 0, 1572868, 534, 0, 1703934, 534, 0, 1638401, 534, 0, 1638404, 534, 0, 1769470, 534, 0, 1703937, 534, 0, 1703940, 534, 0, 1835006, 534, 0, 1769473, 534, 0, 1769476, 534, 0, 1900542, 534, 0, 1835009, 534, 0, 1835012, 534, 0, 1966078, 534, 0, 1900545, 534, 0, 1900548, 534, 0, 2031614, 534, 0, 1966081, 534, 0, 1966084, 534, 0, 2031617, 534, 0 )
+tile_data = PoolIntArray( -196610, 582, 0, -196609, 583, 0, -262144, 583, 0, -262143, 583, 0, -262142, 583, 0, -262141, 583, 0, -262140, 590, 0, -131074, 536871545, 0, -131073, 626, 0, -196608, 627, 0, -196607, 627, 0, -196606, 627, 0, -196605, 632, 0, -196604, 633, 0, -65538, 677, 0, -65537, 536871587, 0, -131072, 492, 0, -131071, 493, 0, -131070, 494, 0, -131069, 675, 0, -131068, 676, 0, -2, 534, 0, -65535, 536, 0, -65532, 534, 0, 65534, 534, 0, 1, 534, 0, 4, 534, 0, 131070, 534, 0, 65537, 534, 0, 65540, 534, 0, 196606, 534, 0, 131073, 534, 0, 131076, 534, 0, 262142, 534, 0, 196609, 534, 0, 196612, 534, 0, 327678, 534, 0, 262145, 534, 0, 262148, 534, 0, 393214, 534, 0, 327681, 534, 0, 327684, 534, 0, 458750, 534, 0, 393217, 534, 0, 393220, 534, 0, 524286, 534, 0, 458753, 534, 0, 458756, 534, 0, 589822, 534, 0, 524289, 534, 0, 524292, 534, 0, 655358, 534, 0, 589825, 534, 0, 589828, 534, 0, 720894, 534, 0, 655361, 534, 0, 655364, 534, 0, 786430, 534, 0, 720897, 534, 0, 720900, 534, 0, 851966, 534, 0, 786433, 534, 0, 786436, 534, 0, 917502, 534, 0, 851969, 534, 0, 851972, 534, 0, 983038, 534, 0, 917505, 534, 0, 917508, 534, 0, 1048574, 534, 0, 983041, 534, 0, 983044, 534, 0, 1114110, 534, 0, 1048577, 534, 0, 1048580, 534, 0, 1179646, 534, 0, 1114113, 534, 0, 1114116, 534, 0, 1245182, 534, 0, 1179649, 534, 0, 1179652, 534, 0, 1310718, 534, 0, 1245185, 534, 0, 1245188, 534, 0, 1376254, 534, 0, 1310721, 534, 0, 1310724, 534, 0, 1441790, 534, 0, 1376257, 534, 0, 1376260, 534, 0, 1507326, 534, 0, 1441793, 534, 0, 1441796, 534, 0, 1572862, 534, 0, 1507329, 534, 0, 1507332, 534, 0, 1638398, 534, 0, 1572865, 534, 0, 1572868, 534, 0, 1703934, 534, 0, 1638401, 534, 0, 1638404, 534, 0, 1769470, 534, 0, 1703937, 534, 0, 1703940, 534, 0, 1835006, 534, 0, 1769473, 534, 0, 1769476, 534, 0, 1900542, 534, 0, 1835009, 534, 0, 1835012, 534, 0, 1966078, 534, 0, 1900545, 534, 0, 1900548, 534, 0, 2031614, 534, 0, 1966081, 534, 0, 1966084, 534, 0, 2031617, 534, 0 )
 
 [node name="RisingPlatform4" type="Node2D" parent="Objects" index="15"]
 position = Vector2( 3048, -668 )
@@ -670,7 +670,7 @@ position = Vector2( -24, 0 )
 tile_set = ExtResource( 50 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PackedInt32Array( -196610, 582, 0, -196609, 583, 0, -262144, 583, 0, -262143, 583, 0, -262142, 583, 0, -262141, 583, 0, -262140, 590, 0, -131074, 536871545, 0, -131073, 626, 0, -196608, 627, 0, -196607, 627, 0, -196606, 627, 0, -196605, 632, 0, -196604, 633, 0, -65538, 677, 0, -65537, 536871587, 0, -131072, 492, 0, -131071, 493, 0, -131070, 494, 0, -131069, 675, 0, -131068, 676, 0, -2, 534, 0, -65535, 536, 0, -65532, 534, 0, 65534, 534, 0, 1, 534, 0, 4, 534, 0, 131070, 534, 0, 65537, 534, 0, 65540, 534, 0, 196606, 534, 0, 131073, 534, 0, 131076, 534, 0, 262142, 534, 0, 196609, 534, 0, 196612, 534, 0, 327678, 534, 0, 262145, 534, 0, 262148, 534, 0, 393214, 534, 0, 327681, 534, 0, 327684, 534, 0, 458750, 534, 0, 393217, 534, 0, 393220, 534, 0, 524286, 534, 0, 458753, 534, 0, 458756, 534, 0, 589822, 534, 0, 524289, 534, 0, 524292, 534, 0, 655358, 534, 0, 589825, 534, 0, 589828, 534, 0 )
+tile_data = PoolIntArray( -196610, 582, 0, -196609, 583, 0, -262144, 583, 0, -262143, 583, 0, -262142, 583, 0, -262141, 583, 0, -262140, 590, 0, -131074, 536871545, 0, -131073, 626, 0, -196608, 627, 0, -196607, 627, 0, -196606, 627, 0, -196605, 632, 0, -196604, 633, 0, -65538, 677, 0, -65537, 536871587, 0, -131072, 492, 0, -131071, 493, 0, -131070, 494, 0, -131069, 675, 0, -131068, 676, 0, -2, 534, 0, -65535, 536, 0, -65532, 534, 0, 65534, 534, 0, 1, 534, 0, 4, 534, 0, 131070, 534, 0, 65537, 534, 0, 65540, 534, 0, 196606, 534, 0, 131073, 534, 0, 131076, 534, 0, 262142, 534, 0, 196609, 534, 0, 196612, 534, 0, 327678, 534, 0, 262145, 534, 0, 262148, 534, 0, 393214, 534, 0, 327681, 534, 0, 327684, 534, 0, 458750, 534, 0, 393217, 534, 0, 393220, 534, 0, 524286, 534, 0, 458753, 534, 0, 458756, 534, 0, 589822, 534, 0, 524289, 534, 0, 524292, 534, 0, 655358, 534, 0, 589825, 534, 0, 589828, 534, 0 )
 
 [node name="RisingPlatform2" type="Node2D" parent="Objects" index="16"]
 position = Vector2( 2040, -332 )
@@ -696,7 +696,7 @@ position = Vector2( -24, 0 )
 tile_set = ExtResource( 50 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PackedInt32Array( -196610, 582, 0, -196609, 583, 0, -262144, 583, 0, -262143, 583, 0, -262142, 583, 0, -262141, 583, 0, -262140, 590, 0, -131074, 536871545, 0, -131073, 626, 0, -196608, 627, 0, -196607, 627, 0, -196606, 627, 0, -196605, 632, 0, -196604, 633, 0, -65538, 677, 0, -65537, 536871587, 0, -131072, 492, 0, -131071, 493, 0, -131070, 494, 0, -131069, 675, 0, -131068, 676, 0, -2, 534, 0, -65535, 536, 0, -65532, 534, 0, 65534, 534, 0, 1, 534, 0, 4, 534, 0, 131070, 534, 0, 65537, 534, 0, 65540, 534, 0, 196606, 534, 0, 131073, 534, 0, 131076, 534, 0, 262142, 534, 0, 196609, 534, 0, 196612, 534, 0, 327678, 534, 0, 262145, 534, 0, 262148, 534, 0, 393214, 534, 0, 327681, 534, 0, 327684, 534, 0, 458750, 534, 0, 393217, 534, 0, 393220, 534, 0, 524286, 534, 0, 458753, 534, 0, 458756, 534, 0 )
+tile_data = PoolIntArray( -196610, 582, 0, -196609, 583, 0, -262144, 583, 0, -262143, 583, 0, -262142, 583, 0, -262141, 583, 0, -262140, 590, 0, -131074, 536871545, 0, -131073, 626, 0, -196608, 627, 0, -196607, 627, 0, -196606, 627, 0, -196605, 632, 0, -196604, 633, 0, -65538, 677, 0, -65537, 536871587, 0, -131072, 492, 0, -131071, 493, 0, -131070, 494, 0, -131069, 675, 0, -131068, 676, 0, -2, 534, 0, -65535, 536, 0, -65532, 534, 0, 65534, 534, 0, 1, 534, 0, 4, 534, 0, 131070, 534, 0, 65537, 534, 0, 65540, 534, 0, 196606, 534, 0, 131073, 534, 0, 131076, 534, 0, 262142, 534, 0, 196609, 534, 0, 196612, 534, 0, 327678, 534, 0, 262145, 534, 0, 262148, 534, 0, 393214, 534, 0, 327681, 534, 0, 327684, 534, 0, 458750, 534, 0, 393217, 534, 0, 393220, 534, 0, 524286, 534, 0, 458753, 534, 0, 458756, 534, 0 )
 
 [node name="RisingSlope" type="Node2D" parent="Objects" index="17"]
 position = Vector2( 1832, -492 )
@@ -715,9 +715,9 @@ tiles = 3
 
 [node name="collisionPolygon2D" type="CollisionPolygon2D" parent="Objects/RisingSlope/rising_platform" index="0"]
 position = Vector2( -23, 27 )
-polygon = PackedVector2Array( -33, -75, 15, -27, -33, -27 )
+polygon = PoolVector2Array( -33, -75, 15, -27, -33, -27 )
 
-[node name="sprite" type="Sprite2D" parent="Objects/RisingSlope/rising_platform" index="1"]
+[node name="sprite" type="Sprite" parent="Objects/RisingSlope/rising_platform" index="1"]
 position = Vector2( -24, -32 )
 z_index = -1
 texture = ExtResource( 21 )
@@ -740,9 +740,9 @@ tiles = 3
 
 [node name="collisionPolygon2D" type="CollisionPolygon2D" parent="Objects/RisingSlope2/rising_platform" index="0"]
 position = Vector2( -23, 27 )
-polygon = PackedVector2Array( -33, -75, 15, -27, -33, -27 )
+polygon = PoolVector2Array( -33, -75, 15, -27, -33, -27 )
 
-[node name="sprite" type="Sprite2D" parent="Objects/RisingSlope2/rising_platform" index="1"]
+[node name="sprite" type="Sprite" parent="Objects/RisingSlope2/rising_platform" index="1"]
 position = Vector2( -24, -32 )
 z_index = -1
 texture = ExtResource( 21 )
@@ -756,9 +756,9 @@ tiles = 3
 
 [node name="collisionPolygon2D" type="CollisionPolygon2D" parent="Objects/RisingSlope2/rising_platform2" index="0"]
 position = Vector2( -23, 27 )
-polygon = PackedVector2Array( -33, -75, 15, -27, -33, -27 )
+polygon = PoolVector2Array( -33, -75, 15, -27, -33, -27 )
 
-[node name="sprite" type="Sprite2D" parent="Objects/RisingSlope2/rising_platform2" index="1"]
+[node name="sprite" type="Sprite" parent="Objects/RisingSlope2/rising_platform2" index="1"]
 position = Vector2( -24, -32 )
 z_index = -1
 texture = ExtResource( 21 )
@@ -925,63 +925,63 @@ collectible_name = "life_up_manowar"
 [node name="ExtraLifePickup" parent="Objects" index="26" instance=ExtResource( 25 )]
 position = Vector2( 420, -443 )
 
-[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="Objects/ExtraLifePickup" index="5"]
+[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="Objects/ExtraLifePickup" index="5"]
 process_parent = true
 physics_process_parent = true
 
 [node name="ExtraLifePickup4" parent="Objects" index="27" instance=ExtResource( 25 )]
 position = Vector2( 396, -443 )
 
-[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="Objects/ExtraLifePickup4" index="5"]
+[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="Objects/ExtraLifePickup4" index="5"]
 process_parent = true
 physics_process_parent = true
 
 [node name="ExtraLifePickup2" parent="Objects" index="28" instance=ExtResource( 25 )]
 position = Vector2( 443, -443 )
 
-[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="Objects/ExtraLifePickup2" index="5"]
+[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="Objects/ExtraLifePickup2" index="5"]
 process_parent = true
 physics_process_parent = true
 
 [node name="ExtraLifePickup3" parent="Objects" index="29" instance=ExtResource( 25 )]
 position = Vector2( 4896, -327 )
 
-[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="Objects/ExtraLifePickup3" index="5"]
+[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="Objects/ExtraLifePickup3" index="5"]
 process_parent = true
 physics_process_parent = true
 
 [node name="HealthPickUp8" parent="Objects" index="30" instance=ExtResource( 22 )]
 position = Vector2( 1141, -732 )
 
-[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="Objects/HealthPickUp8" index="6"]
+[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="Objects/HealthPickUp8" index="6"]
 process_parent = true
 physics_process_parent = true
 
 [node name="HealthPickUp11" parent="Objects" index="31" instance=ExtResource( 22 )]
 position = Vector2( 1164, -732 )
 
-[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="Objects/HealthPickUp11" index="6"]
+[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="Objects/HealthPickUp11" index="6"]
 process_parent = true
 physics_process_parent = true
 
 [node name="HealthPickUp9" parent="Objects" index="32" instance=ExtResource( 22 )]
 position = Vector2( 3891, -796 )
 
-[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="Objects/HealthPickUp9" index="6"]
+[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="Objects/HealthPickUp9" index="6"]
 process_parent = true
 physics_process_parent = true
 
 [node name="HealthPickUp10" parent="Objects" index="33" instance=ExtResource( 22 )]
 position = Vector2( 5217, -1060 )
 
-[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="Objects/HealthPickUp10" index="6"]
+[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="Objects/HealthPickUp10" index="6"]
 process_parent = true
 physics_process_parent = true
 
 [node name="AmmoPickup2" parent="Objects" index="34" instance=ExtResource( 27 )]
 position = Vector2( 4568, -1182 )
 
-[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="Objects/AmmoPickup2" index="5"]
+[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="Objects/AmmoPickup2" index="5"]
 process_parent = true
 physics_process_parent = true
 
@@ -1017,7 +1017,7 @@ curve = SubResource( 36 )
 position = Vector2( 182.476, -16.2344 )
 rotate = false
 
-[node name="fakeManowar" type="AnimatedSprite2D" parent="Objects/ManowarPath/pathFollow2D" index="0"]
+[node name="fakeManowar" type="AnimatedSprite" parent="Objects/ManowarPath/pathFollow2D" index="0"]
 z_index = 5
 frames = ExtResource( 52 )
 animation = "roll_loop"
@@ -1069,7 +1069,7 @@ curve = SubResource( 39 )
 position = Vector2( 169.925, -235.398 )
 rotate = false
 
-[node name="fakeManowar" type="AnimatedSprite2D" parent="Objects/ManowarPath2/pathFollow2D" index="0"]
+[node name="fakeManowar" type="AnimatedSprite" parent="Objects/ManowarPath2/pathFollow2D" index="0"]
 z_index = 5
 frames = ExtResource( 52 )
 animation = "roll_loop"
@@ -1121,7 +1121,7 @@ curve = SubResource( 40 )
 position = Vector2( 554.186, 29.4246 )
 rotate = false
 
-[node name="fakeManowar" type="AnimatedSprite2D" parent="Objects/ManowarPath3/pathFollow2D" index="0"]
+[node name="fakeManowar" type="AnimatedSprite" parent="Objects/ManowarPath3/pathFollow2D" index="0"]
 z_index = 5
 frames = ExtResource( 52 )
 animation = "roll_loop"
@@ -1162,8 +1162,8 @@ collision_mask = 2
 [node name="collisionShape2D" type="CollisionShape2D" parent="Objects/ManowarPath3/trigger_zone" index="0"]
 shape = SubResource( 37 )
 
-[node name="StartEntrance" type="AnimatedSprite2D" parent="Objects" index="41"]
-process_mode = 3
+[node name="StartEntrance" type="AnimatedSprite" parent="Objects" index="41"]
+pause_mode = 2
 position = Vector2( 13666, -2158 )
 z_index = 2
 frames = SubResource( 187 )
@@ -1175,7 +1175,7 @@ position = Vector2( 13667, -2157 )
 destination = NodePath("position2D")
 camera_limit = NodePath("../../Limits/22")
 
-[node name="position2D" type="Marker2D" parent="Objects/StartPortal" index="4"]
+[node name="position2D" type="Position2D" parent="Objects/StartPortal" index="4"]
 position = Vector2( 437, -858 )
 
 [node name="Limits" parent="." index="7"]
@@ -1682,7 +1682,7 @@ type = "down"
 position = Vector2( 535, -457 )
 z_index = 1
 
-[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="Enemies/Section1/Box7" index="16"]
+[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="Enemies/Section1/Box7" index="16"]
 position = Vector2( -2.86102e-06, 1.00136e-05 )
 scale = Vector2( 2.4, 2.4 )
 pause_particles = false
@@ -1693,7 +1693,7 @@ physics_process_parent = true
 position = Vector2( 3607, -62 )
 z_index = 1
 
-[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="Enemies/Section1/Box11" index="16"]
+[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="Enemies/Section1/Box11" index="16"]
 position = Vector2( -2.86102e-06, 1.00136e-05 )
 scale = Vector2( 2.4, 2.4 )
 pause_particles = false
@@ -1704,7 +1704,7 @@ physics_process_parent = true
 position = Vector2( 3558, -62 )
 z_index = 1
 
-[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="Enemies/Section1/Box12" index="16"]
+[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="Enemies/Section1/Box12" index="16"]
 position = Vector2( -2.86102e-06, 1.00136e-05 )
 scale = Vector2( 2.4, 2.4 )
 pause_particles = false
@@ -1812,7 +1812,7 @@ rotation = -1.5708
 position = Vector2( 3784, -792 )
 z_index = 1
 
-[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="Enemies/Section2/Box11" index="16"]
+[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="Enemies/Section2/Box11" index="16"]
 position = Vector2( -2.86102e-06, 1.00136e-05 )
 scale = Vector2( 2.4, 2.4 )
 pause_particles = false
@@ -1823,7 +1823,7 @@ physics_process_parent = true
 position = Vector2( 3832, -792 )
 z_index = 1
 
-[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="Enemies/Section2/Box12" index="16"]
+[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="Enemies/Section2/Box12" index="16"]
 position = Vector2( -2.86102e-06, 1.00136e-05 )
 scale = Vector2( 2.4, 2.4 )
 pause_particles = false
@@ -1834,7 +1834,7 @@ physics_process_parent = true
 position = Vector2( 4216, -922 )
 z_index = 1
 
-[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="Enemies/Section2/Box13" index="16"]
+[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="Enemies/Section2/Box13" index="16"]
 position = Vector2( -2.86102e-06, 1.00136e-05 )
 scale = Vector2( 2.4, 2.4 )
 pause_particles = false
@@ -1845,7 +1845,7 @@ physics_process_parent = true
 position = Vector2( 4729, -1102 )
 z_index = 1
 
-[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="Enemies/Section2/Box14" index="16"]
+[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="Enemies/Section2/Box14" index="16"]
 position = Vector2( -2.86102e-06, 1.00136e-05 )
 scale = Vector2( 2.4, 2.4 )
 pause_particles = false
@@ -1856,7 +1856,7 @@ physics_process_parent = true
 position = Vector2( 6057, -1435 )
 z_index = 1
 
-[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="Enemies/Section2/Box15" index="16"]
+[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="Enemies/Section2/Box15" index="16"]
 position = Vector2( -2.86102e-06, 1.00136e-05 )
 scale = Vector2( 2.4, 2.4 )
 pause_particles = false
@@ -1867,7 +1867,7 @@ physics_process_parent = true
 position = Vector2( 5016, -1367 )
 z_index = 1
 
-[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="Enemies/Section2/Box8" index="16"]
+[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="Enemies/Section2/Box8" index="16"]
 position = Vector2( -2.86102e-06, 1.00136e-05 )
 scale = Vector2( 2.4, 2.4 )
 pause_particles = false
@@ -1878,7 +1878,7 @@ physics_process_parent = true
 position = Vector2( 5176, -1367 )
 z_index = 1
 
-[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="Enemies/Section2/Box9" index="16"]
+[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="Enemies/Section2/Box9" index="16"]
 position = Vector2( -2.86102e-06, 1.00136e-05 )
 scale = Vector2( 2.4, 2.4 )
 pause_particles = false
@@ -1889,7 +1889,7 @@ physics_process_parent = true
 position = Vector2( 5162, -1065 )
 z_index = 1
 
-[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="Enemies/Section2/Box10" index="16"]
+[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="Enemies/Section2/Box10" index="16"]
 position = Vector2( -2.86102e-06, 1.00136e-05 )
 scale = Vector2( 2.4, 2.4 )
 pause_particles = false
@@ -1900,7 +1900,7 @@ physics_process_parent = true
 position = Vector2( 4168, -922 )
 z_index = 1
 
-[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="Enemies/Section2/Box16" index="16"]
+[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="Enemies/Section2/Box16" index="16"]
 position = Vector2( -2.86102e-06, 1.00136e-05 )
 scale = Vector2( 2.4, 2.4 )
 pause_particles = false
@@ -1911,7 +1911,7 @@ physics_process_parent = true
 position = Vector2( 3240, -889 )
 z_index = 1
 
-[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="Enemies/Section2/Box17" index="16"]
+[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="Enemies/Section2/Box17" index="16"]
 position = Vector2( -2.86102e-06, 1.00136e-05 )
 scale = Vector2( 2.4, 2.4 )
 pause_particles = false
@@ -1922,7 +1922,7 @@ physics_process_parent = true
 position = Vector2( 4024, -890 )
 z_index = 1
 
-[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="Enemies/Section2/Box18" index="16"]
+[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="Enemies/Section2/Box18" index="16"]
 position = Vector2( -2.86102e-06, 1.00136e-05 )
 scale = Vector2( 2.4, 2.4 )
 pause_particles = false

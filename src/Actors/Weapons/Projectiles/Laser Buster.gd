@@ -1,13 +1,13 @@
 extends ChargedBuster
 class_name LaserBuster
 
-@export var duration := 1.8
-@export var damage_frequency := 0.3
+export var duration := 1.8
+export var damage_frequency := 0.3
 var timer := 0.0
 var next_damage_time := 0.02
 var ending := false
 var target_list = []
-@onready var animatedBeam = animatedSprite.get_node("animatedSprite2")
+onready var animatedBeam = animatedSprite.get_node("animatedSprite2")
 
 func _ready() -> void:
 	continuous_damage = true

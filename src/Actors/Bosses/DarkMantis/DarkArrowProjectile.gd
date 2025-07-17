@@ -1,27 +1,27 @@
 extends GenericProjectile
 
-@onready var hit_particle: Sprite2D = $"Hit Particle"
+onready var hit_particle: Sprite = $"Hit Particle"
 var hit_ground := false
 const bypass_shield := true
-@onready var audio : AudioStreamPlayer2D = $audioStreamPlayer2D
+onready var audio : AudioStreamPlayer2D = $audioStreamPlayer2D
 
 signal hit_ground
 
-@export var speed : Vector2
+export var speed : Vector2
 
 func _Setup() -> void:
 	set_horizontal_speed(speed.x * facing_direction)
 	set_vertical_speed(speed.y)
 
 func deactivate() -> void:
-	super.deactivate()
+	.deactivate()
 	emit_signal("hit_ground")
 	modulate = Color(1,1,1,0.35)
 	set_horizontal_speed(0)
 	set_vertical_speed(0)
 	var tween = get_tree().create_tween()
 	tween.tween_property(self,"modulate",Color(0,0,1,0),2)
-	tween.tween_callback(Callable(self, "destroy"))
+	tween.tween_callback(self,"destroy")
 
 func _Update(delta) -> void:
 	process_gravity(delta)

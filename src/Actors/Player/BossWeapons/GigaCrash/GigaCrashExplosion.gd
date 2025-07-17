@@ -2,12 +2,12 @@ extends SimplePlayerProjectile
 var target_list : Array
 var interval := 0.064
 var damage_timer := 0.0
-@export var duration := 2.0
+export var duration := 2.0
 const continuous_damage := true
-@onready var smoke: GPUParticles2D = $smoke
-@onready var explosion_particles: GPUParticles2D = $explosionParticles
-@onready var black: Sprite2D = $black
-@onready var red:= $red_bg
+onready var smoke: Particles2D = $smoke
+onready var explosion_particles: Particles2D = $explosionParticles
+onready var black: Sprite = $black
+onready var red:= $red_bg
 
 func _DamageTarget(body) -> int:
 	target_list.append(body)

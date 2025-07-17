@@ -1,9 +1,9 @@
 extends Node2D
 
-@onready var tween := TweenController.new(self,false)
-@onready var collider: CollisionShape2D = $VoidDeathPlane/area2D/collisionShape2D
-@onready var feather_decay: GPUParticles2D = $feather_decay
-@onready var visuals: Node2D = $visuals
+onready var tween := TweenController.new(self,false)
+onready var collider: CollisionShape2D = $VoidDeathPlane/area2D/collisionShape2D
+onready var feather_decay: Particles2D = $feather_decay
+onready var visuals: Node2D = $visuals
 
 func activate():
 	visible = true

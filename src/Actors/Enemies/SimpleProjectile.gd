@@ -1,8 +1,8 @@
 extends GenericProjectile
 class_name SimpleProjectile
-@onready var hitparticle: Sprite2D = $"Hit Particle"
+onready var hitparticle: Sprite = $"Hit Particle"
 
-@export var speed := 160.0
+export var speed := 160.0
 var emitted := false
 
 func _Setup():

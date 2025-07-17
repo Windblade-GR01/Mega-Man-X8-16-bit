@@ -1,16 +1,16 @@
 extends Control
 
-@onready var character = get_tree().current_scene.find_child("X")
+onready var character = get_tree().current_scene.find_node("X")
 
 const bike = preload("res://src/Actors/Props/RideChaser.tscn")
 const ridearmor = preload("res://src/Actors/Props/RideArmor/RideArmor.tscn")
 const ridearmor2 = preload("res://src/Actors/Props/RideArmor/RideArmorNoCannon.tscn")
 var last_checkpoint : Node2D
-@onready var checkpoints := get_parent().get_parent().get_parent().get_parent().get_node_or_null("Checkpoints")
+onready var checkpoints := get_parent().get_parent().get_parent().get_parent().get_node_or_null("Checkpoints")
 var open := false
-@onready var main_button: Button = $vBoxContainer/hide_menu
+onready var main_button: Button = $vBoxContainer/hide_menu
 
-@onready var cheat_buttons: HBoxContainer = $vBoxContainer/hBoxContainer
+onready var cheat_buttons: HBoxContainer = $vBoxContainer/hBoxContainer
 
 signal cheat_pressed(visibility)
 
@@ -20,10 +20,10 @@ func _ready() -> void:
 	show_cheats()
 	
 	close_cheats()
-	Event.connect("pause_menu_opened", Callable(self, "close_cheats"))
-	Event.connect("pause_menu_opened", Callable(self, "hide_totally"))
-	Event.connect("pause_menu_closed", Callable(self, "show_cheats"))
-	Event.connect("boss_start", Callable(self, "on_boss_start"))
+	Event.connect("pause_menu_opened",self,"close_cheats")
+	Event.connect("pause_menu_opened",self,"hide_totally")
+	Event.connect("pause_menu_closed",self,"show_cheats")
+	Event.connect("boss_start",self,"on_boss_start")
 	if checkpoints:
 		if checkpoints.get_child_count() > 0:
 			last_checkpoint = checkpoints.get_child(checkpoints.get_child_count()-1)
@@ -66,7 +66,7 @@ func close_cheats():
 		if option.name != "hide_menu":
 			option.set_visible (false)
 		else:
-			option.button_pressed = false
+			option.pressed = false
 	GameManager.unpause("DebugMenu")
 	
 
@@ -148,10 +148,10 @@ func _on_144fps_pressed() -> void:
 
 func set_fps(value :int) -> void:
 	#if Engine.get_iterations_per_second() != value:
-	print_debug("Engine fps: " + str(Engine.get_physics_ticks_per_second()) + " changing to: " + str(value))
-	Engine.physics_ticks_per_second = value
+	print_debug("Engine fps: " + str(Engine.get_iterations_per_second()) + " changing to: " + str(value))
+	Engine.iterations_per_second = value
 	Engine.target_fps = value
-	$"vBoxContainer/hBoxContainer/vBoxContainer/144fps/fps".text= "fps: " + str(Engine.get_physics_ticks_per_second()) + "target: " + str(Engine.target_fps)
+	$"vBoxContainer/hBoxContainer/vBoxContainer/144fps/fps".text= "fps: " + str(Engine.get_iterations_per_second()) + "target: " + str(Engine.target_fps)
 
 func _on_pause_pressed() -> void:
 	if cheat_buttons.visible:
@@ -171,17 +171,17 @@ func _on_time_attack_pressed() -> void:
 
 
 func _on_1xSize_pressed() -> void:
-	get_window().set_size(Vector2(398, 224))
+	OS.set_window_size(Vector2(398, 224))
 
 
 func _on_2xSize_pressed() -> void:
-	get_window().set_size(Vector2(796, 448))
+	OS.set_window_size(Vector2(796, 448))
 
 func _on_3xSize_pressed() -> void:
-	get_window().set_size(Vector2(1194, 672))
+	OS.set_window_size(Vector2(1194, 672))
 	
 func _on_fullscreen_pressed() -> void:
-	get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (!((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))) else Window.MODE_WINDOWED
+	OS.window_fullscreen = !OS.window_fullscreen
 
 func _on_next_checkpoint_pressed() -> void:
 	if not stage_has_checkpoints():
@@ -219,7 +219,7 @@ func _on_teleport_to_boss_pressed() -> void:
 
 
 func _on_spawn_bike_pressed() -> void:
-	var instance = bike.instantiate()
+	var instance = bike.instance()
 	get_tree().current_scene.add_child(instance,true)
 	instance.set_position(GameManager.get_player_position()) 
 
@@ -262,7 +262,7 @@ func _on_unlock_weapons_pressed() -> void:
 
 
 func _on_spawn_ridearm_pressed() -> void:
-	var instance = ridearmor.instantiate()
+	var instance = ridearmor.instance()
 	get_tree().current_scene.add_child(instance,true)
 	var armor_pos = GameManager.get_player_position()
 	armor_pos.y -= 16
@@ -308,7 +308,7 @@ func _on_defeat_boss_pressed() -> void:
 		if is_instance_valid(boss):
 			boss.current_health = 0
 			_on_hide_menu_pressed()
-			main_button.button_pressed = false
+			main_button.pressed = false
 
 
 func _on_seraph_lumine_pressed() -> void:
@@ -352,7 +352,7 @@ func _on_sss_rank_pressed() -> void:
 
 
 func _on_set_seed_text_entered(new_text: String) -> void:
-	if new_text.is_valid_int():
+	if new_text.is_valid_integer():
 		BossRNG.set_seed(int(new_text))
 		GameManager.restart_level()
 	else:
@@ -373,7 +373,7 @@ func _on_igtscreen_pressed() -> void:
 
 
 func _on_spawn_gridearm_pressed() -> void:
-	var instance = ridearmor2.instantiate()
+	var instance = ridearmor2.instance()
 	get_tree().current_scene.add_child(instance,true)
 	var armor_pos = GameManager.get_player_position()
 	armor_pos.y -= 16

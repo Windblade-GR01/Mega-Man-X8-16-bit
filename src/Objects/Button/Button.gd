@@ -1,10 +1,10 @@
 extends Node2D
 class_name ShootableButton
 
-@export var button_sound: AudioStream
+export (AudioStream) var button_sound
 var state := false
 signal button_press
-@onready var anim := $animatedSprite
+onready var anim := $animatedSprite
 
 func press():
 	state = true
@@ -25,7 +25,7 @@ func _on_area2D_body_entered(body: Node) -> void:
 func play_sound() -> void:
 	if button_sound != null:
 		var audio = $audioStreamPlayer2D
-		audio.pitch_scale = randf_range(0.9,1.1)
+		audio.pitch_scale = rand_range(0.9,1.1)
 		audio.stream = button_sound
 		audio.play()
 	

@@ -1,8 +1,8 @@
 extends AttackAbility
 
-@export var shining_ray : PackedScene
-@onready var prepare: AudioStreamPlayer2D = $prepare
-@onready var space: Node = $"../Space"
+export var shining_ray : PackedScene
+onready var prepare: AudioStreamPlayer2D = $prepare
+onready var space: Node = $"../Space"
 
 func _Setup() -> void:
 	turn_and_face_player()

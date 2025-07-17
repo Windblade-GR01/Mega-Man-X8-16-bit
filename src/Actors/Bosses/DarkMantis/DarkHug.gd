@@ -1,18 +1,18 @@
 extends GrabAttack
-@onready var grab_area: Node2D = $GrabArea
-@onready var drain: AudioStreamPlayer2D = $drain
+onready var grab_area: Node2D = $GrabArea
+onready var drain: AudioStreamPlayer2D = $drain
 
 var munch_timer := 0.0
 var munched_times := 0
-@onready var dash_smoke: GPUParticles2D = $dash_smoke
-@onready var dash: AudioStreamPlayer2D = $dash
+onready var dash_smoke: Particles2D = $dash_smoke
+onready var dash: AudioStreamPlayer2D = $dash
 
 func _ready() -> void:
 # warning-ignore:return_value_discarded
-	grab_area.connect("touch_target", Callable(self, "apply_stuck_state"))
+	grab_area.connect("touch_target",self,"apply_stuck_state")
 
 func _Setup() -> void:
-	super._Setup()
+	._Setup()
 	grab_area.handle_direction()
 	grabbed_player = false
 	mashes_pressed = 0

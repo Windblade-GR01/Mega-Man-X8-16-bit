@@ -1,20 +1,20 @@
 extends NinePatchRect
 
-@onready var hermes_fill: TextureProgressBar = $hermes_fill
-@onready var icarus_fill: TextureProgressBar = $icarus_fill
+onready var hermes_fill: TextureProgress = $hermes_fill
+onready var icarus_fill: TextureProgress = $icarus_fill
 
-@onready var tween := TweenController.new(self,false)
-@onready var h_blink: TextureProgressBar = $hermes_fill/blink
-@onready var i_blink: TextureProgressBar = $icarus_fill/blink
+onready var tween := TweenController.new(self,false)
+onready var h_blink: TextureProgress = $hermes_fill/blink
+onready var i_blink: TextureProgress = $icarus_fill/blink
 
 var hermes_weapon
 var icarus_weapon
 
 func _ready() -> void:
 	hide()
-	Event.connect("collected", Callable(self, "hide_or_show"))
-	Event.connect("special_activated", Callable(self, "activate"))
-	Event.connect("special_deactivated", Callable(self, "deactivate"))
+	Event.connect("collected",self,"hide_or_show")
+	Event.connect("special_activated",self,"activate")
+	Event.connect("special_deactivated",self,"deactivate")
 
 func activate(weapon) -> void:
 	visible = true

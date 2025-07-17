@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://33ho7bp7ixow"
-path="res://.godot/imported/56 - MMX - Enemy Die (1).wav-440eaa6706086486a4640dccf0bbd4a7.sample"
+type="AudioStreamSample"
+path="res://.import/56 - MMX - Enemy Die (1).wav-440eaa6706086486a4640dccf0bbd4a7.sample"
 
 [deps]
 
 source_file="res://src/Sounds/56 - MMX - Enemy Die (1).wav"
-dest_files=["res://.godot/imported/56 - MMX - Enemy Die (1).wav-440eaa6706086486a4640dccf0bbd4a7.sample"]
+dest_files=[ "res://.import/56 - MMX - Enemy Die (1).wav-440eaa6706086486a4640dccf0bbd4a7.sample" ]
 
 [params]
 

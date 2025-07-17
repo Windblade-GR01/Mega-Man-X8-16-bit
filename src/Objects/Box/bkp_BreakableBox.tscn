@@ -4,12 +4,12 @@
 [ext_resource path="res://src/Objects/Box/BoxDeath.gd" type="Script" id=2]
 [ext_resource path="res://src/Objects/Box/BoxIdle.gd" type="Script" id=3]
 [ext_resource path="res://src/Actors/Modules/Enemy/Enemy.gd" type="Script" id=4]
-[ext_resource path="res://src/Effects/Textures/explosion.png" type="Texture2D" id=5]
+[ext_resource path="res://src/Effects/Textures/explosion.png" type="Texture" id=5]
 [ext_resource path="res://src/Actors/Modules/Enemy/DamageOnTouch.gd" type="Script" id=6]
 [ext_resource path="res://src/Effects/Materials/default_material.tres" type="Material" id=7]
 [ext_resource path="res://src/Sounds/56 - MMX - Enemy Death.wav" type="AudioStream" id=8]
 [ext_resource path="res://src/Sounds/HIT.wav" type="AudioStream" id=9]
-[ext_resource path="res://src/Effects/Textures/remains.png" type="Texture2D" id=10]
+[ext_resource path="res://src/Effects/Textures/remains.png" type="Texture" id=10]
 [ext_resource path="res://src/Objects/Box/box.res" type="SpriteFrames" id=11]
 [ext_resource path="res://src/Effects/Remains.gd" type="Script" id=12]
 [ext_resource path="res://src/Effects/Materials/RemainsParticleSingleExplosion.tres" type="Material" id=13]
@@ -44,13 +44,13 @@ particles_anim_loop = false
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 23, 23 )
 
-[node name="BreakBox" type="CharacterBody2D" groups=["Enemies"]]
+[node name="BreakBox" type="KinematicBody2D" groups=["Enemies"]]
 z_index = 1
 collision_mask = 0
 script = ExtResource( 4 )
 max_health = 5.0
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 7 )
 frames = ExtResource( 11 )
 animation = "breakable"
@@ -62,7 +62,7 @@ scale = Vector2( 1e-05, 1e-05 )
 shape = SubResource( 54 )
 disabled = true
 
-[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 scale = Vector2( 2, 2 )
 rect = Rect2( -5, -5, 10, 10 )
 
@@ -97,7 +97,7 @@ script = ExtResource( 2 )
 explosion_duration = 0.0
 test = true
 
-[node name="Explosion Particles" type="GPUParticles2D" parent="EnemyDeath"]
+[node name="Explosion Particles" type="Particles2D" parent="EnemyDeath"]
 material = SubResource( 210 )
 position = Vector2( 0, 0.5 )
 z_index = 2
@@ -111,7 +111,7 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Remains" type="GPUParticles2D" parent="EnemyDeath"]
+[node name="Remains" type="Particles2D" parent="EnemyDeath"]
 material = SubResource( 66 )
 position = Vector2( 0, 0.5 )
 z_index = 10
@@ -127,7 +127,7 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="remains_particles" type="GPUParticles2D" parent="EnemyDeath/Remains"]
+[node name="remains_particles" type="Particles2D" parent="EnemyDeath/Remains"]
 material = SubResource( 12 )
 z_index = -1
 emitting = false

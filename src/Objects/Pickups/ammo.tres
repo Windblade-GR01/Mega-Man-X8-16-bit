@@ -1,44 +1,32 @@
-[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://bp4t3g5mj8spm"]
+[gd_resource type="SpriteFrames" load_steps=6 format=2]
 
-[ext_resource type="Texture2D" uid="uid://cenkrld2yubgf" path="res://src/Objects/Pickups/ammo.png" id="1"]
+[ext_resource path="res://src/Objects/Pickups/ammo.png" type="Texture" id=1]
 
-[sub_resource type="AtlasTexture" id="2"]
-atlas = ExtResource("1")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id="3"]
-atlas = ExtResource("1")
-region = Rect2(16, 0, 16, 16)
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id="4"]
-atlas = ExtResource("1")
-region = Rect2(0, 16, 16, 16)
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 16, 16, 16 )
 
-[sub_resource type="AtlasTexture" id="5"]
-atlas = ExtResource("1")
-region = Rect2(16, 16, 16, 16)
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 16, 16, 16 )
 
 [resource]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("2")
-}],
+animations = [ {
+"frames": [ SubResource( 2 ) ],
 "loop": false,
-"name": &"falling",
+"name": "falling",
 "speed": 1.0
 }, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("3")
-}, {
-"duration": 1.0,
-"texture": SubResource("4")
-}, {
-"duration": 1.0,
-"texture": SubResource("5")
-}],
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
-"name": &"idle",
+"name": "idle",
 "speed": 24.0
-}]
+} ]

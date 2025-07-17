@@ -1,13 +1,13 @@
 extends AttackAbility
 
-@onready var sigma_laser: Node2D = $"../animatedSprite/SigmaLaser"
-@onready var flash: Sprite2D = $flash
-@onready var raycast: RayCast2D = $"../animatedSprite/overdrive_raycast"
-@onready var shot: AudioStreamPlayer2D = $shot
-@onready var charge: AudioStreamPlayer2D = $charge
-@onready var particles: GPUParticles2D = $particles
-@onready var charge_circle: Sprite2D = $charge_circle
-@onready var windspark: Sprite2D = $"../animatedSprite/windspark"
+onready var sigma_laser: Node2D = $"../animatedSprite/SigmaLaser"
+onready var flash: Sprite = $flash
+onready var raycast: RayCast2D = $"../animatedSprite/overdrive_raycast"
+onready var shot: AudioStreamPlayer2D = $shot
+onready var charge: AudioStreamPlayer2D = $charge
+onready var particles: Particles2D = $particles
+onready var charge_circle: Sprite = $charge_circle
+onready var windspark: Sprite = $"../animatedSprite/windspark"
 
 signal ready_for_stun
 
@@ -63,7 +63,7 @@ func _Update(delta) -> void:
 		EndAbility()
 		
 func _Interrupt():
-	super._Interrupt()
+	._Interrupt()
 	sigma_laser.deactivate()
 	particles.emitting = false
 	charge_circle.deactivate()

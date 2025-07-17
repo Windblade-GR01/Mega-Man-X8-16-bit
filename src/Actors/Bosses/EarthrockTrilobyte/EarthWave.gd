@@ -1,6 +1,6 @@
 extends AttackAbility
-@export var crystal : PackedScene
-@onready var roar: AudioStreamPlayer2D = $roar
+export var crystal : PackedScene
+onready var roar: AudioStreamPlayer2D = $roar
 const crystal_height := 54.0
 
 signal ready_for_stun

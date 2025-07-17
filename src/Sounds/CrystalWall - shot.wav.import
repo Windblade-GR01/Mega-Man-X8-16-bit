@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://ciuf30ewf1gt0"
-path="res://.godot/imported/CrystalWall - shot.wav-89c51466710b0dd065685d5ba45772b6.sample"
+type="AudioStreamSample"
+path="res://.import/CrystalWall - shot.wav-89c51466710b0dd065685d5ba45772b6.sample"
 
 [deps]
 
 source_file="res://src/Sounds/CrystalWall - shot.wav"
-dest_files=["res://.godot/imported/CrystalWall - shot.wav-89c51466710b0dd065685d5ba45772b6.sample"]
+dest_files=[ "res://.import/CrystalWall - shot.wav-89c51466710b0dd065685d5ba45772b6.sample" ]
 
 [params]
 

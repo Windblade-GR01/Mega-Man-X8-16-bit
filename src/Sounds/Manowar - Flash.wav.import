@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://cbpwityti8psc"
-path="res://.godot/imported/Manowar - Flash.wav-9158c9b81aea18fd64f3b7926e72be9f.sample"
+type="AudioStreamSample"
+path="res://.import/Manowar - Flash.wav-9158c9b81aea18fd64f3b7926e72be9f.sample"
 
 [deps]
 
 source_file="res://src/Sounds/Manowar - Flash.wav"
-dest_files=["res://.godot/imported/Manowar - Flash.wav-9158c9b81aea18fd64f3b7926e72be9f.sample"]
+dest_files=[ "res://.import/Manowar - Flash.wav-9158c9b81aea18fd64f3b7926e72be9f.sample" ]
 
 [params]
 

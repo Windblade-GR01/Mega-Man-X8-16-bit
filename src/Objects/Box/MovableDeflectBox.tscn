@@ -8,14 +8,14 @@
 [ext_resource path="res://src/Objects/Box/Blinker.gd" type="Script" id=6]
 [ext_resource path="res://src/Objects/Box/X8Sprite.gd" type="Script" id=7]
 [ext_resource path="res://src/Objects/Box/Crush.gd" type="Script" id=8]
-[ext_resource path="res://src/Effects/Textures/explosion.png" type="Texture2D" id=9]
+[ext_resource path="res://src/Effects/Textures/explosion.png" type="Texture" id=9]
 [ext_resource path="res://src/Objects/Box/box.res" type="SpriteFrames" id=10]
 [ext_resource path="res://src/Actors/Bosses/BambooPandamonium/Health.gd" type="Script" id=11]
 [ext_resource path="res://src/Objects/Box/SimpleDeath.gd" type="Script" id=12]
 [ext_resource path="res://src/Objects/Box/Deflect.gd" type="Script" id=13]
 [ext_resource path="res://src/Sounds/56 - MMX - Enemy Death.wav" type="AudioStream" id=14]
 [ext_resource path="res://src/Sounds/HIT.wav" type="AudioStream" id=15]
-[ext_resource path="res://src/Effects/Textures/remains_gray.png" type="Texture2D" id=16]
+[ext_resource path="res://src/Effects/Textures/remains_gray.png" type="Texture" id=16]
 [ext_resource path="res://src/Effects/Materials/default_material.tres" type="Material" id=17]
 [ext_resource path="res://src/Effects/ShieldBreak/shieldbreak.res" type="SpriteFrames" id=18]
 [ext_resource path="res://src/Objects/Box/MovableDeflectBox.gd" type="Script" id=19]
@@ -49,7 +49,7 @@ extents = Vector2( 20, 22 )
 [sub_resource type="RectangleShape2D" id=211]
 extents = Vector2( 23, 23 )
 
-[node name="MovableDeflectBox" type="CharacterBody2D" groups=["Movable"]]
+[node name="MovableDeflectBox" type="KinematicBody2D" groups=["Movable"]]
 collision_layer = 66048
 motion/sync_to_physics = true
 script = ExtResource( 19 )
@@ -58,7 +58,7 @@ script = ExtResource( 19 )
 z_index = 1
 shape = SubResource( 1 )
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 17 )
 frames = ExtResource( 10 )
 animation = "stationary"
@@ -69,18 +69,18 @@ script = ExtResource( 7 )
 [node name="ground_check" type="RayCast2D" parent="."]
 position = Vector2( -23, 0 )
 enabled = true
-target_position = Vector2( 0, 23 )
+cast_to = Vector2( 0, 23 )
 collision_mask = 1793
 
 [node name="ground_check2" type="RayCast2D" parent="."]
 position = Vector2( 23, 0 )
 enabled = true
-target_position = Vector2( 0, 23 )
+cast_to = Vector2( 0, 23 )
 collision_mask = 1793
 
 [node name="ground_check3" type="RayCast2D" parent="."]
 enabled = true
-target_position = Vector2( 0, 23 )
+cast_to = Vector2( 0, 23 )
 collision_mask = 1793
 
 [node name="DamageReceiver" type="Area2D" parent="."]
@@ -123,7 +123,7 @@ script = ExtResource( 5 )
 [node name="Death" type="Node2D" parent="."]
 script = ExtResource( 12 )
 
-[node name="remains" type="GPUParticles2D" parent="Death"]
+[node name="remains" type="Particles2D" parent="Death"]
 material = SubResource( 4 )
 emitting = false
 amount = 12
@@ -135,7 +135,7 @@ local_coords = false
 process_material = ExtResource( 4 )
 texture = ExtResource( 16 )
 
-[node name="explosion" type="GPUParticles2D" parent="Death"]
+[node name="explosion" type="Particles2D" parent="Death"]
 material = SubResource( 210 )
 position = Vector2( 0, 0.5 )
 z_index = 2
@@ -194,7 +194,7 @@ max_distance = 1200.0
 attenuation = 1e-05
 bus = "SFX"
 
-[node name="break_vfx" type="AnimatedSprite2D" parent="."]
+[node name="break_vfx" type="AnimatedSprite" parent="."]
 modulate = Color( 1, 1, 1, 0.670588 )
 z_index = 25
 frames = ExtResource( 18 )

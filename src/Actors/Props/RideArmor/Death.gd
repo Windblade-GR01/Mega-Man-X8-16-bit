@@ -1,10 +1,10 @@
 extends NewAbility
 
 var flash_interval := 0.5
-@onready var stage = AbilityStage.new(self)
-@onready var explosion: GPUParticles2D = $explosion
-@onready var remains: GPUParticles2D = $remains
-@onready var explosion_sfx: AudioStreamPlayer2D = $explosion_sfx
+onready var stage = AbilityStage.new(self)
+onready var explosion: Particles2D = $explosion
+onready var remains: Particles2D = $remains
+onready var explosion_sfx: AudioStreamPlayer2D = $explosion_sfx
 
 func should_execute() -> bool:
 	return current_conflicts.size() == 0

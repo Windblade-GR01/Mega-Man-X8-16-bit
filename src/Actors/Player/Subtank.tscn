@@ -6,7 +6,7 @@
 [ext_resource path="res://src/Sounds/FX - Subtank Full.ogg" type="AudioStream" id=4]
 
 [node name="Subtank 1" type="Node"]
-process_mode = 3
+pause_mode = 2
 script = ExtResource( 1 )
 capacity = 24
 

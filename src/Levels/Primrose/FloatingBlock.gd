@@ -1,14 +1,14 @@
-extends CharacterBody2D
+extends KinematicBody2D
 
 var velocity := Vector2(20.2,0)
 const tile_size := 16.0
-@export var amplitude := 2.0
-@export var speed := 30.0
-@export var vertical := false
+export var amplitude := 2.0
+export var speed := 30.0
+export var vertical := false
 var duration := 1.0
-@onready var tween := TweenController.new(self,false)
-@onready var original_pos := position
-@export var initial_direction := 1
+onready var tween := TweenController.new(self,false)
+onready var original_pos := position
+export var initial_direction := 1
 
 func _ready() -> void:
 	if vertical:

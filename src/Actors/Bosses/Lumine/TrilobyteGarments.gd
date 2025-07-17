@@ -1,12 +1,12 @@
 extends Node
 
-@export var armor_sprites : Resource
-@export var naked_sprites : Resource
-@onready var animated_sprite: AnimatedSprite2D = $"../animatedSprite"
+export var armor_sprites : Resource
+export var naked_sprites : Resource
+onready var animated_sprite: AnimatedSprite = $"../animatedSprite"
 var executing:= false
-@onready var enemy_shield: Node2D = $"../EnemyShield"
-@onready var armor_detector: CollisionShape2D = $"../ArmorDetector/collisionShape2D"
-@onready var damage: Node2D = $"../Damage"
+onready var enemy_shield: Node2D = $"../EnemyShield"
+onready var armor_detector: CollisionShape2D = $"../ArmorDetector/collisionShape2D"
+onready var damage: Node2D = $"../Damage"
 
 func _on_EnemyShield_guard_broken(_projectile) -> void:
 	if executing:

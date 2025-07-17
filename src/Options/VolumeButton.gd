@@ -1,6 +1,6 @@
 extends X8OptionButton
 
-@export var key := "Music" #or SFX
+export var key := "Music" #or SFX
 var step := 1.0
 	
 func setup() -> void:

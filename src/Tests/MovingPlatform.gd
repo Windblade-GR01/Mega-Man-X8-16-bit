@@ -1,8 +1,8 @@
 extends Node2D
 
-@onready var sprite = $kinematicBody2D.get_node("animatedSprite")
-@onready var path = $path2D.get_node("pathFollow2D")
-@onready var kinematic_body = $kinematicBody2D
+onready var sprite = $kinematicBody2D.get_node("animatedSprite")
+onready var path = $path2D.get_node("pathFollow2D")
+onready var kinematic_body = $kinematicBody2D
 var reparented := false
 
 

@@ -1,19 +1,15 @@
 [remap]
 
-importer="oggvorbisstr"
-type="AudioStreamOggVorbis"
-uid="uid://cmviqbmo55263"
-path="res://.godot/imported/Mantis - DeathImage.ogg-f0689393a6c43f67a7ec0372ced545a8.oggvorbisstr"
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Mantis - DeathImage.ogg-f0689393a6c43f67a7ec0372ced545a8.oggstr"
 
 [deps]
 
 source_file="res://src/Sounds/Mantis - DeathImage.ogg"
-dest_files=["res://.godot/imported/Mantis - DeathImage.ogg-f0689393a6c43f67a7ec0372ced545a8.oggvorbisstr"]
+dest_files=[ "res://.import/Mantis - DeathImage.ogg-f0689393a6c43f67a7ec0372ced545a8.oggstr" ]
 
 [params]
 
 loop=false
 loop_offset=0
-bpm=0
-beat_count=0
-bar_beats=4

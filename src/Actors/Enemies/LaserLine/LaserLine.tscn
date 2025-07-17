@@ -3,7 +3,7 @@
 [ext_resource path="res://src/Effects/Explosion Particles.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Effects/Remains Particle.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Sounds/56 - MMX - Enemy Death.wav" type="AudioStream" id=4]
-[ext_resource path="res://src/Actors/Enemies/LaserLine/laser_line2.png" type="Texture2D" id=5]
+[ext_resource path="res://src/Actors/Enemies/LaserLine/laser_line2.png" type="Texture" id=5]
 [ext_resource path="res://src/Actors/Enemies/LaserLine/Laser.gd" type="Script" id=6]
 [ext_resource path="res://src/Actors/Modules/Enemy/EnemyDamage.gd" type="Script" id=7]
 [ext_resource path="res://src/Actors/Modules/Enemy/EnemyDeath.gd" type="Script" id=8]
@@ -13,8 +13,8 @@
 [ext_resource path="res://src/Sounds/HIT.wav" type="AudioStream" id=13]
 [ext_resource path="res://src/Actors/Enemies/LaserLine/laser_line.res" type="SpriteFrames" id=15]
 [ext_resource path="res://src/Actors/Enemies/LaserLine/AnimateChildren.gd" type="Script" id=16]
-[ext_resource path="res://src/Actors/Enemies/LaserLine/laser_line1.png" type="Texture2D" id=17]
-[ext_resource path="res://src/Actors/Enemies/LaserLine/laser_line3.png" type="Texture2D" id=18]
+[ext_resource path="res://src/Actors/Enemies/LaserLine/laser_line1.png" type="Texture" id=17]
+[ext_resource path="res://src/Actors/Enemies/LaserLine/laser_line3.png" type="Texture" id=18]
 
 [sub_resource type="RectangleShape2D" id=79]
 extents = Vector2( 8.5, 8 )
@@ -29,7 +29,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=239]
 curve = SubResource( 238 )
 
-[sub_resource type="ParticleProcessMaterial" id=244]
+[sub_resource type="ParticlesMaterial" id=244]
 resource_local_to_scene = true
 resource_name = "explosion"
 emission_shape = 1
@@ -51,7 +51,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=243]
 curve = SubResource( 242 )
 
-[sub_resource type="ParticleProcessMaterial" id=245]
+[sub_resource type="ParticlesMaterial" id=245]
 resource_local_to_scene = true
 resource_name = "remains_single"
 flag_disable_z = true
@@ -64,12 +64,12 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[node name="LaserLine" type="CharacterBody2D" groups=["Enemies"]]
+[node name="LaserLine" type="KinematicBody2D" groups=["Enemies"]]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 10 )
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 2, 0 )
 z_index = 32
 frames = ExtResource( 12 )
@@ -80,10 +80,10 @@ line_frames = [ ExtResource( 17 ), ExtResource( 5 ), ExtResource( 18 ) ]
 [node name="ray" type="RayCast2D" parent="animatedSprite"]
 position = Vector2( 8, 0 )
 enabled = true
-target_position = Vector2( 400, 0 )
+cast_to = Vector2( 400, 0 )
 collision_mask = 513
 
-[node name="collision" type="AnimatedSprite2D" parent="animatedSprite"]
+[node name="collision" type="AnimatedSprite" parent="animatedSprite"]
 position = Vector2( 32, 0 )
 z_index = -1
 frames = ExtResource( 15 )
@@ -92,7 +92,7 @@ frame = 2
 
 [node name="line" type="Line2D" parent="animatedSprite"]
 z_index = -2
-points = PackedVector2Array( 0, 0, 32, 0 )
+points = PoolVector2Array( 0, 0, 32, 0 )
 width = 16.0
 default_color = Color( 1, 1, 1, 1 )
 texture = ExtResource( 5 )
@@ -103,7 +103,7 @@ visible = false
 position = Vector2( 1.5, 0 )
 shape = SubResource( 79 )
 
-[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 visible = false
 position = Vector2( -1.52588e-05, -2.66667 )
 scale = Vector2( 200.5, 2.66667 )

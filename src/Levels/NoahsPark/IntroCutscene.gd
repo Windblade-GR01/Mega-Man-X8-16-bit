@@ -1,55 +1,55 @@
 extends Node2D
 
-@export var dialog_1 : Resource
-@export var dialog_2 : Resource
-@export var dialog_3 : Resource
-@export var dialog_4 : Resource
+export var dialog_1 : Resource
+export var dialog_2 : Resource
+export var dialog_3 : Resource
+export var dialog_4 : Resource
 
 var current_dialog := 0
 
-@onready var door: AnimatedSprite2D = $DamagedCraft/Door
-@onready var craft: AnimatedSprite2D = $DamagedCraft
+onready var door: AnimatedSprite = $DamagedCraft/Door
+onready var craft: AnimatedSprite = $DamagedCraft
 
-@onready var tween := TweenController.new(self,false)
-@onready var door_smoke: GPUParticles2D = $DamagedCraft/Door/smoke
-@onready var door_smoke_2: GPUParticles2D = $DamagedCraft/Door/smoke2
-@onready var light: Sprite2D = $Visuals/light
+onready var tween := TweenController.new(self,false)
+onready var door_smoke: Particles2D = $DamagedCraft/Door/smoke
+onready var door_smoke_2: Particles2D = $DamagedCraft/Door/smoke2
+onready var light: Sprite = $Visuals/light
 
-@onready var sigma: AnimatedSprite2D = $SigmaReploid
-@onready var sigma2: AnimatedSprite2D = $SigmaReploid2
-@onready var sigma3: AnimatedSprite2D = $SigmaReploid3
-@onready var sigma4: AnimatedSprite2D = $SigmaReploid4
-@onready var lumine: AnimatedSprite2D = $Lumine
-@onready var traverse: AudioStreamPlayer2D = $Vile/traverse
+onready var sigma: AnimatedSprite = $SigmaReploid
+onready var sigma2: AnimatedSprite = $SigmaReploid2
+onready var sigma3: AnimatedSprite = $SigmaReploid3
+onready var sigma4: AnimatedSprite = $SigmaReploid4
+onready var lumine: AnimatedSprite = $Lumine
+onready var traverse: AudioStreamPlayer2D = $Vile/traverse
 
 var dialogbox: Label
-@onready var doorhit: AudioStreamPlayer2D = $DamagedCraft/Door/doorhit
-@onready var explode: AudioStreamPlayer2D = $DamagedCraft/Door/explode
-@onready var screencover: Sprite2D = $screencover
-@onready var explosion_particles: GPUParticles2D = $explosion_particles
-@onready var background_cover: Sprite2D = $background_cover
+onready var doorhit: AudioStreamPlayer2D = $DamagedCraft/Door/doorhit
+onready var explode: AudioStreamPlayer2D = $DamagedCraft/Door/explode
+onready var screencover: Sprite = $screencover
+onready var explosion_particles: Particles2D = $explosion_particles
+onready var background_cover: Sprite = $background_cover
 
-@onready var visuals: Node2D = $Visuals
-@onready var firenoise: AudioStreamPlayer2D = $Visuals/firenoise
-@onready var vile: AnimatedSprite2D = $Vile
-@onready var kidnapped: AnimatedSprite2D = $Kidnapped
-@onready var elec_thing: AudioStreamPlayer2D = $Kidnapped/traverse
-@onready var craft_explosion: GPUParticles2D = $craft_explosion
-@onready var remains_particles: GPUParticles2D = $remains_particles
-@onready var explosion_sfx: AudioStreamPlayer2D = $explosion_particles/explosion_sfx
-@onready var skip_screencover: Sprite2D = $skip_screencover
-@onready var vile_theme: AudioStreamPlayer = $vile_theme
-@onready var lumine_theme: AudioStreamPlayer = $lumine_theme
-@onready var wall_particles: GPUParticles2D = $background_cover/remains_particles
-@onready var flash: Sprite2D = $DamagedCraft/flash
-@onready var visual_skip: Control = $canvasLayer/VisualSkip
+onready var visuals: Node2D = $Visuals
+onready var firenoise: AudioStreamPlayer2D = $Visuals/firenoise
+onready var vile: AnimatedSprite = $Vile
+onready var kidnapped: AnimatedSprite = $Kidnapped
+onready var elec_thing: AudioStreamPlayer2D = $Kidnapped/traverse
+onready var craft_explosion: Particles2D = $craft_explosion
+onready var remains_particles: Particles2D = $remains_particles
+onready var explosion_sfx: AudioStreamPlayer2D = $explosion_particles/explosion_sfx
+onready var skip_screencover: Sprite = $skip_screencover
+onready var vile_theme: AudioStreamPlayer = $vile_theme
+onready var lumine_theme: AudioStreamPlayer = $lumine_theme
+onready var wall_particles: Particles2D = $background_cover/remains_particles
+onready var flash: Sprite = $DamagedCraft/flash
+onready var visual_skip: Control = $canvasLayer/VisualSkip
 
 var executing := false
 
 func _ready() -> void:
-	Event.connect("noahspark_cutscene_start", Callable(self, "start"))
-	Event.connect("dialog_concluded", Callable(self, "on_dialog_end"))
-	Event.connect("kingcrab_crash", Callable(self, "explode_craft"))
+	Event.connect("noahspark_cutscene_start",self,"start")
+	Event.connect("dialog_concluded",self,"on_dialog_end")
+	Event.connect("kingcrab_crash",self,"explode_craft")
 	Event.emit_signal("disable_victory_ending")
 	
 	set_physics_process(false)
@@ -110,7 +110,7 @@ func skip():
 func get_rid_of_everything_uneeded():
 	tween.reset()
 	visuals.visible = false
-	craft.modulate = Color.DARK_GRAY
+	craft.modulate = Color.darkgray
 	explosion_particles.emitting = false
 	vile.queue_free()
 	lumine.queue_free()
@@ -288,10 +288,10 @@ func stop_explosions():
 	sigma3.visible = false
 	sigma4.visible = false
 	visuals.visible = false
-	craft.modulate = Color.DARK_GRAY
+	craft.modulate = Color.darkgray
 	Tools.timer_p(1.0,"set_deferred",explosion_particles,["emitting",false])
 	
-@onready var dust: GPUParticles2D = $dust
+onready var dust: Particles2D = $dust
 
 	
 func fade_flash():
@@ -309,7 +309,7 @@ func bring_vile():
 	vile.visible = true
 	traverse.play()
 	Tools.timer(0.75,"play",vile_theme)
-	dialogbox.position.y += 35 + 4
+	dialogbox.rect_position.y += 35 + 4
 	Tools.timer(1.0,"play",elec_thing)
 	tween.create(Tween.EASE_OUT,Tween.TRANS_CUBIC)
 	tween.add_attribute("position:y",vile.position.y + 80,1.5,vile)

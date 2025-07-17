@@ -1,9 +1,9 @@
 extends StaticBody2D
 
-@export var able_to_open := true
-@export var able_to_explode := true
-@export var alternate_sprite_frames : SpriteFrames
-@export var boss_spawner : NodePath #used by ExplosionCloser
+export var able_to_open := true
+export var able_to_explode := true
+export var alternate_sprite_frames : SpriteFrames
+export var boss_spawner : NodePath #used by ExplosionCloser
 signal open
 signal passing
 signal close

@@ -1,6 +1,6 @@
 extends AttackAbility
-@onready var collision: AnimatedSprite2D = $"../animatedSprite/collision"
-@onready var line: Line2D = $"../animatedSprite/line"
+onready var collision: AnimatedSprite = $"../animatedSprite/collision"
+onready var line: Line2D = $"../animatedSprite/line"
 
 func _Setup() -> void:
 	pass

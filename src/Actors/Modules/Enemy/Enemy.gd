@@ -1,12 +1,12 @@
 extends AbilityUser
 class_name Enemy
 
-@export var spawn_at_start := false
-@export var spawn_direction := -1
-@onready var area2D := get_node("area2D")
-@onready var damage := get_node("Damage")
+export var spawn_at_start := false
+export var spawn_direction := -1
+onready var area2D := get_node("area2D")
+onready var damage := get_node("Damage")
 var shield
-@export var things_to_hide_on_death : Array
+export var things_to_hide_on_death : Array
  
 signal shield_hit
  
@@ -25,7 +25,7 @@ func _ready() -> void:
 	Tools.timer_p(0.1,"spawner_set_direction",self,spawn_direction)
 
 func set_collision_bit() -> void:
-	set_collision_layer_value(3,true)
+	set_collision_layer_bit(3,true)
 	
 func set_direction_on_ready () -> void:
 	set_direction(-1)
@@ -95,7 +95,7 @@ func get_collider_area() -> CollisionShape2D:
 		area_collider = get_node_or_null("collisionShape2D")
 	return area_collider
 
-func get_visibility_notifier() -> VisibleOnScreenNotifier2D:
+func get_visibility_notifier() -> VisibilityNotifier2D:
 	var v = get_node_or_null("visibilityNotifier2D")
 	return v
 

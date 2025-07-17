@@ -1,4 +1,4 @@
-extends RefCounted
+extends Reference
 
 var result_code = preload("../config/result_codes.gd")
 var _aseprite = preload("../aseprite/aseprite.gd").new()
@@ -12,11 +12,11 @@ func init(config, editor_file_system: EditorFileSystem = null):
 	_aseprite.init(config)
 
 
-func create_animations(sprite: Sprite2D, player: AnimationPlayer, options: Dictionary):
+func create_animations(sprite: Sprite, player: AnimationPlayer, options: Dictionary):
 	if not _aseprite.test_command():
 		return result_code.ERR_ASEPRITE_CMD_NOT_FOUND
 
-	var dir = DirAccess.new()
+	var dir = Directory.new()
 	if not dir.file_exists(options.source):
 		return result_code.ERR_SOURCE_FILE_NOT_FOUND
 
@@ -25,13 +25,13 @@ func create_animations(sprite: Sprite2D, player: AnimationPlayer, options: Dicti
 
 	var result = _create_animations_from_file(sprite, player, options)
 	if result is GDScriptFunctionState:
-		result = await result.completed
+		result = yield(result, "completed")
 
 	if result != result_code.SUCCESS:
 		printerr(result_code.get_error_message(result))
 
 
-func _create_animations_from_file(sprite: Sprite2D, player: AnimationPlayer, options: Dictionary):
+func _create_animations_from_file(sprite: Sprite, player: AnimationPlayer, options: Dictionary):
 	var output
 
 	if options.get("layer", "") == "":
@@ -39,20 +39,20 @@ func _create_animations_from_file(sprite: Sprite2D, player: AnimationPlayer, opt
 	else:
 		output = _aseprite.export_layer(options.source, options.layer, options.output_folder, options)
 
-	if output.is_empty():
+	if output.empty():
 		return result_code.ERR_ASEPRITE_EXPORT_FAILED
-	await _scan_filesystem().completed
+	yield(_scan_filesystem(), "completed")
 
 	var result = _import(sprite, player, output)
 
 	if _config.should_remove_source_files():
-		var dir = DirAccess.new()
+		var dir = Directory.new()
 		dir.remove(output.data_file)
 
 	return result
 
 
-func _import(sprite: Sprite2D, player: AnimationPlayer, data: Dictionary):
+func _import(sprite: Sprite, player: AnimationPlayer, data: Dictionary):
 	var source_file = data.data_file
 	var sprite_sheet = data.sprite_sheet
 
@@ -61,9 +61,7 @@ func _import(sprite: Sprite2D, player: AnimationPlayer, data: Dictionary):
 	if err != OK:
 			return err
 
-	var test_json_conv = JSON.new()
-	test_json_conv.parse(file.get_as_text())
-	var content =  test_json_conv.get_data()
+	var content =  parse_json(file.get_as_text())
 
 	if not _aseprite.is_valid_spritesheet(content):
 		return result_code.ERR_INVALID_ASEPRITE_SPRITESHEET
@@ -76,18 +74,18 @@ func _import(sprite: Sprite2D, player: AnimationPlayer, data: Dictionary):
 	return _cleanup_animations(sprite, player, content)
 
 
-func _load_texture(sprite: Sprite2D, sprite_sheet: String, content: Dictionary):
+func _load_texture(sprite: Sprite, sprite_sheet: String, content: Dictionary):
 	var texture = ResourceLoader.load(sprite_sheet, 'Image', true)
 	sprite.texture = texture
 
-	if content.frames.is_empty():
+	if content.frames.empty():
 		return
 
 	sprite.hframes = content.meta.size.w / content.frames[0].sourceSize.w
 	sprite.vframes = content.meta.size.h / content.frames[0].sourceSize.h
 
 
-func _configure_animations(sprite: Sprite2D, player: AnimationPlayer, content: Dictionary):
+func _configure_animations(sprite: Sprite, player: AnimationPlayer, content: Dictionary):
 	var frames = _aseprite.get_content_frames(content)
 	if content.meta.has("frameTags") and content.meta.frameTags.size() > 0:
 		var result = result_code.SUCCESS
@@ -101,7 +99,7 @@ func _configure_animations(sprite: Sprite2D, player: AnimationPlayer, content: D
 		return _add_animation_frames(sprite, player, "default", frames)
 
 
-func _add_animation_frames(sprite: Sprite2D, player: AnimationPlayer, anim_name: String, frames: Array, direction = 'forward'):
+func _add_animation_frames(sprite: Sprite, player: AnimationPlayer, anim_name: String, frames: Array, direction = 'forward'):
 	var animation_name = anim_name
 	var is_loopable = _config.is_default_animation_loop_enabled()
 
@@ -143,13 +141,13 @@ func _add_animation_frames(sprite: Sprite2D, player: AnimationPlayer, anim_name:
 	return result_code.SUCCESS
 
 
-func _calculate_frame_index(sprite: Sprite2D, frame: Dictionary) -> int:
+func _calculate_frame_index(sprite: Sprite, frame: Dictionary) -> int:
 	var column = floor(frame.frame.x * sprite.hframes / sprite.texture.get_width())
 	var row = floor(frame.frame.y * sprite.vframes / sprite.texture.get_height())
 	return (row * sprite.hframes) + column
 
 
-func _create_frame_track(sprite: Sprite2D, animation: Animation, track: String):
+func _create_frame_track(sprite: Sprite, animation: Animation, track: String):
 	var track_index = animation.find_track(track)
 
 	if track_index != -1:
@@ -163,12 +161,12 @@ func _create_frame_track(sprite: Sprite2D, animation: Animation, track: String):
 	return track_index
 
 
-func _get_frame_track_path(player: AnimationPlayer, sprite: Sprite2D):
+func _get_frame_track_path(player: AnimationPlayer, sprite: Sprite):
 	var node_path = player.get_node(player.root_node).get_path_to(sprite)
 	return "%s:frame" % node_path
 
 
-func _cleanup_animations(sprite: Sprite2D, player: AnimationPlayer, content: Dictionary):
+func _cleanup_animations(sprite: Sprite, player: AnimationPlayer, content: Dictionary):
 	if not (content.meta.has("frameTags") and content.meta.frameTags.size() > 0):
 		return result_code.SUCCESS
 
@@ -193,13 +191,13 @@ func _cleanup_animations(sprite: Sprite2D, player: AnimationPlayer, content: Dic
 			continue
 
 		if animation.find_track(track) != -1:
-			player.remove_animation_library(a)
+			player.remove_animation(a)
 
 	return result_code.SUCCESS
 
 func _scan_filesystem():
 	_file_system.scan()
-	await _file_system.filesystem_changed
+	yield(_file_system, "filesystem_changed")
 
 
 func list_layers(file: String, only_visibles = false) -> Array:

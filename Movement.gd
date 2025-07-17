@@ -3,8 +3,8 @@ extends Ability
 
 const default_gravity := 900.0
 #export var execution_delay := 0.0
-@export var horizontal_velocity := 90.0
-@export var jump_velocity := 320.0
+export var horizontal_velocity := 90.0
+export var jump_velocity := 320.0
 var changed_animation := false
 var jump_plus_ground_velocity := jump_velocity
 var horizontal_plus_ground_velocity := horizontal_velocity
@@ -12,7 +12,7 @@ var jumpcast_timer := 0.0
 const jumpcast_activation_time := 0.05
 
 func Initialize():
-	super.Initialize()
+	.Initialize()
 	jump_plus_ground_velocity = get_jump_velocity() - character.get_floor_velocity().y
 	horizontal_plus_ground_velocity = get_horizontal_velocity() + character.get_floor_velocity().x * character.get_direction()
 

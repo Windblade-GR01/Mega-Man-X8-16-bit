@@ -1,9 +1,9 @@
 class_name ActionPresses extends Resource
 
-@export var presses : Array
-@export var timings : Array
+export var presses : Array
+export var timings : Array
 
-@export var limit := 1512
+export var limit := 1512
 
 
 func call_actions(node : Node) -> void:

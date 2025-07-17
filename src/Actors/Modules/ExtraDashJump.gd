@@ -2,7 +2,7 @@ extends DashJump
 
 var max_air_jumps := 0
 var current_air_jumps := 0
-@onready var jump_particle = get_node("jump_particle")
+onready var jump_particle = get_node("jump_particle")
 var should_end_walljump := false
 var should_end_dashwalljump := false
 
@@ -29,7 +29,7 @@ func _Setup():
 		character.dashjump_signal()
 	else:
 		horizontal_velocity = 90
-	super._Setup()
+	._Setup()
 
 func emit_dashjump() -> void: #overriding so it wont be called twice
 	#character.dashjump_signal()
@@ -94,4 +94,4 @@ func change_animation_if_falling(_s) -> void:
 func _EndCondition() -> bool:
 	if character.is_executing("WallJump") or character.is_executing("DashWallJump"):
 		return true
-	return super._EndCondition()
+	return ._EndCondition()

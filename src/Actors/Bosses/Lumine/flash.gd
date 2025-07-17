@@ -1,7 +1,7 @@
-extends Sprite2D
+extends Sprite
 
-@onready var tween_brightness := TweenController.new(self,false)
-@onready var spriteflash: AnimatedSprite2D = $"../spriteflash"
+onready var tween_brightness := TweenController.new(self,false)
+onready var spriteflash: AnimatedSprite = $"../spriteflash"
 
 func start() -> void:
 	spriteflash.frame = 0

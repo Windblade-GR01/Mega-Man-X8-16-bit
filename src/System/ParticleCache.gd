@@ -20,9 +20,9 @@ func cache_materials(debug = false) -> void:
 
 func add_material_to_cache(file) -> void:
 	var mat = load(folder + "/" + file)
-	var particle := GPUParticles2D.new()
+	var particle := Particles2D.new()
 	Log("Adding to cache: " + file)
-	if mat is ParticleProcessMaterial:
+	if mat is ParticlesMaterial:
 		particle.set_process_material(mat)
 	else:
 		particle.set_material(mat)
@@ -46,9 +46,9 @@ func finish_caching() -> void:
 
 func get_files(path) -> Array:
 	var files = []
-	var dir = DirAccess.new()
+	var dir = Directory.new()
 	dir.open(path)
-	dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
+	dir.list_dir_begin(true)
 
 	var file = dir.get_next()
 	while file != '':

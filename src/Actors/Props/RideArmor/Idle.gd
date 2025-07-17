@@ -1,8 +1,8 @@
 extends NewAbility
 
-@onready var physics = Physics.new(get_parent())
-@onready var animation = AnimationController.new($"../animatedSprite", self)
-@onready var tween = TweenController.new(self)
+onready var physics = Physics.new(get_parent())
+onready var animation = AnimationController.new($"../animatedSprite", self)
+onready var tween = TweenController.new(self)
 
 func should_execute() -> bool:
 	return active and character.ride.is_executing() and current_conflicts.size() == 0
@@ -27,5 +27,5 @@ func connect_conflicts() -> void:
 	var exceptions := ["Ride","Shot","Death"]
 	for ability in character.get_all_abilities():
 		if not ability.name in exceptions:
-			ability.connect("start", Callable(self, "_on_hard_conflict"))
-			ability.connect("stop", Callable(self, "_on_hard_conflict_stop"))
+			ability.connect("start",self,"_on_hard_conflict")
+			ability.connect("stop",self,"_on_hard_conflict_stop")

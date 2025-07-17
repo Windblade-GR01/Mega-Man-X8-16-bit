@@ -1,9 +1,9 @@
 extends Node2D
 
-@onready var sprite: AnimatedSprite2D = $sprite
-@onready var tween := TweenController.new(self,false)
-@onready var light: Sprite2D = $light
-@onready var particles_2d: GPUParticles2D = $particles2D
+onready var sprite: AnimatedSprite = $sprite
+onready var tween := TweenController.new(self,false)
+onready var light: Sprite = $light
+onready var particles_2d: Particles2D = $particles2D
 
 var blinking := false
 

@@ -1,14 +1,14 @@
 class_name VileLightning extends Node2D
 
 var rotate_speed := 60
-@export var frames : Array
-@onready var line: Line2D = $line
-@onready var collision: AnimatedSprite2D = $line/finish
-@onready var ray: RayCast2D = $ray
-@onready var end:= $end
-@onready var area_2d: Area2D = $DamageOnTouch/area2D
-@onready var damage_on_touch: Node2D = $DamageOnTouch
-@onready var finish_particles: GPUParticles2D = $finish_particles
+export var frames : Array
+onready var line: Line2D = $line
+onready var collision: AnimatedSprite = $line/finish
+onready var ray: RayCast2D = $ray
+onready var end:= $end
+onready var area_2d: Area2D = $DamageOnTouch/area2D
+onready var damage_on_touch: Node2D = $DamageOnTouch
+onready var finish_particles: Particles2D = $finish_particles
 
 var executing = false
 

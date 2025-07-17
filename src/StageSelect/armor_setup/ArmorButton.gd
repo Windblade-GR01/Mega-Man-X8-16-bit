@@ -1,11 +1,11 @@
 extends X8TextureButton
 
-@onready var parent := get_parent()
-@export var legible_name : String
-@export var description : String
-@onready var name_display: Label = $"../../../../Description/name"
-@onready var disc_display: Label = $"../../../../Description/disc"
-@onready var equip: AudioStreamPlayer = $"../../../../../../equip"
+onready var parent := get_parent()
+export var legible_name : String
+export var description : String
+onready var name_display: Label = $"../../../../Description/name"
+onready var disc_display: Label = $"../../../../Description/disc"
+onready var equip: AudioStreamPlayer = $"../../../../../../equip"
 
 func _on_focus_entered() -> void:
 	play_sound()

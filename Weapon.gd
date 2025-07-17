@@ -1,26 +1,26 @@
 extends Node2D
 class_name Weapon
 
-@export var active := true
-@export var logs = false
-@export var chargeable_without_ammo := false
-@export var shots : Array
-@export var max_shots_alive := 3
-@export var max_charged_shots_alive := 3
+export var active := true
+export var logs = false
+export var chargeable_without_ammo := false
+export var shots : Array
+export var max_shots_alive := 3
+export var max_charged_shots_alive := 3
 var shots_currently_alive := 0
 var charged_shots_currently_alive := 0
-@export var max_ammo := 100.0
-@export var ammo_per_shot := 1.0
-@onready var arm_cannon = get_parent()
-@onready var character := get_parent().get_parent()
+export var max_ammo := 100.0
+export var ammo_per_shot := 1.0
+onready var arm_cannon = get_parent()
+onready var character := get_parent().get_parent()
 var current_ammo := 100.0
 
-@export var MainColor1 : Color
-@export var MainColor2 : Color
-@export var MainColor3 : Color
-@export var MainColor4 : Color
-@export var MainColor5 : Color
-@export var MainColor6 : Color
+export var MainColor1 : Color
+export var MainColor2 : Color
+export var MainColor3 : Color
+export var MainColor4 : Color
+export var MainColor5 : Color
+export var MainColor6 : Color
 
 func _ready() -> void:
 	current_ammo = max_ammo
@@ -60,7 +60,7 @@ func reduce_ammo(expent):
 
 func add_projectile_to_scene(charge_level : int):
 	var _shot
-	_shot = shots[charge_level].instantiate()
+	_shot = shots[charge_level].instance()
 	get_tree().current_scene.add_child(_shot,true)
 	position_shot(_shot)
 	if charge_level != 0:
@@ -71,12 +71,12 @@ func add_projectile_to_scene(charge_level : int):
 	return _shot
 
 func connect_shot_event(_shot):
-	_shot.connect("projectile_started", Callable(self, "on_shot_created"))
-	_shot.connect("projectile_end", Callable(self, "on_shot_end"))
+	_shot.connect("projectile_started", self,"on_shot_created")
+	_shot.connect("projectile_end", self,"on_shot_end")
 
 func connect_charged_shot_event(_shot):
-	_shot.connect("projectile_started", Callable(self, "on_charged_shot_created"))
-	_shot.connect("projectile_end", Callable(self, "on_charged_shot_end"))
+	_shot.connect("projectile_started", self,"on_charged_shot_created")
+	_shot.connect("projectile_end", self,"on_charged_shot_end")
 
 func on_shot_created():
 	shots_currently_alive += 1

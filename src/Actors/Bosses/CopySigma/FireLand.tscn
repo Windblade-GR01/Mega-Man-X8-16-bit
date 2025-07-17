@@ -1,13 +1,13 @@
 [gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://src/Actors/Modules/Enemy/DamageOnTouch.gd" type="Script" id=1]
-[ext_resource path="res://src/Effects/Fire/pinkfire2.png" type="Texture2D" id=2]
-[ext_resource path="res://src/Effects/Fire/pinkfire1.png" type="Texture2D" id=3]
-[ext_resource path="res://src/Effects/Fire/pinkfire3.png" type="Texture2D" id=4]
+[ext_resource path="res://src/Effects/Fire/pinkfire2.png" type="Texture" id=2]
+[ext_resource path="res://src/Effects/Fire/pinkfire1.png" type="Texture" id=3]
+[ext_resource path="res://src/Effects/Fire/pinkfire3.png" type="Texture" id=4]
 [ext_resource path="res://src/Effects/Materials/pinkfire_mat.tres" type="Material" id=5]
 [ext_resource path="res://src/Effects/Materials/ground_fire_particles.tres" type="Material" id=6]
 [ext_resource path="res://src/Actors/Bosses/CopySigma/FireLand.gd" type="Script" id=7]
-[ext_resource path="res://src/Effects/Textures/simple_gradient.png" type="Texture2D" id=8]
+[ext_resource path="res://src/Effects/Textures/simple_gradient.png" type="Texture" id=8]
 [ext_resource path="res://src/Actors/NewStateMachine/audioplayer.gd" type="Script" id=9]
 [ext_resource path="res://src/Sounds/Rooster - RisingLava.ogg" type="AudioStream" id=10]
 [ext_resource path="res://src/Sounds/Rooster - FireUp.ogg" type="AudioStream" id=11]
@@ -18,7 +18,7 @@ extents = Vector2( 28, 10 )
 [sub_resource type="Shader" id=69]
 code = "shader_type canvas_item;
 
-uniform sampler2D textureNoise: hint_default_white;
+uniform sampler2D textureNoise: hint_white;
 uniform float radius: hint_range(0.0, 1.0) = 0.459;
 uniform float effectControl: hint_range(0.0, 1.0) = 0.309;
 uniform float burnSpeed: hint_range(0.0, 1.0) = 0.076;
@@ -42,7 +42,7 @@ void fragment() {
 }
 "
 
-[sub_resource type="FastNoiseLite" id=73]
+[sub_resource type="OpenSimplexNoise" id=73]
 period = 35.6
 
 [sub_resource type="NoiseTexture" id=72]
@@ -63,7 +63,7 @@ shader_param/textureNoise = SubResource( 72 )
 z_index = 20
 script = ExtResource( 7 )
 
-[node name="fire1" type="GPUParticles2D" parent="."]
+[node name="fire1" type="Particles2D" parent="."]
 material = ExtResource( 5 )
 z_index = 1
 amount = 9
@@ -71,7 +71,7 @@ local_coords = false
 process_material = ExtResource( 6 )
 texture = ExtResource( 3 )
 
-[node name="fire2" type="GPUParticles2D" parent="."]
+[node name="fire2" type="Particles2D" parent="."]
 material = ExtResource( 5 )
 z_index = 1
 amount = 10
@@ -79,7 +79,7 @@ local_coords = false
 process_material = ExtResource( 6 )
 texture = ExtResource( 2 )
 
-[node name="fire3" type="GPUParticles2D" parent="."]
+[node name="fire3" type="Particles2D" parent="."]
 material = ExtResource( 5 )
 z_index = 1
 local_coords = false
@@ -96,7 +96,7 @@ position = Vector2( 0, 6 )
 [node name="collisionShape2D" type="CollisionShape2D" parent="DamageOnTouch/area2D"]
 shape = SubResource( 1 )
 
-[node name="backflames" type="Sprite2D" parent="."]
+[node name="backflames" type="Sprite" parent="."]
 modulate = Color( 0.901961, 0.337255, 0.639216, 0.898039 )
 material = SubResource( 74 )
 position = Vector2( 0, 18 )

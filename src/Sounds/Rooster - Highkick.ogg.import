@@ -1,19 +1,15 @@
 [remap]
 
-importer="oggvorbisstr"
-type="AudioStreamOggVorbis"
-uid="uid://bvjua2gf8jfl6"
-path="res://.godot/imported/Rooster - Highkick.ogg-e2329133ebff84d607b2a4dfcba4f78d.oggvorbisstr"
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Rooster - Highkick.ogg-e2329133ebff84d607b2a4dfcba4f78d.oggstr"
 
 [deps]
 
 source_file="res://src/Sounds/Rooster - Highkick.ogg"
-dest_files=["res://.godot/imported/Rooster - Highkick.ogg-e2329133ebff84d607b2a4dfcba4f78d.oggvorbisstr"]
+dest_files=[ "res://.import/Rooster - Highkick.ogg-e2329133ebff84d607b2a4dfcba4f78d.oggstr" ]
 
 [params]
 
 loop=false
 loop_offset=0
-bpm=0
-beat_count=0
-bar_beats=4

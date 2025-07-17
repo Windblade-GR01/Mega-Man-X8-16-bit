@@ -1,7 +1,7 @@
 extends Panda
 
 var last_dir = -1
-@onready var tween := TweenController.new(self,false)
+onready var tween := TweenController.new(self,false)
 
 func _ready() -> void:
 	pass

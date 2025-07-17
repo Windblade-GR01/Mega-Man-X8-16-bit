@@ -2,15 +2,15 @@ extends Node2D
 
 var timer := 0.0
 
-@onready var collider: CollisionShape2D = $rigidBody2D/collisionShape2D
-@onready var animation := AnimationController.new($start)
-@onready var body1 := AnimationController.new($body1)
-@onready var body2 := AnimationController.new($body2)
-@onready var body3 := AnimationController.new($body3)
-@onready var all_parts = [body1,body2,body3]
-@onready var stage := AbilityStage.new(self,false)
-@onready var damage: Node2D = $DamageOnTouch
-@onready var pillar_damage: Node2D = $DamageOnTouch2
+onready var collider: CollisionShape2D = $rigidBody2D/collisionShape2D
+onready var animation := AnimationController.new($start)
+onready var body1 := AnimationController.new($body1)
+onready var body2 := AnimationController.new($body2)
+onready var body3 := AnimationController.new($body3)
+onready var all_parts = [body1,body2,body3]
+onready var stage := AbilityStage.new(self,false)
+onready var damage: Node2D = $DamageOnTouch
+onready var pillar_damage: Node2D = $DamageOnTouch2
 
 var expiring := false
 

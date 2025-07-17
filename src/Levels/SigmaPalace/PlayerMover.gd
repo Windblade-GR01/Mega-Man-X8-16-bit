@@ -1,15 +1,15 @@
 extends Node
-@onready var boss_spawner: Node2D = $"../Objects/BossSpawner"
+onready var boss_spawner: Node2D = $"../Objects/BossSpawner"
 var player_final_position : Vector2
-@onready var tween := TweenController.new(self,false)
-@onready var leftmost_viable_pos: Marker2D = $"../Scenery/leftmost_viable_pos"
-@onready var rightmost_viable_pos: Marker2D = $"../Scenery/rightmost_viable_pos"
+onready var tween := TweenController.new(self,false)
+onready var leftmost_viable_pos: Position2D = $"../Scenery/leftmost_viable_pos"
+onready var rightmost_viable_pos: Position2D = $"../Scenery/rightmost_viable_pos"
 
 func _ready() -> void:
 	player_final_position = boss_spawner.global_position
 	player_final_position.x -= 100
-	Event.connect("boss_death_screen_flash", Callable(self, "on_screen_flash"))
-	Event.connect("lumine_death", Callable(self, "on_lumine_death"))
+	Event.connect("boss_death_screen_flash",self,"on_screen_flash")
+	Event.connect("lumine_death",self,"on_lumine_death")
 
 var moved_player_after_sigma := false
 

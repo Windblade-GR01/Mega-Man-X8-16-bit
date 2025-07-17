@@ -1,9 +1,9 @@
 extends Area2D
 
-@export var debug := false
-@export var _backgrounds : Array
-@export var _bg_to_activate : NodePath
-@onready var bg_to_activate := get_node(_bg_to_activate)
+export var debug := false
+export var _backgrounds : Array
+export var _bg_to_activate : NodePath
+onready var bg_to_activate := get_node(_bg_to_activate)
 var backgrounds : Array
 
 func _ready() -> void:

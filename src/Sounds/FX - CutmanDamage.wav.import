@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://bttef4nm144oo"
-path="res://.godot/imported/FX - CutmanDamage.wav-c1b1f7a970b2e7fa4ce2e51ce916beec.sample"
+type="AudioStreamSample"
+path="res://.import/FX - CutmanDamage.wav-c1b1f7a970b2e7fa4ce2e51ce916beec.sample"
 
 [deps]
 
 source_file="res://src/Sounds/FX - CutmanDamage.wav"
-dest_files=["res://.godot/imported/FX - CutmanDamage.wav-c1b1f7a970b2e7fa4ce2e51ce916beec.sample"]
+dest_files=[ "res://.import/FX - CutmanDamage.wav-c1b1f7a970b2e7fa4ce2e51ce916beec.sample" ]
 
 [params]
 

@@ -1,7 +1,7 @@
 extends AttackAbility
 class_name PizzaAbility
 var projectile: Area2D
-@onready var damage_on_touch: DamageOnTouch = $"../DamageOnTouch"
+onready var damage_on_touch: DamageOnTouch = $"../DamageOnTouch"
 
 func _ready() -> void:
 	set_projectile()

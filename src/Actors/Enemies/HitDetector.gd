@@ -1,13 +1,13 @@
 extends Node2D
 class_name HitDetector
 
-@export var debug_logs := false
-@onready var hittable_area := get_node("hittable_area")
-@onready var hit_sound := get_node("hitSound")
+export var debug_logs := false
+onready var hittable_area := get_node("hittable_area")
+onready var hit_sound := get_node("hitSound")
 var character
 var colliding_projectiles = []
 
-@export var active := true
+export var active := true
 
 func _ready() -> void:
 	var parent = get_parent()
@@ -64,8 +64,8 @@ func deactivate() -> void:
 	active = false
 
 func connect_area_events():
-	hittable_area.connect("body_entered", Callable(self, "_on_area2D_body_entered"))# warning-ignore:return_value_discarded
-	hittable_area.connect("body_exited", Callable(self, "_on_area2D_body_exited"))# warning-ignore:return_value_discarded
+	hittable_area.connect("body_entered",self,"_on_area2D_body_entered")# warning-ignore:return_value_discarded
+	hittable_area.connect("body_exited",self,"_on_area2D_body_exited")# warning-ignore:return_value_discarded
 
 func has_creator() -> bool:
 	if "creator" in get_parent():

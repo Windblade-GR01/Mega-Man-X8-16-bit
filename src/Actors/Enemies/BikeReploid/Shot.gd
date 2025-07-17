@@ -3,15 +3,15 @@ extends AttackAbility
 const timer_between_shots := 0.5
 const total_shots := 5
 var shots_fired := 0
-@export var projectile : PackedScene
-@onready var shot_origin: Node2D = $"../animatedSprite/shot_origin"
+export var projectile : PackedScene
+onready var shot_origin: Node2D = $"../animatedSprite/shot_origin"
 
 var tween
 
 func _Setup() -> void:
 	shots_fired = 0
 	tween = create_tween()
-	tween.tween_method(Callable(self, "force_movement"), get_actual_speed(), horizontal_velocity, 0.5) # warning-ignore:return_value_discarded 
+	tween.tween_method(self,"force_movement",get_actual_speed(),horizontal_velocity,0.5) # warning-ignore:return_value_discarded 
 
 func _Update(_delta) -> void:
 	process_gravity(_delta)

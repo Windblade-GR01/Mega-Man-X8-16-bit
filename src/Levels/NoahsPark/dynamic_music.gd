@@ -1,7 +1,7 @@
 extends AudioStreamPlayer
 
-@onready var end: AudioStreamPlayer = $end
-@onready var tween := TweenController.new(self,false)
+onready var end: AudioStreamPlayer = $end
+onready var tween := TweenController.new(self,false)
 var queued:= false
 
 func fade_out(duration := 1.0):
@@ -24,4 +24,4 @@ func start_end():
 
 func stop():
 	end.stop()
-	super.stop()
+	.stop()

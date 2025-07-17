@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://25i0x2feeran"
-path="res://.godot/imported/Manowar - Move.wav-c0e9ae8f8b45ffea636b6f35e43b09b0.sample"
+type="AudioStreamSample"
+path="res://.import/Manowar - Move.wav-c0e9ae8f8b45ffea636b6f35e43b09b0.sample"
 
 [deps]
 
 source_file="res://src/Sounds/Manowar - Move.wav"
-dest_files=["res://.godot/imported/Manowar - Move.wav-c0e9ae8f8b45ffea636b6f35e43b09b0.sample"]
+dest_files=[ "res://.import/Manowar - Move.wav-c0e9ae8f8b45ffea636b6f35e43b09b0.sample" ]
 
 [params]
 

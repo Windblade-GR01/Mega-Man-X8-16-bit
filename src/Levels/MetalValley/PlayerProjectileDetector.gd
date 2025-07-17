@@ -1,7 +1,7 @@
 extends Area2D
-@export var active := true
+export var active := true
 
-@export var projectile_name := "FireDash"
+export var projectile_name := "FireDash"
 signal projectile_detected
 
 func _on_area2D_body_entered(body: Node) -> void:

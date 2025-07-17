@@ -1,7 +1,7 @@
 extends Node
 class_name MovementRecorder
-@onready var x: CharacterBody2D = $".."
-@onready var a: AnimatedSprite2D = $"../animatedSprite"
+onready var x: KinematicBody2D = $".."
+onready var a: AnimatedSprite = $"../animatedSprite"
 
 var recording := false
 
@@ -32,7 +32,7 @@ func _physics_process(_delta: float) -> void:
 		recorded_positions.append( Locale.new(x.global_position, a.animation, get_ms()) )
 
 func get_ms() -> float:
-	return Time.get_ticks_msec() - GameManager.get_stage_start_msec() 
+	return OS.get_ticks_msec() - GameManager.get_stage_start_msec() 
 
 func get_resource() -> int:
 	if a.frames.resource_name != "":

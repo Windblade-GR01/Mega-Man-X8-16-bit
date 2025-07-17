@@ -1,7 +1,7 @@
 extends GenericProjectile
 class_name SimplePlayerProjectile
-@export var break_guards := false
-@export var pop_in_time := 0.048
+export var break_guards := false
+export var pop_in_time := 0.048
 var ending := false
 
 func _Setup() -> void:

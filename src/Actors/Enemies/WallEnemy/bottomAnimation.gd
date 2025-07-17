@@ -1,5 +1,5 @@
-extends AnimatedSprite2D
-@onready var upper_half: AnimatedSprite2D = $"../animatedSprite"
+extends AnimatedSprite
+onready var upper_half: AnimatedSprite = $"../animatedSprite"
 
 
 func _physics_process(_delta: float) -> void:

@@ -1,5 +1,5 @@
-@tool
-extends RefCounted
+tool
+extends Reference
 
 var _config
 
@@ -75,7 +75,7 @@ func export_layer(file_name: String, layer_name: String, output_folder: String, 
 
 func _add_ignore_layer_arguments(file_name: String, arguments: Array, exception_pattern: String):
 	var layers = _get_exception_layers(file_name, exception_pattern)
-	if not layers.is_empty():
+	if not layers.empty():
 		for l in layers:
 			arguments.push_front(l)
 			arguments.push_front('--ignore-layer')
@@ -109,7 +109,7 @@ func list_layers(file_name: String, only_visible = false) -> Array:
 		printerr(output)
 		return []
 
-	if output.is_empty():
+	if output.empty():
 		return output
 
 	return output[0].split('\n')
@@ -135,7 +135,7 @@ func _execute(arguments, output):
 
 
 func _aseprite_command() -> String:
-	return _config.is_command_or_control_pressed()
+	return _config.get_command()
 
 
 func _get_file_basename(file_path: String) -> String:

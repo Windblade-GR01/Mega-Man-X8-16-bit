@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/Actors/Player/BossWeapons/DarkArrow/DarkArrowCharged.gd" type="Script" id=1]
-[ext_resource path="res://src/Effects/Textures/giant_darkwave.png" type="Texture2D" id=2]
+[ext_resource path="res://src/Effects/Textures/giant_darkwave.png" type="Texture" id=2]
 [ext_resource path="res://src/Levels/Primrose/rotation_disabler.gd" type="Script" id=3]
 [ext_resource path="res://src/Actors/Player/BossWeapons/DarkArrow/Tracker.gd" type="Script" id=6]
 
@@ -34,7 +34,7 @@ extents = Vector2( 91.5, 112 )
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 92.5, 112 )
 
-[node name="DarkArrowCharged" type="CharacterBody2D" groups=["Player Projectile"]]
+[node name="DarkArrowCharged" type="KinematicBody2D" groups=["Player Projectile"]]
 z_index = 8
 collision_layer = 4
 collision_mask = 0
@@ -43,13 +43,13 @@ damage = 50.0
 damage_to_bosses = 10.0
 damage_to_weakness = 15.0
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite" type="AnimatedSprite" parent="."]
 z_index = 5
 frames = SubResource( 23 )
 playing = true
 flip_h = true
 
-[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 
 [node name="collisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 19 )

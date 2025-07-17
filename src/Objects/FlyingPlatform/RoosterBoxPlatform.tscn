@@ -12,7 +12,7 @@ rotate = false
 loop = false
 script = ExtResource( 3 )
 
-[node name="kinematicBody2D" type="CharacterBody2D" parent="."]
+[node name="kinematicBody2D" type="KinematicBody2D" parent="."]
 collision_mask = 0
 
 [node name="collisionShape2D" type="CollisionShape2D" parent="kinematicBody2D"]
@@ -23,7 +23,7 @@ shape = SubResource( 1 )
 [node name="BreakBox" parent="kinematicBody2D" instance=ExtResource( 2 )]
 position = Vector2( 0, -31 )
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="kinematicBody2D"]
+[node name="animatedSprite" type="AnimatedSprite" parent="kinematicBody2D"]
 z_index = 1
 z_as_relative = false
 frames = ExtResource( 1 )

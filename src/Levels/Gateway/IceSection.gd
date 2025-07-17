@@ -5,7 +5,7 @@ var active := false
 
 func _ready() -> void:
 	for child in get_children():
-		if child is CharacterBody2D:
+		if child is KinematicBody2D:
 			iceblocks.append(child)
 
 

@@ -1,5 +1,5 @@
-@tool
-extends RefCounted
+tool
+extends Reference
 
 # GLOBAL CONFIGS
 const CONFIG_FILE_PATH = 'user://aseprite_wizard.cfg'
@@ -23,8 +23,8 @@ const _I_CUSTOM_NAME_KEY = 'custom_name'
 const _I_DO_NOT_CREATE_RES_KEY = 'disable_resource_creation'
 
 # INTERFACE CONFIGS
-var _icon_arrow_down: Texture2D
-var _icon_arrow_right: Texture2D
+var _icon_arrow_down: Texture
+var _icon_arrow_right: Texture
 
 var _config := ConfigFile.new()
 
@@ -45,12 +45,12 @@ func default_command() -> String:
 	return 'aseprite'
 
 
-func is_command_or_control_pressed() -> String:
+func get_command() -> String:
 	var command = _config.get_value(_CONFIG_SECTION_KEY, _COMMAND_KEY, "")
 	return command if command != "" else default_command()
 
 
-func set_meta_pressed(aseprite_command: String) -> void:
+func set_command(aseprite_command: String) -> void:
 	if aseprite_command == "":
 		_config.set_value(_CONFIG_SECTION_KEY, _COMMAND_KEY, default_command())
 	else:
@@ -159,17 +159,17 @@ func set_do_not_create_resource(do_no_create: bool) -> void:
 #######################################################
 # INTERFACE CONFIGS
 ######################################################
-func set_icon_arrow_down(icon: Texture2D) -> void:
+func set_icon_arrow_down(icon: Texture) -> void:
 	_icon_arrow_down = icon
 
 
-func get_icon_arrow_down() -> Texture2D:
+func get_icon_arrow_down() -> Texture:
 	return _icon_arrow_down
 
 
-func set_icon_arrow_right(icon: Texture2D) -> void:
+func set_icon_arrow_right(icon: Texture) -> void:
 	_icon_arrow_right = icon
 
 
-func get_icon_arrow_right() -> Texture2D:
+func get_icon_arrow_right() -> Texture:
 	return _icon_arrow_right

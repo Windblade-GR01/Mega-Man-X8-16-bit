@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var tween := TweenController.new(self,false)
-@onready var rays = get_children()
+onready var tween := TweenController.new(self,false)
+onready var rays = get_children()
 var damage_colliders : Array
 signal finished_rotation
 

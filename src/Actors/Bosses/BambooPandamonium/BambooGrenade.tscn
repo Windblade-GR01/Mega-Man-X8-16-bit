@@ -5,7 +5,7 @@
 [ext_resource path="res://src/Actors/Bosses/BambooPandamonium/GrenadeExplosion.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Actors/Enemies/ProjectileDoT.gd" type="Script" id=4]
 [ext_resource path="res://src/Effects/Materials/launch_smoke.tres" type="Material" id=5]
-[ext_resource path="res://src/Effects/Textures/small_smoke.png" type="Texture2D" id=6]
+[ext_resource path="res://src/Effects/Textures/small_smoke.png" type="Texture" id=6]
 [ext_resource path="res://src/Effects/Materials/mat_batsmoke.tres" type="Material" id=7]
 
 [sub_resource type="RectangleShape2D" id=7]
@@ -14,14 +14,14 @@ extents = Vector2( 6, 6 )
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 4, 5 )
 
-[node name="BambooGrenade" type="CharacterBody2D" groups=["Enemy Projectile"]]
+[node name="BambooGrenade" type="KinematicBody2D" groups=["Enemy Projectile"]]
 z_index = 8
 collision_layer = 16
 script = ExtResource( 2 )
 damage = 5.0
 blast_area = ExtResource( 3 )
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite" type="AnimatedSprite" parent="."]
 modulate = Color( 1, 0.541176, 0.454902, 1 )
 frames = ExtResource( 1 )
 animation = "blast"
@@ -39,14 +39,14 @@ shape = SubResource( 7 )
 script = ExtResource( 4 )
 damage = 5.0
 
-[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 visible = false
 
 [node name="collisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource( 8 )
 
-[node name="particles2D" type="GPUParticles2D" parent="."]
+[node name="particles2D" type="Particles2D" parent="."]
 material = ExtResource( 7 )
 z_index = -1
 amount = 4

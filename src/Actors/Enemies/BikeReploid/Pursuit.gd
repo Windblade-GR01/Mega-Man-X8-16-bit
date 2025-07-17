@@ -1,11 +1,11 @@
 extends Node2D #IA?
 
 var player : Character
-@onready var character := get_parent()
-@onready var rush_down: Node2D = $"../RushDown"
-@onready var shot: Node2D = $"../Shot"
-@onready var turn: Node2D = $"../Turn"
-@onready var idle: Node2D = $"../Idle"
+onready var character := get_parent()
+onready var rush_down: Node2D = $"../RushDown"
+onready var shot: Node2D = $"../Shot"
+onready var turn: Node2D = $"../Turn"
+onready var idle: Node2D = $"../Idle"
 
 var timer := 0.0
 const cooldown := 1

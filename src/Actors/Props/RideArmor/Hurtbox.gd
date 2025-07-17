@@ -1,6 +1,6 @@
-extends CharacterBody2D
+extends KinematicBody2D
 
-@onready var character: CharacterBody2D = $".."
+onready var character: KinematicBody2D = $".."
 
 func deactivate() -> void:
 	$CollisionShape2D.disabled = true

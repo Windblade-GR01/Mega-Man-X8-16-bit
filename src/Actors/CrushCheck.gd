@@ -1,20 +1,20 @@
 extends Node2D
 
-@export var active := true
-@export var parent_signal := "zero_health"
-@export var ride_ability : NodePath
-@onready var ride = get_node_or_null(ride_ability)
-@onready var character: CharacterBody2D = $".."
+export var active := true
+export var parent_signal := "zero_health"
+export var ride_ability : NodePath
+onready var ride = get_node_or_null(ride_ability)
+onready var character: KinematicBody2D = $".."
 
-@onready var crush_cast_up = $death_up
-@onready var crush_cast_down = $death_down
-@onready var crush_cast_left = $death_left
-@onready var crush_cast_right = $death_right
-@onready var death_right_2: RayCast2D = $death_right2
-@onready var death_left_2: RayCast2D = $death_left2
-@onready var crush_vertical = [crush_cast_up,crush_cast_down]
-@onready var crush_horizontal = [crush_cast_left,crush_cast_right]
-@onready var crush_horizontal2 = [crush_cast_left,crush_cast_right]
+onready var crush_cast_up = $death_up
+onready var crush_cast_down = $death_down
+onready var crush_cast_left = $death_left
+onready var crush_cast_right = $death_right
+onready var death_right_2: RayCast2D = $death_right2
+onready var death_left_2: RayCast2D = $death_left2
+onready var crush_vertical = [crush_cast_up,crush_cast_down]
+onready var crush_horizontal = [crush_cast_left,crush_cast_right]
+onready var crush_horizontal2 = [crush_cast_left,crush_cast_right]
 
 
 func _physics_process(_delta: float) -> void:

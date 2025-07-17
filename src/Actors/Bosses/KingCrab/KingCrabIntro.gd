@@ -1,18 +1,18 @@
 extends EventAbility 
 class_name KingCrabIntro 
 
-@export var skip_intro := true
+export var skip_intro := true
 var intro_stage := -1
 var grounded_position := -96.0
-@onready var sprite := $"../animatedSprite"
-@onready var jump := $jump
-@onready var land := $land
-@onready var eyeFlash := $eyeFlash
+onready var sprite := $"../animatedSprite"
+onready var jump := $jump
+onready var land := $land
+onready var eyeFlash := $eyeFlash
 
 func _ready() -> void:
 	if active and not skip_intro:
 		sprite.visible = false
-	Event.connect("noahspark_cutscene_end", Callable(self, "enter_scene"))
+	Event.connect("noahspark_cutscene_end",self,"enter_scene")
 
 
 func _Setup() -> void:

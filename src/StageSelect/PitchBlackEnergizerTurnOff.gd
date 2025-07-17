@@ -1,6 +1,6 @@
 extends Node
 
-@export var subtanks : Array
+export var subtanks : Array
 
 func _ready() -> void:
 	clear_weapon_get_data()

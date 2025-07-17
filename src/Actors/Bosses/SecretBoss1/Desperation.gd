@@ -2,18 +2,18 @@ extends AttackAbility
 
 var images : Array
 const move_duration := .5
-@export var _slash : PackedScene
-@onready var tween := TweenController.new(self,false)
-@onready var damage: Node2D = $"../Damage"
-@onready var damage_on_touch: Node2D = $"../DamageOnTouch"
+export var _slash : PackedScene
+onready var tween := TweenController.new(self,false)
+onready var damage: Node2D = $"../Damage"
+onready var damage_on_touch: Node2D = $"../DamageOnTouch"
 var angles = [0,33,-33,90,44,-44,25,-25,0,90,44,-25,-33]
-@onready var disappear: AudioStreamPlayer2D = $disappear
-@onready var charge: AudioStreamPlayer2D = $charge
-@onready var cuts_prepare: AudioStreamPlayer2D = $cuts_prepare
+onready var disappear: AudioStreamPlayer2D = $disappear
+onready var charge: AudioStreamPlayer2D = $charge
+onready var cuts_prepare: AudioStreamPlayer2D = $cuts_prepare
 
 func _ready() -> void:
 	for object in get_children():
-		if object is AnimatedSprite2D:
+		if object is AnimatedSprite:
 			images.append(object)
 			object.visible = false
 
@@ -67,7 +67,7 @@ func _Update(delta) -> void:
 		EndAbility()
 
 func _Interrupt():
-	super._Interrupt()
+	._Interrupt()
 	damage.activate()
 	damage_on_touch.activate()
 
@@ -91,7 +91,7 @@ func vanish_clones():
 		clone.play(clone.animation + "_vanish")
 
 func create_slash(degrees : float):
-	var slash = _slash.instantiate()
+	var slash = _slash.instance()
 	get_tree().current_scene.add_child(slash,true)
 	slash.set_global_position(GameManager.get_player_position()) 
 	slash.rotate_degrees(degrees)

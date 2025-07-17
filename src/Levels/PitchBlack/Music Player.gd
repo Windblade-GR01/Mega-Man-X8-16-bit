@@ -1,7 +1,7 @@
 extends "res://src/Levels/music_player.gd"
 
-@export var alarm_intro : AudioStream
-@export var alarm_song : AudioStream
+export var alarm_intro : AudioStream
+export var alarm_song : AudioStream
 var timer = Timer.new()
 var played_alarm := false
 
@@ -12,7 +12,7 @@ func _ready() -> void:
 func on_reset_lights() -> void:
 	if played_alarm:
 		start_fade_out()
-		timer.connect("timeout", Callable(self, "play_stage_song"))
+		timer.connect("timeout",self,"play_stage_song")
 		timer.one_shot = true
 		add_child(timer)
 		timer.start()

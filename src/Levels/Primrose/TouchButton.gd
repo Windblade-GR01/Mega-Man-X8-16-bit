@@ -1,9 +1,9 @@
-extends AnimatedSprite2D
+extends AnimatedSprite
 
-@export var active := true
-@export var degrees_to_rotate := 90.0
+export var active := true
+export var degrees_to_rotate := 90.0
 var time_to_reactivate := 3.0
-@onready var press: AudioStreamPlayer2D = $press
+onready var press: AudioStreamPlayer2D = $press
 
 func ready() -> void:
 	Event.listen("stage_rotate_end",self,"deactivate")

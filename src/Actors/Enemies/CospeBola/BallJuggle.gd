@@ -1,6 +1,6 @@
 extends AttackAbility
 
-@export var projectile : PackedScene
+export var projectile : PackedScene
 const time_between_actions := 0.15
 const shot_speed := 300.0
 

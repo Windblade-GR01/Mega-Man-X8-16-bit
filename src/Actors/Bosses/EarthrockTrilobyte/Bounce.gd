@@ -24,7 +24,7 @@ func _Update(_delta) -> void:
 			EndAbility()
 
 func _Interrupt() -> void:
-	Tools.tween_method(Callable(self, "force_movement"), -character.get_actual_horizontal_speed(), 0.0, 0.25)
+	Tools.tween_method(self,"force_movement",-character.get_actual_horizontal_speed(),0.0,0.25)
 
 func _on_EnemyShield_guard_broken(projectile) -> void:
 	set_bounce_direction(projectile)

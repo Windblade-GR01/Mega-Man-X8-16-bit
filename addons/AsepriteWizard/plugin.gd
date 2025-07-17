@@ -1,4 +1,4 @@
-@tool
+tool
 extends EditorPlugin
 
 const ConfigDialog = preload('config/config_dialog.tscn')
@@ -94,9 +94,9 @@ func _open_window(_ud):
 		make_bottom_panel_item_visible(window)
 		return
 
-	window = WizardWindow.instantiate()
+	window = WizardWindow.instance()
 	window.init(config, get_editor_interface().get_resource_filesystem())
-	window.connect("close_requested", Callable(self, "_on_window_closed"))
+	window.connect("close_requested", self, "_on_window_closed")
 	add_control_to_bottom_panel(window, "Aseprite Wizard")
 	make_bottom_panel_item_visible(window)
 
@@ -105,9 +105,9 @@ func _open_config_dialog(_ud):
 	if is_instance_valid(config_window):
 		config_window.queue_free()
 
-	config_window = ConfigDialog.instantiate()
+	config_window = ConfigDialog.instance()
 	config_window.init(config)
-	config_window.connect("importer_state_changed", Callable(self, "_on_importer_state_changed"))
+	config_window.connect("importer_state_changed", self, "_on_importer_state_changed")
 	get_editor_interface().get_base_control().add_child(config_window)
 	config_window.popup_centered()
 

@@ -1,19 +1,19 @@
 extends AttackAbility
 class_name BeeAttack
 
-@export var attack_velocity := 200
+export var attack_velocity := 200
 
 var target_direction := Vector2.ZERO
 var reached_target := false
 var current_vertical_speed := 0.0
-@onready var beepatrol := $"../BeePatrol"
+onready var beepatrol := $"../BeePatrol"
 
 func _ready() -> void:
 # warning-ignore:return_value_discarded
-	$"../DamageOnTouch".connect("touch_target", Callable(self, "on_touch_target"))
+	$"../DamageOnTouch".connect("touch_target", self, "on_touch_target")
 
 func _Setup() -> void:
-	super._Setup()
+	._Setup()
 	reached_target = false
 	current_vertical_speed = 0.0
 

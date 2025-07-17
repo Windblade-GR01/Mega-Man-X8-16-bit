@@ -1,12 +1,12 @@
 extends EnemyDeath
-@onready var animated_sprite: AnimatedSprite2D = $"../animatedSprite"
-@onready var damage: Node2D = $"../DamageOnTouch"
-@onready var remains: GPUParticles2D = $Remains
-@onready var smoke: GPUParticles2D = $"Smoke Particles"
-@onready var shutdown: AudioStreamPlayer2D = $"../shutdown"
+onready var animated_sprite: AnimatedSprite = $"../animatedSprite"
+onready var damage: Node2D = $"../DamageOnTouch"
+onready var remains: Particles2D = $Remains
+onready var smoke: Particles2D = $"Smoke Particles"
+onready var shutdown: AudioStreamPlayer2D = $"../shutdown"
 
 func _ready() -> void:
-	Event.connect("vile_defeated", Callable(self, "_on_vile_defeated"))
+	Event.connect("vile_defeated",self,"_on_vile_defeated")
 
 func _on_vile_defeated() -> void:
 	start()
@@ -25,7 +25,7 @@ func start():
 
 func _Setup() -> void:
 	scale = animated_sprite.scale
-	animated_sprite.material.set_shader_parameter("Darken",0.45)
+	animated_sprite.material.set_shader_param("Darken",0.45)
 	damage.deactivate()
 	animated_sprite.play("deactivate")
 	shutdown.play()
@@ -41,7 +41,7 @@ func _Update(delta) -> void:
 		character.set_vertical_speed(character.maximum_fall_velocity) 
 
 func set_darken(value := 0.45):
-	animated_sprite.material.set_shader_parameter("Darken",value)
+	animated_sprite.material.set_shader_param("Darken",value)
 
 func _EndCondition() -> bool:
 	return false

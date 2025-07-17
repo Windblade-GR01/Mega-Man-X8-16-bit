@@ -1,9 +1,9 @@
 extends AttackAbility
 
-@onready var shield: Node2D = $"../EnemyShield"
+onready var shield: Node2D = $"../EnemyShield"
 
 func _Setup() -> void:
-	super._Setup()
+	._Setup()
 	force_movement(0)
 	shield.activate()
 

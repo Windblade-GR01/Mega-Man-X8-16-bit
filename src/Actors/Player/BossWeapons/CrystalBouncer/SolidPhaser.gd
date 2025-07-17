@@ -1,6 +1,6 @@
 extends Node2D
-@onready var collider: CollisionShape2D = $rigidBody2D/collisionShape2D
-@onready var player_detector: Area2D = $playerDetector
+onready var collider: CollisionShape2D = $rigidBody2D/collisionShape2D
+onready var player_detector: Area2D = $playerDetector
 
 signal phased_in
 

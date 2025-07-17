@@ -1,7 +1,7 @@
 [gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://src/Actors/Bosses/SecretBoss2/ExplosiveSmoke.gd" type="Script" id=1]
-[ext_resource path="res://src/Effects/Textures/detailed_smoke.png" type="Texture2D" id=2]
+[ext_resource path="res://src/Effects/Textures/detailed_smoke.png" type="Texture" id=2]
 [ext_resource path="res://src/Actors/Bosses/SecretBoss2/ShiningExplosion.tscn" type="PackedScene" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -208,7 +208,7 @@ animations = [ {
 script = ExtResource( 1 )
 explosion = ExtResource( 3 )
 
-[node name="smoke" type="AnimatedSprite2D" parent="."]
+[node name="smoke" type="AnimatedSprite" parent="."]
 modulate = Color( 0.984314, 0.733333, 1, 1 )
 frames = SubResource( 49 )
 frame = 47

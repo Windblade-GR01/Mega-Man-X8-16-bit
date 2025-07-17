@@ -1,10 +1,10 @@
-extends AnimatedSprite2D
+extends AnimatedSprite
 
 var defeated := false
 var stage : StageInfo
-@onready var cursor: AnimatedSprite2D = $cursor
-@onready var menu: Control = $"../../StageSelectUI/Menu"
-@onready var pointer: AnimatedSprite2D = $"../../map/pointer"
+onready var cursor: AnimatedSprite = $cursor
+onready var menu: Control = $"../../StageSelectUI/Menu"
+onready var pointer: AnimatedSprite = $"../../map/pointer"
 
 signal focused
 signal moved_cursor(pos)
@@ -14,8 +14,8 @@ func _ready() -> void:
 	for item in menu.get_children():
 		if item.name == name:
 			stage = item.stage_info
-			var _s = item.connect("focus_entered", Callable(self, "focus"))
-			_s = item.connect("focus_exited", Callable(self, "unfocus"))
+			var _s = item.connect("focus_entered",self,"focus")
+			_s = item.connect("focus_exited",self,"unfocus")
 			call_deferred("synchronize_visibility",item)
 	set_defeated_status()
 	play(get_correct_animation("idle"))

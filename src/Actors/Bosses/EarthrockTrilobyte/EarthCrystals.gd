@@ -1,6 +1,6 @@
 extends AttackAbility
-@export var crystal : PackedScene
-@export var warning : PackedScene
+export var crystal : PackedScene
+export var warning : PackedScene
 var target : float
 signal start
 
@@ -47,5 +47,5 @@ func create_warning(x_offset := 0.0) -> void:
 func create_crystal(x_offset := 0.0) -> void:
 	var c = instantiate(crystal)
 	c.global_position = Vector2(target + x_offset,global_position.y - 8)
-	connect("start", Callable(c, "break_crystal"))
+	connect("start",c,"break_crystal")
 	#c.initialize(200 * get_player_direction_relative())

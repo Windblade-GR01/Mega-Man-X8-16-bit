@@ -1,19 +1,15 @@
 [remap]
 
-importer="oggvorbisstr"
-type="AudioStreamOggVorbis"
-uid="uid://8hybibeoykv3"
-path="res://.godot/imported/RockThrow Prepare.ogg-32cc08e3aa37ff0a4f05c24e43211b48.oggvorbisstr"
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/RockThrow Prepare.ogg-32cc08e3aa37ff0a4f05c24e43211b48.oggstr"
 
 [deps]
 
 source_file="res://src/Sounds/RockThrow Prepare.ogg"
-dest_files=["res://.godot/imported/RockThrow Prepare.ogg-32cc08e3aa37ff0a4f05c24e43211b48.oggvorbisstr"]
+dest_files=[ "res://.import/RockThrow Prepare.ogg-32cc08e3aa37ff0a4f05c24e43211b48.oggstr" ]
 
 [params]
 
 loop=false
 loop_offset=0
-bpm=0
-beat_count=0
-bar_beats=4

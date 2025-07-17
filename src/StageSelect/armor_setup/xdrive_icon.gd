@@ -1,15 +1,15 @@
 extends TextureRect
 
-@onready var icon_bg: TextureRect = $"../icon_bg"
-@onready var tween := TweenController.new(self,false)
-@export var fullset_signal := "full_"
+onready var icon_bg: TextureRect = $"../icon_bg"
+onready var tween := TweenController.new(self,false)
+export var fullset_signal := "full_"
 const flash_duration := .5
-@onready var animated_sprite: AnimatedSprite2D = $"../animatedSprite"
+onready var animated_sprite: AnimatedSprite = $"../animatedSprite"
 
 
 func _ready() -> void:
-	Event.connect(fullset_signal, Callable(self, "full_set"))
-	Event.connect("mixed_set", Callable(self, "reset"))
+	Event.connect(fullset_signal,self,"full_set")
+	Event.connect("mixed_set",self,"reset")
 	icon_bg.visible = false
 	visible = false
 	pass
@@ -21,14 +21,14 @@ func full_set() -> void:
 	self_modulate = Color(7,7,7,1)
 	icon_bg.self_modulate = Color(7,7,7,1)
 	tween.reset()
-	tween.attribute("self_modulate",Color.WHITE,flash_duration)
-	tween.attribute("self_modulate",Color.WHITE,flash_duration,icon_bg)
-	material.set_shader_parameter("grayscale",false)
+	tween.attribute("self_modulate",Color.white,flash_duration)
+	tween.attribute("self_modulate",Color.white,flash_duration,icon_bg)
+	material.set_shader_param("grayscale",false)
 
 
 func reset() -> void:
 	tween.reset()
-	material.set_shader_parameter("grayscale",true)
+	material.set_shader_param("grayscale",true)
 	modulate.a = 0.75
 
 

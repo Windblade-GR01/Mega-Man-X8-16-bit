@@ -1,6 +1,6 @@
 extends Area2D
 class_name passarin_area
-@onready var passarins: GPUParticles2D = $Passarins
+onready var passarins: Particles2D = $Passarins
 var emitted := false
 
 func _ready() -> void:

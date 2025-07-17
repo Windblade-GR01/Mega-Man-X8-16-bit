@@ -1,8 +1,8 @@
 extends Area2D
 class_name InstantDeathArea
 
-@export var active := true
-@export var type := "spike"
+export var active := true
+export var type := "spike"
 var bodies = []
 
 func affect(body: Node) -> void:

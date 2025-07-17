@@ -1,4 +1,4 @@
-@tool
+tool
 extends PopupPanel
 
 signal importer_state_changed
@@ -13,8 +13,8 @@ var config: ConfigFile
 
 func _ready():
 	_aseprite_command_field().text = config.get_value(_CONFIG_SECTION_KEY, _COMMAND_KEY, get_default_command())
-	_importer_enable_field().button_pressed = config.get_value(_CONFIG_SECTION_KEY, _IMPORTER_ENABLE_KEY, true)
-	_remove_source_files_field().button_pressed = config.get_value(_CONFIG_SECTION_KEY, _REMOVE_SOURCE_FILES_KEY, false)
+	_importer_enable_field().pressed = config.get_value(_CONFIG_SECTION_KEY, _IMPORTER_ENABLE_KEY, true)
+	_remove_source_files_field().pressed = config.get_value(_CONFIG_SECTION_KEY, _REMOVE_SOURCE_FILES_KEY, false)
 
 
 func init(config_file: ConfigFile):

@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Sprite
 
 const frame_0 = preload("res://src/StageSelect/menu_0.png")
 

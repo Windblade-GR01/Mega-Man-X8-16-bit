@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://jai8ugsc7lhs"
-path="res://.godot/imported/Antonion - Jump.wav-fbf4242f4a8601f3745c587e8175b4fb.sample"
+type="AudioStreamSample"
+path="res://.import/Antonion - Jump.wav-fbf4242f4a8601f3745c587e8175b4fb.sample"
 
 [deps]
 
 source_file="res://src/Sounds/Antonion - Jump.wav"
-dest_files=["res://.godot/imported/Antonion - Jump.wav-fbf4242f4a8601f3745c587e8175b4fb.sample"]
+dest_files=[ "res://.import/Antonion - Jump.wav-fbf4242f4a8601f3745c587e8175b4fb.sample" ]
 
 [params]
 

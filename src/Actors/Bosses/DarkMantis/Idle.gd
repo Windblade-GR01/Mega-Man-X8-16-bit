@@ -1,8 +1,8 @@
 extends EnemyIdle
 class_name BossIdle
-@onready var boss_ai: Node2D = $"../BossAI"
+onready var boss_ai: Node2D = $"../BossAI"
 
-@export var calculate_gravity := true
+export var calculate_gravity := true
 
 func _StartCondition() -> bool:
 	return boss_ai.active and character.animatedSprite.visible
@@ -16,4 +16,4 @@ func _Setup() -> void:
 
 func process_gravity(_delta:float, gravity := default_gravity):
 	if calculate_gravity:
-		super.process_gravity(_delta,gravity)
+		.process_gravity(_delta,gravity)

@@ -1,13 +1,13 @@
 extends AttackAbility
 
-@export var projectile: PackedScene 
+export (PackedScene) var projectile 
 var target_dir := Vector2.ZERO
-@onready var hitbox: Node2D = $EnemyMeleeAttack
-@onready var dash_smoke: GPUParticles2D = $dash_smoke
-@onready var cut_1: AudioStreamPlayer2D = $cut1
-@onready var cut_2: AudioStreamPlayer2D = $cut2
-@onready var dash: AudioStreamPlayer2D = $dash
-@onready var land: AudioStreamPlayer2D = $land
+onready var hitbox: Node2D = $EnemyMeleeAttack
+onready var dash_smoke: Particles2D = $dash_smoke
+onready var cut_1: AudioStreamPlayer2D = $cut1
+onready var cut_2: AudioStreamPlayer2D = $cut2
+onready var dash: AudioStreamPlayer2D = $dash
+onready var land: AudioStreamPlayer2D = $land
 
 
 func _Update(delta):
@@ -70,7 +70,7 @@ func _Update(delta):
 			EndAbility()
 
 func _Interrupt() -> void:
-	super._Interrupt()
+	._Interrupt()
 	dash_smoke.emitting = false
 
 func activate_hitbox() -> void:

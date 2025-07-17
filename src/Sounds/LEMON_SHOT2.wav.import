@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://vcb6dec3aobu"
-path="res://.godot/imported/LEMON_SHOT2.wav-668f91e871939251df51177ac3897872.sample"
+type="AudioStreamSample"
+path="res://.import/LEMON_SHOT2.wav-668f91e871939251df51177ac3897872.sample"
 
 [deps]
 
 source_file="res://src/Sounds/LEMON_SHOT2.wav"
-dest_files=["res://.godot/imported/LEMON_SHOT2.wav-668f91e871939251df51177ac3897872.sample"]
+dest_files=[ "res://.import/LEMON_SHOT2.wav-668f91e871939251df51177ac3897872.sample" ]
 
 [params]
 

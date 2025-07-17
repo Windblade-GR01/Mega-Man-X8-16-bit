@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://src/StageSelect/ss_cursor2.png" type="Texture2D" id=1]
+[ext_resource path="res://src/StageSelect/ss_cursor2.png" type="Texture" id=1]
 [ext_resource path="res://src/StageSelect/selectables/selectable_rooster.res" type="SpriteFrames" id=2]
 [ext_resource path="res://src/StageSelect/Card.gd" type="Script" id=3]
-[ext_resource path="res://src/StageSelect/ss_cursor3.png" type="Texture2D" id=4]
+[ext_resource path="res://src/StageSelect/ss_cursor3.png" type="Texture" id=4]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
@@ -58,7 +58,7 @@ animations = [ {
 "speed": 18.0
 } ]
 
-[node name="portrait" type="AnimatedSprite2D"]
+[node name="portrait" type="AnimatedSprite"]
 position = Vector2( 103, 38 )
 frames = ExtResource( 2 )
 animation = "idle"
@@ -66,7 +66,7 @@ frame = 2
 playing = true
 script = ExtResource( 3 )
 
-[node name="cursor" type="AnimatedSprite2D" parent="."]
+[node name="cursor" type="AnimatedSprite" parent="."]
 visible = false
 z_index = 1
 frames = SubResource( 7 )

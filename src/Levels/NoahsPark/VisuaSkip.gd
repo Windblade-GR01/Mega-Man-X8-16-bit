@@ -1,7 +1,7 @@
 extends Control
 
-@onready var tween := TweenController.new(self,false)
-@onready var progress: TextureProgressBar = $textureProgress
+onready var tween := TweenController.new(self,false)
+onready var progress: TextureProgress = $textureProgress
 
 var state := "none"
 

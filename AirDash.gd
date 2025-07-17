@@ -2,15 +2,15 @@ extends Dash
 class_name AirDash
 
 #default airdash duration: 0.475
-@onready var airjump = character.get_node("AirJump")
+onready var airjump = character.get_node("AirJump")
 var should_reduce_airjumps := false
 var infinite_airdashes := false
 var max_airdashes := 1
 var airdash_count := 1
 #var was_dashjumping := false
-@onready var wall_jump: Node2D = $"../WallJump"
-@onready var dash_wall_jump: Node2D = $"../DashWallJump"
-@onready var air_jump: Node2D = $"../AirJump"
+onready var wall_jump: Node2D = $"../WallJump"
+onready var dash_wall_jump: Node2D = $"../DashWallJump"
+onready var air_jump: Node2D = $"../AirJump"
 var initial_direction := 1
 var initial_sound := true
 
@@ -23,7 +23,7 @@ func _ready() -> void:
 	#character.listen("jump",self,"reset_airdash_count")
 
 func _Setup() -> void:
-	super._Setup()
+	._Setup()
 	character.set_vertical_speed(0)
 	reduce_air_jumps()
 	airdash_count -= 1
@@ -130,11 +130,11 @@ func is_able_to_airjump() -> bool:
 func _Interrupt():
 	last_time_pressed = 0.0
 	initial_sound = true
-	super._Interrupt()
+	._Interrupt()
 
 func play_sound_on_initialize() -> void:
 	if initial_sound:
-		super.play_sound_on_initialize()
+		.play_sound_on_initialize()
 
 func _EndCondition() -> bool:
 	if pressing_towards_wall() or character.is_on_floor():

@@ -1,14 +1,14 @@
 extends BaseAbility
 class_name EnemyDeath
 
-@onready var explosions = $"Explosion Particles"
-@onready var sprite = get_parent().get_node("animatedSprite")
-@onready var death_particle = $"Remains"
-@export var should_spawn_item := true
-@export var should_emit_kill_signal := true
-@export var explosion_duration:= 2.0
+onready var explosions = $"Explosion Particles"
+onready var sprite = get_parent().get_node("animatedSprite")
+onready var death_particle = $"Remains"
+export var should_spawn_item := true
+export var should_emit_kill_signal := true
+export var explosion_duration:= 2.0
 var times_sound_played := 0.0
-@onready var audioplayer: AudioStreamPlayer2D = $audioStreamPlayer2D
+onready var audioplayer: AudioStreamPlayer2D = $audioStreamPlayer2D
 
 func _ready() -> void:
 	if active:
@@ -32,7 +32,7 @@ func _Setup():
 		Event.emit_signal("enemy_kill",character)
 	explosions.emitting = true
 	sprite.playing = false
-	sprite.material.set_shader_parameter("Alpha_Blink", 1)
+	sprite.material.set_shader_param("Alpha_Blink", 1)
 	extra_actions_at_death_start()
 
 func _StartCondition() -> bool:
@@ -43,7 +43,7 @@ func _Update(_delta):
 		times_sound_played += 1
 		var audio = audioplayer.duplicate()
 		add_child(audio)
-		audio.pitch_scale = randf_range(0.95,1.05)
+		audio.pitch_scale = rand_range(0.95,1.05)
 		audio.play()
 	if timer > explosion_duration:
 		if explosions.emitting:
@@ -70,7 +70,7 @@ func spawn_item():
 			instance_item(item)
 
 func instance_item(item) -> void:
-	item = item.instantiate()
+	item = item.instance()
 	item.expirable = true
 	get_parent().get_parent().add_child(item)
 	item.global_position = Vector2(round(global_position.x), round(global_position.y))
@@ -81,7 +81,7 @@ func get_spawn_item():
 
 func _Interrupt():
 	get_parent().queue_free()
-	sprite.material.set_shader_parameter("Alpha_Blink", 0)
+	sprite.material.set_shader_param("Alpha_Blink", 0)
 	
 func _on_zero_health() -> void:
 	Log("heard zero health event")

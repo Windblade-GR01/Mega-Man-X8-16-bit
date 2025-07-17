@@ -56,5 +56,5 @@ func get_fps() -> int:
 func set_fps(value :int) -> void:
 	Configurations.set("FPS",value)
 	Engine.target_fps = value
-	Engine.set_physics_ticks_per_second(value)
+	Engine.set_iterations_per_second(value)
 	display_value(get_fps())

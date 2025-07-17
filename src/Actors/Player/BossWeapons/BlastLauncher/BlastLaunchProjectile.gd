@@ -1,14 +1,14 @@
 extends SimplePlayerProjectile
 
-@export var explosion : PackedScene
+export var explosion : PackedScene
 
 var last_speed : Vector2
 var bounces := 0
 var last_bounce := 0.0
 const max_bounces := 3
 const destroyer := true
-@onready var sound: AudioStreamPlayer2D = $sound
-@onready var particles_2d: GPUParticles2D = $particles2D
+onready var sound: AudioStreamPlayer2D = $sound
+onready var particles_2d: Particles2D = $particles2D
 
 func _Setup() -> void:
 	var player_speed := Vector2.ZERO
@@ -66,7 +66,7 @@ func explode() -> void:
 	ending = true
 	
 func instantiate(scene : PackedScene) -> Node2D:
-	var instance = scene.instantiate()
+	var instance = scene.instance()
 	get_tree().current_scene.get_node("Objects").call_deferred("add_child",instance,true)
 	instance.set_global_position(global_position) 
 	instance.set_creator(creator)

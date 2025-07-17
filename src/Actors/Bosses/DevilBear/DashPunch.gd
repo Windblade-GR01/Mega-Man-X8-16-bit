@@ -1,13 +1,13 @@
 extends AttackAbility
-@onready var dash_sound: AudioStreamPlayer2D = $"../dash_sound"
-@onready var punch: AudioStreamPlayer2D = $"../punch"
-@onready var dash_particles: GPUParticles2D = $"../dash_particles"
-@onready var prepare: GPUParticles2D = $"../land"
-@onready var wallhit: Node2D = $wallhit
-@onready var hit: GPUParticles2D = $"../animatedSprite/hit"
-@onready var wallpunch: AudioStreamPlayer2D = $"../wallpunch"
-@onready var wave: Sprite2D = $"../animatedSprite/wave"
-@onready var tween := TweenController.new(self,false)
+onready var dash_sound: AudioStreamPlayer2D = $"../dash_sound"
+onready var punch: AudioStreamPlayer2D = $"../punch"
+onready var dash_particles: Particles2D = $"../dash_particles"
+onready var prepare: Particles2D = $"../land"
+onready var wallhit: Node2D = $wallhit
+onready var hit: Particles2D = $"../animatedSprite/hit"
+onready var wallpunch: AudioStreamPlayer2D = $"../wallpunch"
+onready var wave: Sprite = $"../animatedSprite/wave"
+onready var tween := TweenController.new(self,false)
 
 func _Setup() -> void:
 	turn_and_face_player()
@@ -66,5 +66,5 @@ func create_wave() -> void:
 	tween.add_attribute("modulate:a",0.0,0.16,wave)
 
 func _Interrupt() -> void:
-	super._Interrupt()
+	._Interrupt()
 	dash_particles.emitting = false

@@ -1,13 +1,13 @@
 extends Shot
 class_name PrimaryShot
 
-@export var upgraded := false
+export var upgraded := false
 var current_weapon_index := 0
 var charge_level := 0
 var charged_shot := true
-@onready var damage: Node2D = $"../Damage"
-@onready var charge: Node2D = $"../Charge"
-@onready var chargesound: AudioStreamPlayer = $charge
+onready var damage: Node2D = $"../Damage"
+onready var charge: Node2D = $"../Charge"
+onready var chargesound: AudioStreamPlayer = $charge
 
 
 func _ready() -> void:

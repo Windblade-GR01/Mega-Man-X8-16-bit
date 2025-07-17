@@ -3,9 +3,9 @@
 [ext_resource path="res://src/Actors/NewStateMachine/audioplayer.gd" type="Script" id=1]
 [ext_resource path="res://src/Actors/MeleeEnemyAttack.gd" type="Script" id=2]
 [ext_resource path="res://src/Sounds/FX - GenesisLaser.wav" type="AudioStream" id=3]
-[ext_resource path="res://src/Effects/Textures/shining_ball.png" type="Texture2D" id=4]
-[ext_resource path="res://src/Effects/Textures/lumine_ray.png" type="Texture2D" id=5]
-[ext_resource path="res://src/Effects/Textures/shining_counter.png" type="Texture2D" id=6]
+[ext_resource path="res://src/Effects/Textures/shining_ball.png" type="Texture" id=4]
+[ext_resource path="res://src/Effects/Textures/lumine_ray.png" type="Texture" id=5]
+[ext_resource path="res://src/Effects/Textures/shining_counter.png" type="Texture" id=6]
 [ext_resource path="res://src/Actors/Bosses/SecretBoss2/DamageReflector.gd" type="Script" id=7]
 [ext_resource path="res://src/Actors/Enemies/EnemyShield.gd" type="Script" id=8]
 [ext_resource path="res://src/Sounds/MMX - Enemy Helmet Hit.ogg" type="AudioStream" id=9]
@@ -142,7 +142,7 @@ extents = Vector2( 17, 20 )
 z_index = 20
 script = ExtResource( 7 )
 
-[node name="laser" type="AnimatedSprite2D" parent="."]
+[node name="laser" type="AnimatedSprite" parent="."]
 visible = false
 scale = Vector2( 20, 1 )
 z_index = -1
@@ -167,14 +167,14 @@ visible = false
 position = Vector2( 9.99496, 0 )
 shape = SubResource( 33 )
 
-[node name="ball" type="AnimatedSprite2D" parent="."]
+[node name="ball" type="AnimatedSprite" parent="."]
 frames = SubResource( 35 )
 animation = "explode"
 frame = 5
 playing = true
 
 [node name="prepare" type="AudioStreamPlayer2D" parent="."]
-process_mode = 3
+pause_mode = 2
 stream = ExtResource( 3 )
 max_distance = 600.0
 bus = "SFX"

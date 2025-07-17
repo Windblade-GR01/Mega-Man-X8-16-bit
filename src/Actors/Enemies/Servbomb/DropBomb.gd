@@ -1,7 +1,7 @@
 extends AttackAbility
 
-@export var bomb :PackedScene
-@onready var tween := TweenController.new(self,false)
+export var bomb :PackedScene
+onready var tween := TweenController.new(self,false)
 var can_drop := false
 
 func _StartCondition() -> bool:

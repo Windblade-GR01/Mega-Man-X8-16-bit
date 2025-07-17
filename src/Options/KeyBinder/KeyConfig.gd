@@ -3,15 +3,15 @@ class_name X8Menu
 
 var active := false
 
-@export var menu_path : NodePath
-@export var initial_focus : NodePath
-@export var exit_action := "none"
-@export var start_emit_event := "none"
+export var menu_path : NodePath
+export var initial_focus : NodePath
+export var exit_action := "none"
+export var start_emit_event := "none"
 
-@onready var menu: Control = get_node(menu_path)
-@onready var focus: Control = get_node(initial_focus)
-@onready var fader: ColorRect = $Fader
-@onready var choice: AudioStreamPlayer = $choice
+onready var menu: Control = get_node(menu_path)
+onready var focus: Control = get_node(initial_focus)
+onready var fader: ColorRect = $Fader
+onready var choice: AudioStreamPlayer = $choice
 
 signal initialize
 signal start
@@ -42,7 +42,7 @@ func start() -> void:
 		Event.emit_signal(start_emit_event)
 	fader.visible = true
 	fader.FadeIn()
-	await fader.finished
+	yield(fader,"finished")
 	
 	unlock_buttons()
 	print_debug("Unlocked Buttons")
@@ -58,7 +58,7 @@ func end() -> void:
 	print_debug("Closing Menu " + name)
 	lock_buttons()
 	fader.FadeOut()
-	await fader.finished
+	yield(fader,"finished")
 	emit_signal("end")
 	active = false
 	Savefile.save()

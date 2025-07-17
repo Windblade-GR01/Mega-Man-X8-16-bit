@@ -1,7 +1,7 @@
 extends AttackAbility
 
 const projectile_distance_from_wall := 90
-@export var optic_gun : PackedScene
+export var optic_gun : PackedScene
 
 func _Setup() -> void:
 	turn_and_face_player()

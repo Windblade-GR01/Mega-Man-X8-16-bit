@@ -1,6 +1,6 @@
 extends AttackAbility
-var tween : Tween
-@onready var animated_sprite: AnimatedSprite2D = $"../animatedSprite"
+var tween : SceneTreeTween
+onready var animated_sprite: AnimatedSprite = $"../animatedSprite"
 
 func _Setup():
 	attack_stage = 0
@@ -43,7 +43,7 @@ func _Interrupt() -> void:
 func next_attack_stage_on_tween_end() -> void:
 	next_attack_stage()
 	tween.set_parallel(false)# warning-ignore:return_value_discarded
-	tween.tween_callback(Callable(self, "next_attack_stage_on_next_frame"))# warning-ignore:return_value_discarded
+	tween.tween_callback(self,"next_attack_stage_on_next_frame")# warning-ignore:return_value_discarded
 	
 
 func start_tween() -> void:

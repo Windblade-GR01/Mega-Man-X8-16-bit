@@ -1,13 +1,13 @@
 extends X8TextureButton
-@onready var weapon_name: Label = get_node("weapon_name")
-@onready var ammo: TextureProgressBar = get_node("ammo/current")
+onready var weapon_name: Label = get_node("weapon_name")
+onready var ammo: TextureProgress = get_node("ammo/current")
 
-@export var weapon_resource : Resource
+export var weapon_resource : Resource
 var weapon
 
 func _ready() -> void:
 	call_deferred("set_player_weapon")
-	var _s = menu.connect("pause_starting", Callable(self, "on_start"))
+	var _s = menu.connect("pause_starting",self,"on_start")
 	if weapon_resource:
 		weapon_name.text = tr(weapon_resource.short_name)
 		texture_normal = weapon_resource.icon
@@ -28,14 +28,14 @@ func set_player_weapon() -> void:
 					weapon = _weapon
 
 func _on_focus_entered() -> void:
-	super._on_focus_entered()
+	._on_focus_entered()
 	if GameManager.is_player_in_scene():
 		GameManager.player.get_node("Shot").set_current_weapon(weapon)
 	get_parent().set_weapon(self)
 
 func _on_focus_exited() -> void:
 	if get_parent().choosen_weapon != self:
-		super._on_focus_exited()
+		._on_focus_exited()
 		
 func on_press() -> void: #override
 	pass

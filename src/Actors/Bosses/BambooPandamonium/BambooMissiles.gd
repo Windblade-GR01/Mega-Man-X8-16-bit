@@ -1,7 +1,7 @@
 extends AttackAbility
 
-@export var missile : PackedScene
-@onready var shot: AudioStreamPlayer2D = $shot
+export var missile : PackedScene
+onready var shot: AudioStreamPlayer2D = $shot
 
 func _Update(_delta) -> void:
 	process_gravity(_delta)
@@ -29,6 +29,6 @@ func fire_missile(speed:float) -> void:
 	shot.play_rp(0.03,0.85)
 	var p = instantiate_projectile(missile)
 	p.global_position += Vector2(55 * character.get_facing_direction(),0)
-	Tools.tween_method(Callable(p, "set_vertical_speed"), 0.0, -100.0, 1.0)
-	Tools.tween_method(Callable(p, "set_horizontal_speed"), s, 0.0, 1.0)
+	Tools.tween_method(p,"set_vertical_speed",0.0,-100.0,1.0)
+	Tools.tween_method(p,"set_horizontal_speed",s,0.0,1.0)
 

@@ -1,11 +1,11 @@
-extends AnimatedSprite2D
+extends AnimatedSprite
 
-@onready var level_preview: Sprite2D = $level_preview
-@onready var tween := TweenController.new(self,false)
-@onready var final_position := position
-@export var buttons : NodePath
-@export var map : NodePath
-@onready var o_map_position = get_node(map).global_position
+onready var level_preview: Sprite = $level_preview
+onready var tween := TweenController.new(self,false)
+onready var final_position := position
+export var buttons : NodePath
+export var map : NodePath
+onready var o_map_position = get_node(map).global_position
 var exceptions := ["JakobElevator","Gateway","SigmaPalace"]
 
 func _input(event: InputEvent) -> void:
@@ -15,9 +15,9 @@ func _input(event: InputEvent) -> void:
 func connect_with_buttons():
 	for child in get_node(buttons).get_children():
 		if child.has_signal("stage_selected"):
-			child.connect("stage_selected", Callable(self, "on_stage_selected"))
+			child.connect("stage_selected",self,"on_stage_selected")
 		else:
-			child.connect("focus_entered", Callable(self, "hide"))
+			child.connect("focus_entered",self,"hide")
 
 func on_stage_selected(info:StageInfo):
 	if info.get_load_name() in exceptions:

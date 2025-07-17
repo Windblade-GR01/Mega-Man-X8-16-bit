@@ -1,17 +1,17 @@
 extends Label
 class_name DialogBox
-@onready var letter_sound : AudioStreamPlayer = $audioStreamPlayer
-@onready var portrait_1: AnimatedSprite2D = $Portrait1
-@onready var portrait_2: AnimatedSprite2D = $Portrait2
-@onready var bg: Sprite2D = $BG
-@onready var next_dialogue: AnimatedSprite2D = $next_dialogue
-@onready var portrait_side: Label = $portrait_side
+onready var letter_sound : AudioStreamPlayer = $audioStreamPlayer
+onready var portrait_1: AnimatedSprite = $Portrait1
+onready var portrait_2: AnimatedSprite = $Portrait2
+onready var bg: Sprite = $BG
+onready var next_dialogue: AnimatedSprite = $next_dialogue
+onready var portrait_side: Label = $portrait_side
 
-@export var debug_messages := true
-@export var debug_force_start := false
-@export var dialog_tree : Resource
-@export var emit_capsule_signal := true
-@export var resume_character_inputs := true
+export var debug_messages := true
+export var debug_force_start := false
+export var dialog_tree : Resource
+export var emit_capsule_signal := true
+export var resume_character_inputs := true
 var dialog_step := 0
 var total_steps := 0
 var timer := 0.0001
@@ -105,16 +105,16 @@ func increase_step() -> void:
 
 func setup_character(step) -> void:
 	portrait_1.frames = step.portrait_animations
-	material.set_shader_parameter("palette", step.text_palette)
+	material.set_shader_param("palette", step.text_palette)
 	letter_sound.pitch_scale = step.audio_pitch
 	if step.name == "MegaMan X":
 		portrait_1.position.x = portrait_position_1
-		portrait_side.offset_left = 36
-		portrait_side.offset_right = 176
+		portrait_side.margin_left = 36
+		portrait_side.margin_right = 176
 	else:
 		portrait_1.position.x = portrait_position_2
-		portrait_side.offset_left = 0
-		portrait_side.offset_right = 141
+		portrait_side.margin_left = 0
+		portrait_side.margin_right = 141
 	character = step.name
 	debug_print("Loaded Character: " + character)
 

@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://bsbrhno4cxdhq"
-path="res://.godot/imported/12 - MMX - X Life Gain.wav-46b76aff380b0b3ce5bcee6afd1232f6.sample"
+type="AudioStreamSample"
+path="res://.import/12 - MMX - X Life Gain.wav-46b76aff380b0b3ce5bcee6afd1232f6.sample"
 
 [deps]
 
 source_file="res://src/Sounds/12 - MMX - X Life Gain.wav"
-dest_files=["res://.godot/imported/12 - MMX - X Life Gain.wav-46b76aff380b0b3ce5bcee6afd1232f6.sample"]
+dest_files=[ "res://.import/12 - MMX - X Life Gain.wav-46b76aff380b0b3ce5bcee6afd1232f6.sample" ]
 
 [params]
 

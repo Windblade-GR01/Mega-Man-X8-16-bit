@@ -1,6 +1,6 @@
 extends "res://src/Actors/Bosses/BossStun.gd"
 
-@export var after_animation := "idle"
+export var after_animation := "idle"
 
 func _EndCondition() -> bool:
 	return timer > 0.45

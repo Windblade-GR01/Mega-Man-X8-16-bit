@@ -5,7 +5,7 @@
 
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PackedVector2Array( -0.813698, -48.829, 0.813698, 48.829, 16, -198, -0.295443, -20.086, 0.295443, 20.086, 17, -36 )
+"points": PoolVector2Array( -0.813698, -48.829, 0.813698, 48.829, 16, -198, -0.295443, -20.086, 0.295443, 20.086, 17, -36 )
 }
 
 [sub_resource type="Animation" id=3]
@@ -13,14 +13,14 @@ resource_name = "New Anim"
 length = 8.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("pathFollow2D:progress_ratio")
+tracks/0/path = NodePath("pathFollow2D:unit_offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 4 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
 }
@@ -28,26 +28,26 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=4]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:progress_ratio")
+tracks/0/path = NodePath(".:unit_offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("pathFollow2D:progress_ratio")
+tracks/1/path = NodePath("pathFollow2D:unit_offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 1.0 ]
 }
@@ -75,7 +75,7 @@ playback_process_mode = 0
 "anims/New Anim" = SubResource( 3 )
 anims/RESET = SubResource( 4 )
 
-[node name="kinematicBody2D" type="CharacterBody2D" parent="."]
+[node name="kinematicBody2D" type="KinematicBody2D" parent="."]
 position = Vector2( 16, -198 )
 collision_mask = 0
 motion/sync_to_physics = true
@@ -83,7 +83,7 @@ motion/sync_to_physics = true
 [node name="collisionShape2D" type="CollisionShape2D" parent="kinematicBody2D"]
 shape = SubResource( 1 )
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="kinematicBody2D"]
+[node name="animatedSprite" type="AnimatedSprite" parent="kinematicBody2D"]
 modulate = Color( 0, 0, 0, 1 )
 scale = Vector2( 4, 2.4375 )
 frames = ExtResource( 1 )

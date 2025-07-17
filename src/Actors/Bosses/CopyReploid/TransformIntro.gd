@@ -1,7 +1,7 @@
 extends AttackAbility
 
-@onready var tween := TweenController.new(self,false)
-@export var unique_start_time := 0.5
+onready var tween := TweenController.new(self,false)
+export var unique_start_time := 0.5
 #const preload("res://src/Actors/Bosses/CopyReploid/transform_reploid.res")
 func _ready() -> void:
 	connect_start_events()

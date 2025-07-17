@@ -11,36 +11,36 @@
 [ext_resource path="res://src/Sounds/56 - MMX - Enemy Death.wav" type="AudioStream" id=9]
 [ext_resource path="res://src/Sounds/18 - MMX - X Fade Out.wav" type="AudioStream" id=10]
 [ext_resource path="res://src/DialogSystem/Dialogs/Stages/Lumine_End_Dialogue2.tres" type="Resource" id=11]
-[ext_resource path="res://src/Levels/SigmaPalace/neutral_remains.png" type="Texture2D" id=12]
-[ext_resource path="res://src/Levels/SigmaPalace/sigmapalace_tileset.png" type="Texture2D" id=13]
+[ext_resource path="res://src/Levels/SigmaPalace/neutral_remains.png" type="Texture" id=12]
+[ext_resource path="res://src/Levels/SigmaPalace/sigmapalace_tileset.png" type="Texture" id=13]
 [ext_resource path="res://src/Levels/SigmaPalace/ArmorRemains.gd" type="Script" id=14]
-[ext_resource path="res://src/Effects/Textures/charge_1.png" type="Texture2D" id=15]
+[ext_resource path="res://src/Effects/Textures/charge_1.png" type="Texture" id=15]
 [ext_resource path="res://src/Actors/charge_shader.tres" type="Shader" id=16]
 [ext_resource path="res://src/Effects/Materials/Finalstage_introparticles.tres" type="Material" id=17]
 [ext_resource path="res://addons/PaletteSwap/PaletteSwap.gdshader" type="Shader" id=18]
-[ext_resource path="res://src/Levels/SigmaPalace/sigmapalace_skypalette.png" type="Texture2D" id=19]
-[ext_resource path="res://src/Levels/SigmaPalace/sigmapalace_nearbg1.png" type="Texture2D" id=20]
-[ext_resource path="res://src/Effects/Textures/long_smoke.png" type="Texture2D" id=21]
-[ext_resource path="res://src/Levels/SigmaPalace/sigmapalace_nearbg3.png" type="Texture2D" id=22]
-[ext_resource path="res://src/Levels/SigmaPalace/sigmapalace_nearbg2.png" type="Texture2D" id=23]
-[ext_resource path="res://src/Levels/SigmaPalace/sigmapalace_farbg.png" type="Texture2D" id=24]
+[ext_resource path="res://src/Levels/SigmaPalace/sigmapalace_skypalette.png" type="Texture" id=19]
+[ext_resource path="res://src/Levels/SigmaPalace/sigmapalace_nearbg1.png" type="Texture" id=20]
+[ext_resource path="res://src/Effects/Textures/long_smoke.png" type="Texture" id=21]
+[ext_resource path="res://src/Levels/SigmaPalace/sigmapalace_nearbg3.png" type="Texture" id=22]
+[ext_resource path="res://src/Levels/SigmaPalace/sigmapalace_nearbg2.png" type="Texture" id=23]
+[ext_resource path="res://src/Levels/SigmaPalace/sigmapalace_farbg.png" type="Texture" id=24]
 [ext_resource path="res://src/Levels/SigmaPalace/FinalCutscene.gd" type="Script" id=25]
 [ext_resource path="res://src/Sounds/OST - Ending - Intro.ogg" type="AudioStream" id=26]
 [ext_resource path="res://src/Actors/Weapons/Projectiles/heavy_shot.res" type="SpriteFrames" id=27]
 [ext_resource path="res://src/Actors/Bosses/SatanSigma/flash.gd" type="Script" id=28]
-[ext_resource path="res://src/Levels/PitchBlack/light.png" type="Texture2D" id=29]
+[ext_resource path="res://src/Levels/PitchBlack/light.png" type="Texture" id=29]
 [ext_resource path="res://src/Effects/enemy_shader.tres" type="Shader" id=30]
 [ext_resource path="res://src/Effects/Materials/lumine_remains.tres" type="Material" id=31]
 [ext_resource path="res://src/Effects/Materials/RemainsMat.tres" type="Material" id=32]
-[ext_resource path="res://src/Effects/Textures/blue_explosion.png" type="Texture2D" id=33]
+[ext_resource path="res://src/Effects/Textures/blue_explosion.png" type="Texture" id=33]
 [ext_resource path="res://src/Effects/Materials/roster_expos_mat.tres" type="Material" id=34]
-[ext_resource path="res://src/Effects/Textures/remains_lumine.png" type="Texture2D" id=35]
-[ext_resource path="res://src/Effects/Textures/charge_2.png" type="Texture2D" id=36]
+[ext_resource path="res://src/Effects/Textures/remains_lumine.png" type="Texture" id=35]
+[ext_resource path="res://src/Effects/Textures/charge_2.png" type="Texture" id=36]
 [ext_resource path="res://src/Effects/Materials/buster_charged_particles.tres" type="Material" id=37]
-[ext_resource path="res://src/Effects/Textures/follow_shot.png" type="Texture2D" id=38]
+[ext_resource path="res://src/Effects/Textures/follow_shot.png" type="Texture" id=38]
 [ext_resource path="res://src/Levels/music_player.gd" type="Script" id=39]
 [ext_resource path="res://src/Sounds/OST - Ending - Loop.ogg" type="AudioStream" id=40]
-[ext_resource path="res://src/Effects/Textures/smoke.png" type="Texture2D" id=41]
+[ext_resource path="res://src/Effects/Textures/smoke.png" type="Texture" id=41]
 [ext_resource path="res://src/Sounds/OST - Capsule.ogg" type="AudioStream" id=42]
 [ext_resource path="res://src/Sounds/OST - TrueSigma - Loop.ogg" type="AudioStream" id=43]
 [ext_resource path="res://src/Sounds/OST - Vile - Loop.ogg" type="AudioStream" id=44]
@@ -49,10 +49,10 @@
 [ext_resource path="res://src/Sounds/OST - AngryBoss - Loop.ogg" type="AudioStream" id=47]
 [ext_resource path="res://src/Effects/Materials/mecha_smokes.tres" type="Material" id=48]
 [ext_resource path="res://src/Effects/Materials/mat_smokeparticle.tres" type="Material" id=49]
-[ext_resource path="res://src/Effects/Textures/wallwave.png" type="Texture2D" id=50]
-[ext_resource path="res://src/Effects/Textures/burnt_floor.png" type="Texture2D" id=51]
-[ext_resource path="res://src/Effects/Textures/intro_fire2.png" type="Texture2D" id=52]
-[ext_resource path="res://src/Effects/Textures/intro_fire1.png" type="Texture2D" id=53]
+[ext_resource path="res://src/Effects/Textures/wallwave.png" type="Texture" id=50]
+[ext_resource path="res://src/Effects/Textures/burnt_floor.png" type="Texture" id=51]
+[ext_resource path="res://src/Effects/Textures/intro_fire2.png" type="Texture" id=52]
+[ext_resource path="res://src/Effects/Textures/intro_fire1.png" type="Texture" id=53]
 [ext_resource path="res://src/Effects/Materials/intro_fire_particles.tres" type="Material" id=54]
 [ext_resource path="res://src/Sounds/SFX - Ambientfire.wav" type="AudioStream" id=55]
 
@@ -65,7 +65,7 @@ shader_param/Darken = 1.0
 shader_param/Alpha = 1.0
 shader_param/Alpha_Blink = 0.0
 
-[sub_resource type="ParticleProcessMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=5]
 emission_shape = 1
 emission_sphere_radius = 24.0
 flag_disable_z = true
@@ -14687,23 +14687,23 @@ song_loop = ExtResource( 40 )
 text_second_dialog = ExtResource( 11 )
 
 [node name="DialogBox" parent="." instance=ExtResource( 2 )]
-offset_left = 108.0
-offset_top = 35.0
-offset_right = 299.0
-offset_bottom = 102.0
+margin_left = 108.0
+margin_top = 35.0
+margin_right = 299.0
+margin_bottom = 102.0
 text = ""
 dialog_tree = ExtResource( 1 )
 resume_character_inputs = false
 
-[node name="Lumine" type="AnimatedSprite2D" parent="."]
+[node name="Lumine" type="AnimatedSprite" parent="."]
 material = SubResource( 4 )
 position = Vector2( 246, 188 )
 z_index = 2
 frames = ExtResource( 3 )
 animation = "dead"
 
-[node name="flash" type="Sprite2D" parent="Lumine"]
-process_mode = 3
+[node name="flash" type="Sprite" parent="Lumine"]
+pause_mode = 2
 visible = false
 scale = Vector2( 10, 5 )
 z_index = -1
@@ -14714,7 +14714,7 @@ initial_scale = 15.0
 final_color = Color( 0.282353, 0.0588235, 0.501961, 1 )
 duration = 0.1
 
-[node name="explosions" type="GPUParticles2D" parent="Lumine"]
+[node name="explosions" type="Particles2D" parent="Lumine"]
 material = ExtResource( 34 )
 position = Vector2( 3, 3 )
 emitting = false
@@ -14723,7 +14723,7 @@ lifetime = 0.7
 process_material = SubResource( 5 )
 texture = ExtResource( 33 )
 
-[node name="remains_particles" type="GPUParticles2D" parent="Lumine"]
+[node name="remains_particles" type="Particles2D" parent="Lumine"]
 material = ExtResource( 32 )
 position = Vector2( 13, -8 )
 z_index = 1
@@ -14737,7 +14737,7 @@ process_material = ExtResource( 31 )
 texture = ExtResource( 35 )
 
 [node name="explode" type="AudioStreamPlayer2D" parent="Lumine"]
-process_mode = 3
+pause_mode = 2
 stream = ExtResource( 5 )
 volume_db = -3.0
 pitch_scale = 0.75
@@ -14745,7 +14745,7 @@ max_distance = 600.0
 bus = "SFX"
 
 [node name="explode2" type="AudioStreamPlayer2D" parent="Lumine"]
-process_mode = 3
+pause_mode = 2
 stream = ExtResource( 9 )
 volume_db = -9.0
 pitch_scale = 1.1
@@ -14753,7 +14753,7 @@ max_distance = 600.0
 bus = "SFX"
 script = ExtResource( 4 )
 
-[node name="shockwave" type="Sprite2D" parent="Lumine"]
+[node name="shockwave" type="Sprite" parent="Lumine"]
 visible = false
 modulate = Color( 1, 1, 1, 0.533333 )
 position = Vector2( 2, 22 )
@@ -14761,14 +14761,14 @@ rotation = 1.5708
 scale = Vector2( 0.167, 1 )
 texture = ExtResource( 50 )
 
-[node name="burnt_floor" type="Sprite2D" parent="Lumine"]
+[node name="burnt_floor" type="Sprite" parent="Lumine"]
 visible = false
 self_modulate = Color( 1, 1, 1, 0.694118 )
 position = Vector2( 16, 20 )
 z_index = -1
 texture = ExtResource( 51 )
 
-[node name="smoke2" type="GPUParticles2D" parent="Lumine/burnt_floor"]
+[node name="smoke2" type="Particles2D" parent="Lumine/burnt_floor"]
 modulate = Color( 0.556863, 0.556863, 0.556863, 0.819608 )
 material = ExtResource( 49 )
 position = Vector2( -11, -2 )
@@ -14777,7 +14777,7 @@ local_coords = false
 process_material = ExtResource( 48 )
 texture = ExtResource( 41 )
 
-[node name="ChargeShot" type="AnimatedSprite2D" parent="."]
+[node name="ChargeShot" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( 163, 191 )
 z_index = 1
@@ -14787,7 +14787,7 @@ frame = 1
 playing = true
 
 [node name="shot" type="AudioStreamPlayer2D" parent="ChargeShot"]
-process_mode = 3
+pause_mode = 2
 stream = ExtResource( 6 )
 volume_db = -6.0
 pitch_scale = 0.41
@@ -14795,7 +14795,7 @@ max_distance = 600.0
 bus = "SFX"
 script = ExtResource( 4 )
 
-[node name="particles2D" type="GPUParticles2D" parent="ChargeShot"]
+[node name="particles2D" type="Particles2D" parent="ChargeShot"]
 material = SubResource( 39 )
 position = Vector2( -8, 0 )
 amount = 12
@@ -14804,7 +14804,7 @@ local_coords = false
 process_material = ExtResource( 37 )
 texture = ExtResource( 38 )
 
-[node name="X" type="AnimatedSprite2D" parent="."]
+[node name="X" type="AnimatedSprite" parent="."]
 material = SubResource( 3 )
 position = Vector2( 149, 189 )
 z_index = 1
@@ -14825,7 +14825,7 @@ volume_db = -10.0
 max_distance = 600.0
 bus = "SFX"
 
-[node name="ChargeVFX" type="AnimatedSprite2D" parent="X"]
+[node name="ChargeVFX" type="AnimatedSprite" parent="X"]
 visible = false
 position = Vector2( 2, 2 )
 frames = SubResource( 38 )
@@ -14833,7 +14833,7 @@ frame = 9
 playing = true
 
 [node name="shot" type="AudioStreamPlayer2D" parent="X"]
-process_mode = 3
+pause_mode = 2
 stream = ExtResource( 6 )
 volume_db = -11.0
 pitch_scale = 0.41
@@ -14849,7 +14849,7 @@ cell_size = Vector2( 16, 16 )
 cell_tile_origin = 2
 compatibility_mode = true
 format = 1
-tile_data = PackedInt32Array( 131093, 753, 0, 131094, 754, 0, 131095, 755, 0, 196629, 785, 0, 196630, 786, 0, 196631, 787, 0, 262144, 487, 0, 262145, 881, 0, 262146, 882, 0, 262147, 883, 0, 262148, 491, 0, 262164, 487, 0, 262165, 817, 0, 262166, 818, 0, 262167, 819, 0, 262168, 491, 0, 327680, 519, 0, 327681, 913, 0, 327682, 914, 0, 327683, 915, 0, 327684, 523, 0, 327700, 519, 0, 327701, 849, 0, 327702, 850, 0, 327703, 851, 0, 327704, 523, 0, 393216, 583, 0, 393217, 945, 0, 393218, 946, 0, 393219, 947, 0, 393220, 587, 0, 393236, 583, 0, 393237, 584, 0, 393238, 585, 0, 393239, 586, 0, 393240, 587, 0, 458752, 583, 0, 458753, 977, 0, 458754, 978, 0, 458755, 979, 0, 458756, 587, 0, 458772, 583, 0, 458773, 584, 0, 458774, 585, 0, 458775, 586, 0, 458776, 587, 0, 524288, 615, 0, 524289, 616, 0, 524290, 617, 0, 524291, 618, 0, 524292, 619, 0, 524308, 615, 0, 524309, 616, 0, 524310, 617, 0, 524311, 618, 0, 524312, 619, 0, 589824, 647, 0, 589825, 648, 0, 589826, 649, 0, 589827, 650, 0, 589828, 651, 0, 589844, 647, 0, 589845, 648, 0, 589846, 649, 0, 589847, 650, 0, 589848, 651, 0, 655360, 679, 0, 655361, 680, 0, 655362, 681, 0, 655363, 682, 0, 655364, 683, 0, 655380, 679, 0, 655381, 680, 0, 655382, 681, 0, 655383, 682, 0, 655384, 683, 0, 720896, 711, 0, 720897, 712, 0, 720898, 713, 0, 720899, 714, 0, 720900, 715, 0, 720916, 711, 0, 720917, 712, 0, 720918, 713, 0, 720919, 714, 0, 720920, 715, 0, 786432, 743, 0, 786433, 744, 0, 786434, 745, 0, 786435, 746, 0, 786436, 747, 0, 786452, 743, 0, 786453, 744, 0, 786454, 745, 0, 786455, 746, 0, 786456, 747, 0, 851968, 807, 0, 851969, 808, 0, 851970, 809, 0, 851971, 810, 0, 851972, 811, 0, 851988, 807, 0, 851989, 808, 0, 851990, 809, 0, 851991, 810, 0, 851992, 811, 0 )
+tile_data = PoolIntArray( 131093, 753, 0, 131094, 754, 0, 131095, 755, 0, 196629, 785, 0, 196630, 786, 0, 196631, 787, 0, 262144, 487, 0, 262145, 881, 0, 262146, 882, 0, 262147, 883, 0, 262148, 491, 0, 262164, 487, 0, 262165, 817, 0, 262166, 818, 0, 262167, 819, 0, 262168, 491, 0, 327680, 519, 0, 327681, 913, 0, 327682, 914, 0, 327683, 915, 0, 327684, 523, 0, 327700, 519, 0, 327701, 849, 0, 327702, 850, 0, 327703, 851, 0, 327704, 523, 0, 393216, 583, 0, 393217, 945, 0, 393218, 946, 0, 393219, 947, 0, 393220, 587, 0, 393236, 583, 0, 393237, 584, 0, 393238, 585, 0, 393239, 586, 0, 393240, 587, 0, 458752, 583, 0, 458753, 977, 0, 458754, 978, 0, 458755, 979, 0, 458756, 587, 0, 458772, 583, 0, 458773, 584, 0, 458774, 585, 0, 458775, 586, 0, 458776, 587, 0, 524288, 615, 0, 524289, 616, 0, 524290, 617, 0, 524291, 618, 0, 524292, 619, 0, 524308, 615, 0, 524309, 616, 0, 524310, 617, 0, 524311, 618, 0, 524312, 619, 0, 589824, 647, 0, 589825, 648, 0, 589826, 649, 0, 589827, 650, 0, 589828, 651, 0, 589844, 647, 0, 589845, 648, 0, 589846, 649, 0, 589847, 650, 0, 589848, 651, 0, 655360, 679, 0, 655361, 680, 0, 655362, 681, 0, 655363, 682, 0, 655364, 683, 0, 655380, 679, 0, 655381, 680, 0, 655382, 681, 0, 655383, 682, 0, 655384, 683, 0, 720896, 711, 0, 720897, 712, 0, 720898, 713, 0, 720899, 714, 0, 720900, 715, 0, 720916, 711, 0, 720917, 712, 0, 720918, 713, 0, 720919, 714, 0, 720920, 715, 0, 786432, 743, 0, 786433, 744, 0, 786434, 745, 0, 786435, 746, 0, 786436, 747, 0, 786452, 743, 0, 786453, 744, 0, 786454, 745, 0, 786455, 746, 0, 786456, 747, 0, 851968, 807, 0, 851969, 808, 0, 851970, 809, 0, 851971, 810, 0, 851972, 811, 0, 851988, 807, 0, 851989, 808, 0, 851990, 809, 0, 851991, 810, 0, 851992, 811, 0 )
 
 [node name="BackgroundDetails" type="TileMap" parent="final_cutscene"]
 tile_set = SubResource( 1 )
@@ -14857,7 +14857,7 @@ cell_size = Vector2( 16, 16 )
 cell_tile_origin = 2
 compatibility_mode = true
 format = 1
-tile_data = PackedInt32Array( 655363, 918, 0, 655383, 918, 0, 720897, 1073742774, 0, 720899, 950, 0, 720917, 918, 0, 720919, 950, 0, 786433, 1073742742, 0, 786453, 950, 0, 851969, 536871862, 0, 851971, 949, 0, 851989, 536871862, 0, 851991, 949, 0 )
+tile_data = PoolIntArray( 655363, 918, 0, 655383, 918, 0, 720897, 1073742774, 0, 720899, 950, 0, 720917, 918, 0, 720919, 950, 0, 786433, 1073742742, 0, 786453, 950, 0, 851969, 536871862, 0, 851971, 949, 0, 851989, 536871862, 0, 851991, 949, 0 )
 
 [node name="Main" type="TileMap" parent="final_cutscene"]
 modulate = Color( 0.733333, 0.733333, 0.733333, 1 )
@@ -14866,9 +14866,9 @@ cell_size = Vector2( 16, 16 )
 cell_tile_origin = 2
 compatibility_mode = true
 format = 1
-tile_data = PackedInt32Array( 851968, 2, 0, 851969, 3, 0, 851970, 4, 0, 851971, 5, 0, 851972, 6, 0, 851973, 14, 0, 851974, 536870926, 0, 851975, 2, 0, 851976, 3, 0, 851977, 4, 0, 851978, 5, 0, 851979, 6, 0, 851980, 536870926, 0, 851981, 2, 0, 851982, 3, 0, 851983, 4, 0, 851984, 5, 0, 851985, 6, 0, 851986, 14, 0, 851987, 536870926, 0, 851988, 2, 0, 851989, 3, 0, 851990, 4, 0, 851991, 5, 0, 851992, 6, 0, 917504, 34, 0, 917505, 35, 0, 917506, 36, 0, 917507, 37, 0, 917508, 38, 0, 917509, 46, 0, 917510, 536870958, 0, 917511, 34, 0, 917512, 35, 0, 917513, 36, 0, 917514, 37, 0, 917515, 38, 0, 917516, 536870958, 0, 917517, 34, 0, 917518, 35, 0, 917519, 36, 0, 917520, 37, 0, 917521, 38, 0, 917522, 46, 0, 917523, 536870958, 0, 917524, 34, 0, 917525, 35, 0, 917526, 36, 0, 917527, 37, 0, 917528, 38, 0, 983040, 98, 0, 983041, 99, 0, 983042, 100, 0, 983043, 101, 0, 983044, 102, 0, 983045, 536871022, 0, 983046, 110, 0, 983047, 98, 0, 983048, 99, 0, 983049, 100, 0, 983050, 101, 0, 983051, 102, 0, 983052, 1073741935, 0, 983053, 98, 0, 983054, 99, 0, 983055, 100, 0, 983056, 101, 0, 983057, 102, 0, 983058, 536871022, 0, 983059, 110, 0, 983060, 98, 0, 983061, 99, 0, 983062, 100, 0, 983063, 101, 0, 983064, 102, 0 )
+tile_data = PoolIntArray( 851968, 2, 0, 851969, 3, 0, 851970, 4, 0, 851971, 5, 0, 851972, 6, 0, 851973, 14, 0, 851974, 536870926, 0, 851975, 2, 0, 851976, 3, 0, 851977, 4, 0, 851978, 5, 0, 851979, 6, 0, 851980, 536870926, 0, 851981, 2, 0, 851982, 3, 0, 851983, 4, 0, 851984, 5, 0, 851985, 6, 0, 851986, 14, 0, 851987, 536870926, 0, 851988, 2, 0, 851989, 3, 0, 851990, 4, 0, 851991, 5, 0, 851992, 6, 0, 917504, 34, 0, 917505, 35, 0, 917506, 36, 0, 917507, 37, 0, 917508, 38, 0, 917509, 46, 0, 917510, 536870958, 0, 917511, 34, 0, 917512, 35, 0, 917513, 36, 0, 917514, 37, 0, 917515, 38, 0, 917516, 536870958, 0, 917517, 34, 0, 917518, 35, 0, 917519, 36, 0, 917520, 37, 0, 917521, 38, 0, 917522, 46, 0, 917523, 536870958, 0, 917524, 34, 0, 917525, 35, 0, 917526, 36, 0, 917527, 37, 0, 917528, 38, 0, 983040, 98, 0, 983041, 99, 0, 983042, 100, 0, 983043, 101, 0, 983044, 102, 0, 983045, 536871022, 0, 983046, 110, 0, 983047, 98, 0, 983048, 99, 0, 983049, 100, 0, 983050, 101, 0, 983051, 102, 0, 983052, 1073741935, 0, 983053, 98, 0, 983054, 99, 0, 983055, 100, 0, 983056, 101, 0, 983057, 102, 0, 983058, 536871022, 0, 983059, 110, 0, 983060, 98, 0, 983061, 99, 0, 983062, 100, 0, 983063, 101, 0, 983064, 102, 0 )
 
-[node name="smoke" type="GPUParticles2D" parent="final_cutscene"]
+[node name="smoke" type="Particles2D" parent="final_cutscene"]
 modulate = Color( 0.662745, 0.662745, 0.662745, 1 )
 material = ExtResource( 49 )
 position = Vector2( 37, 81 )
@@ -14878,7 +14878,7 @@ local_coords = false
 process_material = ExtResource( 48 )
 texture = ExtResource( 41 )
 
-[node name="smoke4" type="GPUParticles2D" parent="final_cutscene"]
+[node name="smoke4" type="Particles2D" parent="final_cutscene"]
 modulate = Color( 0.713726, 0.713726, 0.713726, 1 )
 material = ExtResource( 49 )
 position = Vector2( 374, 218 )
@@ -14888,7 +14888,7 @@ local_coords = false
 process_material = ExtResource( 48 )
 texture = ExtResource( 41 )
 
-[node name="smoke2" type="GPUParticles2D" parent="final_cutscene"]
+[node name="smoke2" type="Particles2D" parent="final_cutscene"]
 modulate = Color( 0.556863, 0.556863, 0.556863, 1 )
 material = ExtResource( 49 )
 position = Vector2( 84, 240 )
@@ -14897,7 +14897,7 @@ local_coords = false
 process_material = ExtResource( 48 )
 texture = ExtResource( 41 )
 
-[node name="smoke3" type="GPUParticles2D" parent="final_cutscene"]
+[node name="smoke3" type="Particles2D" parent="final_cutscene"]
 modulate = Color( 0.556863, 0.556863, 0.556863, 1 )
 material = ExtResource( 49 )
 position = Vector2( 333, 170 )
@@ -14906,7 +14906,7 @@ local_coords = false
 process_material = ExtResource( 48 )
 texture = ExtResource( 41 )
 
-[node name="screencover" type="Sprite2D" parent="."]
+[node name="screencover" type="Sprite" parent="."]
 visible = false
 material = SubResource( 40 )
 position = Vector2( 197, 120 )
@@ -14922,7 +14922,7 @@ z_index = 256
 motion_scale = Vector2( 1.15, 1.15 )
 motion_mirroring = Vector2( 632, 320 )
 
-[node name="particles2D" type="GPUParticles2D" parent="parallaxBackground2/foreground"]
+[node name="particles2D" type="Particles2D" parent="parallaxBackground2/foreground"]
 modulate = Color( 0.694118, 0.52549, 0.713726, 0.27451 )
 position = Vector2( 303, 127 )
 z_index = 2
@@ -14931,7 +14931,7 @@ lifetime = 20.0
 process_material = ExtResource( 17 )
 texture = ExtResource( 21 )
 
-[node name="particles2D2" type="GPUParticles2D" parent="parallaxBackground2/foreground"]
+[node name="particles2D2" type="Particles2D" parent="parallaxBackground2/foreground"]
 modulate = Color( 0.694118, 0.52549, 0.713726, 0.27451 )
 position = Vector2( 57, 127 )
 z_index = 2
@@ -14948,7 +14948,7 @@ motion_scale = Vector2( 0.025, 0.01 )
 motion_offset = Vector2( -138, -100 )
 motion_mirroring = Vector2( 800, 640 )
 
-[node name="sprite2" type="Sprite2D" parent="parallaxBackground/farthest"]
+[node name="sprite2" type="Sprite" parent="parallaxBackground/farthest"]
 material = SubResource( 2 )
 position = Vector2( -48, 0 )
 texture = ExtResource( 24 )
@@ -14961,7 +14961,7 @@ motion_scale = Vector2( 0.05, 0.025 )
 motion_offset = Vector2( 0, 210 )
 motion_mirroring = Vector2( 400, 0 )
 
-[node name="sprite" type="Sprite2D" parent="parallaxBackground/near"]
+[node name="sprite" type="Sprite" parent="parallaxBackground/near"]
 position = Vector2( 24, 332 )
 texture = ExtResource( 20 )
 offset = Vector2( 176, 0 )
@@ -14976,7 +14976,7 @@ motion_scale = Vector2( 0.1, 0.047 )
 motion_offset = Vector2( 0, 48 )
 motion_mirroring = Vector2( 400, 0 )
 
-[node name="sprite" type="Sprite2D" parent="parallaxBackground/near2"]
+[node name="sprite" type="Sprite" parent="parallaxBackground/near2"]
 position = Vector2( 24, 128 )
 texture = ExtResource( 23 )
 offset = Vector2( 176, 0 )
@@ -14991,7 +14991,7 @@ motion_scale = Vector2( 0.2, 0.1 )
 motion_offset = Vector2( 0, 48 )
 motion_mirroring = Vector2( 400, 0 )
 
-[node name="sprite" type="Sprite2D" parent="parallaxBackground/near3"]
+[node name="sprite" type="Sprite" parent="parallaxBackground/near3"]
 position = Vector2( 24, 128 )
 texture = ExtResource( 22 )
 offset = Vector2( 176, 0 )
@@ -14999,7 +14999,7 @@ flip_h = true
 region_enabled = true
 region_rect = Rect2( 0, 0, 400, 256 )
 
-[node name="ArmorRemains" type="Sprite2D" parent="."]
+[node name="ArmorRemains" type="Sprite" parent="."]
 position = Vector2( 154, 206 )
 z_index = 2
 texture = ExtResource( 12 )
@@ -15007,7 +15007,7 @@ flip_h = true
 script = ExtResource( 14 )
 
 [node name="Music Player" type="AudioStreamPlayer" parent="."]
-process_mode = 3
+pause_mode = 2
 bus = "Music"
 script = ExtResource( 39 )
 debug_logs = true
@@ -15020,7 +15020,7 @@ miniboss_intro = ExtResource( 45 )
 miniboss_song = ExtResource( 44 )
 play_angry_boss_theme = false
 
-[node name="fire" type="AnimatedSprite2D" parent="."]
+[node name="fire" type="AnimatedSprite" parent="."]
 modulate = Color( 1, 1, 1, 0.4 )
 position = Vector2( 333, 146 )
 z_index = -2
@@ -15028,14 +15028,14 @@ frames = SubResource( 49 )
 frame = 3
 playing = true
 
-[node name="fire2" type="AnimatedSprite2D" parent="."]
+[node name="fire2" type="AnimatedSprite" parent="."]
 modulate = Color( 1, 1, 1, 0.619608 )
 position = Vector2( 365, 20 )
 z_index = -1
 frames = SubResource( 49 )
 playing = true
 
-[node name="fire3" type="AnimatedSprite2D" parent="."]
+[node name="fire3" type="AnimatedSprite" parent="."]
 modulate = Color( 1, 1, 1, 0.529412 )
 position = Vector2( 16, 189 )
 z_index = 4
@@ -15044,7 +15044,7 @@ frame = 2
 playing = true
 flip_h = true
 
-[node name="small_fire" type="AnimatedSprite2D" parent="."]
+[node name="small_fire" type="AnimatedSprite" parent="."]
 modulate = Color( 1, 1, 1, 0.686275 )
 position = Vector2( 21, 144 )
 z_index = 2
@@ -15052,7 +15052,7 @@ frames = SubResource( 58 )
 frame = 4
 playing = true
 
-[node name="small_fire3" type="AnimatedSprite2D" parent="."]
+[node name="small_fire3" type="AnimatedSprite" parent="."]
 modulate = Color( 1, 1, 1, 0.423529 )
 position = Vector2( 49, 73 )
 frames = SubResource( 58 )
@@ -15060,7 +15060,7 @@ frame = 4
 playing = true
 flip_h = true
 
-[node name="small_fire2" type="AnimatedSprite2D" parent="."]
+[node name="small_fire2" type="AnimatedSprite" parent="."]
 modulate = Color( 1, 1, 1, 0.529412 )
 position = Vector2( 362, 200 )
 z_index = 4
@@ -15069,7 +15069,7 @@ frame = 7
 playing = true
 flip_h = true
 
-[node name="particles" type="GPUParticles2D" parent="."]
+[node name="particles" type="Particles2D" parent="."]
 position = Vector2( 306, 208 )
 z_index = -2
 lifetime = 2.5
@@ -15077,7 +15077,7 @@ visibility_rect = Rect2( -250, -100, 500, 200 )
 local_coords = false
 process_material = ExtResource( 54 )
 
-[node name="particles2" type="GPUParticles2D" parent="."]
+[node name="particles2" type="Particles2D" parent="."]
 position = Vector2( 76, 208 )
 z_index = -2
 lifetime = 2.5

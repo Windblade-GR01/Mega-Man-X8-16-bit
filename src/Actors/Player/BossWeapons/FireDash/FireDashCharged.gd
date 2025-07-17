@@ -1,12 +1,12 @@
 extends FireDash
-@onready var wall_check_right: RayCast2D = $wallCheck_right
-@onready var wall_check_left: RayCast2D = $wallCheck_left
-@onready var wall_check_down: RayCast2D = $wallCheck_down
-@onready var wall_check_up: RayCast2D = $wallCheck_up
-@onready var wallchecks = [wall_check_right, wall_check_left, wall_check_down, wall_check_up]
-@onready var fire: GPUParticles2D = $Fire
-@onready var explosion: GPUParticles2D = $Explosion
-@onready var wallhit: AudioStreamPlayer2D = $wallhit
+onready var wall_check_right: RayCast2D = $wallCheck_right
+onready var wall_check_left: RayCast2D = $wallCheck_left
+onready var wall_check_down: RayCast2D = $wallCheck_down
+onready var wall_check_up: RayCast2D = $wallCheck_up
+onready var wallchecks = [wall_check_right, wall_check_left, wall_check_down, wall_check_up]
+onready var fire: Particles2D = $Fire
+onready var explosion: Particles2D = $Explosion
+onready var wallhit: AudioStreamPlayer2D = $wallhit
 
 signal wallhit(side)
 

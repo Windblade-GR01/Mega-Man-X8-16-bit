@@ -1,21 +1,21 @@
 extends CanvasLayer
 
-@export var initial_focus : NodePath
+export var initial_focus : NodePath
 
 signal lock_buttons
 signal unlock_buttons
 signal picked_stage
-@onready var choice: AudioStreamPlayer = $choice
-@onready var bg: Sprite2D = $"../bg"
-@onready var frame: Sprite2D = $"../frame"
-@onready var fader: ColorRect = $Fader
-@onready var pick: AudioStreamPlayer = $pick
-@onready var music: AudioStreamPlayer = $"../music"
+onready var choice: AudioStreamPlayer = $choice
+onready var bg: Sprite = $"../bg"
+onready var frame: Sprite = $"../frame"
+onready var fader: ColorRect = $Fader
+onready var pick: AudioStreamPlayer = $pick
+onready var music: AudioStreamPlayer = $"../music"
 
-@onready var jacob_elevator: TextureButton = $Menu/JacobElevator
-@onready var gateway: TextureButton = $Menu/Gateway
-@onready var sigma_palace: TextureButton = $Menu/SigmaPalace
-@onready var last_stages := [jacob_elevator,gateway,sigma_palace]
+onready var jacob_elevator: TextureButton = $Menu/JacobElevator
+onready var gateway: TextureButton = $Menu/Gateway
+onready var sigma_palace: TextureButton = $Menu/SigmaPalace
+onready var last_stages := [jacob_elevator,gateway,sigma_palace]
 
 const music_0_intro:= preload("res://src/Sounds/OST - Stage Select 1 - Intro.ogg")
 const music_0_loop := preload("res://src/Sounds/OST - Stage Select 1 - Loop.ogg")
@@ -79,10 +79,10 @@ func on_fadeout_finished(stage : StageInfo) -> void:
 func fade_out() -> void:
 	fader.color = Color(0,0,0,0)
 	fader.visible = true
-	Tools.tween(fader,"color",Color.BLACK,.5)
+	Tools.tween(fader,"color",Color.black,.5)
 	
 func fade_in() -> void:
-	fader.color = Color.BLACK
+	fader.color = Color.black
 	fader.visible = true
 	Tools.tween(fader,"color",Color(0,0,0,0),0.75)
 

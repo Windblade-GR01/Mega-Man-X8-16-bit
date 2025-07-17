@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://db1a61hxixno6"
-path="res://.godot/imported/60 - MMX - Enemy Missile Fire.wav-eecba9985cece633cf49feec2901ce41.sample"
+type="AudioStreamSample"
+path="res://.import/60 - MMX - Enemy Missile Fire.wav-eecba9985cece633cf49feec2901ce41.sample"
 
 [deps]
 
 source_file="res://src/Sounds/60 - MMX - Enemy Missile Fire.wav"
-dest_files=["res://.godot/imported/60 - MMX - Enemy Missile Fire.wav-eecba9985cece633cf49feec2901ce41.sample"]
+dest_files=[ "res://.import/60 - MMX - Enemy Missile Fire.wav-eecba9985cece633cf49feec2901ce41.sample" ]
 
 [params]
 

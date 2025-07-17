@@ -1,8 +1,8 @@
 extends Node
 class_name CameraMode
 
-@export var x_axis := true
-@onready var camera: Camera2D = $".."
+export var x_axis := true
+onready var camera: Camera2D = $".."
 
 func _ready() -> void:
 	camera.include_mode(self)

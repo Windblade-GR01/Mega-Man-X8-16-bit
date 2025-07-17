@@ -11,8 +11,8 @@
 [ext_resource path="res://src/Actors/Modules/Enemy/BossDeath.gd" type="Script" id=12]
 [ext_resource path="res://src/Actors/Modules/Enemy/BossDamage.gd" type="Script" id=13]
 [ext_resource path="res://src/Actors/Panda.gd" type="Script" id=21]
-[ext_resource path="res://src/Effects/Textures/blue_screen.png" type="Texture2D" id=23]
-[ext_resource path="res://src/Effects/Textures/blue_explosion.png" type="Texture2D" id=24]
+[ext_resource path="res://src/Effects/Textures/blue_screen.png" type="Texture" id=23]
+[ext_resource path="res://src/Effects/Textures/blue_explosion.png" type="Texture" id=24]
 [ext_resource path="res://src/Sounds/HIT_BOSS.wav" type="AudioStream" id=25]
 [ext_resource path="res://src/Effects/Materials/default_material.tres" type="Material" id=27]
 [ext_resource path="res://src/Sounds/BOSS_DEATH.wav" type="AudioStream" id=28]
@@ -31,7 +31,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=45]
 curve = SubResource( 10 )
 
-[sub_resource type="ParticleProcessMaterial" id=14]
+[sub_resource type="ParticlesMaterial" id=14]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 43.04
@@ -52,7 +52,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=46]
 curve = SubResource( 42 )
 
-[sub_resource type="ParticleProcessMaterial" id=44]
+[sub_resource type="ParticlesMaterial" id=44]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -64,7 +64,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 46 )
 
-[node name="BossName" type="CharacterBody2D" groups=["Bosses"]]
+[node name="BossName" type="KinematicBody2D" groups=["Bosses"]]
 z_index = 4
 collision_layer = 0
 script = ExtResource( 21 )
@@ -78,7 +78,7 @@ debug_logs = true
 position = Vector2( 0, 17 )
 shape = SubResource( 1 )
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 27 )
 frames = ExtResource( 7 )
 animation = "icestorm_loop"
@@ -95,7 +95,7 @@ input_pickable = false
 position = Vector2( 0, 21.25 )
 shape = SubResource( 2 )
 
-[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 visible = false
 position = Vector2( -6.5, 3.5 )
 scale = Vector2( 4.35, 4.25 )
@@ -111,7 +111,7 @@ conflicting_moves = [ "Anything" ]
 animation = "idle"
 
 [node name="BossDeath" type="Node2D" parent="."]
-process_mode = 3
+pause_mode = 2
 script = ExtResource( 12 )
 
 [node name="Explosion Particles" parent="BossDeath" instance=ExtResource( 10 )]
@@ -130,7 +130,7 @@ volume_db = -0.009
 max_distance = 900.0
 bus = "SFX"
 
-[node name="background_light" type="Sprite2D" parent="BossDeath"]
+[node name="background_light" type="Sprite" parent="BossDeath"]
 material = ExtResource( 30 )
 position = Vector2( 5.99998, 7.49999 )
 scale = Vector2( 100, 40 )
@@ -146,7 +146,7 @@ invulnerability_time = 0.1
 max_flash_time = 0.35
 
 [node name="audioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Damage"]
-process_mode = 3
+pause_mode = 2
 stream = ExtResource( 25 )
 max_distance = 600.0
 bus = "SFX"

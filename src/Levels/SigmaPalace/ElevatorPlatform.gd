@@ -1,8 +1,8 @@
-extends Sprite2D
+extends Sprite
 
 var timer := 0.0
-@onready var loop: AudioStreamPlayer2D = $loop
-@onready var tween := TweenController.new(self,false)
+onready var loop: AudioStreamPlayer2D = $loop
+onready var tween := TweenController.new(self,false)
 
 func _ready() -> void:
 	activate()

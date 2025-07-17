@@ -1,12 +1,12 @@
-extends Sprite2D
+extends Sprite
 
-@onready var tween := TweenController.new(self,false)
+onready var tween := TweenController.new(self,false)
 var active := false
-@export var initial_scale := Vector2(4,3)
-@export var final_color := Color.GREEN
-@export var interval := 0.21
-@export var max_flashes := -1
-@export var total_duration := 0.3
+export var initial_scale := Vector2(4,3)
+export var final_color := Color.green
+export var interval := 0.21
+export var max_flashes := -1
+export var total_duration := 0.3
 
 var current_flashes := 0
 
@@ -29,7 +29,7 @@ func flash():
 		current_flashes += 1
 		visible = true
 		scale = initial_scale
-		modulate = Color.WHITE
+		modulate = Color.white
 		self_modulate.a = 0.0
 		tween.attribute("scale",Vector2(.1,.05), total_duration/3*2)
 		tween.attribute("modulate",final_color,total_duration/3*2)

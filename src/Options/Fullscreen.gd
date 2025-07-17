@@ -22,7 +22,7 @@ func decrease_value() -> void: #override
 
 func set_fullscreen(value:bool) -> void:
 	Configurations.set("Fullscreen",value)
-	get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (value) else Window.MODE_WINDOWED
+	OS.window_fullscreen = value
 
 func get_fullscreen() -> bool:
 	if Configurations.get("Fullscreen"):

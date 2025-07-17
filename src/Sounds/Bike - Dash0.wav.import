@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://dyd1nqmh2hlpr"
-path="res://.godot/imported/Bike - Dash0.wav-7c9c38eb50a75487c269a384e13f181a.sample"
+type="AudioStreamSample"
+path="res://.import/Bike - Dash0.wav-7c9c38eb50a75487c269a384e13f181a.sample"
 
 [deps]
 
 source_file="res://src/Sounds/Bike - Dash0.wav"
-dest_files=["res://.godot/imported/Bike - Dash0.wav-7c9c38eb50a75487c269a384e13f181a.sample"]
+dest_files=[ "res://.import/Bike - Dash0.wav-7c9c38eb50a75487c269a384e13f181a.sample" ]
 
 [params]
 

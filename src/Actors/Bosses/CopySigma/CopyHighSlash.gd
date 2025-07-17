@@ -2,17 +2,17 @@ extends AttackAbility
 
 const travel_speed := 550.0
 const jump_speed := -500.0
-@onready var smoke_dash: GPUParticles2D = $"../smoke_dash"
-@onready var highslash: Node2D = $highslash
-@onready var lowslash: Node2D = $lowslash
-@onready var high: CollisionShape2D = $"../area2D/high"
-@onready var high2: CollisionShape2D = $"../area2D/high2"
-@onready var sword: AudioStreamPlayer2D = $"../sword"
-@onready var dash: AudioStreamPlayer2D = $dash
-@onready var slash: AudioStreamPlayer2D = $slash
-@onready var land: AudioStreamPlayer2D = $land
+onready var smoke_dash: Particles2D = $"../smoke_dash"
+onready var highslash: Node2D = $highslash
+onready var lowslash: Node2D = $lowslash
+onready var high: CollisionShape2D = $"../area2D/high"
+onready var high2: CollisionShape2D = $"../area2D/high2"
+onready var sword: AudioStreamPlayer2D = $"../sword"
+onready var dash: AudioStreamPlayer2D = $dash
+onready var slash: AudioStreamPlayer2D = $slash
+onready var land: AudioStreamPlayer2D = $land
 
-@export var projectile : PackedScene
+export var projectile : PackedScene
 
 func _Setup() -> void:
 	turn_and_face_player()
@@ -91,14 +91,14 @@ func _Update(_delta) -> void:
 		EndAbility()
 
 func _Interrupt() -> void:
-	super._Interrupt()
+	._Interrupt()
 	lowslash.deactivate()
 	highslash.deactivate()
 	smoke_dash.emitting = false
 	reset_collider()
 
 func turn_and_face_player():
-	super.turn_and_face_player()
+	.turn_and_face_player()
 	highslash.handle_direction()
 	lowslash.handle_direction()
 	

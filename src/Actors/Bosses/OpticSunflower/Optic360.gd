@@ -1,11 +1,11 @@
 extends Node2D
-@onready var line: Line2D = $animatedSprite/line
-@onready var collision: AnimatedSprite2D = $animatedSprite/collision
-@onready var ray: RayCast2D = $rayCast2D
-@onready var collider: CollisionShape2D = $DamageOnTouch/area2D/collisionShape2D
-@onready var damage_on_touch: Node2D = $DamageOnTouch
-@onready var animated_sprite: AnimatedSprite2D = $animatedSprite
-@onready var collision_noise: AudioStreamPlayer2D = $animatedSprite/collision/collision_noise
+onready var line: Line2D = $animatedSprite/line
+onready var collision: AnimatedSprite = $animatedSprite/collision
+onready var ray: RayCast2D = $rayCast2D
+onready var collider: CollisionShape2D = $DamageOnTouch/area2D/collisionShape2D
+onready var damage_on_touch: Node2D = $DamageOnTouch
+onready var animated_sprite: AnimatedSprite = $animatedSprite
+onready var collision_noise: AudioStreamPlayer2D = $animatedSprite/collision/collision_noise
 var rotation_order := Vector2(-90, 270.0)
 var duration := 5.0
 

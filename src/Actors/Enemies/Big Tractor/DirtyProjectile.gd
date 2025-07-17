@@ -1,11 +1,11 @@
 extends GenericProjectile
 class_name DirtProjectile
 
-@onready var hit_particle: Sprite2D = $"Hit Particle"
+onready var hit_particle: Sprite = $"Hit Particle"
 var hit_ground := false
-@onready var audio : AudioStreamPlayer2D = $audioStreamPlayer2D
+onready var audio : AudioStreamPlayer2D = $audioStreamPlayer2D
 
-@export var speed : Vector2
+export var speed : Vector2
 
 func _Setup() -> void:
 	set_horizontal_speed(speed.x * facing_direction)

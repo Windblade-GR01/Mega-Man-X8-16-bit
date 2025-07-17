@@ -1,7 +1,7 @@
 extends Node
 
-@export var active := false
-@export var blast_area : PackedScene
+export var active := false
+export var blast_area : PackedScene
 signal beep
 signal exploded
 var exploded := false
@@ -54,7 +54,7 @@ func _on_EnemyShield_shield_hit(_projectile) -> void:
 	activate()
 
 func create_blast_area(instance_position := get_parent().global_position):
-	var instance = blast_area.instantiate()
+	var instance = blast_area.instance()
 	get_tree().current_scene.add_child(instance,true)
 	instance.set_global_position(instance_position)
 

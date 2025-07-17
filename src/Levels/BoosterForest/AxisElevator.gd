@@ -1,19 +1,19 @@
 extends Node2D
 
-@export var max_variation := 120.0
-@export var speed := 50.0
+export var max_variation := 120.0
+export var speed := 50.0
 var weight := 0
-@onready var left_elevator: RigidBody2D = $Elevator
-@onready var right_elevator: RigidBody2D = $Elevator2
-@onready var tween := TweenController.new(self,false)
+onready var left_elevator: RigidBody2D = $Elevator
+onready var right_elevator: RigidBody2D = $Elevator2
+onready var tween := TweenController.new(self,false)
 
 
 func _ready() -> void:
 	var _s
-	_s = left_elevator.get_node("floor").connect("body_entered", Callable(self, "scale_weight").bind(-1))
-	_s = left_elevator.get_node("floor").connect("body_exited", Callable(self, "scale_weight").bind(+1))
-	_s = right_elevator.get_node("floor").connect("body_entered", Callable(self, "scale_weight").bind(+1))
-	_s = right_elevator.get_node("floor").connect("body_exited", Callable(self, "scale_weight").bind(-1))
+	_s = left_elevator.get_node("floor").connect("body_entered",self,"scale_weight",[-1])
+	_s = left_elevator.get_node("floor").connect("body_exited",self,"scale_weight",[+1])
+	_s = right_elevator.get_node("floor").connect("body_entered",self,"scale_weight",[+1])
+	_s = right_elevator.get_node("floor").connect("body_exited",self,"scale_weight",[-1])
 
 
 func scale_weight(body: Node, _weight : int) -> void:

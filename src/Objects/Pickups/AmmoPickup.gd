@@ -1,6 +1,6 @@
 extends PickUp
 
-@export var ammo := 8
+export var ammo := 8
 var amount_to_ammo := 8
 var player_weapon
 

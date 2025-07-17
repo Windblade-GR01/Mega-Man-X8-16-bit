@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://src/Levels/Gateway/sunflower_block.png" type="Texture2D" id=1]
+[ext_resource path="res://src/Levels/Gateway/sunflower_block.png" type="Texture" id=1]
 [ext_resource path="res://src/Levels/Gateway/SunBlock.gd" type="Script" id=2]
-[ext_resource path="res://src/Effects/Textures/troia_particles.png" type="Texture2D" id=3]
+[ext_resource path="res://src/Effects/Textures/troia_particles.png" type="Texture" id=3]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 1
@@ -18,13 +18,13 @@ particles_anim_v_frames = 3
 particles_anim_loop = false
 
 [sub_resource type="Gradient" id=99]
-offsets = PackedFloat32Array( 0, 0.118644, 0.176271, 1 )
-colors = PackedColorArray( 1, 1, 1, 0, 1, 1, 1, 0.54902, 0.427451, 0.803922, 0.67451, 0.619608, 0.109804, 0.133333, 0.254902, 0 )
+offsets = PoolRealArray( 0, 0.118644, 0.176271, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.54902, 0.427451, 0.803922, 0.67451, 0.619608, 0.109804, 0.133333, 0.254902, 0 )
 
-[sub_resource type="GradientTexture2D" id=98]
+[sub_resource type="GradientTexture" id=98]
 gradient = SubResource( 99 )
 
-[sub_resource type="ParticleProcessMaterial" id=101]
+[sub_resource type="ParticlesMaterial" id=101]
 emission_shape = 2
 emission_box_extents = Vector3( 32, 24, 1 )
 flag_disable_z = true
@@ -41,7 +41,7 @@ anim_speed_random = 0.35
 [node name="SunBlock" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="sprite" type="Sprite2D" parent="."]
+[node name="sprite" type="Sprite" parent="."]
 material = SubResource( 1 )
 texture = ExtResource( 1 )
 
@@ -54,7 +54,7 @@ collision_mask = 0
 position = Vector2( 0, 7 )
 shape = SubResource( 2 )
 
-[node name="troia_particles" type="GPUParticles2D" parent="."]
+[node name="troia_particles" type="Particles2D" parent="."]
 material = SubResource( 100 )
 position = Vector2( 0, 9 )
 amount = 6

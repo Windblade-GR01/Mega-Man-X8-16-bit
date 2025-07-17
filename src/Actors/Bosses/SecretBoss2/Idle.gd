@@ -4,10 +4,10 @@ const order = [0,5,2,6,3,1,4]
 var teleport_positions = []
 var times_used := 0
 var position_count := 0
-@onready var damage: Node2D = $"../Damage"
-@onready var dot: Node2D = $"../DamageOnTouch"
-@onready var disappear: AudioStreamPlayer2D = $disappear
-@onready var reflector: Node2D = $"../DamageReflector"
+onready var damage: Node2D = $"../Damage"
+onready var dot: Node2D = $"../DamageOnTouch"
+onready var disappear: AudioStreamPlayer2D = $disappear
+onready var reflector: Node2D = $"../DamageReflector"
 
 signal teleported
 signal started

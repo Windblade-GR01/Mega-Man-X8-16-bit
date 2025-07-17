@@ -1,18 +1,18 @@
 extends Control
-@onready var hermes_head: TextureRect = $ArmorParts/HermesParts/hermes_head
-@onready var hermes_body: TextureRect = $ArmorParts/HermesParts/hermes_body
-@onready var hermes_arms: TextureRect = $ArmorParts/HermesParts/hermes_arms
-@onready var hermes_legs: TextureRect = $ArmorParts/HermesParts/hermes_legs
-@onready var icarus_head: TextureRect = $ArmorParts/IcarusParts/icarus_head
-@onready var icarus_body: TextureRect = $ArmorParts/IcarusParts/icarus_body
-@onready var icarus_arms: TextureRect = $ArmorParts/IcarusParts/icarus_arms
-@onready var icarus_legs: TextureRect = $ArmorParts/IcarusParts/icarus_legs
+onready var hermes_head: TextureRect = $ArmorParts/HermesParts/hermes_head
+onready var hermes_body: TextureRect = $ArmorParts/HermesParts/hermes_body
+onready var hermes_arms: TextureRect = $ArmorParts/HermesParts/hermes_arms
+onready var hermes_legs: TextureRect = $ArmorParts/HermesParts/hermes_legs
+onready var icarus_head: TextureRect = $ArmorParts/IcarusParts/icarus_head
+onready var icarus_body: TextureRect = $ArmorParts/IcarusParts/icarus_body
+onready var icarus_arms: TextureRect = $ArmorParts/IcarusParts/icarus_arms
+onready var icarus_legs: TextureRect = $ArmorParts/IcarusParts/icarus_legs
 
 
-@onready var pause: CanvasLayer = $"../.."
+onready var pause: CanvasLayer = $"../.."
 
 
-@onready var armor_parts = [
+onready var armor_parts = [
 	hermes_head,
 	hermes_body,
 	hermes_arms,
@@ -24,14 +24,14 @@ extends Control
 ]
 
 func _ready() -> void:
-	pause.connect("pause_starting", Callable(self, "show_parts")) # warning-ignore:return_value_discarded
+	pause.connect("pause_starting",self,"show_parts") # warning-ignore:return_value_discarded
 
 func show_parts() -> void:
 	for part in armor_parts:
-		part.modulate = Color.DIM_GRAY
+		part.modulate = Color.dimgray
 		part.visible = part.name in GameManager.collectibles
 		
 		if GameManager.is_player_in_scene():
 			if part.name in GameManager.player.current_armor:
-				part.modulate = Color.WHITE
+				part.modulate = Color.white
 	

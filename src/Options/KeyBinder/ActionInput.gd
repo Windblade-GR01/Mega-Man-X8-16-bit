@@ -1,8 +1,8 @@
 extends LightGroup
 
-@onready var action_name: Label = $actionname
-@onready var key: = $key
-@onready var joypad := $joypad
+onready var action_name: Label = $actionname
+onready var key: = $key
+onready var joypad := $joypad
 var action
 
 func setup(_action, readname, menu) -> void:
@@ -10,12 +10,12 @@ func setup(_action, readname, menu) -> void:
 	joypad.connect_lock_signals(menu)
 	action = _action
 	action_name.text = tr(readname)
-	var _s = key.connect("updated_event", Callable(self, "get_inputs_and_set_names"))
-	_s = joypad.connect("updated_event", Callable(self, "get_inputs_and_set_names"))
+	var _s = key.connect("updated_event",self,"get_inputs_and_set_names")
+	_s = joypad.connect("updated_event",self,"get_inputs_and_set_names")
 	get_inputs_and_set_names(action)
 
 func get_inputs_and_set_names(_action = action) -> void:
-	var inputs = InputMap.action_get_events(_action)
+	var inputs = InputMap.get_action_list(_action)
 	for button in inputs:
 		var named_keyboard := false
 		var named_joypad := false

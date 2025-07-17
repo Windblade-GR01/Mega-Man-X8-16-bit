@@ -1,10 +1,10 @@
 extends AttackAbility
 
-@onready var tween := TweenController.new(self,false)
-@onready var jump_sound: AudioStreamPlayer2D = $"../jump_sound"
-@onready var step: AudioStreamPlayer2D = $"../step"
-@onready var rise: AudioStreamPlayer2D = $"../rise"
-@onready var land: GPUParticles2D = $"../land"
+onready var tween := TweenController.new(self,false)
+onready var jump_sound: AudioStreamPlayer2D = $"../jump_sound"
+onready var step: AudioStreamPlayer2D = $"../step"
+onready var rise: AudioStreamPlayer2D = $"../rise"
+onready var land: Particles2D = $"../land"
 
 func _Setup() -> void:
 	turn_and_face_player()
@@ -46,7 +46,7 @@ func _Update(delta) -> void:
 		EndAbility()
 
 func _Interrupt() -> void:
-	super._Interrupt()
+	._Interrupt()
 	tween.reset()
 
 func should_fall() -> bool:

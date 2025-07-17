@@ -59,7 +59,7 @@ var lumine_boss_order : Array
 
 func _ready() -> void:
 	print ("GameManager: Initializing...")
-	set_process_mode(2)
+	set_pause_mode(2)
 	BossRNG.initialize()
 	Savefile.load_save()
 	on_level_start()
@@ -70,7 +70,7 @@ func start_dialog(dialog_tree) -> void:
 
 func start_capsule_dialog(dialog_tree) -> void:
 	dialog_box.startup(dialog_tree)
-	dialog_box.connect("dialog_concluded", Callable(self, "play_stage_song"))
+	dialog_box.connect("dialog_concluded",self,"play_stage_song")
 
 func stop_character_inputs() -> void:
 	player.stop_listening_to_inputs()
@@ -134,7 +134,7 @@ func start_level(StageName : String) -> void:
 		path = "res://src/Levels/NoahsPark/Intro_NoahsPark.tscn"
 	else:
 		path = "res://src/Levels/" + StageName + "/Stage_" + StageName + ".tscn"
-	var _dv = get_tree().change_scene_to_file(path)
+	var _dv = get_tree().change_scene(path)
 	call_deferred("restart_level")
 
 func set_player_lives_to_at_least_2() -> void:
@@ -143,20 +143,20 @@ func set_player_lives_to_at_least_2() -> void:
 
 func go_to_intro() -> void:
 	print_debug(":::::::: going to intro")
-	var _dv = get_tree().change_scene_to_file("res://src/Title/IntroCapcom.tscn")
+	var _dv = get_tree().change_scene("res://src/Title/IntroCapcom.tscn")
 
 func go_to_disclaimer() -> void:
 	print_debug(":::::::: going to disclaimer")
-	var _dv = get_tree().change_scene_to_file("res://src/Title/DisclaimerScreen.tscn")
+	var _dv = get_tree().change_scene("res://src/Title/DisclaimerScreen.tscn")
 
 func go_to_igt() -> void:
 	print_debug(":::::::: going to igt screen")
-	var _dv = get_tree().change_scene_to_file("res://src/Screens/IGTScreen.tscn")
+	var _dv = get_tree().change_scene("res://src/Screens/IGTScreen.tscn")
 	GameManager.call_deferred("restart_level")
 
 func go_to_lumine_boss_test() -> void:
 	print_debug(":::::::: going to seraph lumine boss test")
-	var _dv = get_tree().change_scene_to_file("res://src/Levels/SigmaPalace/SeraphTest.tscn")
+	var _dv = get_tree().change_scene("res://src/Levels/SigmaPalace/SeraphTest.tscn")
 	GameManager.checkpoint = null
 	GameManager.call_deferred("restart_level")
 	
@@ -216,14 +216,14 @@ func finished_fade_out() -> void:
 
 func go_to_end_cutscene():
 	print_debug(":::::::: going to final cutscene")
-	var _dv = get_tree().change_scene_to_file("res://src/Levels/SigmaPalace/FinalCutscene.tscn")
+	var _dv = get_tree().change_scene("res://src/Levels/SigmaPalace/FinalCutscene.tscn")
 	call_deferred("force_unpause")
 	call_deferred("on_level_start")
 	pass
 	
 func go_to_credits():
 	print_debug(":::::::: going to final cutscene")
-	var _dv = get_tree().change_scene_to_file("res://src/Levels/SigmaPalace/CreditsScene.tscn")
+	var _dv = get_tree().change_scene("res://src/Levels/SigmaPalace/CreditsScene.tscn")
 	call_deferred("force_unpause")
 	call_deferred("on_level_start")
 	pass
@@ -235,18 +235,18 @@ func handle_player_death() -> void:
 
 func go_to_stage_select() -> void: 
 	print_debug(":::::::: going to stage select")
-	var _dv = get_tree().change_scene_to_file("res://src/StageSelect/StageSelectScreen.tscn")
+	var _dv = get_tree().change_scene("res://src/StageSelect/StageSelectScreen.tscn")
 
 func go_to_weapon_get() -> void:
 	print_debug(":::::::: going to weapon get")
-	var _dv = get_tree().change_scene_to_file("res://src/WeaponGet/WeaponGetScene.tscn")
+	var _dv = get_tree().change_scene("res://src/WeaponGet/WeaponGetScene.tscn")
 	call_deferred("force_unpause")
 	call_deferred("on_level_start")
 
 func go_to_stage_intro(stage : StageInfo) -> void:
 	print_debug(":::::::: going to stage and boss intro")
 	current_stage_info = stage
-	var _dv = get_tree().change_scene_to_file("res://src/BossIntro/BossIntro.tscn")
+	var _dv = get_tree().change_scene("res://src/BossIntro/BossIntro.tscn")
 
 func restart_level():
 	print_debug("::::::::  Restarting level")
@@ -346,8 +346,8 @@ func reposition_collectible_in_savedata(collectible : String) -> void:
 func _physics_process(delta: float) -> void:
 	handle_end_of_level(delta)
 	if Input.is_action_just_pressed("fullscreen"):
-		get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (!((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))) else Window.MODE_WINDOWED
-		Configurations.set("Fullscreen",((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN)))
+		OS.window_fullscreen = !OS.window_fullscreen
+		Configurations.set("Fullscreen",OS.window_fullscreen)
 		Savefile.save()
 	
 
@@ -439,7 +439,7 @@ func is_pos_nearby(pos1 : Vector2, pos2 : Vector2, distance : Vector2) -> bool:
 		   abs(pos1.y - pos2.y) < distance.y
 
 func save_stage_start_msec():
-	stage_start_msec = Time.get_ticks_msec()
+	stage_start_msec = OS.get_ticks_msec()
 
 func get_stage_start_msec() -> float:
 	return stage_start_msec

@@ -1,21 +1,21 @@
 extends AttackAbility
 class_name BeePatrol
 
-@export var area := 12
-@export var travel_time := 0.5
-@export var rest_duration := 0.5
-@export var ability_who_updates_patrol_area: NodePath 
+export var area := 12
+export var travel_time := 0.5
+export var rest_duration := 0.5
+export (NodePath) var ability_who_updates_patrol_area 
 var rest_time := 0.0
 var patrol_position := Vector2.ZERO
-var tween : Tween
+var tween : SceneTreeTween
 
 
 func _ready() -> void:
 	update_patrol_position(self)
-	Event.connect("stage_rotate_end", Callable(self, "_Setup"))
+	Event.connect("stage_rotate_end",self,"_Setup")
 	if ability_who_updates_patrol_area:
 	# warning-ignore:return_value_discarded
-		get_node(ability_who_updates_patrol_area).connect("ability_end", Callable(self, "update_patrol_position"))
+		get_node(ability_who_updates_patrol_area).connect("ability_end",self,"update_patrol_position")
 
 func _Setup() -> void:
 	attack_stage = 0

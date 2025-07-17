@@ -16,7 +16,7 @@ z_index = 1
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PackedInt32Array( 327678, 7, 0, 327679, 7, 0, 262144, 7, 0, 262145, 7, 0, 262146, 7, 0, 262147, 7, 0, 262148, 7, 0, 262149, 7, 0, 262150, 7, 0 )
+tile_data = PoolIntArray( 327678, 7, 0, 327679, 7, 0, 262144, 7, 0, 262145, 7, 0, 262146, 7, 0, 262147, 7, 0, 262148, 7, 0, 262149, 7, 0, 262150, 7, 0 )
 
 [node name="UnclimbableWalls" type="TileMap" parent="Collision"]
 modulate = Color( 1, 0, 0, 1 )

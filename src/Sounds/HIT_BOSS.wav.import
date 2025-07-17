@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://csm56weh7uovb"
-path="res://.godot/imported/HIT_BOSS.wav-2c5e782b998f55863444cc54a6b750a3.sample"
+type="AudioStreamSample"
+path="res://.import/HIT_BOSS.wav-2c5e782b998f55863444cc54a6b750a3.sample"
 
 [deps]
 
 source_file="res://src/Sounds/HIT_BOSS.wav"
-dest_files=["res://.godot/imported/HIT_BOSS.wav-2c5e782b998f55863444cc54a6b750a3.sample"]
+dest_files=[ "res://.import/HIT_BOSS.wav-2c5e782b998f55863444cc54a6b750a3.sample" ]
 
 [params]
 

@@ -1,10 +1,10 @@
 extends AttackAbility
-@onready var slash_1: Node2D = $slash1
-@onready var slash_2: Node2D = $slash2
-@onready var slash_1_sfx: AudioStreamPlayer2D = $slash1_sfx
-@onready var slash_2_sfx: AudioStreamPlayer2D = $slash2_sfx
-@onready var land: AudioStreamPlayer2D = $land
-@onready var particles: GPUParticles2D = $"../animatedSprite/particles"
+onready var slash_1: Node2D = $slash1
+onready var slash_2: Node2D = $slash2
+onready var slash_1_sfx: AudioStreamPlayer2D = $slash1_sfx
+onready var slash_2_sfx: AudioStreamPlayer2D = $slash2_sfx
+onready var land: AudioStreamPlayer2D = $land
+onready var particles: Particles2D = $"../animatedSprite/particles"
 
 func _Setup() -> void:
 	turn_and_face_player()
@@ -72,7 +72,7 @@ func _Update(delta) -> void:
 		EndAbility()
 
 func _Interrupt():
-	super._Interrupt()
+	._Interrupt()
 	slash_2.deactivate()
 
 func get_initial_jump_speed() -> float:

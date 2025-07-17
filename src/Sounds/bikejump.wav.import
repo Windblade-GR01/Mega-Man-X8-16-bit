@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://dunu45ictjpe8"
-path="res://.godot/imported/bikejump.wav-d3c0ea1cd6b27a281b56eb78a4f66564.sample"
+type="AudioStreamSample"
+path="res://.import/bikejump.wav-d3c0ea1cd6b27a281b56eb78a4f66564.sample"
 
 [deps]
 
 source_file="res://src/Sounds/bikejump.wav"
-dest_files=["res://.godot/imported/bikejump.wav-d3c0ea1cd6b27a281b56eb78a4f66564.sample"]
+dest_files=[ "res://.import/bikejump.wav-d3c0ea1cd6b27a281b56eb78a4f66564.sample" ]
 
 [params]
 

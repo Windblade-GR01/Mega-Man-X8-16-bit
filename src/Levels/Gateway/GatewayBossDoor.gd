@@ -1,8 +1,8 @@
 extends "res://src/Objects/Door/NewDoor.gd"
-@onready var close_state: Node2D = $Close
-@onready var free_state: Node2D = $Freeway
+onready var close_state: Node2D = $Close
+onready var free_state: Node2D = $Freeway
 
-@export var close_after_freeway := true
+export var close_after_freeway := true
 
 signal starting_freeway
 signal waiting_freeway

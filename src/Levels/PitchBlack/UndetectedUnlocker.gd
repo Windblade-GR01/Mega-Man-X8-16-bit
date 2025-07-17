@@ -1,13 +1,13 @@
 extends Node
 
-@export var achievement : Resource
+export var achievement : Resource
 
 var detected := false
 var lit := false
 
 func _ready() -> void:
-	Event.connect("alarm", Callable(self, "on_alarm"))
-	Event.connect("pitch_black_energized", Callable(self, "on_lit"))
+	Event.connect("alarm",self,"on_alarm")
+	Event.connect("pitch_black_energized",self,"on_lit")
 
 func on_lit():
 	print("Achievements: disabled " +achievement.get_id())

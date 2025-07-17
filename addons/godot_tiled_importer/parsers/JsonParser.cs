@@ -6,12 +6,12 @@ using System.Text.RegularExpressions;
 
 namespace TiledImporter.Parsers
 {
-    public partial class JsonParser : Parser
+    public class JsonParser : Parser
     {
         public override Map Parse(string data)
         {
             ChangeGIDFieldsType(ref data);
-            JSON parseResult = JSON.Parse(data);
+            JSONParseResult parseResult = JSON.Parse(data);
             var mapDictionary = parseResult.Result as Godot.Collections.Dictionary;
             if (mapDictionary == null)
             {

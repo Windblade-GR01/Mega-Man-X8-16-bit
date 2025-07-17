@@ -8,28 +8,28 @@ var last_wall_at_position: Vector2
 var full_alpha := true
 var set_alert := false
 
-@onready var wallcheck_left := $_raycasts.get_node("Wallcheck Left")
-@onready var wallcheck_left2 := $_raycasts.get_node("Wallcheck Left2")
-@onready var wallcheck_left3 := $_raycasts.get_node("Wallcheck Left3")
-@onready var wallcheck_right := $_raycasts.get_node("Wallcheck Right")
-@onready var wallcheck_right2 := $_raycasts.get_node("Wallcheck Right2")
-@onready var wallcheck_right3 := $_raycasts.get_node("Wallcheck Right3")
-@onready var cast_left = [wallcheck_left, wallcheck_left2, wallcheck_left3]
-@onready var cast_right = [wallcheck_right, wallcheck_right2, wallcheck_right3]
+onready var wallcheck_left := $_raycasts.get_node("Wallcheck Left")
+onready var wallcheck_left2 := $_raycasts.get_node("Wallcheck Left2")
+onready var wallcheck_left3 := $_raycasts.get_node("Wallcheck Left3")
+onready var wallcheck_right := $_raycasts.get_node("Wallcheck Right")
+onready var wallcheck_right2 := $_raycasts.get_node("Wallcheck Right2")
+onready var wallcheck_right3 := $_raycasts.get_node("Wallcheck Right3")
+onready var cast_left = [wallcheck_left, wallcheck_left2, wallcheck_left3]
+onready var cast_right = [wallcheck_right, wallcheck_right2, wallcheck_right3]
 
-@onready var walljumpcast_left := $_raycasts.get_node("WallJumpCast Left")
-@onready var walljumpcast_left2 := $_raycasts.get_node("WallJumpCast Left2")
-@onready var walljumpcast_left3 := $_raycasts.get_node("WallJumpCast Left3")
-@onready var walljumpcast_right := $_raycasts.get_node("WallJumpCast Right")
-@onready var walljumpcast_right2 := $_raycasts.get_node("WallJumpCast Right2")
-@onready var walljumpcast_right3 := $_raycasts.get_node("WallJumpCast Right3")
-@onready var jumpcast_left = [walljumpcast_left, walljumpcast_left2, walljumpcast_left3]
-@onready var jumpcast_right = [walljumpcast_right, walljumpcast_right2, walljumpcast_right3]
-@onready var low_jumpcasts = [walljumpcast_left3,walljumpcast_right3]
+onready var walljumpcast_left := $_raycasts.get_node("WallJumpCast Left")
+onready var walljumpcast_left2 := $_raycasts.get_node("WallJumpCast Left2")
+onready var walljumpcast_left3 := $_raycasts.get_node("WallJumpCast Left3")
+onready var walljumpcast_right := $_raycasts.get_node("WallJumpCast Right")
+onready var walljumpcast_right2 := $_raycasts.get_node("WallJumpCast Right2")
+onready var walljumpcast_right3 := $_raycasts.get_node("WallJumpCast Right3")
+onready var jumpcast_left = [walljumpcast_left, walljumpcast_left2, walljumpcast_left3]
+onready var jumpcast_right = [walljumpcast_right, walljumpcast_right2, walljumpcast_right3]
+onready var low_jumpcasts = [walljumpcast_left3,walljumpcast_right3]
 
-@onready var collisor := $"Enemy Collision Detector".get_node("CollisionShape2D")
+onready var collisor := $"Enemy Collision Detector".get_node("CollisionShape2D")
 
-@onready var shot_position := get_node("Shot Position")
+onready var shot_position := get_node("Shot Position")
 
 var colors = []
 
@@ -94,7 +94,7 @@ func make_invisible():
 	Log ("invisible")
 	animatedSprite.visible = false
 
-func _make_visible():
+func make_visible():
 	Log ("visible")
 	animatedSprite.visible = true
 
@@ -143,17 +143,17 @@ func has_invulnerability_from_skills() -> bool:
 func check_for_low_health():
 	if has_health():
 		if is_low_health() and not set_alert:
-			animatedSprite.material.set_shader_parameter("Alert", 1)
+			animatedSprite.material.set_shader_param("Alert", 1)
 			set_alert = true
 		elif not is_low_health() and set_alert:
-			animatedSprite.material.set_shader_parameter("Alert", 0)
+			animatedSprite.material.set_shader_param("Alert", 0)
 			set_alert = false
 
 func is_invulnerable() -> bool:
 	if not active:
 		return true
 	else:
-		return super.is_invulnerable() 
+		return .is_invulnerable() 
 
 func add_invulnerability(ability_name):
 	if not ability_name in toggleable_invulnerabilities:
@@ -167,11 +167,11 @@ func remove_invulnerability(ability_name):
 		remove_invulnerability_shader()
 
 func apply_invulnerability_shader():
-		animatedSprite.material.set_shader_parameter("Alpha", 0.5)
+		animatedSprite.material.set_shader_param("Alpha", 0.5)
 		full_alpha = false
 
 func remove_invulnerability_shader():
-		animatedSprite.material.set_shader_parameter("Alpha", 1)
+		animatedSprite.material.set_shader_param("Alpha", 1)
 		full_alpha = true
 
 func check_for_headbump():
@@ -278,13 +278,13 @@ func print_hp() -> String:
 	return text
 	
 func print_position() -> String:
-	var x_pos = snapped(position.x, 0.01)
-	var y_pos = snapped(position.y, 0.01)
+	var x_pos = stepify(position.x, 0.01)
+	var y_pos = stepify(position.y, 0.01)
 	return "X:" + str(x_pos) + "\nY:" + str(y_pos)
 	
 func print_speed() -> String:
-	var x_speed = snapped(final_velocity.x, 0.1)
-	var y_speed = snapped(final_velocity.y, 0.1)
+	var x_speed = stepify(final_velocity.x, 0.1)
+	var y_speed = stepify(final_velocity.y, 0.1)
 	return "\nH Spd:" + str(x_speed) + "\nV Spd:" + str(y_speed)
 	
 func print_states() -> String:

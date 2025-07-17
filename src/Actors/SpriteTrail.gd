@@ -1,6 +1,6 @@
-extends GPUParticles2D
+extends Particles2D
 
-@onready var character = get_parent()
+onready var character = get_parent()
 
 func _process(_delta) -> void:
 	synchronize_part_animations()

@@ -1,7 +1,7 @@
-extends Sprite2D
+extends Sprite
 
 var timer := 0.0
-@export var multiplier := 5.0
+export var multiplier := 5.0
 
 func _physics_process(delta: float) -> void:
 	timer += delta

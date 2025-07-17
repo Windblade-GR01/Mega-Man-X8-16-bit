@@ -1,9 +1,9 @@
 extends Node
 
-@onready var camera: Camera2D = $"../../../StateCamera"
-@onready var tween := TweenController.new(self,false)
-@onready var elevator: StaticBody2D = $".."
-@onready var warning: AnimatedSprite2D = $"../../../StateCamera/Ready Warning Text"
+onready var camera: Camera2D = $"../../../StateCamera"
+onready var tween := TweenController.new(self,false)
+onready var elevator: StaticBody2D = $".."
+onready var warning: AnimatedSprite = $"../../../StateCamera/Ready Warning Text"
 
 func _on_BossElevator_started() -> void:
 	Event.emit_signal("boss_door_open")

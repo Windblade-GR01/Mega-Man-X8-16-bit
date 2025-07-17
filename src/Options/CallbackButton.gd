@@ -1,9 +1,9 @@
 extends X8TextureButton
 class_name CallbackButton
-@export var method : String
+export var method : String
 
 func on_press() -> void:
-	super.on_press()
+	.on_press()
 	call_method()
 
 func call_method() -> void:

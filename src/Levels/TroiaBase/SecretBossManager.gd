@@ -4,28 +4,28 @@ var s_rank_sections : Array
 
 signal unlock_secrets
 
-@onready var start_portal: Node2D = $"../StartPortal"
-@onready var start_entrance: AnimatedSprite2D = $"../StartEntrance"
+onready var start_portal: Node2D = $"../StartPortal"
+onready var start_entrance: AnimatedSprite = $"../StartEntrance"
 
-@onready var secret_door: StaticBody2D = $"../SecretDoor"
-@onready var entrance_camera: Area2D = $"../../Limits/secret_room_entrance"
+onready var secret_door: StaticBody2D = $"../SecretDoor"
+onready var entrance_camera: Area2D = $"../../Limits/secret_room_entrance"
 
-@onready var entrance_boss_1: AnimatedSprite2D = $"../Entrance"
-@onready var portal_boss_1: Node2D = $"../Portal"
+onready var entrance_boss_1: AnimatedSprite = $"../Entrance"
+onready var portal_boss_1: Node2D = $"../Portal"
 
-@onready var entrance_2: AnimatedSprite2D = $"../Entrance2"
-@onready var portal_2: Node2D = $"../Portal2"
-@onready var yellow_particles: GPUParticles2D = $"../Entrance2/particles2D"
+onready var entrance_2: AnimatedSprite = $"../Entrance2"
+onready var portal_2: Node2D = $"../Portal2"
+onready var yellow_particles: Particles2D = $"../Entrance2/particles2D"
 
-@onready var entrance_3: AnimatedSprite2D = $"../Entrance3"
-@onready var portal_3: Node2D = $"../Portal3"
-@onready var particles: GPUParticles2D = $"../Entrance3/particles2D"
+onready var entrance_3: AnimatedSprite = $"../Entrance3"
+onready var portal_3: Node2D = $"../Portal3"
+onready var particles: Particles2D = $"../Entrance3/particles2D"
 
 
 
 
 func _ready() -> void:
-	Event.connect("got_rank_s", Callable(self, "on_got_rank_s"))
+	Event.connect("got_rank_s",self,"on_got_rank_s")
 	
 	if GlobalVariables.get("RankSSS"):
 		Tools.timer(0.1,"unlock",self)

@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var road := $continuous_road
-@onready var road2 := $continuous_road2
+onready var road := $continuous_road
+onready var road2 := $continuous_road2
 
 func _physics_process(delta: float) -> void:
 	road.position.x += -160 * delta

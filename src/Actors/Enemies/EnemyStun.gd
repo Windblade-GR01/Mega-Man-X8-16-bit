@@ -1,17 +1,17 @@
 extends AttackAbility
 class_name EnemyStun
 
-@onready var shield = character.get_shield()
-@onready var break_effect := $break_vfx
-@onready var break_sound := $break_sound
-@onready var break_effect_pos = break_effect.position.x
-@export var gravity := false
-@export var reactivate_shield_on_end := true
-@export var stun_duration := 1.25
-@export var recover_animation := "recover"
+onready var shield = character.get_shield()
+onready var break_effect := $break_vfx
+onready var break_sound := $break_sound
+onready var break_effect_pos = break_effect.position.x
+export var gravity := false
+export var reactivate_shield_on_end := true
+export var stun_duration := 1.25
+export var recover_animation := "recover"
 
 func _Setup() -> void:
-	super._Setup()
+	._Setup()
 	force_movement(0)
 	shield.deactivate()
 	break_effect.position.x = break_effect_pos * character.get_direction()

@@ -1,19 +1,19 @@
 extends Node2D
 
-@onready var sprites :Array
+onready var sprites :Array
 
 func _ready() -> void:
 	for child in get_children():
-		if child is AnimatedSprite2D:
+		if child is AnimatedSprite:
 			sprites.append(child)
 
 	decide_next_animation()
 
 func _on_animation_finished() -> void:
-	Tools.timer(randf_range(0.1,.5),"decide_next_animation",self)
+	Tools.timer(rand_range(0.1,.5),"decide_next_animation",self)
 
 func decide_next_animation():
-	var next_animation = randf_range(0,3)
+	var next_animation = rand_range(0,3)
 	
 	if next_animation < 1:
 		play_animation("1")
@@ -23,8 +23,8 @@ func decide_next_animation():
 		play_animation("3")
 
 func play_animation(anim : String):
-	var speed = randf_range(.7,1)
-	var alpha = randf_range(.1,.5)
+	var speed = rand_range(.7,1)
+	var alpha = rand_range(.1,.5)
 	for animatedSprite in sprites:
 		animatedSprite.play(anim)
 		animatedSprite.speed_scale = speed

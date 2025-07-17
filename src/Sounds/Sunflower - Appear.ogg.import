@@ -1,19 +1,15 @@
 [remap]
 
-importer="oggvorbisstr"
-type="AudioStreamOggVorbis"
-uid="uid://yrcko3mkwwoi"
-path="res://.godot/imported/Sunflower - Appear.ogg-8b5fafe48313ac9efb4879cde867b9ca.oggvorbisstr"
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Sunflower - Appear.ogg-8b5fafe48313ac9efb4879cde867b9ca.oggstr"
 
 [deps]
 
 source_file="res://src/Sounds/Sunflower - Appear.ogg"
-dest_files=["res://.godot/imported/Sunflower - Appear.ogg-8b5fafe48313ac9efb4879cde867b9ca.oggvorbisstr"]
+dest_files=[ "res://.import/Sunflower - Appear.ogg-8b5fafe48313ac9efb4879cde867b9ca.oggstr" ]
 
 [params]
 
 loop=false
 loop_offset=0
-bpm=0
-beat_count=0
-bar_beats=4

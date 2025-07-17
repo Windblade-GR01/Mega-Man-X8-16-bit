@@ -1,10 +1,10 @@
-[gd_resource type="ParticleProcessMaterial" load_steps=3 format=2]
+[gd_resource type="ParticlesMaterial" load_steps=3 format=2]
 
 [sub_resource type="Gradient" id=64]
-offsets = PackedFloat32Array( 0, 0.242424, 0.515152, 0.768939, 1 )
-colors = PackedColorArray( 0.898039, 0.113725, 0, 1, 1, 1, 0.0705882, 1, 0.918779, 0.321592, 0.0165882, 1, 0.978567, 0.820976, 0.0563382, 1, 0.893829, 0.113192, 0, 1 )
+offsets = PoolRealArray( 0, 0.242424, 0.515152, 0.768939, 1 )
+colors = PoolColorArray( 0.898039, 0.113725, 0, 1, 1, 1, 0.0705882, 1, 0.918779, 0.321592, 0.0165882, 1, 0.978567, 0.820976, 0.0563382, 1, 0.893829, 0.113192, 0, 1 )
 
-[sub_resource type="GradientTexture2D" id=63]
+[sub_resource type="GradientTexture" id=63]
 gradient = SubResource( 64 )
 
 [resource]

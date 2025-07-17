@@ -3,7 +3,7 @@ extends Node2D
 var pursuit_speed := 120.0
 var h_speed := 0.0
 var v_speed := 0.0
-@onready var animated_sprite: AnimatedSprite2D = $animatedSprite
+onready var animated_sprite: AnimatedSprite = $animatedSprite
 
 signal fire(pos)
 

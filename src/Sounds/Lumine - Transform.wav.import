@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://jn2i5c4m2gop"
-path="res://.godot/imported/Lumine - Transform.wav-b8e0a7170cd5b06433a727b15a0c9409.sample"
+type="AudioStreamSample"
+path="res://.import/Lumine - Transform.wav-b8e0a7170cd5b06433a727b15a0c9409.sample"
 
 [deps]
 
 source_file="res://src/Sounds/Lumine - Transform.wav"
-dest_files=["res://.godot/imported/Lumine - Transform.wav-b8e0a7170cd5b06433a727b15a0c9409.sample"]
+dest_files=[ "res://.import/Lumine - Transform.wav-b8e0a7170cd5b06433a727b15a0c9409.sample" ]
 
 [params]
 

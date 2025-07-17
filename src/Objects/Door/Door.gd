@@ -1,23 +1,23 @@
 extends Node2D
 
 #export var open_direction := -1
-@export var _debug_no_limits := false
-@export var unlocked := true
-@export var boss_door := false
-@export var should_lock_camera := true
-@export var emit_warning_signal := false
-@export var reopenable:= false
-@export var position_correction := 0
-@export var initial_height_camera_correction := 22
-@export var last_limits: NodePath
-@export var explosion_extra_limits: NodePath
-@export var next_limits: NodePath
+export var _debug_no_limits := false
+export var unlocked := true
+export var boss_door := false
+export var should_lock_camera := true
+export var emit_warning_signal := false
+export var reopenable:= false
+export var position_correction := 0
+export var initial_height_camera_correction := 22
+export (NodePath) var last_limits
+export (NodePath) var explosion_extra_limits
+export (NodePath) var next_limits
 
 var state := "able to open"
 var player
 var position_at_movestart : Vector2
 var moving := false
-@onready var animatedSprite := $animatedSprite
+onready var animatedSprite := $animatedSprite
 #var camera_limits
 var start_position : Vector2
 var door_direction := 1
@@ -28,7 +28,7 @@ var move_timer := 0.0
 
 var player_at_door
 
-@export var explosion_duration:= 2.0
+export var explosion_duration:= 2.0
 var times_sound_played := 0.0
 
 signal door_open
@@ -40,7 +40,7 @@ func _ready() -> void:
 	if not _debug_no_limits:
 		if not last_limits or not next_limits:
 			push_error (name + ": Imminent error, no limits set")
-		get_node(last_limits).connect("accessed", Callable(self, "last_zone_entered"))# warning-ignore:return_value_discarded
+		get_node(last_limits).connect("accessed",self,"last_zone_entered")# warning-ignore:return_value_discarded
 		disable_explosion_limits()
 
 func disable_explosion_limits() -> void:
@@ -247,7 +247,7 @@ func play_explosion_sounds():
 		times_sound_played += 1
 		var audio = $audioStreamPlayer2D.duplicate()
 		add_child(audio)
-		audio.pitch_scale = randf_range(0.95,1.05)
+		audio.pitch_scale = rand_range(0.95,1.05)
 		audio.play()
 
 func _on_bike_check_body_entered(body: Node) -> void:

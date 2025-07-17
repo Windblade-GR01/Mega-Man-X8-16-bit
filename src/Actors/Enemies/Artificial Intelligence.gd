@@ -1,10 +1,10 @@
 extends Node2D
 class_name ArtificialIntelligence
 
-@onready var character := get_parent()
-@onready var detector := $player_detector
+onready var character := get_parent()
+onready var detector := $player_detector
 
-@export var player_control := false
+export var player_control := false
 var target_list = []
 var last_action := 0
 var current_action := 0
@@ -19,11 +19,11 @@ var timer := 0.0
 
 func _ready() -> void:
 # warning-ignore:return_value_discarded
-	get_parent().connect("ability_end", Callable(self, "next_step"))
+	get_parent().connect("ability_end",self,"next_step")
 # warning-ignore:return_value_discarded
-	detector.connect("body_entered", Callable(self, "on_body_entered"))
+	detector.connect("body_entered",self,"on_body_entered")
 # warning-ignore:return_value_discarded
-	detector.connect("body_exited", Callable(self, "on_body_exited"))
+	detector.connect("body_exited",self,"on_body_exited")
 
 func _physics_process(delta: float) -> void:
 	if player_control:

@@ -1,7 +1,7 @@
 extends BossDamage
 
 const exceptions = ["RideArmor","Optic","Fire"]
-@onready var panda: Node2D = $"../Panda"
+onready var panda: Node2D = $"../Panda"
 
 func should_ignore_damage (inflicter) -> bool:
 	if panda.executing and panda.attack_stage >= 4:
@@ -26,7 +26,7 @@ func should_ignore_damage (inflicter) -> bool:
 				return true
 		return false
 	else:
-		return super.should_ignore_damage(inflicter)
+		return .should_ignore_damage(inflicter)
 
 func set_damage_reduction (_value):
 	pass

@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://civ1r268fxvib"
-path="res://.godot/imported/MEDIUM_SHOT2.wav-510aa8a9f23386e1cda0c8435996fdf4.sample"
+type="AudioStreamSample"
+path="res://.import/MEDIUM_SHOT2.wav-510aa8a9f23386e1cda0c8435996fdf4.sample"
 
 [deps]
 
 source_file="res://src/Sounds/MEDIUM_SHOT2.wav"
-dest_files=["res://.godot/imported/MEDIUM_SHOT2.wav-510aa8a9f23386e1cda0c8435996fdf4.sample"]
+dest_files=[ "res://.import/MEDIUM_SHOT2.wav-510aa8a9f23386e1cda0c8435996fdf4.sample" ]
 
 [params]
 

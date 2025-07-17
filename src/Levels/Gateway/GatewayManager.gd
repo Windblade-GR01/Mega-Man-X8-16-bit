@@ -3,7 +3,7 @@ extends Node
 var beaten_bosses : Array
 
 func _ready() -> void:
-	Event.connect("gateway_boss_defeated", Callable(self, "on_boss_defeated"))
+	Event.connect("gateway_boss_defeated",self,"on_boss_defeated")
 	if GlobalVariables.exists("gateway_bosses_beaten"):
 		beaten_bosses = GlobalVariables.get("gateway_bosses_beaten")
 

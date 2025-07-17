@@ -1,4 +1,4 @@
-extends AnimatedSprite2D
+extends AnimatedSprite
 
 
 func change_frames(new_frames):

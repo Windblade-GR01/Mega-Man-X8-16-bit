@@ -1,4 +1,4 @@
-extends AnimatedSprite2D
+extends AnimatedSprite
 
 func make_invisible() -> void:
 	visible = false

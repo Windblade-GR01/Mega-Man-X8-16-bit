@@ -1,6 +1,6 @@
 extends GenericProjectile
 #onready var sound: AudioStreamPlayer2D = $sound
-@onready var hitparticle: Sprite2D = $"Hit Particle"
+onready var hitparticle: Sprite = $"Hit Particle"
 
 var last_speed : Vector2
 var last_position : Vector2

@@ -2,11 +2,11 @@ extends AttackAbility
 
 var attack_duration := 0.75
 var time_to_return := 0.25
-@onready var tween = TweenController.new(self)
-@onready var space: Node = $"../Space"
-@onready var spin: AudioStreamPlayer2D = $spin
-@onready var land: AudioStreamPlayer2D = $land
-@onready var move: AudioStreamPlayer2D = $"../move"
+onready var tween = TweenController.new(self)
+onready var space: Node = $"../Space"
+onready var spin: AudioStreamPlayer2D = $spin
+onready var land: AudioStreamPlayer2D = $land
+onready var move: AudioStreamPlayer2D = $"../move"
 
 signal stop
 

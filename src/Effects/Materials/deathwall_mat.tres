@@ -3,7 +3,7 @@
 [sub_resource type="Shader" id=74]
 code = "shader_type canvas_item;
 
-uniform sampler2D textureNoise: hint_default_white;
+uniform sampler2D textureNoise: hint_white;
 uniform float radius: hint_range(0.0, 1.0) = 0.459;
 uniform float effectControl: hint_range(0.0, 1.0) = 0.309;
 uniform float burnSpeed: hint_range(0.0, 1.0) = 0.076;
@@ -27,7 +27,7 @@ void fragment() {
 }
 "
 
-[sub_resource type="FastNoiseLite" id=76]
+[sub_resource type="OpenSimplexNoise" id=76]
 period = 35.6
 
 [sub_resource type="NoiseTexture" id=75]

@@ -15,13 +15,13 @@ extents = Vector2( 28, 512 )
 z_index = 5
 script = ExtResource( 2 )
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 7 )
 frames = ExtResource( 4 )
 animation = "start"
 offset = Vector2( 0, -32 )
 
-[node name="animatedSprite2" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite2" type="AnimatedSprite" parent="."]
 material = ExtResource( 7 )
 position = Vector2( 0, -540 )
 scale = Vector2( 1, 19.1667 )

@@ -1,13 +1,13 @@
 [gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://src/Effects/Materials/FireParticles.tres" type="Material" id=1]
-[ext_resource path="res://src/Effects/Fire/fire2.png" type="Texture2D" id=2]
+[ext_resource path="res://src/Effects/Fire/fire2.png" type="Texture" id=2]
 [ext_resource path="res://src/Actors/Player/BossWeapons/FireDash/FireDashCharged.gd" type="Script" id=3]
-[ext_resource path="res://src/Effects/Textures/fire_dash_charged.png" type="Texture2D" id=4]
+[ext_resource path="res://src/Effects/Textures/fire_dash_charged.png" type="Texture" id=4]
 [ext_resource path="res://src/Levels/Primrose/rotation_disabler.gd" type="Script" id=5]
 [ext_resource path="res://src/Effects/Materials/FireExplosion3.tres" type="Material" id=6]
 [ext_resource path="res://src/Effects/Materials/FireExplosionParticleMaterial.tres" type="Material" id=7]
-[ext_resource path="res://src/Effects/Textures/fire_circle.png" type="Texture2D" id=8]
+[ext_resource path="res://src/Effects/Textures/fire_circle.png" type="Texture" id=8]
 [ext_resource path="res://src/Effects/Materials/FireExplosionMaterial2.tres" type="Material" id=9]
 [ext_resource path="res://src/Sounds/Rooster - Wallhit.ogg" type="AudioStream" id=10]
 
@@ -58,7 +58,7 @@ particles_anim_h_frames = 3
 particles_anim_v_frames = 3
 particles_anim_loop = false
 
-[node name="FireDashCharged" type="CharacterBody2D" groups=["Player Projectile"]]
+[node name="FireDashCharged" type="KinematicBody2D" groups=["Player Projectile"]]
 z_index = 10
 collision_layer = 4
 collision_mask = 0
@@ -70,18 +70,18 @@ break_guards = true
 pop_in_time = 0.0
 has_deflectable = false
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 19 )
 frame = 5
 playing = true
 
-[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 
 [node name="collisionShape2D" type="CollisionShape2D" parent="."]
 z_index = -1
 shape = SubResource( 28 )
 
-[node name="fire2" type="GPUParticles2D" parent="."]
+[node name="fire2" type="Particles2D" parent="."]
 modulate = Color( 1, 0.662745, 0.662745, 1 )
 material = SubResource( 21 )
 z_index = -1
@@ -98,29 +98,29 @@ fade_out = true
 [node name="wallCheck_right" type="RayCast2D" parent="."]
 enabled = true
 exclude_parent = false
-target_position = Vector2( 32, 0 )
+cast_to = Vector2( 32, 0 )
 collision_mask = 769
 
 [node name="wallCheck_left" type="RayCast2D" parent="."]
 enabled = true
 exclude_parent = false
-target_position = Vector2( -32, 0 )
+cast_to = Vector2( -32, 0 )
 collision_mask = 769
 
 [node name="wallCheck_down" type="RayCast2D" parent="."]
 enabled = true
 exclude_parent = false
-target_position = Vector2( 0, 32 )
+cast_to = Vector2( 0, 32 )
 collision_mask = 769
 
 [node name="wallCheck_up" type="RayCast2D" parent="."]
 enabled = true
 exclude_parent = false
-target_position = Vector2( 0, -32 )
+cast_to = Vector2( 0, -32 )
 collision_mask = 769
 
-[node name="Fire" type="GPUParticles2D" parent="."]
-process_mode = 3
+[node name="Fire" type="Particles2D" parent="."]
+pause_mode = 2
 material = SubResource( 29 )
 z_index = 10
 emitting = false
@@ -133,8 +133,8 @@ local_coords = false
 process_material = ExtResource( 6 )
 texture = ExtResource( 2 )
 
-[node name="Explosion" type="GPUParticles2D" parent="."]
-process_mode = 3
+[node name="Explosion" type="Particles2D" parent="."]
+pause_mode = 2
 material = ExtResource( 9 )
 z_index = 10
 emitting = false

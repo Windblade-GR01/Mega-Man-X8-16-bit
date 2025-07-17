@@ -1,13 +1,13 @@
 extends Node2D
 
-@onready var start_area = get_node("area2D")
-@onready var sprite = get_node("animatedSprite")
-@onready var particles = $particles2D
-@onready var glass: CollisionShape2D = $glass/collisionShape2D
+onready var start_area = get_node("area2D")
+onready var sprite = get_node("animatedSprite")
+onready var particles = $particles2D
+onready var glass: CollisionShape2D = $glass/collisionShape2D
 
-@export var debug_logs := false
-@export var armor_part := "icarus_head"
-@export var dialogue : Resource
+export var debug_logs := false
+export var armor_part := "icarus_head"
+export var dialogue : Resource
 
 signal lightning
 
@@ -83,7 +83,7 @@ func _process(delta: float) -> void:
 	if not finished:
 		if charge_state >= 1:
 			timer += delta
-			player.animatedSprite.material.set_shader_parameter("Color", color)
+			player.animatedSprite.material.set_shader_param("Color", color)
 		
 		if charge_state >= 1 and charge_state < 3:
 			particles.speed_scale += delta * 2
@@ -148,10 +148,10 @@ func _on_animatedSprite_animation_finished() -> void:
 	pass # Replace with function body.
 
 func enable_charge_shader():
-	player.animatedSprite.material.set_shader_parameter("Charge", 1)
+	player.animatedSprite.material.set_shader_param("Charge", 1)
 
 func disable_charge_shader():
-	player.animatedSprite.material.set_shader_parameter("Charge", 0)
+	player.animatedSprite.material.set_shader_param("Charge", 0)
 
 func achievement_check():
 	print("Achievements: checking armor parts...")

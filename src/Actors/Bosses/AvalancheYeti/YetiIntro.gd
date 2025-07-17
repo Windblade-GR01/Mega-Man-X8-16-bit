@@ -2,13 +2,13 @@ extends GenericIntro
 
 var starting_pos : Vector2
 var entered_ready_animation := false
-@export var intro_jump_height := 40
-@onready var particles = $"Snow Explosion"
-@onready var jump_particles = $"Jump"
-@onready var land_particles = $"Land"
-@onready var jump = $jump
-@onready var land = $land
-@onready var arms = $arms
+export var intro_jump_height := 40
+onready var particles = $"Snow Explosion"
+onready var jump_particles = $"Jump"
+onready var land_particles = $"Land"
+onready var jump = $jump
+onready var land = $land
+onready var arms = $arms
 
 func _ready() -> void:
 	prepare_for_intro()
@@ -18,7 +18,7 @@ func prepare_for_intro() -> void:
 	animatedSprite.modulate = Color(1,1,1,0)
 
 func _Setup():
-	super._Setup()
+	._Setup()
 	Event.emit_signal("screenshake", 2)
 
 func _Update(delta):
@@ -27,7 +27,7 @@ func _Update(delta):
 		next_attack_stage_on_next_frame()
 
 	elif attack_stage == 1:
-		_make_visible()
+		make_visible()
 		set_vertical_speed(-350)
 		turn_player_towards_boss()
 		toggle_emit(jump_particles, true)

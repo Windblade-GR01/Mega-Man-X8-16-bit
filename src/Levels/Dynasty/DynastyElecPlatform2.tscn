@@ -2,8 +2,8 @@
 
 [ext_resource path="res://addons/PaletteSwap/PaletteSwap.gdshader" type="Shader" id=1]
 [ext_resource path="res://src/Actors/Modules/Enemy/DamageOnTouch.gd" type="Script" id=2]
-[ext_resource path="res://src/Levels/Dynasty/dynasty_elec_pallette.png" type="Texture2D" id=3]
-[ext_resource path="res://src/Levels/Dynasty/elec_plat2.png" type="Texture2D" id=4]
+[ext_resource path="res://src/Levels/Dynasty/dynasty_elec_pallette.png" type="Texture" id=3]
+[ext_resource path="res://src/Levels/Dynasty/elec_plat2.png" type="Texture" id=4]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )
@@ -20,7 +20,7 @@ extents = Vector2( 23, 2.25 )
 
 [node name="ElecPlatform" type="Node2D"]
 
-[node name="sprite" type="Sprite2D" parent="."]
+[node name="sprite" type="Sprite" parent="."]
 material = SubResource( 1 )
 z_index = 3
 texture = ExtResource( 4 )

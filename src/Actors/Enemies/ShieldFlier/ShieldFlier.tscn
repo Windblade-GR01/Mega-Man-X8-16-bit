@@ -51,7 +51,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=56]
 curve = SubResource( 10 )
 
-[sub_resource type="ParticleProcessMaterial" id=50]
+[sub_resource type="ParticlesMaterial" id=50]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -70,7 +70,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=57]
 curve = SubResource( 42 )
 
-[sub_resource type="ParticleProcessMaterial" id=51]
+[sub_resource type="ParticlesMaterial" id=51]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -82,10 +82,10 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 57 )
 
-[sub_resource type="GradientTexture2D" id=58]
+[sub_resource type="GradientTexture" id=58]
 gradient = ExtResource( 15 )
 
-[sub_resource type="ParticleProcessMaterial" id=46]
+[sub_resource type="ParticlesMaterial" id=46]
 emission_shape = 1
 emission_sphere_radius = 18.34
 flag_disable_z = true
@@ -99,7 +99,7 @@ color_ramp = SubResource( 58 )
 anim_offset = 1.0
 anim_offset_random = 1.0
 
-[node name="ShieldFlier" type="CharacterBody2D" groups=["Enemies"]]
+[node name="ShieldFlier" type="KinematicBody2D" groups=["Enemies"]]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 6 )
@@ -121,7 +121,7 @@ script = ExtResource( 9 )
 position = Vector2( 37, 0 )
 shape = SubResource( 55 )
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 49 )
 z_index = 1
 frames = ExtResource( 14 )
@@ -133,7 +133,7 @@ flip_h = true
 [node name="collisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 15 )
 
-[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 scale = Vector2( 2, 2 )
 rect = Rect2( -5, -5, 10, 10 )
 
@@ -209,7 +209,7 @@ animation = "stun"
 stun_duration = 1.65
 recover_animation = "close"
 
-[node name="break_vfx" type="AnimatedSprite2D" parent="EnemyStun"]
+[node name="break_vfx" type="AnimatedSprite" parent="EnemyStun"]
 modulate = Color( 1, 1, 1, 0.670588 )
 position = Vector2( 12, 0 )
 z_index = 25

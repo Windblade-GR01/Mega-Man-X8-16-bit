@@ -1,5 +1,5 @@
 extends AttackAbility
-@onready var enemy_shield: Node2D = $"../EnemyShield"
+onready var enemy_shield: Node2D = $"../EnemyShield"
 
 var able_to_defend := true
 var turning := false

@@ -1,4 +1,4 @@
-@tool
+tool
 extends EditorImportPlugin
 
 const result_codes = preload("../config/result_codes.gd")
@@ -6,35 +6,35 @@ const result_codes = preload("../config/result_codes.gd")
 var _config = preload("../config/config.gd").new()
 var _sf_creator = preload("sprite_frames_creator.gd").new()
 
-func _get_importer_name():
+func get_importer_name():
 	return "aseprite.wizard.plugin"
 
 
-func _get_visible_name():
+func get_visible_name():
 	return "Aseprite Importer"
 
 
-func _get_recognized_extensions():
+func get_recognized_extensions():
 	return ["aseprite", "ase"]
 
 
-func _get_save_extension():
+func get_save_extension():
 	return "res"
 
 
-func _get_resource_type():
+func get_resource_type():
 	return "SpriteFrames"
 
 
-func _get_preset_count():
+func get_preset_count():
 	return 1
 
 
-func _get_preset_name(i):
+func get_preset_name(i):
 	return "Default"
 
 
-func _get_import_options(i):
+func get_import_options(i):
 	return [
 		{"name": "split_layers", "default_value": false},
 		{"name": "exclude_layers_pattern", "default_value": ''},
@@ -50,12 +50,12 @@ func _get_import_options(i):
 		{"name": "texture_atlas/frame_filename_pattern", "default_value": "{basename}.{layer}.{animation}.{frame}.Atlas.{extension}"},
 
 		{"name": "animated_texture/import_animated_texture", "default_value": false},
-		{"name": "animated_texture/filename_pattern", "default_value": "{basename}.{layer}.{animation}.Texture2D.{extension}"},
-		{"name": "animated_texture/frame_filename_pattern", "default_value": "{basename}.{layer}.{animation}.{frame}.Texture2D.{extension}"},
+		{"name": "animated_texture/filename_pattern", "default_value": "{basename}.{layer}.{animation}.Texture.{extension}"},
+		{"name": "animated_texture/frame_filename_pattern", "default_value": "{basename}.{layer}.{animation}.{frame}.Texture.{extension}"},
 		]
 
 
-func _get_option_visibility(option, options):
+func get_option_visibility(option, options):
 	return true
 
 
@@ -71,20 +71,20 @@ func import(source_file, save_path, options, platform_variants, gen_files):
 	var absolute_source_file = ProjectSettings.globalize_path(source_file)
 	var absolute_save_path = ProjectSettings.globalize_path(save_path)
 
-	var source_path = source_file.substr(0, source_file.rfind('/'))
+	var source_path = source_file.substr(0, source_file.find_last('/'))
 	var source_basename = source_file.substr(source_path.length()+1, -1)
-	source_basename = source_basename.substr(0, source_basename.rfind('.'))
+	source_basename = source_basename.substr(0, source_basename.find_last('.'))
 
 	_config.load_config()
 
 	_sf_creator.init(_config)
 
-	var dir = DirAccess.new()
+	var dir = Directory.new()
 	dir.make_dir(save_path)
 
 	# Clear the directories contents
 	dir.open(save_path)
-	dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
+	dir.list_dir_begin()
 	var file_name = dir.get_next()
 	while file_name != "":
 		if file_name != '.' and file_name != '..':
@@ -106,7 +106,7 @@ func import(source_file, save_path, options, platform_variants, gen_files):
 		return FAILED
 
 	dir.open(save_path)
-	dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
+	dir.list_dir_begin()
 
 	file_name = dir.get_next()
 
@@ -194,7 +194,7 @@ func import(source_file, save_path, options, platform_variants, gen_files):
 							var frame_filename = "%s/%s" % [source_path, replace_vars(options["animated_texture/frame_filename_pattern"], replacement_vars)]
 
 							var res = ImageTexture.new()
-							res.create_from_image(single_image) #,0
+							res.create_from_image(single_image, 0)
 							res.flags = atlas_tex.flags
 							ResourceSaver.save(frame_filename, res)
 							res.take_over_path(frame_filename)
@@ -216,7 +216,7 @@ func import(source_file, save_path, options, platform_variants, gen_files):
 				var img : Image = Image.new()
 				img.load("%s/%s" % [save_path, file_name])
 				var res = ImageTexture.new()
-				res.create_from_image(img) #,0
+				res.create_from_image(img, 0)
 				ResourceSaver.save(texture_filename, res)
 
 		file_name = dir.get_next()

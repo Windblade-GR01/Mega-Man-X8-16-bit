@@ -11,7 +11,7 @@ z_index = 4
 script = ExtResource( 2 )
 gravitybox = ExtResource( 3 )
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
 animation = "intro"
 

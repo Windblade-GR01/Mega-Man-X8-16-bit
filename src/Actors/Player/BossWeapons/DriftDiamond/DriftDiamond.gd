@@ -1,14 +1,14 @@
 class_name MultiShotWeapon extends BossWeapon
 
-@export var number_of_shots := 5
-@export var speed := 520
-@export var step := 140
+export var number_of_shots := 5
+export var speed := 520
+export var step := 140
 # warning-ignore:integer_division
 var shot_number := -floor(number_of_shots/2)
 var driftshoryuken
 var executing := false
-@onready var tween := TweenController.new(self,false)
-@onready var weapon_stasis: Node2D = $"../../WeaponStasis"
+onready var tween := TweenController.new(self,false)
+onready var weapon_stasis: Node2D = $"../../WeaponStasis"
 
 func fire_regular() -> void:
 # warning-ignore:integer_division

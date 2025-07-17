@@ -1,6 +1,6 @@
-extends PointLight2D
+extends Light2D
 
-@onready var tween := TweenController.new(self,false)
+onready var tween := TweenController.new(self,false)
 
 
 func _on_Capsule_lightning() -> void:

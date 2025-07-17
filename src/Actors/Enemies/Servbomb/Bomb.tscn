@@ -11,7 +11,7 @@ extents = Vector2( 10, 11 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 11 )
 
-[node name="ServbombBomb" type="CharacterBody2D" groups=["Enemies"]]
+[node name="ServbombBomb" type="KinematicBody2D" groups=["Enemies"]]
 z_index = 8
 collision_layer = 16
 script = ExtResource( 1 )
@@ -21,7 +21,7 @@ __meta__ = {
 damage = 5.0
 blast_area = ExtResource( 7 )
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 6 )
 animation = "bomb"
 offset = Vector2( 0, -5 )
@@ -38,7 +38,7 @@ shape = SubResource( 1 )
 script = ExtResource( 2 )
 damage = 5.0
 
-[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 visible = false
 
 [node name="collisionShape2D" type="CollisionShape2D" parent="."]

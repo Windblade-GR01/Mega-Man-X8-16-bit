@@ -1,7 +1,7 @@
 extends AttackAbility
 
-@onready var actual_attack: Node2D = $"../animatedSprite/smash_attack"
-@onready var stomp: AudioStreamPlayer2D = $stomp
+onready var actual_attack: Node2D = $"../animatedSprite/smash_attack"
+onready var stomp: AudioStreamPlayer2D = $stomp
 
 func _Setup() -> void:
 	play_animation("smash_prepare")

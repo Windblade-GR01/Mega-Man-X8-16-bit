@@ -1,16 +1,16 @@
 extends AttackAbility
 class_name IceDash
 
-@export var horizontal_speed := 400.0
-@export var jump_speed := 400.0
+export var horizontal_speed := 400.0
+export var jump_speed := 400.0
 
-@onready var dash = $dash
-@onready var uppercut = $uppercut
-@onready var land = $land
+onready var dash = $dash
+onready var uppercut = $uppercut
+onready var land = $land
 
-@onready var particles = [$"Snow Jet", $"Snow Jet 2"]
-@onready var land_particle = $Land
-@onready var jump_particle = $Jump
+onready var particles = [$"Snow Jet", $"Snow Jet 2"]
+onready var land_particle = $Land
+onready var jump_particle = $Jump
 
 func get_horizontal_velocity() -> float:
 	return horizontal_speed

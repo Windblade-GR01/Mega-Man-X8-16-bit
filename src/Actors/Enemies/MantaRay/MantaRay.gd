@@ -1,8 +1,8 @@
 extends Enemy
 
-@onready var enemy_death: Node2D = $EnemyDeath
+onready var enemy_death: Node2D = $EnemyDeath
 var ignore_bike_melee := false
-@onready var intro: Node2D = $Intro
+onready var intro: Node2D = $Intro
 signal intro_concluded  
 signal spawned(object)
 

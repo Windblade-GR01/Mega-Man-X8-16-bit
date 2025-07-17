@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://b6hb3j518k0lx"
-path="res://.godot/imported/Bike - Mount.wav-2a33e3c937fbf48db0ca2619ba6aed02.sample"
+type="AudioStreamSample"
+path="res://.import/Bike - Mount.wav-2a33e3c937fbf48db0ca2619ba6aed02.sample"
 
 [deps]
 
 source_file="res://src/Sounds/Bike - Mount.wav"
-dest_files=["res://.godot/imported/Bike - Mount.wav-2a33e3c937fbf48db0ca2619ba6aed02.sample"]
+dest_files=[ "res://.import/Bike - Mount.wav-2a33e3c937fbf48db0ca2619ba6aed02.sample" ]
 
 [params]
 

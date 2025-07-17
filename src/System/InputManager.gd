@@ -15,7 +15,7 @@ func _input(_event: InputEvent) -> void:
 	pass
 
 func _ready() -> void:
-	var _s = Configurations.connect("value_changed", Callable(self, "activate_dash"))
+	var _s = Configurations.connect("value_changed",self,"activate_dash")
 
 func activate_dash(key) -> void:
 	if key == "DashCommand":
@@ -67,7 +67,7 @@ func add_inputs_to_list() -> void:
 func activate_combo(key) -> void:
 	var event = InputEventAction.new()
 	event.action = key
-	event.button_pressed = true
+	event.pressed = true
 	Input.parse_input_event(event)
 	#Input.action_press(key)
 	current_associated_key = get_last_input()
@@ -79,7 +79,7 @@ func release_input_when_key_is_released() -> void:
 		if Input.is_action_just_released(current_associated_key):
 			var event = InputEventAction.new()
 			event.action = "dash"
-			event.button_pressed = false
+			event.pressed = false
 			Input.parse_input_event(event)
 			current_associated_key = ""
 
@@ -104,8 +104,8 @@ func load_modified_keys(new_keys) -> void:
 		modified_keys.clear()
 		for action in new_keys:
 			var actual_action = action.trim_prefix("00_")
-			var new_key = str_to_var(new_keys[action][0])
-			var current_key = get_default_key(actual_action,str_to_var(new_keys[action][1]))
+			var new_key = str2var(new_keys[action][0])
+			var current_key = get_default_key(actual_action,str2var(new_keys[action][1]))
 			set_new_action_event(actual_action,new_key,current_key)
 		Savefile.save() #TODO: Investigar o porquê desse save
 	else:
@@ -114,7 +114,7 @@ func load_modified_keys(new_keys) -> void:
 
 func get_default_key(action, old_event) -> InputEvent:
 	var InputType = define_event_type(old_event)
-	var input_list = InputMap.action_get_events(action)
+	var input_list = InputMap.get_action_list(action)
 	for event in input_list:
 		if event is InputType:
 			return event
@@ -137,7 +137,7 @@ signal double_detected(event_text,actionname)
 func set_new_action_event(action,event,old_event) -> void:
 	ui_case_handler(event, action)
 	switch_events(event, action, old_event)
-	add_to_file(action,var_to_str(event),var_to_str(old_event))
+	add_to_file(action,var2str(event),var2str(old_event))
 
 func ui_case_handler(event, action) -> void: #TODO: resolver bug de seta não funcionando no menu
 	if "move" in action:

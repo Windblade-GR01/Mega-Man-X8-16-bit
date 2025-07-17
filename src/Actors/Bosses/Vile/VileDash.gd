@@ -1,6 +1,6 @@
 extends AttackAbility
-@onready var dash_particles: GPUParticles2D = $dash_particles
-@onready var dash: AudioStreamPlayer2D = $dash
+onready var dash_particles: Particles2D = $dash_particles
+onready var dash: AudioStreamPlayer2D = $dash
 
 func _Setup() -> void:
 	turn_and_face_player()
@@ -30,7 +30,7 @@ func _Update(_delta) -> void:
 
 func _Interrupt() -> void:
 	dash_particles.emitting = false
-	super._Interrupt()
+	._Interrupt()
 
 func has_player_jumped_above() -> bool:
 	return is_player_above() and not is_player_in_front()

@@ -1,6 +1,6 @@
 extends GenericIntro
-@onready var spin: AudioStreamPlayer2D = $"../GigaStomp/spin"
-@onready var space: Node = $"../Space"
+onready var spin: AudioStreamPlayer2D = $"../GigaStomp/spin"
+onready var space: Node = $"../Space"
 
 func prepare_for_intro() -> void:
 	Log("Preparing for Intro")
@@ -13,7 +13,7 @@ func _Update(_delta) -> void:
 		character.global_position.x += 100
 		play_animation("thunder_loop")
 		turn_and_face_player()
-		_make_visible()
+		make_visible()
 		spin.play()
 		character.global_position.x -= 100
 		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)

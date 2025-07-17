@@ -1,10 +1,10 @@
 extends AttackAbility
 var pursuit_speed:= 30.0
-@onready var damage_on_touch: Node2D = $"../DamageOnTouch"
+onready var damage_on_touch: Node2D = $"../DamageOnTouch"
 
 func _Setup() -> void:
 	character.modulate = Color(15,10,20,1)
-	tween_attribute("modulate",Color.WHITE,1.0,character)
+	tween_attribute("modulate",Color.white,1.0,character)
 	tween_attribute("pursuit_speed",1.0,7.0)
 	Tools.timer(0.45, "activate_damage",self)
 	

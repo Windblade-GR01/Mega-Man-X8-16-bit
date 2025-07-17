@@ -1,8 +1,8 @@
-extends Sprite2D
+extends Sprite
 
-@onready var tween := TweenController.new(self,false)
+onready var tween := TweenController.new(self,false)
 
-@export var duration := 80
+export var duration := 80
 
 func _ready() -> void:
 	ascent()
@@ -10,7 +10,7 @@ func _ready() -> void:
 func ascent():
 	tween.create(Tween.EASE_OUT,Tween.TRANS_SINE)
 	tween.add_attribute("region_rect:position:y",224,120.0)
-	tween.attribute("modulate",Color.WHITE,160.0)
+	tween.attribute("modulate",Color.white,160.0)
 	
 
 

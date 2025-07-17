@@ -40,7 +40,7 @@ extents = Vector2( 12, 10 )
 [sub_resource type="RectangleShape2D" id=56]
 extents = Vector2( 9, 10 )
 
-[node name="MetoolQueatira" type="CharacterBody2D" groups=["Enemies"]]
+[node name="MetoolQueatira" type="KinematicBody2D" groups=["Enemies"]]
 collision_layer = 0
 collision_mask = 513
 script = ExtResource( 2 )
@@ -61,7 +61,7 @@ input_pickable = false
 position = Vector2( 0, -6 )
 shape = SubResource( 58 )
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 49 )
 z_index = 1
 frames = ExtResource( 23 )
@@ -72,7 +72,7 @@ flip_h = true
 [node name="collisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 15 )
 
-[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 scale = Vector2( 2, 2 )
 rect = Rect2( -5, -5, 10, 10 )
 
@@ -131,7 +131,7 @@ reactivate_shield_on_end = false
 stun_duration = 1.65
 recover_animation = ""
 
-[node name="break_vfx" type="AnimatedSprite2D" parent="EnemyStun"]
+[node name="break_vfx" type="AnimatedSprite" parent="EnemyStun"]
 modulate = Color( 1, 1, 1, 0.670588 )
 position = Vector2( 12, 0 )
 z_index = 25

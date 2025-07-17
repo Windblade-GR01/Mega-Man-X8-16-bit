@@ -7,7 +7,7 @@
 [ext_resource path="res://src/Actors/Enemies/Placas/placas.res" type="SpriteFrames" id=5]
 [ext_resource path="res://src/Actors/Modules/Enemy/EnemyDamage.gd" type="Script" id=6]
 [ext_resource path="res://src/Actors/Enemies/Shared/QuickEnemyDeath.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/Effects/Textures/remains_gray.png" type="Texture2D" id=8]
+[ext_resource path="res://src/Effects/Textures/remains_gray.png" type="Texture" id=8]
 [ext_resource path="res://src/Sounds/HIT.wav" type="AudioStream" id=9]
 [ext_resource path="res://src/Actors/Bosses/GravityAntonion/BoxCrash.gd" type="Script" id=10]
 [ext_resource path="res://src/Sounds/Ice Break.wav" type="AudioStream" id=11]
@@ -37,7 +37,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=239]
 curve = SubResource( 238 )
 
-[sub_resource type="ParticleProcessMaterial" id=247]
+[sub_resource type="ParticlesMaterial" id=247]
 resource_local_to_scene = true
 resource_name = "explosion"
 emission_shape = 1
@@ -59,7 +59,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=243]
 curve = SubResource( 242 )
 
-[sub_resource type="ParticleProcessMaterial" id=248]
+[sub_resource type="ParticlesMaterial" id=248]
 resource_local_to_scene = true
 resource_name = "remains_single"
 flag_disable_z = true
@@ -72,7 +72,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 243 )
 
-[node name="Placa" type="CharacterBody2D" groups=["Enemies"]]
+[node name="Placa" type="KinematicBody2D" groups=["Enemies"]]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 4 )
@@ -92,7 +92,7 @@ visible = false
 position = Vector2( -0.5, 0 )
 shape = SubResource( 72 )
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 63 )
 z_index = 1
 frames = ExtResource( 5 )
@@ -104,7 +104,7 @@ flip_h = true
 position = Vector2( 0, 0.5 )
 shape = SubResource( 249 )
 
-[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 visible = false
 scale = Vector2( 6, 4.8 )
 rect = Rect2( -5, -5, 10, 10 )

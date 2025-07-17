@@ -1,7 +1,7 @@
 extends Area2D
 
 var fired_signal := false
-@onready var door: = $".."
+onready var door: = $".."
 
 signal player_enter
 

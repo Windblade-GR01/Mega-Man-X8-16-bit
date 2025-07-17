@@ -1,15 +1,15 @@
 extends EventAbility
 class_name Intro
 
-@onready var debug_skip_intro = character.skip_intro
-@export var beam_speed := 420.0
-@export var enable_movement := true
+onready var debug_skip_intro = character.skip_intro
+export var beam_speed := 420.0
+export var enable_movement := true
 var descending := false
-@onready var animatedSprite = get_parent().get_node("animatedSprite")
-@onready var thunder = get_node("audioStreamPlayer2")
+onready var animatedSprite = get_parent().get_node("animatedSprite")
+onready var thunder = get_node("audioStreamPlayer2")
 
 func _ready() -> void:
-	animatedSprite.connect("animation_finished", Callable(self, "on_animation_finished"))
+	animatedSprite.connect("animation_finished",self,"on_animation_finished")
 	if debug_skip_intro:
 		character.activate()
 		Event.emit_signal("x_appear")

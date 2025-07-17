@@ -1,6 +1,6 @@
 extends PickUp
 
-@export var extra_lives := 1
+export var extra_lives := 1
 	
 func process_effect(_delta) -> void:
 	pass

@@ -1,6 +1,6 @@
 extends AttackAbility
 
-@export var projectile : PackedScene
+export var projectile : PackedScene
 
 func _Setup() -> void:
 	turn_and_face_player()

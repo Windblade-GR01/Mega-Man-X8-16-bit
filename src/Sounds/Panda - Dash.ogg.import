@@ -1,19 +1,15 @@
 [remap]
 
-importer="oggvorbisstr"
-type="AudioStreamOggVorbis"
-uid="uid://cmtj2h8c6sdek"
-path="res://.godot/imported/Panda - Dash.ogg-d57c463df01b29122cd49d2fb416ba6e.oggvorbisstr"
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Panda - Dash.ogg-d57c463df01b29122cd49d2fb416ba6e.oggstr"
 
 [deps]
 
 source_file="res://src/Sounds/Panda - Dash.ogg"
-dest_files=["res://.godot/imported/Panda - Dash.ogg-d57c463df01b29122cd49d2fb416ba6e.oggvorbisstr"]
+dest_files=[ "res://.import/Panda - Dash.ogg-d57c463df01b29122cd49d2fb416ba6e.oggstr" ]
 
 [params]
 
 loop=false
 loop_offset=0
-bpm=0
-beat_count=0
-bar_beats=4

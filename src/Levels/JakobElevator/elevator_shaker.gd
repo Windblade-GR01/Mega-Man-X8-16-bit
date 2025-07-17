@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Sprite
 
 var timer := 0.0
 

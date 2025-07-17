@@ -1,13 +1,13 @@
 extends AttackAbility
 class_name EnemyShot
 
-@export var shot_duration := 1.0
-@export var shot_animation : String
-@export var deactivate_shield := true
-@export var recover_animation : String
-@export var shot_position: NodePath
-@export var projectile: PackedScene
-@onready var shot_sound := $shot_sound
+export var shot_duration := 1.0
+export var shot_animation : String
+export var deactivate_shield := true
+export var recover_animation : String
+export (NodePath) var shot_position
+export (PackedScene) var projectile
+onready var shot_sound := $shot_sound
 var actual_fire_pos := Vector2(0,0)
 var shield 
 
@@ -35,7 +35,7 @@ func _Update(_delta) -> void:
 		EndAbility()
 
 func _Interrupt() -> void:
-	super._Interrupt()
+	._Interrupt()
 	if deactivate_shield:
 		activate_shield()
 	

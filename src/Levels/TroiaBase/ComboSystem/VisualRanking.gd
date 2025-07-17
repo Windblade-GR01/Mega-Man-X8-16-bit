@@ -3,24 +3,24 @@ extends Node2D
 const bar_size := 60.0
 const rankings := {"e":0,"d":1,"c":2,"b":3,"a":4,"s":5}
 
-@export var bar_s : Texture2D
-@export var bar_a : Texture2D
-@export var bar_b : Texture2D
-@export var bar_c : Texture2D
-@export var bar_d : Texture2D
-@export var bar_e : Texture2D
-@onready var bars := {"e":bar_e,"d":bar_d,"c":bar_c,"b":bar_b,"a":bar_a,"s":bar_s}
+export var bar_s : Texture
+export var bar_a : Texture
+export var bar_b : Texture
+export var bar_c : Texture
+export var bar_d : Texture
+export var bar_e : Texture
+onready var bars := {"e":bar_e,"d":bar_d,"c":bar_c,"b":bar_b,"a":bar_a,"s":bar_s}
 
 var current_rank := 0
 var starting := false
 
-@onready var break_vfx: AnimatedSprite2D = $break_vfx
-@onready var original_position := position
-@onready var letter: AnimatedSprite2D = $letter
-@onready var bar: Sprite2D = $bar
-@onready var underbar: Sprite2D = $underbar
-@onready var tween := TweenController.new(self, false)
-@onready var sound: AudioStreamPlayer2D = $sound
+onready var break_vfx: AnimatedSprite = $break_vfx
+onready var original_position := position
+onready var letter: AnimatedSprite = $letter
+onready var bar: Sprite = $bar
+onready var underbar: Sprite = $underbar
+onready var tween := TweenController.new(self, false)
+onready var sound: AudioStreamPlayer2D = $sound
 
 const rank_down = preload("res://src/Sounds/FX - Rank Down.ogg")
 const rank_up = preload("res://src/Sounds/FX - Rank Up.ogg")
@@ -29,12 +29,12 @@ const get_a_rank = preload("res://src/Sounds/FX - Get A Rank.ogg")
 const get_s_rank = preload("res://src/Sounds/FX - Get S Rank.ogg")
 const get_sss_rank = preload("res://src/Sounds/FX - Get SSS Rank.ogg")
 
-@onready var kill_number_1: AnimatedSprite2D = $underbar/kills/number1
-@onready var kill_number_2: AnimatedSprite2D = $underbar/kills/number2
-@onready var timer_1: AnimatedSprite2D = $underbar/time/number1
-@onready var timer_2: AnimatedSprite2D = $underbar/time/number2
-@onready var timer_3: AnimatedSprite2D = $underbar/time/number3
-@onready var timer_4: AnimatedSprite2D = $underbar/time/number4
+onready var kill_number_1: AnimatedSprite = $underbar/kills/number1
+onready var kill_number_2: AnimatedSprite = $underbar/kills/number2
+onready var timer_1: AnimatedSprite = $underbar/time/number1
+onready var timer_2: AnimatedSprite = $underbar/time/number2
+onready var timer_3: AnimatedSprite = $underbar/time/number3
+onready var timer_4: AnimatedSprite = $underbar/time/number4
 
 
 func _ready() -> void:
@@ -60,13 +60,13 @@ func should_play_sss_rank() -> bool:
 	return false
 
 func start() -> void:
-	_make_visible([letter,bar,underbar])
+	make_visible([letter,bar,underbar])
 	set_ranking("e")
 	letter.play("start")
 	fill_bar(0)
 	appear(underbar)
 	visually_start_fill()
-	set_timer_color(Color.WHITE)
+	set_timer_color(Color.white)
 
 func set_kills_left(count : int) -> void:
 	kill_number_1.frame = 0
@@ -109,15 +109,15 @@ func visually_start_fill() -> void:
 	starting = true
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_method(Callable(self, "fill_bar"), 100.0, 3.0, 1.25)
-	tween.tween_callback(Callable(self, "finished_starting"))
+	tween.tween_method(self,"fill_bar",100.0,3.0,1.25)
+	tween.tween_callback(self,"finished_starting")
 	
 func finished_starting() -> void:
 	starting = false
 
-func _make_visible(objects_to_appear : Array) -> void:
+func make_visible(objects_to_appear : Array) -> void:
 	for item in objects_to_appear:
-		item.modulate = Color.WHITE
+		item.modulate = Color.white
 		item.visible = true
 
 func increase_ranking() -> void:

@@ -11,7 +11,7 @@ func references_setup(direction):
 	animatedSprite.scale.x = direction
 	$particles2D.scale.x = direction
 	update_facing_direction()
-	$animatedSprite.set_frame(int(randf_range(0,8)))
+	$animatedSprite.set_frame(int(rand_range(0,8)))
 	original_pitch = audio.pitch_scale
 
 func process_hittime(delta):
@@ -37,7 +37,7 @@ func leave(_target):
 	pass
 
 func deflect(_body) -> void:
-	super.deflect(_body)
+	.deflect(_body)
 	$deflect_particle.emit(facing_direction)
 
 func launch_setup(direction, _launcher_velocity := 0.0):

@@ -1,27 +1,27 @@
 extends Node2D
-@export var projectile : PackedScene
-@export var duration := 10.0
+export var projectile : PackedScene
+export var duration := 10.0
 var active := false
 var fired_laser := false
 var timer := 0.0
 var creator
-var tween : Tween
+var tween : SceneTreeTween
 var destroy_timer := 0.35
-@onready var destroy_tween := TweenController.new(self,false)
-@onready var front_shield: AnimatedSprite2D = $front_shield
-@onready var back_shield: AnimatedSprite2D = $back_shield
-@onready var light: PointLight2D = $light
-@onready var shot_sound: AudioStreamPlayer2D = $shot_sound
+onready var destroy_tween := TweenController.new(self,false)
+onready var front_shield: AnimatedSprite = $front_shield
+onready var back_shield: AnimatedSprite = $back_shield
+onready var light: Light2D = $light
+onready var shot_sound: AudioStreamPlayer2D = $shot_sound
 
 func _ready() -> void:
 	back_shield.frame = 4
 	global_position = GameManager.get_player_position()
-	Event.connect("player_death", Callable(self, "queue_free"))
-	Event.connect("stage_teleport", Callable(self, "rotate_expire"))
-	Event.connect("stage_rotate", Callable(self, "rotate_expire"))
+	Event.connect("player_death",self,"queue_free")
+	Event.connect("stage_teleport",self,"rotate_expire")
+	Event.connect("stage_rotate",self,"rotate_expire")
 
 func rotate_expire():
-	set_process_mode(Node.PROCESS_MODE_ALWAYS)
+	set_pause_mode(Node.PAUSE_MODE_PROCESS)
 	expire()
 
 func initialize(_facing_direction) -> void:
@@ -35,7 +35,7 @@ func initialize(_facing_direction) -> void:
 
 func set_creator(_creator : Node) -> void:
 	creator = _creator
-	_creator.connect("damage", Callable(self, "expire"))# warning-ignore:return_value_discarded
+	_creator.connect("damage",self,"expire")# warning-ignore:return_value_discarded
 
 func _physics_process(delta: float) -> void:
 	
@@ -100,7 +100,7 @@ func deflect_projectile(body):
 func fire_laser(body):
 	if not fired_laser:
 		fired_laser = true
-		var shot = projectile.instantiate()
+		var shot = projectile.instance()
 		get_tree().current_scene.add_child(shot,true)
 		shot.set_global_position(global_position) 
 		shot.set_creator(creator)

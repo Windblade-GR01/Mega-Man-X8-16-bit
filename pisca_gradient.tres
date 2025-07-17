@@ -1,7 +1,7 @@
 [gd_resource type="Gradient" format=2]
 
 [resource]
-offsets = PackedFloat32Array( 
+offsets = PoolRealArray( 
 0, 
 0.01, 
 0.011, 
@@ -214,7 +214,7 @@ offsets = PackedFloat32Array(
 0.991,
 1)
 
-colors = PackedColorArray( 
+colors = PoolColorArray( 
 1, 1, 1, 1, 
 1, 1, 1, 1, 
 1, 1, 1, 0, 

@@ -1,7 +1,7 @@
 extends AttackAbility
 
-@export var drop_enemy : PackedScene
-var tween : Tween
+export var drop_enemy : PackedScene
+var tween : SceneTreeTween
 
 func _Setup():
 	attack_stage = 0
@@ -47,7 +47,7 @@ func _Interrupt() -> void:
 func next_attack_stage_on_tween_end() -> void:
 	next_attack_stage()
 	tween.set_parallel(false)# warning-ignore:return_value_discarded
-	tween.tween_callback(Callable(self, "next_attack_stage_on_next_frame"))# warning-ignore:return_value_discarded
+	tween.tween_callback(self,"next_attack_stage_on_next_frame")# warning-ignore:return_value_discarded
 	
 func start_tween() -> void:
 	if tween:

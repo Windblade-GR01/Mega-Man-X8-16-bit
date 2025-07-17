@@ -1,7 +1,7 @@
 extends Area2D
 
 var fliped := false
-@onready var shield_flier: CharacterBody2D = $"../.."
+onready var shield_flier: KinematicBody2D = $"../.."
 
 func _ready() -> void:
 	pass

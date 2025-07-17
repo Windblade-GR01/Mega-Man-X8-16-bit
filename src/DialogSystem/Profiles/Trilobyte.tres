@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://src/DialogSystem/Profiles/Profile.gd" type="Script" id=1]
-[ext_resource path="res://src/DialogSystem/font_colors/Trilobyte.png" type="Texture2D" id=2]
+[ext_resource path="res://src/DialogSystem/font_colors/Trilobyte.png" type="Texture" id=2]
 [ext_resource path="res://src/DialogSystem/portraits/trilobyte_dialogue.res" type="SpriteFrames" id=3]
 
 [resource]

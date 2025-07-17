@@ -1,15 +1,15 @@
 extends Node2D
 class_name NewAbility, "res://src/HUD/ability_icon.png"
 
-@export var active := true
-@export var hard_conflicts : Array
-@export var soft_conflicts : Array
+export var active := true
+export var hard_conflicts : Array
+export var soft_conflicts : Array
 var current_conflicts : Array
 var executing := false
 var timer := 0.0
 signal start (ability_name)
 signal stop (ability_name)
-@onready var character = get_character()
+onready var character = get_character()
 
 func _ready() -> void:
 	connect_conflicts()
@@ -20,11 +20,11 @@ func get_character():
 func connect_conflicts() -> void:
 	for nodepath in hard_conflicts:
 		var ability = get_node(nodepath)
-		ability.connect("start", Callable(self, "_on_hard_conflict"))
-		ability.connect("stop", Callable(self, "_on_hard_conflict_stop"))
+		ability.connect("start",self,"_on_hard_conflict")
+		ability.connect("stop",self,"_on_hard_conflict_stop")
 	for nodepath in soft_conflicts:
 		var ability = get_node(nodepath)
-		ability.connect("start", Callable(self, "_on_soft_conflict"))
+		ability.connect("start",self,"_on_soft_conflict")
 	
 
 func _on_signal(_p = null) -> void: #attempt_execute
@@ -113,7 +113,7 @@ func activate() -> void:
 func deactivate() -> void:
 	active = false
 
-@export var debug_logs := false
+export var debug_logs := false
 func Log(msg)  -> void:
 	if debug_logs:
 		print_debug(get_parent().name + "." + name +": " + str(msg))

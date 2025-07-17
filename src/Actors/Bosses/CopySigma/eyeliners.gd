@@ -1,10 +1,10 @@
 extends Node2D
 
-@onready var tween := TweenController.new(self,false)
-@onready var line: Line2D = $line2D
-@onready var ray: RayCast2D = $rayCast2D
-@onready var collision: AnimatedSprite2D = $collision
-@export var positions := [-75,55,-35,10]
+onready var tween := TweenController.new(self,false)
+onready var line: Line2D = $line2D
+onready var ray: RayCast2D = $rayCast2D
+onready var collision: AnimatedSprite = $collision
+export var positions := [-75,55,-35,10]
 var direction := 1
 
 func _ready() -> void:
@@ -15,10 +15,10 @@ func start_eyes(facing_direction := -1) -> void:
 	ray.enabled = true
 	ray.rotation_degrees = -positions[0] * direction
 	set_physics_process(true)
-	Tools.timer(0.02,"_make_visible",self)
+	Tools.timer(0.02,"make_visible",self)
 	Tools.timer(0.35,"rotate_eyes",self)
 
-func _make_visible():
+func make_visible():
 	visible = true
 
 func rotate_eyes() -> void:

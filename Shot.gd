@@ -1,11 +1,11 @@
 extends Ability
 class_name Shot
 
-@export var normal_sprites : SpriteFrames
-@export var arm_pointing_sprites : SpriteFrames
-@export var default_arm_point_duration := 0.3
-@export var infinite_regular_ammo := false
-@export var infinite_charged_ammo := false
+export var normal_sprites : SpriteFrames
+export var arm_pointing_sprites : SpriteFrames
+export var default_arm_point_duration := 0.3
+export var infinite_regular_ammo := false
+export var infinite_charged_ammo := false
 var next_shot_ready := false
 var arm_point_dur := 0.0
 var disabled_layer := false

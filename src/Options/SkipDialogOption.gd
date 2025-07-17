@@ -2,7 +2,7 @@ extends X8OptionButton
 
 
 func _ready() -> void:
-	Event.connect("translation_updated", Callable(self, "display_skip_dialog"))
+	Event.connect("translation_updated",self,"display_skip_dialog")
 	
 func setup() -> void:
 	set_skip_dialog(get_skip_dialog())

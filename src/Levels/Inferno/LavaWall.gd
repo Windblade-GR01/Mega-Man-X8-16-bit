@@ -1,19 +1,19 @@
 extends Node2D
 
-@export var speed := 50.0
-@export var ice_palette : Texture2D
-@export var ice_platform : PackedScene
+export var speed := 50.0
+export var ice_palette : Texture
+export var ice_platform : PackedScene
 var actual_speed := 0.0
 var frozen := false
-@onready var visuals: Node2D = $Visuals
-@onready var collision: TileMap = $tileMap
-@onready var death_zone: Area2D = $DeathZone
+onready var visuals: Node2D = $Visuals
+onready var collision: TileMap = $tileMap
+onready var death_zone: Area2D = $DeathZone
 var tween
 var vtween
 signal frozen
 
 
-@onready var tilemap: TileMap = $Visuals/tileMap
+onready var tilemap: TileMap = $Visuals/tileMap
 
 const lava = preload("res://src/Levels/Inferno/lava_base.tres")
 const lava_corner = preload("res://src/Levels/Inferno/lava_corner.tres")
@@ -24,7 +24,7 @@ const lava_fall3 = preload("res://src/Levels/Inferno/lava_fall3.tres")
 func _ready() -> void:
 	unpause_tileset()
 	Tools.timer(3,"_on_DeathZone_freeze",self)
-	tilemap.material.set_shader_parameter("palette",null)
+	tilemap.material.set_shader_param("palette",null)
 	visible = false
 
 func unpause_tileset():
@@ -55,11 +55,11 @@ var times_hit:= 0
 func slowdown(projectile):
 	if not frozen:
 		if is_higher(projectile):
-			var platform = ice_platform.instantiate()
+			var platform = ice_platform.instance()
 			var correct_position = projectile.global_position
 			correct_position.y = global_position.y
 			call_deferred("add_child",platform)
-			connect("frozen", Callable(platform, "break_platform"))
+			connect("frozen",platform,"break_platform")
 			platform.set_deferred("global_position",correct_position)
 
 		elif not is_finished():
@@ -95,10 +95,10 @@ func _on_DeathZone_freeze() -> void:
 			elif "playing" in particle:
 				particle.playing = false
 			elif "energy" in particle:
-				particle.color = Color.AQUA
+				particle.color = Color.aqua
 				particle.energy = 0.25
-		tilemap.material.set_shader_parameter("palette",ice_palette)
-		collision.call_deferred("set_collision_layer_value",0,true)
+		tilemap.material.set_shader_param("palette",ice_palette)
+		collision.call_deferred("set_collision_layer_bit",0,true)
 		death_zone.active = false
 		$freeze.play()
 		$Visuals/polygon2D.color = Color("109cce")

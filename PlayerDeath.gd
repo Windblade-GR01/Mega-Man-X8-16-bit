@@ -1,11 +1,11 @@
 extends Movement
 class_name Death
 
-@onready var explosions = $"X Death Particles"
-@onready var background = $background_light
-@onready var collision := get_parent().get_node("CollisionShape2D")
-@onready var collision_shape_2d: CollisionShape2D = $"../Enemy Collision Detector/CollisionShape2D"
-@onready var dash_shape: CollisionShape2D = $"../Enemy Collision Detector/DashShape"
+onready var explosions = $"X Death Particles"
+onready var background = $background_light
+onready var collision := get_parent().get_node("CollisionShape2D")
+onready var collision_shape_2d: CollisionShape2D = $"../Enemy Collision Detector/CollisionShape2D"
+onready var dash_shape: CollisionShape2D = $"../Enemy Collision Detector/DashShape"
 
 
 var alpha := 0.0
@@ -31,7 +31,7 @@ func _Setup():
 	character.remove_invulnerability_shader()
 	character.stop_all_movement()
 	call_deferred("disable_collision")
-	background.material.set_shader_parameter("Alpha",alpha)
+	background.material.set_shader_param("Alpha",alpha)
 	Log("finished Setup")
 
 func disable_collision() -> void:
@@ -45,7 +45,7 @@ func _Update(delta):
 			
 	if timer > 1.5:
 		alpha += delta * 2
-		background.material.set_shader_parameter("Alpha",alpha)
+		background.material.set_shader_param("Alpha",alpha)
 	if timer > 5:
 		background.set_scale(Vector2(400, 160))
 		GameManager.on_death()

@@ -6,10 +6,10 @@
 [ext_resource path="res://src/Actors/Modules/Enemy/DamageOnTouch.gd" type="Script" id=4]
 [ext_resource path="res://src/Actors/NewStateMachine/audioplayer.gd" type="Script" id=5]
 [ext_resource path="res://src/Actors/Enemies/Big Tractor/AttackIdle.gd" type="Script" id=6]
-[ext_resource path="res://src/Effects/Textures/ridearmor_punch.png" type="Texture2D" id=7]
+[ext_resource path="res://src/Effects/Textures/ridearmor_punch.png" type="Texture" id=7]
 [ext_resource path="res://src/Actors/Props/RideArmor/RepeatAnimation.gd" type="Script" id=8]
 [ext_resource path="res://src/Sounds/HIT.wav" type="AudioStream" id=9]
-[ext_resource path="res://src/Effects/Textures/explosion.png" type="Texture2D" id=10]
+[ext_resource path="res://src/Effects/Textures/explosion.png" type="Texture" id=10]
 [ext_resource path="res://SpriteEffect.gd" type="Script" id=11]
 [ext_resource path="res://src/Actors/Props/RideArmor/armor.gd" type="Script" id=12]
 [ext_resource path="res://src/Effects/Materials/mat_ridearmor.tres" type="Material" id=13]
@@ -34,7 +34,7 @@
 [ext_resource path="res://src/Effects/Materials/RemainsParticle.tres" type="Material" id=32]
 [ext_resource path="res://src/Actors/Modules/Enemy/EnemyDeath.gd" type="Script" id=33]
 [ext_resource path="res://src/Sounds/56 - MMX - Enemy Death.wav" type="AudioStream" id=34]
-[ext_resource path="res://src/Actors/Enemies/SwordReploid/reploid_remains_palette.png" type="Texture2D" id=35]
+[ext_resource path="res://src/Actors/Enemies/SwordReploid/reploid_remains_palette.png" type="Texture" id=35]
 [ext_resource path="res://src/Actors/Props/RideArmor/RideArmorNoCannon.tscn" type="PackedScene" id=36]
 [ext_resource path="res://src/Actors/Enemies/RidearmorReploid/SpawnOnDeath.gd" type="Script" id=37]
 [ext_resource path="res://src/Sounds/Ridearmor - Step.ogg" type="AudioStream" id=38]
@@ -62,7 +62,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=239]
 curve = SubResource( 238 )
 
-[sub_resource type="ParticleProcessMaterial" id=244]
+[sub_resource type="ParticlesMaterial" id=244]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 25.0
@@ -89,7 +89,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=243]
 curve = SubResource( 242 )
 
-[sub_resource type="ParticleProcessMaterial" id=245]
+[sub_resource type="ParticlesMaterial" id=245]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -111,7 +111,7 @@ particles_anim_loop = false
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 20, 20.5 )
 
-[node name="RidearmorReploid" type="CharacterBody2D" groups=["Enemies"]]
+[node name="RidearmorReploid" type="KinematicBody2D" groups=["Enemies"]]
 z_index = 3
 collision_layer = 0
 collision_mask = 66049
@@ -137,7 +137,7 @@ position = Vector2( 0, 15.5 )
 z_index = 9
 shape = SubResource( 2 )
 
-[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 scale = Vector2( 2, 2 )
 rect = Rect2( -5, -5, 10, 10 )
 
@@ -173,7 +173,7 @@ script = ExtResource( 33 )
 should_spawn_item = false
 explosion_duration = 0.0
 
-[node name="Explosion Particles" type="GPUParticles2D" parent="EnemyDeath"]
+[node name="Explosion Particles" type="Particles2D" parent="EnemyDeath"]
 material = SubResource( 8 )
 position = Vector2( 0, 0.5 )
 z_index = 2
@@ -184,7 +184,7 @@ local_coords = false
 process_material = SubResource( 244 )
 texture = ExtResource( 10 )
 
-[node name="Remains" type="GPUParticles2D" parent="EnemyDeath"]
+[node name="Remains" type="Particles2D" parent="EnemyDeath"]
 material = SubResource( 66 )
 position = Vector2( 0, 0.5 )
 z_index = 10
@@ -197,7 +197,7 @@ process_material = SubResource( 245 )
 texture = ExtResource( 10 )
 script = ExtResource( 20 )
 
-[node name="remains_particles" type="GPUParticles2D" parent="EnemyDeath/Remains"]
+[node name="remains_particles" type="Particles2D" parent="EnemyDeath/Remains"]
 material = SubResource( 12 )
 z_index = -1
 emitting = false
@@ -260,7 +260,7 @@ input_pickable = false
 position = Vector2( 42, 2.5 )
 shape = SubResource( 4 )
 
-[node name="wind" type="Sprite2D" parent="Pursuit/PunchHitbox/area2D/collisionShape2D"]
+[node name="wind" type="Sprite" parent="Pursuit/PunchHitbox/area2D/collisionShape2D"]
 visible = false
 position = Vector2( -2, 2.5 )
 z_index = 16
@@ -275,7 +275,7 @@ one_shot = true
 position = Vector2( -42, 18.5 )
 z_index = 11
 enabled = true
-target_position = Vector2( 16, 0 )
+cast_to = Vector2( 16, 0 )
 collision_mask = 65537
 
 [node name="punch" type="AudioStreamPlayer2D" parent="Pursuit"]
@@ -301,14 +301,14 @@ bus = "SFX"
 script = ExtResource( 5 )
 minimum_time = 0.15
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 13 )
 position = Vector2( 0, 25 )
 z_index = 5
 frames = ExtResource( 18 )
 animation = "idle"
 
-[node name="near_arm" type="AnimatedSprite2D" parent="animatedSprite"]
+[node name="near_arm" type="AnimatedSprite" parent="animatedSprite"]
 material = ExtResource( 13 )
 z_index = 2
 frames = ExtResource( 14 )
@@ -317,7 +317,7 @@ offset = Vector2( 0, -15 )
 script = ExtResource( 8 )
 reference = NodePath("..")
 
-[node name="torso" type="AnimatedSprite2D" parent="animatedSprite"]
+[node name="torso" type="AnimatedSprite" parent="animatedSprite"]
 material = ExtResource( 13 )
 z_index = 1
 frames = ExtResource( 17 )
@@ -326,7 +326,7 @@ offset = Vector2( 0, -15 )
 script = ExtResource( 8 )
 reference = NodePath("..")
 
-[node name="head_armor" type="AnimatedSprite2D" parent="animatedSprite/torso"]
+[node name="head_armor" type="AnimatedSprite" parent="animatedSprite/torso"]
 visible = false
 frames = ExtResource( 23 )
 animation = "idle"
@@ -334,7 +334,7 @@ offset = Vector2( 0, -15 )
 script = ExtResource( 12 )
 reference = NodePath("../..")
 
-[node name="body_armor" type="AnimatedSprite2D" parent="animatedSprite/torso"]
+[node name="body_armor" type="AnimatedSprite" parent="animatedSprite/torso"]
 visible = false
 frames = ExtResource( 19 )
 animation = "idle"
@@ -342,7 +342,7 @@ offset = Vector2( 0, -15 )
 script = ExtResource( 12 )
 reference = NodePath("../..")
 
-[node name="arms_armor" type="AnimatedSprite2D" parent="animatedSprite/torso"]
+[node name="arms_armor" type="AnimatedSprite" parent="animatedSprite/torso"]
 visible = false
 frames = ExtResource( 22 )
 animation = "idle"
@@ -350,7 +350,7 @@ offset = Vector2( 0, -15 )
 script = ExtResource( 12 )
 reference = NodePath("../..")
 
-[node name="pilot" type="AnimatedSprite2D" parent="animatedSprite/torso"]
+[node name="pilot" type="AnimatedSprite" parent="animatedSprite/torso"]
 material = ExtResource( 13 )
 z_index = -1
 frames = ExtResource( 25 )
@@ -362,7 +362,7 @@ __meta__ = {
 }
 reference = NodePath("..")
 
-[node name="legs" type="AnimatedSprite2D" parent="animatedSprite"]
+[node name="legs" type="AnimatedSprite" parent="animatedSprite"]
 material = ExtResource( 13 )
 frames = ExtResource( 16 )
 animation = "idle"
@@ -370,7 +370,7 @@ offset = Vector2( 0, -15 )
 script = ExtResource( 8 )
 reference = NodePath("..")
 
-[node name="back" type="AnimatedSprite2D" parent="animatedSprite"]
+[node name="back" type="AnimatedSprite" parent="animatedSprite"]
 material = ExtResource( 13 )
 z_index = -2
 frames = ExtResource( 15 )
@@ -379,7 +379,7 @@ offset = Vector2( 0, -15 )
 script = ExtResource( 8 )
 reference = NodePath("..")
 
-[node name="cannon" type="AnimatedSprite2D" parent="animatedSprite"]
+[node name="cannon" type="AnimatedSprite" parent="animatedSprite"]
 visible = false
 material = ExtResource( 13 )
 z_index = -3
@@ -389,7 +389,7 @@ offset = Vector2( 0, -15 )
 script = ExtResource( 8 )
 reference = NodePath("..")
 
-[node name="far_arm" type="AnimatedSprite2D" parent="animatedSprite"]
+[node name="far_arm" type="AnimatedSprite" parent="animatedSprite"]
 material = ExtResource( 13 )
 z_index = -4
 frames = ExtResource( 21 )

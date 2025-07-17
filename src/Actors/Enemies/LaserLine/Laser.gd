@@ -1,8 +1,8 @@
 extends "res://src/Actors/Enemies/Big Tractor/AttackIdle.gd"
-@onready var ray: RayCast2D = $"../animatedSprite/ray"
-@onready var line: Line2D = $"../animatedSprite/line"
-@onready var collider: Area2D = $"../area2D"
-@onready var collision: AnimatedSprite2D = $"../animatedSprite/collision"
+onready var ray: RayCast2D = $"../animatedSprite/ray"
+onready var line: Line2D = $"../animatedSprite/line"
+onready var collider: Area2D = $"../area2D"
+onready var collision: AnimatedSprite = $"../animatedSprite/collision"
 
 var hit_position := 0.0
 func _Setup() -> void:

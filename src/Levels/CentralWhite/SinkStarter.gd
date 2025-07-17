@@ -1,7 +1,7 @@
 extends Area2D
 
-@onready var collapsing_repeating: Node2D = $".."
-@onready var manta_ray: CharacterBody2D = $"../Boss/MantaRay"
+onready var collapsing_repeating: Node2D = $".."
+onready var manta_ray: KinematicBody2D = $"../Boss/MantaRay"
 
 var timer := 0.0
 var stage = 0

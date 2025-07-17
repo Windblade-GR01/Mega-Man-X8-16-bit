@@ -1,6 +1,6 @@
 extends AttackAbility
 
-@export var nearby_distance : Vector2
+export var nearby_distance : Vector2
 var max_distance : Vector2
 var player_direction := 0
 

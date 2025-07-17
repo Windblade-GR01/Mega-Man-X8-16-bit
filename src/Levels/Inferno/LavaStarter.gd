@@ -1,10 +1,10 @@
 extends Area2D
 
-@export var lava_object: NodePath
+export (NodePath) var lava_object
 
 var timer := 0.0
 var stage = 0
-@onready var lava = get_node(lava_object)
+onready var lava = get_node(lava_object)
 var player : Character
 
 func _physics_process(delta: float) -> void:

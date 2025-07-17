@@ -1,6 +1,6 @@
 extends NewAbility
-@onready var skill := $".."
-@onready var animated_sprite: AnimatedSprite2D = $"../../animatedSprite"
+onready var skill := $".."
+onready var animated_sprite: AnimatedSprite = $"../../animatedSprite"
 
 var able_to = true
 signal initialized
@@ -17,7 +17,7 @@ func _Setup() -> void:
 	skill.decay_speed()
 	skill.play_animation("punch_1")
 	Tools.timer(0.15,"activate_hitbox",self)
-	animated_sprite.connect("animation_finished", Callable(self, "EndAbility").bind(), 4)# warning-ignore:return_value_discarded
+	animated_sprite.connect("animation_finished",self,"EndAbility",[],4)# warning-ignore:return_value_discarded
 	Tools.timer(1.5,"able_to_walk_again",self)
 
 func _Interrupt() -> void:
@@ -32,6 +32,6 @@ func activate_hitbox() -> void:
 
 func _StartCondition() -> bool:
 	if able_to:
-		return super._StartCondition()
+		return ._StartCondition()
 	else:
 		return false

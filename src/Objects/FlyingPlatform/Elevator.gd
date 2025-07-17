@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var movespeed := -60
-@export var active := true
+export var movespeed := -60
+export var active := true
 var speed := 0
 
 signal activated

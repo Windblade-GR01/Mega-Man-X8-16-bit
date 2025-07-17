@@ -1,13 +1,13 @@
 extends NewAbility
 
-@export var punch_projectile : PackedScene
+export var punch_projectile : PackedScene
 
-@onready var physics = Physics.new(get_parent())
-@onready var animation = AnimationController.new($"../animatedSprite", self)
-@onready var tween = TweenController.new(self)
-@onready var punch_sfx: AudioStreamPlayer2D = $punch
-@onready var punch_position: Node2D = $punch_position
-@onready var wind: Sprite2D = $wind
+onready var physics = Physics.new(get_parent())
+onready var animation = AnimationController.new($"../animatedSprite", self)
+onready var tween = TweenController.new(self)
+onready var punch_sfx: AudioStreamPlayer2D = $punch
+onready var punch_position: Node2D = $punch_position
+onready var wind: Sprite = $wind
 
 var next_punch := false
 var another_punch := "punch_1"
@@ -64,7 +64,7 @@ func create_punch_projectile() -> void:
 	wind.emit()
 
 func instantiate(scene : PackedScene) -> Node2D:
-	var instance = scene.instantiate()
+	var instance = scene.instance()
 	add_child(instance,true)
 	instance.set_global_position(punch_position.global_position) 
 	instance.set_creator(character)

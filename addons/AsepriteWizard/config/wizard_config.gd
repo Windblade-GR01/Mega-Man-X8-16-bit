@@ -1,5 +1,5 @@
-@tool
-extends RefCounted
+tool
+extends Reference
 
 const WIZARD_CONFIG_MARKER = "aseprite_wizard_config"
 const SEPARATOR = "|="

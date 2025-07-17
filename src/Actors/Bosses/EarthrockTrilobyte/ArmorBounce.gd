@@ -8,9 +8,9 @@ var current_bounce := 1
 var reset_cooldown:= 0.16
 var reset_timer:= 0.2
 
-@onready var bounce: AudioStreamPlayer2D = $bounce
-@onready var physics = Physics.new(get_parent())
-@onready var stage = AbilityStage.new(self)
+onready var bounce: AudioStreamPlayer2D = $bounce
+onready var physics = Physics.new(get_parent())
+onready var stage = AbilityStage.new(self)
 
 signal bounce
 

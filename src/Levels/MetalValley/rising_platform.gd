@@ -1,8 +1,8 @@
 extends "res://src/Levels/BoosterForest/rising_platform.gd"
 
-@onready var limit_19: Area2D = $"../../Limits/19"
-@onready var limit_to_deactivate: Area2D = $"../../Limits/18"
-@onready var limit_to_deactivate2: Area2D = $"../../Limits/21"
+onready var limit_19: Area2D = $"../../Limits/19"
+onready var limit_to_deactivate: Area2D = $"../../Limits/18"
+onready var limit_to_deactivate2: Area2D = $"../../Limits/21"
 
 #signal started
 

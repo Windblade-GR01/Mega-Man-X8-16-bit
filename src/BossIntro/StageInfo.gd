@@ -1,15 +1,15 @@
 class_name StageInfo extends Resource
 
-@export var save_flag : String
-@export var beaten_condition : Array
-@export var pointer_position : Vector2
-@export var should_play_intro := true
-@export var name_id : String
-@export var collectibles : Array
-@export var preview : Texture2D
-@export var sprite_frames : Resource
-@export var animation_beats : Array
-@export var inverse_sprites := false
+export var save_flag : String
+export var beaten_condition : Array
+export var pointer_position : Vector2
+export var should_play_intro := true
+export var name_id : String
+export var collectibles : Array
+export var preview : Texture
+export var sprite_frames : Resource
+export var animation_beats : Array
+export var inverse_sprites := false
 
 func get_name():
 	return name_id + "_STAGE"

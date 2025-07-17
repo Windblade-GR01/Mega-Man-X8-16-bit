@@ -1,20 +1,20 @@
 extends AttackAbility
 const barrier_distance := 52.0
-@export var barrier : PackedScene
+export var barrier : PackedScene
 var current_distance_right := barrier_distance
 var current_distance_left := -barrier_distance
 var target_position : Vector2
 
-@onready var start: AudioStreamPlayer2D = $start
-@onready var flooor: AudioStreamPlayer2D = $floor
-@onready var remove: AudioStreamPlayer2D = $remove
+onready var start: AudioStreamPlayer2D = $start
+onready var flooor: AudioStreamPlayer2D = $floor
+onready var remove: AudioStreamPlayer2D = $remove
 
 
 signal barriers_created
 signal cancel
 
 func _Setup() -> void:
-	super._Setup()
+	._Setup()
 	current_distance_right = barrier_distance
 	current_distance_left = -barrier_distance
 	Tools.timer(0.42,"play",start)
@@ -84,9 +84,9 @@ func create_left_barrier() -> void:
 	current_distance_left -= barrier_distance
 
 func connect_barrier_signals(barrier) -> void:
-	var _d = get_parent().connect("death", Callable(barrier, "expire"))
-	_d = connect("barriers_created", Callable(barrier, "expire"))
-	_d = connect("cancel", Callable(barrier, "expire"))
+	var _d = get_parent().connect("death",barrier,"expire")
+	_d = connect("barriers_created",barrier,"expire")
+	_d = connect("cancel",barrier,"expire")
 
 func cancel_barriers() -> void:
 	emit_signal("cancel")

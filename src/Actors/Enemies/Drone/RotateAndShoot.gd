@@ -1,13 +1,13 @@
 extends AttackAbility
-@export var projectile: PackedScene
-@onready var cannon: AnimatedSprite2D = $"../animatedSprite/animatedSprite"
-@onready var shot_sound: AudioStreamPlayer2D = $shot_sound
-@onready var rotate: AudioStreamPlayer2D = $rotate
+export (PackedScene) var projectile
+onready var cannon: AnimatedSprite = $"../animatedSprite/animatedSprite"
+onready var shot_sound: AudioStreamPlayer2D = $shot_sound
+onready var rotate: AudioStreamPlayer2D = $rotate
 
 var target_dir : Vector2
 
-var tween : Tween
-var tween2 : Tween
+var tween : SceneTreeTween
+var tween2 : SceneTreeTween
 
 func _Setup() -> void:
 	attack_stage = 0

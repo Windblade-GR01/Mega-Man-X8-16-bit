@@ -1,8 +1,8 @@
 extends Line2D
 
-@export var length := 50
+export var length := 50
 var point : Vector2
-@onready var character = get_parent().get_parent()
+onready var character = get_parent().get_parent()
 var timer := 0.0
 var fading := false
 

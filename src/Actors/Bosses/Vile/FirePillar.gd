@@ -1,11 +1,11 @@
 extends GenericProjectile
-@onready var firepillar_sprite: AnimatedSprite2D = $firepillarSprite
-@onready var damager_long: Node2D = $DamagerLong
-@onready var damager_end: Node2D = $DamagerEnd
-@onready var rise: AudioStreamPlayer2D = $rise
-@onready var end: AudioStreamPlayer2D = $end
-@onready var start: AudioStreamPlayer2D = $start
-@onready var fall: AudioStreamPlayer2D = $fall
+onready var firepillar_sprite: AnimatedSprite = $firepillarSprite
+onready var damager_long: Node2D = $DamagerLong
+onready var damager_end: Node2D = $DamagerEnd
+onready var rise: AudioStreamPlayer2D = $rise
+onready var end: AudioStreamPlayer2D = $end
+onready var start: AudioStreamPlayer2D = $start
+onready var fall: AudioStreamPlayer2D = $fall
 
 var hit_wall := false
 

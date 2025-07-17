@@ -2,7 +2,7 @@ extends Weapon
 class_name Buster
 
 func _ready() -> void:
-	super._ready()
+	._ready()
 	Event.listen("shot_lemon", self,"on_lemon_shot_created")
 
 func on_lemon_shot_created(emitter, shot):
@@ -10,7 +10,7 @@ func on_lemon_shot_created(emitter, shot):
 		connect_shot_event(shot)
 
 func add_projectile_to_scene(charge_level) -> void:
-	var shot = super.add_projectile_to_scene(charge_level)
+	var shot = .add_projectile_to_scene(charge_level)
 	if charge_level < 1:
 		Event.emit_signal("shot_lemon", self, shot)
 
@@ -18,8 +18,8 @@ func has_ammo() -> bool:
 	return shots_currently_alive < max_shots_alive
 
 func connect_charged_shot_event(_shot):
-	_shot.connect("projectile_started", Callable(self, "on_charged_shot_created"))
-	_shot.connect("projectile_end", Callable(self, "on_charged_shot_end"))
+	_shot.connect("projectile_started", self,"on_charged_shot_created")
+	_shot.connect("projectile_end", self,"on_charged_shot_end")
 	if _shot.has_method("set_creator"):
 		_shot.set_creator(arm_cannon.character)
 	if _shot.has_method("initialize"):

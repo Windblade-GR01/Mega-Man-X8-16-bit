@@ -5,22 +5,22 @@ using TiledImporter.Parsers;
 using TiledImporter.MapBuilder;
 using TiledImporter.Structures;
 
-public partial class EditorTiledMapFormatImportPlugin : EditorImportPlugin
+public class EditorTiledMapFormatImportPlugin : EditorImportPlugin
 {
-    public override string _GetImporterName() => "mi-sts.godot_tiled_importer";
+    public override string GetImporterName() => "mi-sts.godot_tiled_importer";
 
-    public override string _GetVisibleName() => "Tiled Map";
+    public override string GetVisibleName() => "Tiled Map";
 
-    public override Godot.Collections.Array _GetRecognizedExtensions() =>
+    public override Godot.Collections.Array GetRecognizedExtensions() =>
         new Godot.Collections.Array(new string[] { "tmj" });
 
-    public override string _GetResourceType() => "PackedScene";
+    public override string GetResourceType() => "PackedScene";
 
-    public override string _GetSaveExtension() => "tscn";
+    public override string GetSaveExtension() => "tscn";
 
-    public override int _GetPresetCount() => 0;
+    public override int GetPresetCount() => 0;
 
-    public override Godot.Collections.Array _GetImportOptions(int preset) => new Godot.Collections.Array();
+    public override Godot.Collections.Array GetImportOptions(int preset) => new Godot.Collections.Array();
 
     public override int Import(
         string sourceFilePath,
@@ -44,7 +44,7 @@ public partial class EditorTiledMapFormatImportPlugin : EditorImportPlugin
         string sourceFileDirectoryPath = GetFileDirectoryFromPath(relativeSourceFilePath);
         PackedScene mapScene = tileMapBuilder.GenerateTileMapScene(mapName, map, sourceFileDirectoryPath);
 
-        return (int)ResourceSaver.Save($"{saveFilePath}.{_GetSaveExtension()}", mapScene);
+        return (int)ResourceSaver.Save($"{saveFilePath}.{GetSaveExtension()}", mapScene);
     }
 
     private string GodotProjectPathToRelative(string godotProjectPath)

@@ -1,10 +1,10 @@
 class_name Ability
 extends BaseAbility
 
-@export var actions : Array
+export var actions : Array
 var action := "action name"
-@export var animation : String
-@export var sound : AudioStream
+export var animation : String
+export var sound : AudioStream
 var input_activation := 0.1
 var input := 0.0
 var last_pressed_input:= ""
@@ -27,17 +27,17 @@ func should_execute_on_hold() -> bool:
 	return false
 
 func Initialize():
-	super.Initialize()
+	.Initialize()
 	play_sound_on_initialize()
 	play_animation_on_initialize()
 	adjust_shot_position_on_initialize()
 
 func Finalize() -> void:
 	has_let_go_of_input = false
-	super.Finalize()
+	.Finalize()
 
 func BeforeEveryFrame(delta: float) -> void:
-	super.BeforeEveryFrame(delta)
+	.BeforeEveryFrame(delta)
 	input = get_action_value()
 	check_for_let_go_of_input()
 

@@ -1,6 +1,6 @@
-extends AnimatedSprite2D
+extends AnimatedSprite
 
-@onready var parent := get_parent()
+onready var parent := get_parent()
 
 func _process(_delta: float) -> void:
 	var anim_to_play

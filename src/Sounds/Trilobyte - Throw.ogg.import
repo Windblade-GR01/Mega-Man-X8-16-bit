@@ -1,19 +1,15 @@
 [remap]
 
-importer="oggvorbisstr"
-type="AudioStreamOggVorbis"
-uid="uid://boglb5ms1ldny"
-path="res://.godot/imported/Trilobyte - Throw.ogg-68d71533878fd2f19a7c0ad2a23cb8f4.oggvorbisstr"
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Trilobyte - Throw.ogg-68d71533878fd2f19a7c0ad2a23cb8f4.oggstr"
 
 [deps]
 
 source_file="res://src/Sounds/Trilobyte - Throw.ogg"
-dest_files=["res://.godot/imported/Trilobyte - Throw.ogg-68d71533878fd2f19a7c0ad2a23cb8f4.oggvorbisstr"]
+dest_files=[ "res://.import/Trilobyte - Throw.ogg-68d71533878fd2f19a7c0ad2a23cb8f4.oggstr" ]
 
 [params]
 
 loop=false
 loop_offset=0
-bpm=0
-beat_count=0
-bar_beats=4

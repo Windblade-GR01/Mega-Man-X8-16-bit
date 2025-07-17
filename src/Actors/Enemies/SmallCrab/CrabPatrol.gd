@@ -2,10 +2,10 @@ extends AttackAbility
 class_name CrabPatrol
 
 var initial_position := Vector2.ZERO
-@export var random_turn := true
-@export var travel_time := 1.25
-@export var travel_speed := 70.0
-@export var rest_time := 0.8
+export var random_turn := true
+export var travel_time := 1.25
+export var travel_speed := 70.0
+export var rest_time := 0.8
 
 func _ready() -> void:
 	initial_position = global_position

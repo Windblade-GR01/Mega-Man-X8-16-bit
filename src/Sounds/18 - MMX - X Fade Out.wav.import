@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://dtujsdxgnrrf6"
-path="res://.godot/imported/18 - MMX - X Fade Out.wav-8fa0e7ca756203e1000157caec9bdc45.sample"
+type="AudioStreamSample"
+path="res://.import/18 - MMX - X Fade Out.wav-8fa0e7ca756203e1000157caec9bdc45.sample"
 
 [deps]
 
 source_file="res://src/Sounds/18 - MMX - X Fade Out.wav"
-dest_files=["res://.godot/imported/18 - MMX - X Fade Out.wav-8fa0e7ca756203e1000157caec9bdc45.sample"]
+dest_files=[ "res://.import/18 - MMX - X Fade Out.wav-8fa0e7ca756203e1000157caec9bdc45.sample" ]
 
 [params]
 

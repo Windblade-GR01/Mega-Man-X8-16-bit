@@ -1,7 +1,7 @@
 extends EnemyStun
 class_name KingCrabStun
 
-@export var shield_to_disable: NodePath
+export (NodePath) var shield_to_disable
 
 func _ready() -> void:
 	shield = get_node(shield_to_disable)

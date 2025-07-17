@@ -6,7 +6,7 @@ func _Setup() -> void:
 	enable_damage()
 	
 func enable_visuals() -> void:
-	super.enable_visuals()
+	.enable_visuals()
 	animatedSprite.playing = true
 	animatedSprite.frame = 0
 

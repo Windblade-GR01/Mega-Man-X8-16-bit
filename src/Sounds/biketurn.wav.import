@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://b2c6be2s3g47m"
-path="res://.godot/imported/biketurn.wav-3145136894b690785e66597311d905c7.sample"
+type="AudioStreamSample"
+path="res://.import/biketurn.wav-3145136894b690785e66597311d905c7.sample"
 
 [deps]
 
 source_file="res://src/Sounds/biketurn.wav"
-dest_files=["res://.godot/imported/biketurn.wav-3145136894b690785e66597311d905c7.sample"]
+dest_files=[ "res://.import/biketurn.wav-3145136894b690785e66597311d905c7.sample" ]
 
 [params]
 

@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var minimum_speed_for_explosion := 320.0
+export var minimum_speed_for_explosion := 320.0
 var weapons : = ["OpticShieldCharged","FireDashCharged","CrystalBouncerCharged"]
 var exploded := false
 

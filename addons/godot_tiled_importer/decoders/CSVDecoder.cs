@@ -5,7 +5,7 @@ using TiledImporter.Structures;
 
 namespace TiledImporter.Decoders
 {
-    public partial class CSVDecoder : Decoder
+    public class CSVDecoder : Decoder
     {
         public TileLayerData Decode(uint[] tileIDs, int layerWidth, int layerHeight)
         {

@@ -10,7 +10,7 @@
 [ext_resource path="res://src/Sounds/Rooster - FireUp.ogg" type="AudioStream" id=8]
 [ext_resource path="res://src/Actors/Modules/Enemy/DamageOnTouch.gd" type="Script" id=9]
 [ext_resource path="res://src/Actors/Bosses/BurnRooster/FireWalls.gd" type="Script" id=10]
-[ext_resource path="res://src/Actors/Bosses/Lumine/Transform3D.gd" type="Script" id=11]
+[ext_resource path="res://src/Actors/Bosses/Lumine/Transform.gd" type="Script" id=11]
 [ext_resource path="res://src/Sounds/Rooster - Rage.ogg" type="AudioStream" id=12]
 [ext_resource path="res://src/Sounds/Rooster - Knee.ogg" type="AudioStream" id=13]
 [ext_resource path="res://src/Effects/Materials/BossExplosion.tres" type="Material" id=14]
@@ -20,11 +20,11 @@
 [ext_resource path="res://src/Sounds/Mantis - DarkSlash.ogg" type="AudioStream" id=18]
 [ext_resource path="res://src/Sounds/Mantis - Land.ogg" type="AudioStream" id=19]
 [ext_resource path="res://src/Actors/MeleeEnemyAttack.gd" type="Script" id=20]
-[ext_resource path="res://src/Actors/Bosses/DarkMantis/DarkSlashLight.png" type="Texture2D" id=21]
+[ext_resource path="res://src/Actors/Bosses/DarkMantis/DarkSlashLight.png" type="Texture" id=21]
 [ext_resource path="res://src/Actors/Enemies/Shared/LongBossDeath.tscn" type="PackedScene" id=22]
 [ext_resource path="res://src/Actors/Bosses/Lumine/LumineAI.gd" type="Script" id=23]
 [ext_resource path="res://src/Actors/Bosses/GigaboltManowar/BossStun.gd" type="Script" id=24]
-[ext_resource path="res://src/Actors/Bosses/DarkMantis/DarkSlash.png" type="Texture2D" id=25]
+[ext_resource path="res://src/Actors/Bosses/DarkMantis/DarkSlash.png" type="Texture" id=25]
 [ext_resource path="res://src/Sounds/Mantis - Desperation.ogg" type="AudioStream" id=26]
 [ext_resource path="res://src/Effects/Materials/default_material.tres" type="Material" id=27]
 [ext_resource path="res://src/Sounds/HIT_BOSS.wav" type="AudioStream" id=28]
@@ -39,7 +39,7 @@
 [ext_resource path="res://src/Actors/Bosses/EarthrockTrilobyte/EnemyCrystalWall.tscn" type="PackedScene" id=37]
 [ext_resource path="res://src/Actors/Bosses/OpticSunflower/CrushTarget.tscn" type="PackedScene" id=38]
 [ext_resource path="res://src/Actors/Bosses/Lumine/Intro.gd" type="Script" id=39]
-[ext_resource path="res://src/Actors/Bosses/boss_sprites/iceshard.png" type="Texture2D" id=40]
+[ext_resource path="res://src/Actors/Bosses/boss_sprites/iceshard.png" type="Texture" id=40]
 [ext_resource path="res://src/Sounds/Antonion - Desperation.wav" type="AudioStream" id=41]
 [ext_resource path="res://src/Sounds/Antionion - GravityCrash.wav" type="AudioStream" id=42]
 [ext_resource path="res://src/Sounds/Trilobyte - Desperation.ogg" type="AudioStream" id=43]
@@ -48,11 +48,11 @@
 [ext_resource path="res://src/Sounds/Manowar - StrongLightning.wav" type="AudioStream" id=46]
 [ext_resource path="res://src/Sounds/Manowar - Spin.wav" type="AudioStream" id=47]
 [ext_resource path="res://src/Sounds/Yeti - IceStorm.ogg" type="AudioStream" id=48]
-[ext_resource path="res://src/Actors/Bosses/boss_sprites/icesmoke.png" type="Texture2D" id=49]
+[ext_resource path="res://src/Actors/Bosses/boss_sprites/icesmoke.png" type="Texture" id=49]
 [ext_resource path="res://src/Sounds/Yeti - IceStorm Crouch.ogg" type="AudioStream" id=50]
 [ext_resource path="res://src/Sounds/Yeti - Desperation.ogg" type="AudioStream" id=51]
 [ext_resource path="res://src/Sounds/Panda - Claw Retreat.ogg" type="AudioStream" id=52]
-[ext_resource path="res://src/Effects/Textures/small_snow.png" type="Texture2D" id=53]
+[ext_resource path="res://src/Effects/Textures/small_snow.png" type="Texture" id=53]
 [ext_resource path="res://src/Sounds/Drone - Rotate.ogg" type="AudioStream" id=54]
 [ext_resource path="res://src/Sounds/Panda - Claw Appear.ogg" type="AudioStream" id=55]
 [ext_resource path="res://src/Actors/Bosses/BambooPandamonium/BambooSlash.gd" type="Script" id=56]
@@ -72,12 +72,12 @@
 [ext_resource path="res://src/Actors/Bosses/OpticSunflower/sunflower.res" type="SpriteFrames" id=70]
 [ext_resource path="res://src/Sounds/Manowar - Move.wav" type="AudioStream" id=71]
 [ext_resource path="res://src/Actors/Bosses/GigaboltManowar/Space.gd" type="Script" id=72]
-[ext_resource path="res://src/Levels/PitchBlack/light.png" type="Texture2D" id=73]
+[ext_resource path="res://src/Levels/PitchBlack/light.png" type="Texture" id=73]
 [ext_resource path="res://src/Actors/Bosses/Lumine/flash.gd" type="Script" id=74]
-[ext_resource path="res://src/Effects/Textures/transform_vfx.png" type="Texture2D" id=75]
+[ext_resource path="res://src/Effects/Textures/transform_vfx.png" type="Texture" id=75]
 [ext_resource path="res://src/Sounds/MM - Equip.wav" type="AudioStream" id=76]
 [ext_resource path="res://src/Actors/Bosses/Lumine/Death.gd" type="Script" id=77]
-[ext_resource path="res://src/Effects/Textures/charged_flash.png" type="Texture2D" id=78]
+[ext_resource path="res://src/Effects/Textures/charged_flash.png" type="Texture" id=78]
 [ext_resource path="res://src/Actors/Bosses/EarthrockTrilobyte/TriloArmor.tscn" type="PackedScene" id=79]
 [ext_resource path="res://src/Actors/Bosses/EarthrockTrilobyte/GuardBreak.gd" type="Script" id=80]
 [ext_resource path="res://src/Actors/Bosses/EarthrockTrilobyte/TriloShield.gd" type="Script" id=81]
@@ -90,11 +90,11 @@
 [ext_resource path="res://src/Actors/Enemies/EnemyShield.gd" type="Script" id=88]
 [ext_resource path="res://src/Actors/Bosses/Lumine/afterImages.gd" type="Script" id=89]
 [ext_resource path="res://src/Sounds/Lumine - Pick.wav" type="AudioStream" id=90]
-[ext_resource path="res://src/Sounds/Lumine - Transform3D.wav" type="AudioStream" id=91]
+[ext_resource path="res://src/Sounds/Lumine - Transform.wav" type="AudioStream" id=91]
 [ext_resource path="res://src/DialogSystem/Dialogs/Stages/Lumine_Dialogue.tres" type="Resource" id=92]
 [ext_resource path="res://src/Sounds/OST - Lumine - Intro.ogg" type="AudioStream" id=93]
 [ext_resource path="res://src/Sounds/OST - Lumine - Loop.ogg" type="AudioStream" id=94]
-[ext_resource path="res://src/HUD/Lumine_bar.png" type="Texture2D" id=95]
+[ext_resource path="res://src/HUD/Lumine_bar.png" type="Texture" id=95]
 [ext_resource path="res://src/Actors/Bosses/Lumine/lumine_transform.res" type="SpriteFrames" id=96]
 [ext_resource path="res://src/Actors/Bosses/Lumine/DeathTransform.gd" type="Script" id=97]
 [ext_resource path="res://src/AchievementSystem/BossAchievementHandler.gd" type="Script" id=98]
@@ -144,7 +144,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=43]
 curve = SubResource( 52 )
 
-[sub_resource type="ParticleProcessMaterial" id=53]
+[sub_resource type="ParticlesMaterial" id=53]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -171,7 +171,7 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.00454545 ), -1.50109, 0
 [sub_resource type="CurveTexture" id=59]
 curve = SubResource( 58 )
 
-[sub_resource type="ParticleProcessMaterial" id=60]
+[sub_resource type="ParticlesMaterial" id=60]
 emission_shape = 2
 emission_box_extents = Vector3( 240, 0, 1 )
 flag_disable_z = true
@@ -195,7 +195,7 @@ particles_anim_h_frames = 5
 particles_anim_v_frames = 2
 particles_anim_loop = false
 
-[sub_resource type="ParticleProcessMaterial" id=62]
+[sub_resource type="ParticlesMaterial" id=62]
 emission_shape = 2
 emission_box_extents = Vector3( 32, 1, 0 )
 flag_disable_z = true
@@ -214,7 +214,7 @@ color = Color( 0.972549, 0.972549, 0.972549, 1 )
 anim_speed = 3.0
 anim_speed_random = 0.4
 
-[sub_resource type="ParticleProcessMaterial" id=63]
+[sub_resource type="ParticlesMaterial" id=63]
 emission_shape = 2
 emission_box_extents = Vector3( 16, 16, 1 )
 flag_disable_z = true
@@ -319,7 +319,7 @@ animations = [ {
 "speed": 24.0
 } ]
 
-[node name="Lumine" type="CharacterBody2D" groups=["Bosses"]]
+[node name="Lumine" type="KinematicBody2D" groups=["Bosses"]]
 z_index = 6
 collision_layer = 0
 script = ExtResource( 3 )
@@ -340,7 +340,7 @@ time_between_attacks = Vector2( 8.4, 8.4 )
 play_desperation_music = false
 order_size = 8
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 27 )
 frames = ExtResource( 1 )
 animation = "death"
@@ -471,7 +471,7 @@ position = Vector2( 0, -4 )
 shape = SubResource( 86 )
 disabled = true
 
-[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 visible = false
 position = Vector2( -6.5, 3.5 )
 scale = Vector2( 4.35, 4.25 )
@@ -490,7 +490,7 @@ ignore_nearby_hits = false
 weakness_multiplier = 1.5
 
 [node name="audioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Damage"]
-process_mode = 3
+pause_mode = 2
 stream = ExtResource( 28 )
 max_distance = 600.0
 bus = "SFX"
@@ -654,12 +654,12 @@ actions = [ "Event" ]
 animation = "desperation_prepare"
 jump_velocity = 600.0
 
-[node name="darkSlash" type="Sprite2D" parent="DarkSlash"]
+[node name="darkSlash" type="Sprite" parent="DarkSlash"]
 visible = false
 position = Vector2( -56, 48 )
 texture = ExtResource( 25 )
 
-[node name="light2D" type="PointLight2D" parent="DarkSlash"]
+[node name="light2D" type="Light2D" parent="DarkSlash"]
 position = Vector2( -56, 48 )
 texture = ExtResource( 21 )
 color = Color( 0.670588, 0.278431, 1, 1 )
@@ -680,7 +680,7 @@ collision_mask = 6
 input_pickable = false
 
 [node name="collisionPolygon2D" type="CollisionPolygon2D" parent="DarkSlash/SlashHitbox/area2D"]
-polygon = PackedVector2Array( -42, -52, -203, -52, -200, 169, 79, 167, 79, 143, -42, 71 )
+polygon = PoolVector2Array( -42, -52, -203, -52, -200, 169, 79, 167, 79, 143, -42, 71 )
 
 [node name="jump" type="AudioStreamPlayer2D" parent="DarkSlash"]
 stream = ExtResource( 33 )
@@ -713,19 +713,19 @@ vertical_offset = 40.0
 strong_lightining = ExtResource( 34 )
 
 [node name="check" type="RayCast2D" parent="GigaStorm"]
-target_position = Vector2( -132, 250 )
+cast_to = Vector2( -132, 250 )
 
 [node name="check2" type="RayCast2D" parent="GigaStorm"]
-target_position = Vector2( -65, 250 )
+cast_to = Vector2( -65, 250 )
 
 [node name="check3" type="RayCast2D" parent="GigaStorm"]
-target_position = Vector2( 0, 250 )
+cast_to = Vector2( 0, 250 )
 
 [node name="check4" type="RayCast2D" parent="GigaStorm"]
-target_position = Vector2( 65, 250 )
+cast_to = Vector2( 65, 250 )
 
 [node name="check5" type="RayCast2D" parent="GigaStorm"]
-target_position = Vector2( 132, 250 )
+cast_to = Vector2( 132, 250 )
 
 [node name="spin" type="AudioStreamPlayer2D" parent="GigaStorm"]
 stream = ExtResource( 47 )
@@ -798,7 +798,7 @@ jump_velocity = 0.0
 script = ExtResource( 57 )
 shards = ExtResource( 31 )
 
-[node name="actual_snow" type="GPUParticles2D" parent="IceStorm/IceShooter"]
+[node name="actual_snow" type="Particles2D" parent="IceStorm/IceShooter"]
 material = SubResource( 57 )
 position = Vector2( -4, -239 )
 z_index = 3
@@ -809,7 +809,7 @@ local_coords = false
 process_material = SubResource( 60 )
 texture = ExtResource( 53 )
 
-[node name="Snow" type="GPUParticles2D" parent="IceStorm"]
+[node name="Snow" type="Particles2D" parent="IceStorm"]
 material = SubResource( 61 )
 position = Vector2( 1, 12 )
 z_index = -1
@@ -825,7 +825,7 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Ice Shards" type="GPUParticles2D" parent="IceStorm"]
+[node name="Ice Shards" type="Particles2D" parent="IceStorm"]
 z_index = -2
 emitting = false
 amount = 22
@@ -974,7 +974,7 @@ pitch_scale = 1.5
 max_distance = 600.0
 bus = "SFX"
 
-[node name="flash" type="AnimatedSprite2D" parent="EnemyShield"]
+[node name="flash" type="AnimatedSprite" parent="EnemyShield"]
 modulate = Color( 0.933333, 0.701961, 0.619608, 1 )
 frames = SubResource( 85 )
 frame = 8
@@ -992,8 +992,8 @@ naked_sprites = ExtResource( 86 )
 
 [node name="RotatingCrystals" parent="." instance=ExtResource( 15 )]
 
-[node name="flash" type="Sprite2D" parent="."]
-process_mode = 3
+[node name="flash" type="Sprite" parent="."]
+pause_mode = 2
 visible = false
 modulate = Color( 0.741176, 0.592157, 0.909804, 1 )
 scale = Vector2( 10, 5 )
@@ -1001,38 +1001,38 @@ z_index = -1
 texture = ExtResource( 73 )
 script = ExtResource( 74 )
 
-[node name="spriteflash" type="AnimatedSprite2D" parent="."]
-process_mode = 3
+[node name="spriteflash" type="AnimatedSprite" parent="."]
+pause_mode = 2
 frames = SubResource( 71 )
 frame = 6
 playing = true
 
 [node name="pick" type="AudioStreamPlayer2D" parent="."]
-process_mode = 3
+pause_mode = 2
 stream = ExtResource( 90 )
 volume_db = -12.0
 bus = "SFX"
 
 [node name="start_transform" type="AudioStreamPlayer2D" parent="."]
-process_mode = 3
+pause_mode = 2
 stream = ExtResource( 91 )
 volume_db = -14.0
 bus = "SFX"
 
 [node name="transform" type="AudioStreamPlayer2D" parent="."]
-process_mode = 3
+pause_mode = 2
 stream = ExtResource( 76 )
 volume_db = -9.0
 bus = "SFX"
 
-[node name="break_vfx" type="AnimatedSprite2D" parent="."]
+[node name="break_vfx" type="AnimatedSprite" parent="."]
 modulate = Color( 1, 1, 1, 0.670588 )
 z_index = 25
 frames = ExtResource( 84 )
 frame = 9
 playing = true
 
-[node name="death_transform" type="AnimatedSprite2D" parent="."]
+[node name="death_transform" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( 0, -1 )
 frames = ExtResource( 96 )

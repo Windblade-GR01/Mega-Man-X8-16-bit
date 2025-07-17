@@ -1,8 +1,8 @@
 extends BossDeath
 
-@export var lumine_sprites : Resource
-@onready var flash: Sprite2D = $"../flash"
-@onready var transform_Sfx: AudioStreamPlayer2D = $"../transform"
+export var lumine_sprites : Resource
+onready var flash: Sprite = $"../flash"
+onready var transform_Sfx: AudioStreamPlayer2D = $"../transform"
 
 func _Setup() -> void:
 	if character.animatedSprite.frames != lumine_sprites:
@@ -23,7 +23,7 @@ func _Setup() -> void:
 	background.scale.x = 100
 	background.scale.y = 40 
 	GameManager.pause(character.name + name)
-	freeze_moment = Time.get_ticks_msec()
+	freeze_moment = OS.get_ticks_msec()
 
 func _Interrupt():
 	get_parent().queue_free()

@@ -1,7 +1,7 @@
 extends X8OptionButton
 
 var current_index := 0
-@onready var locales := TranslationServer.get_loaded_locales()
+onready var locales := TranslationServer.get_loaded_locales()
 signal translation_updated
 
 

@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-@onready var visual_skip: Control = $VisualSkip
-@onready var credits_scene: Node2D = $".."
+onready var visual_skip: Control = $VisualSkip
+onready var credits_scene: Node2D = $".."
 
 var skip_timer := 0.0
 var total_timer := 0.0

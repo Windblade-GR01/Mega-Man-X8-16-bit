@@ -1,13 +1,13 @@
-extends Sprite2D
+extends Sprite
 
-@export var weapon : Resource
-@onready var select: AnimatedSprite2D = $"../select"
-@export var selectable := false
-@export var already_selected := false
+export var weapon : Resource
+onready var select: AnimatedSprite = $"../select"
+export var selectable := false
+export var already_selected := false
 func _ready() -> void:
 	_on_hotswap_opened()
-	get_parent().connect("weapon_selected", Callable(self, "on_select"))
-	get_parent().connect("unselected_all", Callable(self, "deselect"))
+	get_parent().connect("weapon_selected",self,"on_select")
+	get_parent().connect("unselected_all",self,"unselect")
 
 func _on_hotswap_opened() -> void:
 	modulate.a = 0.5
@@ -30,7 +30,7 @@ func on_select(sweapon) -> void:
 		modulate.a = 0.5
 		already_selected = false
 		
-func deselect() -> void:
+func unselect() -> void:
 	if selectable:
 		texture = weapon.faded_icon
 		modulate.a = 0.5

@@ -1,13 +1,13 @@
 extends SimplePlayerProjectile
 
-@onready var particles: GPUParticles2D = $particles2D
-@onready var remains: GPUParticles2D = $remains_particles
+onready var particles: Particles2D = $particles2D
+onready var remains: Particles2D = $remains_particles
 var wallstuck := false
 var stuck_timer := 0.0
 
 func _Update(delta) -> void:
 	if not wallstuck:
-		super._Update(delta)
+		._Update(delta)
 		if is_on_floor() or is_on_wall() or is_on_ceiling():
 			wall_hit()
 	else:
@@ -40,16 +40,16 @@ func shatter() -> void:
 
 func enable_visuals() -> void:
 	particles.emitting = true
-	super.enable_visuals()
+	.enable_visuals()
 
 func disable_visuals():
 	particles.emitting = false
-	super.disable_visuals()
+	.disable_visuals()
 	
 func _OnHit(_target_remaining_HP) -> void: #override
 	remains.emitting = true
-	super._OnHit(_target_remaining_HP)
+	._OnHit(_target_remaining_HP)
 	
 func _OnDeflect() -> void:
 	remains.emitting = true
-	super._OnDeflect()
+	._OnDeflect()

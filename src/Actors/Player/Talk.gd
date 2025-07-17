@@ -1,9 +1,9 @@
 extends Node
 
-@export var connect_at_start := true
-@export var character := "MegaMan X"
-@export var _animatedSprite : NodePath
-@onready var animated_sprite:= get_node(_animatedSprite)
+export var connect_at_start := true
+export var character := "MegaMan X"
+export var _animatedSprite : NodePath
+onready var animated_sprite:= get_node(_animatedSprite)
 
 func _ready() -> void:
 	if connect_at_start:

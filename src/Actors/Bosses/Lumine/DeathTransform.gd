@@ -1,10 +1,10 @@
-extends AnimatedSprite2D
+extends AnimatedSprite
 
-@onready var boss_death: Node2D = $"../BossDeath"
-@onready var transform_sfx: AudioStreamPlayer2D = $"../transform"
+onready var boss_death: Node2D = $"../BossDeath"
+onready var transform_sfx: AudioStreamPlayer2D = $"../transform"
 
 var stage := 0
-@onready var sprite: AnimatedSprite2D = $"../animatedSprite"
+onready var sprite: AnimatedSprite = $"../animatedSprite"
 
 signal finished
 

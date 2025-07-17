@@ -1,12 +1,12 @@
 extends AttackAbility
-@onready var smoke_dash: GPUParticles2D = $"../animatedSprite/smoke_dash"
-@onready var raycast: RayCast2D = $"../animatedSprite/rayCast2D2"
-@onready var jump: AudioStreamPlayer2D = $jump
-@onready var shot: AudioStreamPlayer2D = $shot_sound
-@onready var dash: AudioStreamPlayer2D = $dash
-@onready var land: AudioStreamPlayer2D = $land
+onready var smoke_dash: Particles2D = $"../animatedSprite/smoke_dash"
+onready var raycast: RayCast2D = $"../animatedSprite/rayCast2D2"
+onready var jump: AudioStreamPlayer2D = $jump
+onready var shot: AudioStreamPlayer2D = $shot_sound
+onready var dash: AudioStreamPlayer2D = $dash
+onready var land: AudioStreamPlayer2D = $land
 
-@export var _ball : PackedScene
+export var _ball : PackedScene
 
 func _Setup() -> void:
 	turn_and_face_player()
@@ -59,13 +59,13 @@ var next := 0
 var angles = [0,90,0]
 
 func create_ball():
-	var ball = _ball.instantiate()
+	var ball = _ball.instance()
 	get_tree().current_scene.add_child(ball)
 	ball.global_position = raycast.get_collision_point() - Vector2(0,24)
 	ball.rotation_degrees = angles[next]
 	next += 1
 
 func _Interrupt():
-	super._Interrupt()
+	._Interrupt()
 	raycast.enabled = false
 	smoke_dash.emitting = false

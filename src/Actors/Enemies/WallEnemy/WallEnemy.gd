@@ -3,8 +3,8 @@ extends Enemy
 var alarm := false
 
 func _ready() -> void:
-	Event.connect("alarm", Callable(self, "on_alarm"))
-	Event.connect("alarm_done", Callable(self, "on_alarm_done"))
+	Event.connect("alarm",self,"on_alarm")
+	Event.connect("alarm_done",self,"on_alarm_done")
 	
 func on_alarm() -> void:
 	alarm = true

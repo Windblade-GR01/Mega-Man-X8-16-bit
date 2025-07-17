@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://dwin5k382mmto"
-path="res://.godot/imported/Manowar - Spin.wav-cb618f6ca4efc6174a1363bb90134f4c.sample"
+type="AudioStreamSample"
+path="res://.import/Manowar - Spin.wav-cb618f6ca4efc6174a1363bb90134f4c.sample"
 
 [deps]
 
 source_file="res://src/Sounds/Manowar - Spin.wav"
-dest_files=["res://.godot/imported/Manowar - Spin.wav-cb618f6ca4efc6174a1363bb90134f4c.sample"]
+dest_files=[ "res://.import/Manowar - Spin.wav-cb618f6ca4efc6174a1363bb90134f4c.sample" ]
 
 [params]
 

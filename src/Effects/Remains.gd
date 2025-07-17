@@ -1,4 +1,4 @@
-extends GPUParticles2D
+extends Particles2D
 
 func start():
 	Tools.timer(2.0,"queue_free",self)

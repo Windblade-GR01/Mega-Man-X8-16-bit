@@ -1,16 +1,16 @@
 extends AttackAbility
 
-@onready var space: Node = $"../Space"
-@onready var tween := TweenController.new(self,false)
-@onready var shockwave: Sprite2D = $"../animatedSprite/shockwave"
-@onready var damagearea: Node2D = $damagearea
-@onready var feather_explosion: GPUParticles2D = $"../feather_explosion"
+onready var space: Node = $"../Space"
+onready var tween := TweenController.new(self,false)
+onready var shockwave: Sprite = $"../animatedSprite/shockwave"
+onready var damagearea: Node2D = $damagearea
+onready var feather_explosion: Particles2D = $"../feather_explosion"
 
-@onready var charge: AudioStreamPlayer2D = $charge
-@onready var fire: AudioStreamPlayer2D = $fire
-@onready var flap: AudioStreamPlayer2D = $flap
-@onready var thunder: AnimatedSprite2D = $"../animatedSprite/thunder"
-@onready var flash: Sprite2D = $flash
+onready var charge: AudioStreamPlayer2D = $charge
+onready var fire: AudioStreamPlayer2D = $fire
+onready var flap: AudioStreamPlayer2D = $flap
+onready var thunder: AnimatedSprite = $"../animatedSprite/thunder"
+onready var flash: Sprite = $flash
 
 var floor_height = false
 
@@ -20,7 +20,7 @@ func _Setup():
 	shockwave.scale = Vector2(0.25,0.5)
 	shockwave.modulate.a = 1.0
 	shockwave.visible = false
-	shockwave.self_modulate = Color.WHITE
+	shockwave.self_modulate = Color.white
 
 func start_pursuit_tween() -> void:
 	tween.method("pursue_player",0,.05,1.2)
@@ -38,8 +38,8 @@ func emit_shockwave():
 	tween.attribute("scale",Vector2(.5,5.0),.2,shockwave)
 	tween.attribute("modulate:a",.65,.35,shockwave)
 	tween.add_attribute("modulate:a",0,.2,shockwave)
-	tween.attribute("self_modulate",Color.LIGHT_GREEN,.25,shockwave)
-	tween.add_attribute("self_modulate",Color.DARK_GREEN,.25,shockwave)
+	tween.attribute("self_modulate",Color.lightgreen,.25,shockwave)
+	tween.add_attribute("self_modulate",Color.darkgreen,.25,shockwave)
 
 func _Update(_delta):
 	if attack_stage == 1:
@@ -95,7 +95,7 @@ func _Update(_delta):
 
 func _Interrupt():
 	tween.reset()
-	super._Interrupt()
+	._Interrupt()
 	
 func get_target() -> float:
 	return GameManager.get_player_position().x

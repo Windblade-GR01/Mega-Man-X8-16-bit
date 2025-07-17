@@ -1,4 +1,4 @@
-extends RefCounted
+extends Reference
 class_name DamageValue
 
 var active := true
@@ -27,7 +27,7 @@ func _init(_damage : float, _creator : Node, _name := "", _direction := 0, _guar
 		name = creator.name
 	
 	if control_method != "null":
-		creator.connect(control_method, Callable(self, "disable")) # warning-ignore:return_value_discarded
+		creator.connect(control_method,self,"disable") # warning-ignore:return_value_discarded
 
 func set_position(_position) -> void:
 	global_position = _position

@@ -1,9 +1,9 @@
 extends AttackAbility
 class_name IceSpikes
 
-@export var spikes: PackedScene
-@export var initial_spikes_position := Vector2(50, 20)
-@onready var arms = $arms
+export(PackedScene) var spikes
+export var initial_spikes_position := Vector2(50, 20)
+onready var arms = $arms
 
 func _Update(_delta):
 	if attack_stage == 0 and timer > 0.4:

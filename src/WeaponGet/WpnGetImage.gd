@@ -1,31 +1,31 @@
 extends Node2D
 
-@export var weapons : Array
-@export var text_palette : Texture2D
+export var weapons : Array
+export var text_palette : Texture
 
 var current_weapon : WeaponResource
 
-@onready var parts : Array = get_children()
-@onready var tween := TweenController.new(self,false)
-@onready var music: AudioStreamPlayer = $"../audioStreamPlayer"
-@onready var text: Node2D = $"../text"
-@onready var you_get: Label = $"../text/you_get"
-@onready var weapon_name: Label = $"../text/weapon_name"
-@onready var get_shadow: Label = $"../text/get_shadow"
-@onready var name_shadow: Label = $"../text/name_shadow"
-@onready var names := [you_get,weapon_name,get_shadow,name_shadow]
+onready var parts : Array = get_children()
+onready var tween := TweenController.new(self,false)
+onready var music: AudioStreamPlayer = $"../audioStreamPlayer"
+onready var text: Node2D = $"../text"
+onready var you_get: Label = $"../text/you_get"
+onready var weapon_name: Label = $"../text/weapon_name"
+onready var get_shadow: Label = $"../text/get_shadow"
+onready var name_shadow: Label = $"../text/name_shadow"
+onready var names := [you_get,weapon_name,get_shadow,name_shadow]
 
-@onready var bar2: Sprite2D = $"../bar2"
-@onready var bar: Sprite2D = $"../bar"
-@onready var green_bg: Polygon2D = $"../green_bg"
+onready var bar2: Sprite = $"../bar2"
+onready var bar: Sprite = $"../bar"
+onready var green_bg: Polygon2D = $"../green_bg"
 const bar_pos = 147
-@onready var green_bg_pos:= green_bg.position
-@onready var o_pos:= position
-@onready var you_get_pos:= you_get.position
-@onready var weapon_name_pos:= weapon_name.position
-@onready var fullblack: Sprite2D = $"../fullblack"
-@onready var lines_2: Node2D = $"../lines2"
-@onready var audio: AudioStreamPlayer = $"../audioStreamPlayer"
+onready var green_bg_pos:= green_bg.position
+onready var o_pos:= position
+onready var you_get_pos:= you_get.rect_position
+onready var weapon_name_pos:= weapon_name.rect_position
+onready var fullblack: Sprite = $"../fullblack"
+onready var lines_2: Node2D = $"../lines2"
+onready var audio: AudioStreamPlayer = $"../audioStreamPlayer"
 
 signal move_in
 signal start
@@ -45,10 +45,10 @@ func _input(event: InputEvent) -> void:
 			ending = true
 	
 func _ready() -> void:
-	get_parent().connect("initialize", Callable(self, "delayed_initialize"))
+	get_parent().connect("initialize",self,"delayed_initialize")
 	reset()
 	Tools.timer(2.0,"start_loop",lines_2)
-	you_get.material.set_shader_parameter("palette",text_palette)
+	you_get.material.set_shader_param("palette",text_palette)
 	
 func delayed_initialize():
 	Tools.timer(1.0,"initialize",self)
@@ -85,8 +85,8 @@ func reset():
 	green_bg.scale.y = 0
 	position = o_pos
 	green_bg.position = green_bg_pos
-	you_get.position = you_get_pos
-	weapon_name.position = weapon_name_pos
+	you_get.rect_position = you_get_pos
+	weapon_name.rect_position = weapon_name_pos
 	for n in names:
 		n.visible = false
 	emit_signal("reset")
@@ -111,7 +111,7 @@ func flash() -> void:
 		n.visible = true
 	for part in parts:
 		part.modulate = Color(11,11,11,1)
-		tween.add_attribute("modulate",Color.WHITE,1.15,part)
+		tween.add_attribute("modulate",Color.white,1.15,part)
 	emit_signal("color",current_weapon)
 
 func bars_expand() -> void:

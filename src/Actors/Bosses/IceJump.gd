@@ -1,16 +1,16 @@
 extends AttackAbility
 class_name IceJump
 
-@export var small_snow_wave: PackedScene
-@export var quake: PackedScene
-@export var horizontal_speed := 420.0
-@export var jump_speed := 440.0
-@onready var land_particles = $"Land"
-@onready var jump_particle = $Jump
-@onready var jump = $jump
-@onready var land = $land
-@onready var quake_prepare = $quake_prepare
-@onready var quake_sfx = $quake
+export(PackedScene) var small_snow_wave
+export(PackedScene) var quake
+export var horizontal_speed := 420.0
+export var jump_speed := 440.0
+onready var land_particles = $"Land"
+onready var jump_particle = $Jump
+onready var jump = $jump
+onready var land = $land
+onready var quake_prepare = $quake_prepare
+onready var quake_sfx = $quake
 
 func get_horizontal_velocity() -> float:
 	return horizontal_speed
@@ -68,7 +68,7 @@ func _Update(delta):
 		EndAbility()
 
 func _Interrupt():
-	super._Interrupt()
+	._Interrupt()
 	play_animation_once("icejump_end")
 	Event.emit_signal("screenshake", 2)
 

@@ -1,6 +1,6 @@
 class_name AttackAbility extends EnemyAbility
 
-@export var desperation_attack := false
+export var desperation_attack := false
 var decaying_speed := 100.0
 var tween_list = []
 
@@ -133,22 +133,22 @@ func get_distance_from_ceiling() -> float:
 
 func decay_speed(speed_multiplier := 1.0, duration := 0.25) -> void:
 	var tween = get_tree().create_tween()
-	tween.tween_method(Callable(self, "force_movement"), get_actual_speed() * speed_multiplier, 0.0, duration)
+	tween.tween_method(self, "force_movement", get_actual_speed() * speed_multiplier,0.0,duration)
 	tween_list.append(tween)
 	
 func decay_speed_regardless_of_direction(duration := 0.25) -> void:
 	var tween = get_tree().create_tween()
-	tween.tween_method(Callable(self, "set_horizontal_speed"), get_absolute_speed(), 0.0, duration)
+	tween.tween_method(self, "set_horizontal_speed", get_absolute_speed(),0.0,duration)
 	tween_list.append(tween)
 
 func decay_vertical_speed_regardless_of_direction(duration := 0.25) -> void:
 	var tween = get_tree().create_tween()
-	tween.tween_method(Callable(self, "set_vertical_speed"), get_absolute_vertical_speed(), 0.0, duration)
+	tween.tween_method(self, "set_vertical_speed", get_absolute_vertical_speed(),0.0,duration)
 	tween_list.append(tween)
 
 func tween_speed(starting_speed := 20.0, final_speed := 0.0, duration := 0.25) -> void:
 	var tween = get_tree().create_tween()
-	tween.tween_method(Callable(self, "force_movement"), starting_speed, final_speed, duration)
+	tween.tween_method(self, "force_movement", starting_speed, final_speed, duration)
 	tween_list.append(tween)
 
 func tween_attribute(attribute : String, final_value=1.0, duration:=0.25, object = self) -> void:
@@ -159,9 +159,9 @@ func tween_attribute(attribute : String, final_value=1.0, duration:=0.25, object
 func get_last_tween():
 	return tween_list.back()
 	
-func add_next_state(tween : Tween):
+func add_next_state(tween : SceneTreeTween):
 	tween.set_parallel(false)
-	tween.tween_callback(Callable(self, "next_attack_stage"))
+	tween.tween_callback(self,"next_attack_stage")
 
 func get_actual_speed() -> float:
 	return character.get_actual_horizontal_speed() * character.get_facing_direction()
@@ -224,7 +224,7 @@ func decay_horizontal_speed(time := 10.0, delta := 0.016): #force_and_decay_hori
 
 func decay_vertical_speed(duration : float = 0.15) -> void:
 	var tween = get_tree().create_tween()
-	tween.tween_method(Callable(self, "set_vertical_speed"), character.get_vertical_speed(), 0.0, duration)
+	tween.tween_method(self,"set_vertical_speed",character.get_vertical_speed(),0.0,duration)
 
 func reduce_value_over_time(value :float, delta := 0.016, inverse_duration_of_decay := 10.0, threshold := 5) -> float:
 	if value > threshold:
@@ -247,7 +247,7 @@ func shoot_towards_player(projectile) -> void:
 
 func fire(projectile, shot_position, _dir := 0, velocity_override := Vector2 (0,0)):
 	#print_debug(name + ": Using deprecated method 'fire', use new system instead")
-	var shot = projectile.instantiate()
+	var shot = projectile.instance()
 	var direction
 	if _dir != 0:
 		direction = _dir
@@ -262,7 +262,7 @@ func fire(projectile, shot_position, _dir := 0, velocity_override := Vector2 (0,
 		shot.set_vertical_speed(velocity_override.y)
 
 func instantiate(scene : PackedScene) -> Node2D:
-	var instance = scene.instantiate()
+	var instance = scene.instance()
 	get_tree().current_scene.add_child(instance,true)
 	instance.set_global_position(global_position) 
 	return instance
@@ -276,9 +276,9 @@ func instantiate_projectile(scene : PackedScene) -> Node2D:
 
 func _Interrupt() -> void:
 	kill_tweens(tween_list)
-	super._Interrupt()
+	._Interrupt()
 
-func new_tween() -> Tween:
+func new_tween() -> SceneTreeTween:
 	var tween = get_tree().create_tween()
 	tween_list.append(tween)
 	return tween
@@ -289,7 +289,7 @@ func kill_tweens(list) -> void:
 			tween.kill()
 
 func deactivate(_d = null) -> void:
-	super.deactivate()
+	.deactivate()
 	emit_signal("deactivated")
 
 func turn_player_towards_boss() -> void:

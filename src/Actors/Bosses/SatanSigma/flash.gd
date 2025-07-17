@@ -1,14 +1,14 @@
-extends Sprite2D
+extends Sprite
 
-@export var initial_alpha := 0.5
-@export var initial_scale := 5.0
-@export var tween_scale_y := true
-@export var initial_color := Color.WHITE
-@export var final_color := Color(0.75,0.6,0.9,1.0)
-@export var duration := 0.2
-@onready var tween_brightness := TweenController.new(self,false)
+export var initial_alpha := 0.5
+export var initial_scale := 5.0
+export var tween_scale_y := true
+export var initial_color := Color.white
+export var final_color := Color(0.75,0.6,0.9,1.0)
+export var duration := 0.2
+onready var tween_brightness := TweenController.new(self,false)
 
-@export var flip_chance := false
+export var flip_chance := false
 
 func _ready() -> void:
 	visible = false

@@ -4,9 +4,9 @@ var interval := 0.064
 const continuous_damage := true
 const bypass_shield := true
 const destroyer := true
-@onready var thunder: AudioStreamPlayer2D = $thunder
-@onready var animated_sprite_2: AnimatedSprite2D = $animatedSprite2
-@onready var light: PointLight2D = $light
+onready var thunder: AudioStreamPlayer2D = $thunder
+onready var animated_sprite_2: AnimatedSprite = $animatedSprite2
+onready var light: Light2D = $light
 
 func _DamageTarget(body) -> int:
 	target_list.append(body)

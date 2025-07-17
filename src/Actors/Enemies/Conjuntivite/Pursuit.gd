@@ -1,14 +1,14 @@
 extends GrabAttack
-@onready var electric: AudioStreamPlayer2D = $electric
-@onready var pursuit: AudioStreamPlayer2D = $pursuit
+onready var electric: AudioStreamPlayer2D = $electric
+onready var pursuit: AudioStreamPlayer2D = $pursuit
 
-@onready var animator := $"../animatedSprite"
-@onready var thundersparks: AnimatedSprite2D = $"../thundersparks"
-@onready var grab_area := $GrabArea
+onready var animator := $"../animatedSprite"
+onready var thundersparks: AnimatedSprite = $"../thundersparks"
+onready var grab_area := $GrabArea
 
 func _ready() -> void:
 # warning-ignore:return_value_discarded
-	grab_area.connect("touch_target", Callable(self, "apply_stuck_state"))
+	grab_area.connect("touch_target",self,"apply_stuck_state")
 
 func _Setup() -> void:
 	attack_stage = 0
@@ -19,7 +19,7 @@ func _Setup() -> void:
 		play_animation_once("turn")
 
 func _Interrupt() -> void:
-	super._Interrupt()
+	._Interrupt()
 	animator.set_speed_scale(1)
 	thundersparks.set_speed_scale(1)
 	if GameManager.player.ride:

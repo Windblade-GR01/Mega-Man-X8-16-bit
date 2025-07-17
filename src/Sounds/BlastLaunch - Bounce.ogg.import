@@ -1,19 +1,15 @@
 [remap]
 
-importer="oggvorbisstr"
-type="AudioStreamOggVorbis"
-uid="uid://cekykvu02d17r"
-path="res://.godot/imported/BlastLaunch - Bounce.ogg-eeec0abe1d66bc88d8e31533f153a410.oggvorbisstr"
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/BlastLaunch - Bounce.ogg-eeec0abe1d66bc88d8e31533f153a410.oggstr"
 
 [deps]
 
 source_file="res://src/Sounds/BlastLaunch - Bounce.ogg"
-dest_files=["res://.godot/imported/BlastLaunch - Bounce.ogg-eeec0abe1d66bc88d8e31533f153a410.oggvorbisstr"]
+dest_files=[ "res://.import/BlastLaunch - Bounce.ogg-eeec0abe1d66bc88d8e31533f153a410.oggstr" ]
 
 [params]
 
 loop=false
 loop_offset=0
-bpm=0
-beat_count=0
-bar_beats=4

@@ -1,8 +1,8 @@
 extends Resource
 class_name InputPressCombo
 
-@export var inputs : Array
-@export var leeway : float
+export var inputs : Array
+export var leeway : float
 
 func _init(_inputs : Array, _leeway : float) -> void:
 	inputs = _inputs

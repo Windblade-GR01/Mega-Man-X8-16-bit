@@ -1,9 +1,9 @@
 extends EventAbility
 
-@export var beam_speed := 420.0
+export var beam_speed := 420.0
 var descending := false
-@onready var animatedSprite = get_parent().get_node("animatedSprite")
-@onready var thunder = get_node("audioStreamPlayer2")
+onready var animatedSprite = get_parent().get_node("animatedSprite")
+onready var thunder = get_node("audioStreamPlayer2")
 
 func _ready() -> void:
 	Event.emit_signal("x_appear")

@@ -1,13 +1,13 @@
 extends Node2D
 
-@export var active := true
+export var active := true
 var character_direction := 0
-@onready var character : Bike = get_parent()
-@onready var hyperdash: Node2D = $"../HyperDash"
+onready var character : Bike = get_parent()
+onready var hyperdash: Node2D = $"../HyperDash"
 
 
 func _ready() -> void:
-	var _s = hyperdash.connect("hyperdash", Callable(self, "clear_vertical_buildup"))
+	var _s = hyperdash.connect("hyperdash",self,"clear_vertical_buildup")
 
 
 func _physics_process(delta: float) -> void:

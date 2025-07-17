@@ -1,6 +1,6 @@
 extends Node2D
-@onready var sprite: AnimatedSprite2D = $"../animatedSprite"
-@onready var slash_hitbox: Node2D = $SlashHitbox
+onready var sprite: AnimatedSprite = $"../animatedSprite"
+onready var slash_hitbox: Node2D = $SlashHitbox
 
 func _physics_process(_delta: float) -> void:
 	if sprite.frame == 3:

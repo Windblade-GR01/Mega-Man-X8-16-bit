@@ -1,7 +1,7 @@
-extends AnimatedSprite2D
+extends AnimatedSprite
 
 var head_frames : SpriteFrames
-@export var head_l_frames : SpriteFrames
+export var head_l_frames : SpriteFrames
 
 func _ready() -> void:
 	head_frames = frames

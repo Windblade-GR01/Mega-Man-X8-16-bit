@@ -1,7 +1,7 @@
 extends Node
 
 var weapon : Resource
-@onready var x: CharacterBody2D = $"../X"
+onready var x: KinematicBody2D = $"../X"
 
 func initialize():
 	if GameManager.player == null:
@@ -25,7 +25,7 @@ func emulate_press(key, press := false) -> void:
 	
 	var event = InputEventAction.new()
 	event.action = key
-	event.button_pressed = press
+	event.pressed = press
 	Input.parse_input_event(event)
 
 func define_camera_right_limit(value) -> void:

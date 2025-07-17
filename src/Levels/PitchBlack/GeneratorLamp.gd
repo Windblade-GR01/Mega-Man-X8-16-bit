@@ -1,12 +1,12 @@
-extends CharacterBody2D
-@onready var light: PointLight2D = $light
-@onready var charge_sound: AudioStreamPlayer2D = $"../charge_sound"
-@onready var full_energy: AudioStreamPlayer2D = $"../full_energy"
+extends KinematicBody2D
+onready var light: Light2D = $light
+onready var charge_sound: AudioStreamPlayer2D = $"../charge_sound"
+onready var full_energy: AudioStreamPlayer2D = $"../full_energy"
 
-@onready var tween := TweenController.new(self,false)
+onready var tween := TweenController.new(self,false)
 var charge_level := 0.0
 var fully_energized := false
-@onready var doors: Node2D = $"../doors"
+onready var doors: Node2D = $"../doors"
 
 signal lit
 
@@ -27,7 +27,7 @@ func full_energy() -> void:
 	tween.attribute("position:y",-98,1.5,doors)
 	Event.emit_signal("pitch_black_energized")
 	GlobalVariables.set("pitch_black_energized", true)
-	set_collision_layer_value(21,false)
+	set_collision_layer_bit(21,false)
 	Event.emit_signal("screenshake",2.0)
 	emit_signal("lit")
 

@@ -1,11 +1,11 @@
 extends Node2D
-@onready var sprite: Sprite2D = $sprite
-@onready var smoke: GPUParticles2D = $smoke
-@onready var tween := TweenController.new(self,false)
-@onready var collider: CollisionShape2D = $staticBody2D/collisionShape2D
-@onready var rise: AudioStreamPlayer2D = $rise
-@onready var close: AudioStreamPlayer2D = $close
-@onready var smoke_2: GPUParticles2D = $smoke2
+onready var sprite: Sprite = $sprite
+onready var smoke: Particles2D = $smoke
+onready var tween := TweenController.new(self,false)
+onready var collider: CollisionShape2D = $staticBody2D/collisionShape2D
+onready var rise: AudioStreamPlayer2D = $rise
+onready var close: AudioStreamPlayer2D = $close
+onready var smoke_2: Particles2D = $smoke2
 
 signal finished
 

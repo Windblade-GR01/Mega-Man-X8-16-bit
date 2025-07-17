@@ -1,6 +1,6 @@
 extends Spawner
 
-@export var skip_intro := false
+export var skip_intro := false
 
 func setup_custom_variables() -> void:
 	for key in custom_vars.keys():

@@ -1,6 +1,6 @@
 extends ScrollContainer
 
-@onready var tween := TweenController.new(self,false)
+onready var tween := TweenController.new(self,false)
 
 var moving := 0
 

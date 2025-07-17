@@ -1,9 +1,9 @@
 extends SimplePlayerProjectile
-@onready var groundcheck: RayCast2D = $groundcheck
-@onready var wallcheck: RayCast2D = $wallcheck
-@onready var collider: CollisionShape2D = $collisionShape2D
-@onready var player_detector: Area2D = $playerDetector
-@onready var damaging_projectile: CharacterBody2D = $CrystalBouncerCharged
+onready var groundcheck: RayCast2D = $groundcheck
+onready var wallcheck: RayCast2D = $wallcheck
+onready var collider: CollisionShape2D = $collisionShape2D
+onready var player_detector: Area2D = $playerDetector
+onready var damaging_projectile: KinematicBody2D = $CrystalBouncerCharged
 
 signal phased_in
 
@@ -11,11 +11,11 @@ func _ready() -> void:
 	Tools.timer(0.05,"solidify_on_start",self)
 
 func initialize(direction) -> void:
-	super.initialize(direction)
+	.initialize(direction)
 	damaging_projectile.initialize(direction)
 
 func set_creator(creator) -> void:
-	super.set_creator(creator)
+	.set_creator(creator)
 	damaging_projectile.set_creator(creator)
 
 func _on_player_exited(body: Node) -> void:
@@ -47,7 +47,7 @@ func position_horizontally() -> void:
 		global_position.x = wallcheck.get_collision_point().x
 		global_position.x -= 8 * get_facing_direction()
 	else:
-		global_position.x += wallcheck.target_position.x * get_facing_direction()
+		global_position.x += wallcheck.cast_to.x * get_facing_direction()
 		global_position.x -= 8 * get_facing_direction()
 
 func position_vertically() -> void:
@@ -64,5 +64,5 @@ func _OnDeflect() -> void:
 
 
 func _on_SolidPhaser_phased_in() -> void:
-	set_collision_mask_value(0,true)
+	set_collision_mask_bit(0,true)
 	pass # Replace with function body.

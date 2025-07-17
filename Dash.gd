@@ -1,12 +1,12 @@
 extends Movement
 class_name Dash
 
-@export var dash_duration := 0.55
-@export var upgraded := false
-@export var invulnerability_duration := 0.0
-@export var leeway := 0.1
-@onready var particles = character.get_node("animatedSprite").get_node("Dash Smoke Particles")
-@onready var dash_particle = get_node("dash_particle")
+export var dash_duration := 0.55
+export var upgraded := false
+export var invulnerability_duration := 0.0
+export var leeway := 0.1
+onready var particles = character.get_node("animatedSprite").get_node("Dash Smoke Particles")
+onready var dash_particle = get_node("dash_particle")
 var ghost_particle
 var sprite_effect
 var _dash
@@ -14,7 +14,7 @@ var emitted_dash  := false
 var left_ground_timer := 0.0
 var can_dash := true
 
-@export var shot_pos_adjust := Vector2 (18,4)
+export var shot_pos_adjust := Vector2 (18,4)
 func get_shot_adust_position() -> Vector2:
 	return shot_pos_adjust
 
@@ -73,7 +73,7 @@ func increase_left_ground_timer(_delta: float) -> void:
 
 
 func process_gravity(delta:float, gravity := default_gravity, _s = "null") -> void:
-	super.process_gravity(delta,gravity)
+	.process_gravity(delta,gravity)
 	activate_low_jumpcasts_after_delay(delta)
 
 func on_dash() -> void: #override
@@ -96,7 +96,7 @@ func _Interrupt():
 		character.call_deferred("increase_hitbox")
 	emit_particles(particles,false)
 	invulnerable(false)
-	super._Interrupt()
+	._Interrupt()
 
 func invulnerable(state : bool):
 	if upgraded and invulnerability_duration > 0:

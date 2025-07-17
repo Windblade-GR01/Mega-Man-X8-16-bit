@@ -5,7 +5,7 @@ func _ready() -> void:
 	Event.listen("shot_layer_enabled", self, "recover")
 	Event.listen("shot_layer_disabled", self, "recover")
 # warning-ignore:return_value_discarded
-	character.get_node("animatedSprite").connect("animation_finished", Callable(self, "_on_animatedSprite_animation_finished"))
+	character.get_node("animatedSprite").connect("animation_finished", self, "_on_animatedSprite_animation_finished")
 
 func _StartCondition() -> bool:
 	if character.is_on_floor():

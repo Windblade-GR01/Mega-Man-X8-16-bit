@@ -16,4 +16,4 @@ func _EndCondition() -> bool:
 	return elapsed_explosion_time >= explosion_time + 2.12 + reduceable_time and background_alpha <= 0
 
 func _on_created_armor(armor : Node2D) -> void:
-	armor.connect("bounced", Callable(self, "reduce_final_timer"))
+	armor.connect("bounced",self,"reduce_final_timer")

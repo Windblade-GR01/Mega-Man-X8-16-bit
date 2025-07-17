@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var animatedSprite: AnimatedSprite2D = $animatedSprite
-@onready var animated_sprite_2: AnimatedSprite2D = $animatedSprite2
+onready var animatedSprite: AnimatedSprite = $animatedSprite
+onready var animated_sprite_2: AnimatedSprite = $animatedSprite2
 
 signal started
 signal ended

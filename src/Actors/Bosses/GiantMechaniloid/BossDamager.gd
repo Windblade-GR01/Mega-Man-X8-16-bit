@@ -1,7 +1,7 @@
 extends RigidBody2D
-@onready var button: Node2D = $"../BossButton"
-@onready var button_2: Node2D = $"../BossButton2" #<
-@onready var tween := TweenController.new(self,false)
+onready var button: Node2D = $"../BossButton"
+onready var button_2: Node2D = $"../BossButton2" #<
+onready var tween := TweenController.new(self,false)
 
 func _ready() -> void:
 	button_2.press()

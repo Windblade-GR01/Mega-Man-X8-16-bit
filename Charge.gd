@@ -2,37 +2,37 @@ extends Ability
 class_name Charge
 
 
-@export var super_charged_sound : AudioStream
+export var super_charged_sound : AudioStream
 var super_charge_time := 3.0
 var maximum_charge_time := 5
-@export var color : Color
-@export var super_color : Color
+export var color : Color
+export var super_color : Color
 var charged_time : float
 var max_charge : bool
 var mid_charge : bool
 var charging := false
 
 
-@export var minimum_charge_time := 0.5
-@export var level_3_charge := 1.75
-@export var level_4_charge := 2.75
+export var minimum_charge_time := 0.5
+export var level_3_charge := 1.75
+export var level_4_charge := 2.75
 
-@export var charge_time_reduction := 0.0
+export var charge_time_reduction := 0.0
 
 var current_weapon
-@onready var audio2 = $audioStreamPlayer2
-@onready var charge1_volume = $audioStreamPlayer.volume_db
-@onready var charge2_volume = $audioStreamPlayer2.volume_db
+onready var audio2 = $audioStreamPlayer2
+onready var charge1_volume = $audioStreamPlayer.volume_db
+onready var charge2_volume = $audioStreamPlayer2.volume_db
 
-@onready var charging_particle = character.get_node("animatedSprite").get_node("ChargingParticle")
-@onready var charged_particle = character.get_node("animatedSprite").get_node("ChargedParticle")
-@onready var super_particle = character.get_node("animatedSprite").get_node("SuperChargeParticle")
+onready var charging_particle = character.get_node("animatedSprite").get_node("ChargingParticle")
+onready var charged_particle = character.get_node("animatedSprite").get_node("ChargedParticle")
+onready var super_particle = character.get_node("animatedSprite").get_node("SuperChargeParticle")
 
-@onready var particles = [charging_particle, charged_particle, super_particle]
+onready var particles = [charging_particle, charged_particle, super_particle]
 
-@onready var arm_cannon = character.get_node("Shot")
+onready var arm_cannon = character.get_node("Shot")
 
-@onready var tween := TweenController.new(self)
+onready var tween := TweenController.new(self)
 signal stop
 
 func _ready() -> void:
@@ -101,7 +101,7 @@ func _Update(_delta:float) -> void:
 		if character.listening_to_inputs:
 			EndAbility()
 
-@onready var charge_button = get_default_charge_button()
+onready var charge_button = get_default_charge_button()
 
 func get_default_charge_button() -> String:
 	return "fire"
@@ -192,7 +192,7 @@ func play_super_sound():
 	audio2.play()
 
 func stop_sound():
-	super.stop_sound()
+	.stop_sound()
 	audio2.stop()
 
 func emit_charging_particle():
@@ -215,13 +215,13 @@ func stop_emission():
 		particle.visible = false
 
 func change_color(_color):
-	character.animatedSprite.material.set_shader_parameter("Color", _color)
+	character.animatedSprite.material.set_shader_param("Color", _color)
 	
 func enable_charge_shader():
-	character.animatedSprite.material.set_shader_parameter("Charge", 1)
+	character.animatedSprite.material.set_shader_param("Charge", 1)
 
 func disable_charge_shader():
-	character.get_node("animatedSprite").material.set_shader_parameter("Charge", 0)
+	character.get_node("animatedSprite").material.set_shader_param("Charge", 0)
 
 func _Interrupt():
 	charged_time = 0

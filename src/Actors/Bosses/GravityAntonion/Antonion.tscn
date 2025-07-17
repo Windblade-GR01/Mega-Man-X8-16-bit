@@ -1,6 +1,6 @@
 [gd_scene load_steps=48 format=2]
 
-[ext_resource path="res://src/Effects/Textures/smoke.png" type="Texture2D" id=1]
+[ext_resource path="res://src/Effects/Textures/smoke.png" type="Texture" id=1]
 [ext_resource path="res://src/Effects/Materials/BossExplosion.tres" type="Material" id=2]
 [ext_resource path="res://src/Actors/Bosses/GravityAntonion/GravityBurrow.gd" type="Script" id=3]
 [ext_resource path="res://src/Effects/Materials/default_material.tres" type="Material" id=4]
@@ -51,7 +51,7 @@ particles_anim_h_frames = 3
 particles_anim_v_frames = 3
 particles_anim_loop = false
 
-[sub_resource type="ParticleProcessMaterial" id=106]
+[sub_resource type="ParticlesMaterial" id=106]
 lifetime_randomness = 0.51
 emission_shape = 2
 emission_box_extents = Vector3( 0, 0, 0 )
@@ -68,7 +68,7 @@ anim_speed = 2.0
 anim_speed_random = 0.58
 anim_offset_random = 1.0
 
-[sub_resource type="ParticleProcessMaterial" id=104]
+[sub_resource type="ParticlesMaterial" id=104]
 emission_shape = 2
 emission_box_extents = Vector3( 16, 0, 0 )
 flag_disable_z = true
@@ -83,7 +83,7 @@ anim_speed = 2.0
 anim_speed_random = 0.58
 anim_offset_random = 1.0
 
-[sub_resource type="ParticleProcessMaterial" id=105]
+[sub_resource type="ParticlesMaterial" id=105]
 emission_shape = 2
 emission_box_extents = Vector3( 16, 0, 0 )
 flag_disable_z = true
@@ -104,7 +104,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=62]
 curve = SubResource( 102 )
 
-[sub_resource type="ParticleProcessMaterial" id=103]
+[sub_resource type="ParticlesMaterial" id=103]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -116,7 +116,7 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 62 )
 
-[node name="Antonion" type="CharacterBody2D" groups=["Bosses"]]
+[node name="Antonion" type="KinematicBody2D" groups=["Bosses"]]
 z_index = 5
 collision_layer = 0
 script = ExtResource( 31 )
@@ -136,7 +136,7 @@ time_between_attacks = Vector2( 0.25, 0.85 )
 position = Vector2( 0, 3.5 )
 shape = SubResource( 49 )
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 4 )
 z_index = 1
 frames = ExtResource( 7 )
@@ -154,7 +154,7 @@ input_pickable = false
 position = Vector2( 0, 2 )
 shape = SubResource( 50 )
 
-[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 visible = false
 position = Vector2( -6.5, 3.5 )
 scale = Vector2( 4.35, 4.25 )
@@ -177,7 +177,7 @@ max_flash_time = 0.35
 weakenesses = [ "DarkArrow" ]
 
 [node name="audioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Damage"]
-process_mode = 3
+pause_mode = 2
 stream = ExtResource( 5 )
 volume_db = -3.0
 max_distance = 600.0
@@ -185,10 +185,10 @@ bus = "SFX"
 
 [node name="dps" type="RichTextLabel" parent="Damage"]
 visible = false
-offset_left = -18.0
-offset_top = -69.0
-offset_right = 59.0
-offset_bottom = -52.0
+margin_left = -18.0
+margin_top = -69.0
+margin_right = 59.0
+margin_bottom = -52.0
 text = "0.0"
 script = ExtResource( 27 )
 
@@ -218,7 +218,7 @@ script = ExtResource( 16 )
 [node name="GravityBurrow" type="Node2D" parent="."]
 script = ExtResource( 3 )
 
-[node name="collision" type="GPUParticles2D" parent="GravityBurrow"]
+[node name="collision" type="Particles2D" parent="GravityBurrow"]
 modulate = Color( 0.623529, 0.54902, 0.454902, 1 )
 material = SubResource( 100 )
 position = Vector2( 0, 20 )
@@ -232,7 +232,7 @@ local_coords = false
 process_material = SubResource( 106 )
 texture = ExtResource( 1 )
 
-[node name="burrow" type="GPUParticles2D" parent="GravityBurrow"]
+[node name="burrow" type="Particles2D" parent="GravityBurrow"]
 modulate = Color( 0.623529, 0.54902, 0.454902, 1 )
 material = SubResource( 100 )
 position = Vector2( 0, 20 )
@@ -244,7 +244,7 @@ local_coords = false
 process_material = SubResource( 104 )
 texture = ExtResource( 1 )
 
-[node name="burrow2" type="GPUParticles2D" parent="GravityBurrow"]
+[node name="burrow2" type="Particles2D" parent="GravityBurrow"]
 modulate = Color( 0.623529, 0.54902, 0.454902, 1 )
 material = SubResource( 100 )
 position = Vector2( 0, 20 )

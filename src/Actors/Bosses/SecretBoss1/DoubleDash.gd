@@ -1,13 +1,13 @@
 extends AttackAbility
 
-@onready var downslash: Node2D = $downslash
-@onready var highslash: Node2D = $highslash
-@onready var smoke_dash: GPUParticles2D = $"../animatedSprite/smoke_dash"
+onready var downslash: Node2D = $downslash
+onready var highslash: Node2D = $highslash
+onready var smoke_dash: Particles2D = $"../animatedSprite/smoke_dash"
 
-@onready var dash: AudioStreamPlayer2D = $dash
-@onready var cut_1: AudioStreamPlayer2D = $cut1
-@onready var cut_2: AudioStreamPlayer2D = $cut2
-@onready var land: AudioStreamPlayer2D = $land
+onready var dash: AudioStreamPlayer2D = $dash
+onready var cut_1: AudioStreamPlayer2D = $cut1
+onready var cut_2: AudioStreamPlayer2D = $cut2
+onready var land: AudioStreamPlayer2D = $land
 
 
 
@@ -77,7 +77,7 @@ func _Update(delta) -> void:
 		EndAbility()
 
 func _Interrupt() -> void:
-	super._Interrupt()
+	._Interrupt()
 	smoke_dash.emitting = false
 
 func rising_slash():

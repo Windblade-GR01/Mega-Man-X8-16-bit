@@ -1,7 +1,7 @@
 extends RigidBody2D
-@onready var projectile: = $".."
-@export var deflect_particle : NodePath
-@export var break_guards := false
+onready var projectile: = $".."
+export var deflect_particle : NodePath
+export var break_guards := false
 
 func deactivate() -> void:
 	$collisionShape2D.set_deferred("disabled",true)

@@ -7,5 +7,5 @@ func on_press() -> void:
 	menu.lock_buttons()
 	menu.fader.SoftFadeOut()
 	strong_flash()
-	await menu.fader.finished
+	yield(menu.fader,"finished")
 	GameManager.start_level(name)

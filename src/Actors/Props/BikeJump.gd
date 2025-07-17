@@ -1,14 +1,14 @@
 extends BikeMovement
 class_name BikeJump
 
-@export var max_jump_time := 0.65
-@export var acceleration := 250.0
-@export var deacceleration := 50.0
-@export var brake_speed = 180.0
+export var max_jump_time := 0.65
+export var acceleration := 250.0
+export var deacceleration := 50.0
+export var brake_speed = 180.0
 var minimum_speed = 0.0
-@export var leeway_time := 0.1
-@export var fullspeed_proportion := 0.18
-@export var minimum_upwards_time := 0.0
+export var leeway_time := 0.1
+export var fullspeed_proportion := 0.18
+export var minimum_upwards_time := 0.0
 var fullspeed_time := 0.0
 var slowdown_time := 0.0
 var stopped_input := false

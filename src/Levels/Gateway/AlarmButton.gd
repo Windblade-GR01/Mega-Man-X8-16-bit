@@ -1,9 +1,9 @@
-extends AnimatedSprite2D
+extends AnimatedSprite
 
 var active := false
-@onready var blockage: Node2D = $"../../Scenery/GatewayTiled/Blockage"
+onready var blockage: Node2D = $"../../Scenery/GatewayTiled/Blockage"
 
-@onready var collider: CollisionShape2D = $"../../Scenery/GatewayTiled/Blockage/staticBody2D/collisionShape2D"
+onready var collider: CollisionShape2D = $"../../Scenery/GatewayTiled/Blockage/staticBody2D/collisionShape2D"
 
 func _ready() -> void:
 	if GatewayManager.has_defeated_copy_sigma():

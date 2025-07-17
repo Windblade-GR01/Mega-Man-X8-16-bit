@@ -1,18 +1,18 @@
 extends Node
 class_name BossWeapon
 
-@export var active := false
-@export var debug_logs := false
-@export var can_buffer := true
-@export var weapon : Resource
-@export var current_ammo := 28.0
+export var active := false
+export var debug_logs := false
+export var can_buffer := true
+export var weapon : Resource
+export var current_ammo := 28.0
 const max_ammo := 28.0
 const chargeable_without_ammo := false
 var timer := 0.0
-var cooldown : Tween
-@onready var character : Character = get_parent().get_parent()
-@onready var buster := get_parent()
-@onready var shot_position: Node2D = $"../../Shot Position"
+var cooldown : SceneTreeTween
+onready var character : Character = get_parent().get_parent()
+onready var buster := get_parent()
+onready var shot_position: Node2D = $"../../Shot Position"
 var last_fired_shot_was_charged := false
 
 func fire(charge_level) -> void:
@@ -36,7 +36,7 @@ func start_cooldown() -> void:
 	Log("Setting cooldown to " + str(weapon.cooldown))
 	cooldown = create_tween()
 	cooldown.tween_property(self,"timer",0,weapon.cooldown) # warning-ignore:return_value_discarded
-	cooldown.tween_callback(Callable(self, "buster_notify_cooldown_end")) # warning-ignore:return_value_discarded
+	cooldown.tween_callback(self,"buster_notify_cooldown_end") # warning-ignore:return_value_discarded
 
 func buster_notify_cooldown_end() -> void:
 	buster.weapon_cooldown_ended(self)
@@ -92,7 +92,7 @@ func increase_ammo(value) -> float:
 	return excess_value
 
 func instantiate(scene : PackedScene) -> Node2D:
-	var instance = scene.instantiate()
+	var instance = scene.instance()
 	get_tree().current_scene.get_node("Objects").call_deferred("add_child",instance,true)
 	instance.set_global_position(GameManager.get_player_position()) 
 	return instance

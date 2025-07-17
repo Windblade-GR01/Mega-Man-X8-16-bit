@@ -1,8 +1,8 @@
-extends Sprite2D
+extends Sprite
 
-@onready var tween := TweenController.new(self,false)
+onready var tween := TweenController.new(self,false)
 
-@export var speed := 80
+export var speed := 80
 
 func _ready() -> void:
 	descent()

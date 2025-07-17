@@ -1,4 +1,4 @@
-extends GPUParticles2D
+extends Particles2D
 
 func _on_EnemyDeath_ability_start(_ability) -> void:
 	emitting = true

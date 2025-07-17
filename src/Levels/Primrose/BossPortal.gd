@@ -1,6 +1,6 @@
 extends "res://src/Levels/Primrose/Portal.gd"
 
-@onready var boss_spawner: Node2D = $"../BossSpawner"
+onready var boss_spawner: Node2D = $"../BossSpawner"
 
 func _on_area2D_body_entered(_body: Node) -> void:
 	if active:
@@ -20,13 +20,13 @@ func teleport() -> void:
 	GameManager.pause("BossPortal")
 	set_camera_to_process()
 	var tween = create_tween()
-	tween.set_process_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.set_pause_mode(SceneTreeTween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(GameManager.player,"modulate",Color(30,30,30,-1.0),duration)
-	tween.tween_callback(Callable(self, "move_player"))
-	tween.tween_property(GameManager.player,"modulate",Color.WHITE,duration)
-	tween.tween_callback(Callable(GameManager, "unpause").bind("BossPortal"))
-	tween.tween_callback(Callable(GameManager, "start_cutscene"))
-	tween.tween_callback(Callable(self, "set_camera_to_inherit"))
+	tween.tween_callback(self,"move_player")
+	tween.tween_property(GameManager.player,"modulate",Color.white,duration)
+	tween.tween_callback(GameManager,"unpause",["BossPortal"])
+	tween.tween_callback(GameManager,"start_cutscene")
+	tween.tween_callback(self,"set_camera_to_inherit")
 
 func move_player() -> void:
 	var destination_pos = get_node(destination).global_position
@@ -42,7 +42,7 @@ func move_player() -> void:
 	GameManager.player.set_direction(1)
 
 func set_camera_to_inherit() -> void:
-	GameManager.camera.set_process_mode(Node.PROCESS_MODE_INHERIT)
+	GameManager.camera.set_pause_mode(Node.PAUSE_MODE_INHERIT)
 	Event.emit_signal("stage_teleport_end")
 	Event.emit_signal("boss_door_closed")
 	Event.emit_signal("show_warning")

@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://cs0rpt3plwuu3"
-path="res://.godot/imported/explode_4.wav-fae7f1c288e8fd8f30610a58568543b6.sample"
+type="AudioStreamSample"
+path="res://.import/explode_4.wav-fae7f1c288e8fd8f30610a58568543b6.sample"
 
 [deps]
 
 source_file="res://src/Actors/Bosses/DarkMantis/explode_4.wav"
-dest_files=["res://.godot/imported/explode_4.wav-fae7f1c288e8fd8f30610a58568543b6.sample"]
+dest_files=[ "res://.import/explode_4.wav-fae7f1c288e8fd8f30610a58568543b6.sample" ]
 
 [params]
 

@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://bvw4rp2dxigvu"
-path="res://.godot/imported/01 - MMX - X Regular Shot.wav-61d777d6ce4f251860ed486a12265fb4.sample"
+type="AudioStreamSample"
+path="res://.import/01 - MMX - X Regular Shot.wav-61d777d6ce4f251860ed486a12265fb4.sample"
 
 [deps]
 
 source_file="res://src/Sounds/01 - MMX - X Regular Shot.wav"
-dest_files=["res://.godot/imported/01 - MMX - X Regular Shot.wav-61d777d6ce4f251860ed486a12265fb4.sample"]
+dest_files=[ "res://.import/01 - MMX - X Regular Shot.wav-61d777d6ce4f251860ed486a12265fb4.sample" ]
 
 [params]
 

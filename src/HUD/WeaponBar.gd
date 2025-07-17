@@ -1,8 +1,8 @@
 extends NinePatchRect
 
 var weapon
-@onready var weapon_icon: TextureRect = $"../WeaponIcon"
-@onready var ammo_bar: TextureProgressBar = $textureProgress
+onready var weapon_icon: TextureRect = $"../WeaponIcon"
+onready var ammo_bar: TextureProgress = $textureProgress
 
 signal displayed(weapon)
 signal hidden
@@ -16,7 +16,7 @@ func display(current_weapon) -> void:
 	var icon = weapon.weapon.icon
 	var palette = weapon.weapon.palette
 	weapon_icon.texture.atlas = icon
-	ammo_bar.material.set_shader_parameter("palette", palette)
+	ammo_bar.material.set_shader_param("palette", palette)
 	ammo_bar.value = get_bar_value()
 	show() 
 	emit_signal("displayed",current_weapon)

@@ -1,11 +1,11 @@
 extends SimplePlayerProjectile
 
-@export var collision_projectile : PackedScene
-@export var lines : Array
+export var collision_projectile : PackedScene
+export var lines : Array
 var target : Node2D
 var buster : Node2D
-@onready var tracker: Area2D = $tracker
-@onready var line: Line2D = $line
+onready var tracker: Area2D = $tracker
+onready var line: Line2D = $line
 #onready var raycast: RayCast2D = $rayCast2D
 #onready var spark_end: AnimatedSprite = $animatedSprite2
 const duration := 0.25
@@ -37,14 +37,14 @@ func _OnHit(_target_remaining_HP) -> void: #override
 	
 func set_target_position_to_lineend() -> void:
 	if target:
-		var lineend_pos = to_local(get_exact_point_of_intersection(target)) + Vector2(randf_range(-2,2),randf_range(-2,2))
+		var lineend_pos = to_local(get_exact_point_of_intersection(target)) + Vector2(rand_range(-2,2),rand_range(-2,2))
 		line.points[1] = lineend_pos
 # warning-ignore:return_value_discarded
 		instantiate(collision_projectile, lineend_pos)
 
 
 func instantiate(scene : PackedScene, pos : Vector2) -> Node2D:
-	var instance = scene.instantiate()
+	var instance = scene.instance()
 	add_child(instance,true)
 	instance.set_creator(creator)
 	instance.call_deferred("initialize",creator.get_facing_direction())

@@ -1,22 +1,22 @@
 extends NewAbility
 
-@export var upward_time := 0.25
-@export var hover_time := 0.6
-@export var horizontal_speed := 90.0
-@export var jump_speed := 120.0
-@export var hover_speed := 50.0
+export var upward_time := 0.25
+export var hover_time := 0.6
+export var horizontal_speed := 90.0
+export var jump_speed := 120.0
+export var hover_speed := 50.0
 var hover_fuel := hover_time
 var current_jump_speed := 90.0
 var current_horizontal_speed := 90.0
 var stopping := false
 
-@onready var stage = AbilityStage.new(self)
-@onready var physics = Physics.new(get_parent())
-@onready var animation = AnimationController.new($"../animatedSprite", self)
-@onready var tween = TweenController.new(self)
+onready var stage = AbilityStage.new(self)
+onready var physics = Physics.new(get_parent())
+onready var animation = AnimationController.new($"../animatedSprite", self)
+onready var tween = TweenController.new(self)
 
-@onready var jump: AudioStreamPlayer2D = $jump_sound
-@onready var rise: AudioStreamPlayer2D = $rise
+onready var jump: AudioStreamPlayer2D = $jump_sound
+onready var rise: AudioStreamPlayer2D = $rise
 
 signal dash_jump
 

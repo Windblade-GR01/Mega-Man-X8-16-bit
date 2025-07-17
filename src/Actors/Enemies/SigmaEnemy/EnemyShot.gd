@@ -1,5 +1,5 @@
 extends AttackAbility
-@export var bouncer : PackedScene
+export var bouncer : PackedScene
 var turning := false
 
 func _Setup() -> void:
@@ -9,8 +9,8 @@ func _Setup() -> void:
 		turning = true
 
 func activate() -> void:
-	super.activate()
-	animatedSprite.connect("animation_finished", Callable(self, "on_finished_animation"))
+	.activate()
+	animatedSprite.connect("animation_finished",self,"on_finished_animation")
 
 func _Update(_delta) -> void:
 	process_gravity(_delta)

@@ -1,23 +1,23 @@
 class_name AchievementPopup extends CanvasLayer
 
-@onready var popup: Control = $popup
-@onready var show_position := popup.position
-@onready var tween := TweenController.new(self,false)
-@onready var sound: AudioStreamPlayer = $achieve_sound
+onready var popup: Control = $popup
+onready var show_position := popup.rect_position
+onready var tween := TweenController.new(self,false)
+onready var sound: AudioStreamPlayer = $achieve_sound
 var queued_achievements : Array
 const outscreen_position := 227.0
 
 const title_limit := 28
 const disc_limit := 48
 
-@onready var achievement_title: Label = $popup/title
-@onready var achievement_disc: Label = $popup/disc
-@onready var icon: TextureRect = $popup/icon
+onready var achievement_title: Label = $popup/title
+onready var achievement_disc: Label = $popup/disc
+onready var icon: TextureRect = $popup/icon
 var showing := false
-@onready var save_icon: TextureRect = $save_icon
+onready var save_icon: TextureRect = $save_icon
 
 func _ready() -> void:
-	popup.position.y = outscreen_position
+	popup.rect_position.y = outscreen_position
 
 #func DEBUG_unlockall():
 #	Achievements.reset_all()
@@ -61,9 +61,9 @@ func handle_cheaters() -> void:
 func display() -> void:
 	showing = true
 	sound.play()
-	tween.attribute("position:y",show_position.y,0.5,popup)
+	tween.attribute("rect_position:y",show_position.y,0.5,popup)
 	tween.add_wait(3.0)
-	tween.add_attribute("position:y",outscreen_position,0.5,popup)
+	tween.add_attribute("rect_position:y",outscreen_position,0.5,popup)
 	tween.add_callback("finished_displaying")
 
 func finished_displaying():

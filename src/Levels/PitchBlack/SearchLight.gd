@@ -1,11 +1,11 @@
 extends Node2D
-@onready var sublight: PointLight2D = $Spotlight1/pathFollow2D/spotLight/sublight
-@onready var path: PathFollow2D = $Spotlight1/pathFollow2D
-@onready var spotlight: PointLight2D = $Spotlight1/pathFollow2D/spotLight
+onready var sublight: Light2D = $Spotlight1/pathFollow2D/spotLight/sublight
+onready var path: PathFollow2D = $Spotlight1/pathFollow2D
+onready var spotlight: Light2D = $Spotlight1/pathFollow2D/spotLight
 
-@export var debug := false
-@export var path_speed := 50.0
-@export var inverse_speed := false
+export var debug := false
+export var path_speed := 50.0
+export var inverse_speed := false
 
 var timer := 0.0
 var activated := true
@@ -14,7 +14,7 @@ var restoring := false
 
 var current_tween
 
-@export var _wall_enemies : Array
+export var _wall_enemies : Array
 var wall_enemies : Array
 
 signal alarm_activated

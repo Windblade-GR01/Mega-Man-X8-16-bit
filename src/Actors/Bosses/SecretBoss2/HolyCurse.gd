@@ -1,5 +1,5 @@
 extends AttackAbility
-@onready var smoke_creator: Node = $SmokeCreator
+onready var smoke_creator: Node = $SmokeCreator
 
 func _Update(_delta):
 	if attack_stage == 0 and timer > .5:

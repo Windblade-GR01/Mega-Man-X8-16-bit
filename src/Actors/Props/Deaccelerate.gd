@@ -1,8 +1,8 @@
 extends BikeMovement
 class_name Deaccelerate
 
-@export var deacceleration := 200.0
-@export var minimum_speed = 100.0
+export var deacceleration := 200.0
+export var minimum_speed = 100.0
 
 
 func play_animation_on_initialize() -> void:

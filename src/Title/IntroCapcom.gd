@@ -1,10 +1,10 @@
 extends Node2D
 
-@onready var capcom_logo: AnimatedSprite2D = $capcom_logo
-@onready var capcom_sound: AudioStreamPlayer = $capcom_sound
-@onready var inspired: Label = $inspired
-@onready var black: Sprite2D = $black
-@onready var intro_anim: Node2D = $IntroAnim
+onready var capcom_logo: AnimatedSprite = $capcom_logo
+onready var capcom_sound: AudioStreamPlayer = $capcom_sound
+onready var inspired: Label = $inspired
+onready var black: Sprite = $black
+onready var intro_anim: Node2D = $IntroAnim
 
 var timer := 0.0
 var total_timer := 0.0
@@ -36,7 +36,7 @@ func skip() -> void:
 	$bg2.visible = true
 	var t = create_tween()
 	t.tween_property(black,"modulate",Color(0,0,0,1),0.5)
-	t.tween_callback(Callable(self, "hide_intro"))
+	t.tween_callback(self,"hide_intro")
 	pass
 
 func hide_intro() -> void:
@@ -60,12 +60,12 @@ func _physics_process(delta: float) -> void:
 	if step == 0:
 		capcom_sound.play()
 		var t = create_tween()
-		t.tween_property(inspired,"modulate",Color.WHITE,1.35)
+		t.tween_property(inspired,"modulate",Color.white,1.35)
 		next_step()
 	
 	elif step == 1 and timer > 1.3:
 		var t = create_tween()
-		t.tween_property(capcom_logo,"modulate",Color.WHITE,1.35)
+		t.tween_property(capcom_logo,"modulate",Color.white,1.35)
 		next_step()
 		pass
 	elif step == 2 and total_timer > 2.2:

@@ -1,4 +1,4 @@
-@tool
+tool
 extends EditorPlugin
 
 const WizardWindow = preload("ASWizardWindow.tscn")
@@ -42,10 +42,10 @@ func _open_window(_ud):
 		make_bottom_panel_item_visible(window)
 		return
 
-	window = WizardWindow.instantiate()
+	window = WizardWindow.instance()
 	window.init(config, get_editor_interface().get_resource_filesystem())
-	window.connect("importer_state_changed", Callable(self, "_on_importer_state_changed"))
-	window.connect("close_requested", Callable(self, "_on_window_closed"))
+	window.connect("importer_state_changed", self, "_on_importer_state_changed")
+	window.connect("close_requested", self, "_on_window_closed")
 	add_control_to_bottom_panel(window, "Aseprite Wizard")
 	make_bottom_panel_item_visible(window)
 

@@ -1,10 +1,10 @@
 extends HBoxContainer
 
-@onready var part_options := get_children()
-@onready var default_part = part_options[1]
-@onready var armor: Control = $"../../../Armor"
-@onready var tween := TweenController.new(self,false)
-@onready var menu: CanvasLayer = $"../../../../.."
+onready var part_options := get_children()
+onready var default_part = part_options[1]
+onready var armor: Control = $"../../../Armor"
+onready var tween := TweenController.new(self,false)
+onready var menu: CanvasLayer = $"../../../../.."
 
 var current_armor : Array
 
@@ -12,7 +12,7 @@ signal unlocked_hermes
 signal unlocked_icarus
 
 func _ready() -> void:
-	var _s = menu.connect("initialize", Callable(self, "initialize"))
+	var _s = menu.connect("initialize",self,"initialize")
 
 func initialize() -> void:
 	emit_unlocked_set_signals()
@@ -26,11 +26,11 @@ func show_parts() -> void:
 	for part in part_options:
 		part.visible = part.name in GameManager.collectibles
 		if part.visible:
-			part.modulate = Color.DIM_GRAY
+			part.modulate = Color.dimgray
 			align(part.name)
 			update_current_armor()
 			if part.name in current_armor:
-				part.modulate = Color.WHITE
+				part.modulate = Color.white
 				equip(part)
 	default_part.visible = true
 
@@ -106,18 +106,18 @@ func visual_armor_equip(part_name : String, reset := true) -> void:
 		tween.end()
 		tween.reset()
 	var piece :TextureRect= armor.get_node(part_name)
-	var original_y := piece.position.y
+	var original_y := piece.rect_position.y
 	var duration := 0.15
 	piece.visible = true
-	piece.position.y -= 7
+	piece.rect_position.y -= 7
 	piece.modulate.a = 0.0
 	tween.create(Tween.EASE_IN,Tween.TRANS_QUAD,true)
 	tween.add_attribute("modulate:a",1.0,duration,piece) 
-	tween.add_attribute("position:y",original_y+3,duration,piece) 
+	tween.add_attribute("rect_position:y",original_y+3,duration,piece) 
 	tween.set_sequential()
 	tween.add_callback("flash",self,[piece])
-	tween.add_attribute("position:y",original_y-1,0.06,piece)
-	tween.add_attribute("position:y",original_y,0.06,piece)
+	tween.add_attribute("rect_position:y",original_y-1,0.06,piece)
+	tween.add_attribute("rect_position:y",original_y,0.06,piece)
 
 func visual_armor_unequip(body_area : String ) -> void:
 	for kids in armor.get_children():
@@ -127,17 +127,17 @@ func visual_armor_unequip(body_area : String ) -> void:
 func flash(piece : TextureRect) -> void:
 	piece.modulate = Color(5,5,5,1)
 	tween.create(Tween.EASE_OUT,Tween.TRANS_CUBIC,true)
-	tween.add_attribute("modulate",Color.WHITE,0.3,piece) 
+	tween.add_attribute("modulate",Color.white,0.3,piece) 
 
 func align(part_name := "none") -> void:
 	print("Aligning part: ")
 	print(part_name)
 	if "icarus" in part_name:
-		alignment = BoxContainer.ALIGNMENT_END
+		alignment = BoxContainer.ALIGN_END
 	elif "hermes" in part_name:
-		alignment = BoxContainer.ALIGNMENT_BEGIN
+		alignment = BoxContainer.ALIGN_BEGIN
 	else:
-		alignment = BoxContainer.ALIGNMENT_CENTER
+		alignment = BoxContainer.ALIGN_CENTER
 
 
 func is_armor(armor_name : String) -> bool:

@@ -6,7 +6,7 @@
 [ext_resource path="res://src/Actors/Modules/Enemy/EnemyDamage.gd" type="Script" id=4]
 [ext_resource path="res://src/Actors/Modules/Enemy/EnemyDeath.gd" type="Script" id=5]
 [ext_resource path="res://src/Actors/Modules/Enemy/Enemy.gd" type="Script" id=6]
-[ext_resource path="res://src/Effects/Textures/remains.png" type="Texture2D" id=7]
+[ext_resource path="res://src/Effects/Textures/remains.png" type="Texture" id=7]
 [ext_resource path="res://src/Sounds/56 - MMX - Enemy Death.wav" type="AudioStream" id=8]
 [ext_resource path="res://src/Sounds/HIT.wav" type="AudioStream" id=9]
 [ext_resource path="res://pisca_gradient.tres" type="Gradient" id=10]
@@ -16,7 +16,7 @@
 [ext_resource path="res://src/Actors/Enemies/SmallCrab/scrab.res" type="SpriteFrames" id=14]
 [ext_resource path="res://src/Actors/Enemies/EnemyShield.gd" type="Script" id=15]
 [ext_resource path="res://src/Sounds/MMX - Enemy Helmet Hit.ogg" type="AudioStream" id=16]
-[ext_resource path="res://src/HUD/X_bar.png" type="Texture2D" id=17]
+[ext_resource path="res://src/HUD/X_bar.png" type="Texture" id=17]
 
 [sub_resource type="RectangleShape2D" id=47]
 extents = Vector2( 5, 2 )
@@ -46,7 +46,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=13]
 curve = SubResource( 10 )
 
-[sub_resource type="ParticleProcessMaterial" id=50]
+[sub_resource type="ParticlesMaterial" id=50]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -65,7 +65,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=43]
 curve = SubResource( 42 )
 
-[sub_resource type="ParticleProcessMaterial" id=51]
+[sub_resource type="ParticlesMaterial" id=51]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -77,10 +77,10 @@ damping = 7.69
 anim_speed = 1.0
 anim_speed_curve = SubResource( 43 )
 
-[sub_resource type="GradientTexture2D" id=45]
+[sub_resource type="GradientTexture" id=45]
 gradient = ExtResource( 10 )
 
-[sub_resource type="ParticleProcessMaterial" id=46]
+[sub_resource type="ParticlesMaterial" id=46]
 emission_shape = 1
 emission_sphere_radius = 18.34
 flag_disable_z = true
@@ -94,7 +94,7 @@ color_ramp = SubResource( 45 )
 anim_offset = 1.0
 anim_offset_random = 1.0
 
-[node name="ShieldTest" type="CharacterBody2D" groups=["Enemies"]]
+[node name="ShieldTest" type="KinematicBody2D" groups=["Enemies"]]
 collision_layer = 0
 script = ExtResource( 6 )
 
@@ -110,7 +110,7 @@ input_pickable = false
 [node name="collisionShape2D" type="CollisionShape2D" parent="AI/vision"]
 shape = SubResource( 47 )
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite" type="AnimatedSprite" parent="."]
 modulate = Color( 0.0941176, 0.619608, 0, 1 )
 material = SubResource( 49 )
 z_index = 1
@@ -123,7 +123,7 @@ flip_h = true
 [node name="collisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 15 )
 
-[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 scale = Vector2( 2, 2 )
 rect = Rect2( -5, -5, 10, 10 )
 
@@ -139,7 +139,7 @@ input_pickable = false
 position = Vector2( 6.75, -2 )
 shape = SubResource( 53 )
 
-[node name="sprite" type="Sprite2D" parent="EnemyShield/hittable_area"]
+[node name="sprite" type="Sprite" parent="EnemyShield/hittable_area"]
 position = Vector2( 17, -2 )
 scale = Vector2( 1, 1.45455 )
 texture = ExtResource( 17 )

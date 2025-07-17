@@ -4,24 +4,24 @@ const damage := 10.0
 
 var active := false
 var damage_duration := 0.85
-@export var frames : Array
-@onready var line_1: Line2D = $line
-@onready var line_2: Line2D = $line2
-@onready var lines := [line_1,line_2]
-@onready var start: AnimatedSprite2D = $start
-@onready var joint: AnimatedSprite2D = $joint
-@onready var finish: AnimatedSprite2D = $finish
+export var frames : Array
+onready var line_1: Line2D = $line
+onready var line_2: Line2D = $line2
+onready var lines := [line_1,line_2]
+onready var start: AnimatedSprite = $start
+onready var joint: AnimatedSprite = $joint
+onready var finish: AnimatedSprite = $finish
 
-@onready var lower_damage: Area2D = $lower_damage
-@onready var start_right_raycast: RayCast2D = $start_right_raycast
-@onready var start_left_raycast: RayCast2D = $start_left_raycast
-@onready var damage_raycasts : Array = [start_right_raycast,start_left_raycast]
-@onready var indicator: AnimatedSprite2D = $indicator
-@onready var collision: GPUParticles2D = $collision
+onready var lower_damage: Area2D = $lower_damage
+onready var start_right_raycast: RayCast2D = $start_right_raycast
+onready var start_left_raycast: RayCast2D = $start_left_raycast
+onready var damage_raycasts : Array = [start_right_raycast,start_left_raycast]
+onready var indicator: AnimatedSprite = $indicator
+onready var collision: Particles2D = $collision
 
-@onready var end: GPUParticles2D = $end
-@onready var end_2: GPUParticles2D = $end2
-@onready var warning: AudioStreamPlayer2D = $indicator/warning
+onready var end: Particles2D = $end
+onready var end_2: Particles2D = $end2
+onready var warning: AudioStreamPlayer2D = $indicator/warning
 
 
 var damage_list : Array
@@ -64,11 +64,11 @@ func position_end(end_position : Vector2) -> void:
 
 func update_joints() -> void:
 	joint.position = line_1.points[1]
-	start_right_raycast.target_position = line_1.points[1] + Vector2(5,0)
-	start_left_raycast.target_position = line_1.points[1] + Vector2(-5,0)
+	start_right_raycast.cast_to = line_1.points[1] + Vector2(5,0)
+	start_left_raycast.cast_to = line_1.points[1] + Vector2(-5,0)
 	finish.position = line_2.points[1] + line_2.position
-	end.position = line_1.points[0].lerp(line_1.points[1],0.5)
-	end_2.position = line_2.points[0].lerp(line_2.points[1],0.5)
+	end.position = line_1.points[0].linear_interpolate(line_1.points[1],0.5)
+	end_2.position = line_2.points[0].linear_interpolate(line_2.points[1],0.5)
 
 func start_lightning() -> void:
 	modulate.a = 1

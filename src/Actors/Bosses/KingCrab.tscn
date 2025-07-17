@@ -46,7 +46,7 @@
 extents = Vector2( 70.5, 78.5 )
 
 [sub_resource type="ConvexPolygonShape2D" id=45]
-points = PackedVector2Array( -64, -32, -64, -180, 48, -180, 64, -100, 132, -32 )
+points = PoolVector2Array( -64, -32, -64, -180, 48, -180, 64, -100, 132, -32 )
 
 [sub_resource type="RectangleShape2D" id=53]
 extents = Vector2( 15.75, 52 )
@@ -60,7 +60,7 @@ extents = Vector2( 34, 13.5 )
 [sub_resource type="RectangleShape2D" id=52]
 extents = Vector2( 38.5, 61 )
 
-[node name="KingCrab" type="CharacterBody2D" groups=["Bosses"]]
+[node name="KingCrab" type="KinematicBody2D" groups=["Bosses"]]
 z_index = 4
 collision_layer = 8
 script = ExtResource( 10 )
@@ -80,7 +80,7 @@ visible = false
 position = Vector2( 0, -78.5 )
 shape = SubResource( 1 )
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 22 )
 position = Vector2( -1, -96 )
 z_index = 2
@@ -90,8 +90,8 @@ frame = 13
 playing = true
 flip_h = true
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="animatedSprite"]
-process_mode = 3
+[node name="animatedSprite" type="AnimatedSprite" parent="animatedSprite"]
+pause_mode = 2
 z_index = -2
 frames = ExtResource( 17 )
 animation = "shieldclaw_loop"
@@ -99,7 +99,7 @@ playing = true
 flip_h = true
 script = ExtResource( 6 )
 
-[node name="LegShooter" type="AnimatedSprite2D" parent="animatedSprite"]
+[node name="LegShooter" type="AnimatedSprite" parent="animatedSprite"]
 position = Vector2( -25, 33 )
 frames = ExtResource( 43 )
 animation = "close"
@@ -125,7 +125,7 @@ input_pickable = false
 visible = false
 shape = SubResource( 45 )
 
-[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 visible = false
 position = Vector2( -6.5, 3.5 )
 scale = Vector2( 4.35, 4.25 )
@@ -331,7 +331,7 @@ max_flash_time = 0.35
 debugging = true
 
 [node name="audioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Damage"]
-process_mode = 3
+pause_mode = 2
 stream = ExtResource( 21 )
 volume_db = -5.0
 max_distance = 600.0
@@ -357,16 +357,16 @@ collision_mask = 6
 input_pickable = false
 
 [node name="collisionPolygon2D" type="CollisionPolygon2D" parent="DamageOnTouch/area2D"]
-polygon = PackedVector2Array( 129, -25, 59, -103, 46, -178, -51, -178, -85, -26 )
+polygon = PoolVector2Array( 129, -25, 59, -103, 46, -178, -51, -178, -85, -26 )
 
-[node name="animatedSprite2" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite2" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( -25, -63 )
 frames = ExtResource( 16 )
 animation = "open"
 frame = 7
 
-[node name="animatedSprite3" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite3" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( -48, -75 )
 frames = ExtResource( 15 )
@@ -402,7 +402,7 @@ animation = "shieldclaw_break"
 recover_animation = "fall"
 shield_to_disable = NodePath("../EnemyShield")
 
-[node name="break_vfx" type="AnimatedSprite2D" parent="EnemyStun"]
+[node name="break_vfx" type="AnimatedSprite" parent="EnemyStun"]
 modulate = Color( 1, 1, 1, 0.670588 )
 position = Vector2( 119, -114 )
 z_index = 25

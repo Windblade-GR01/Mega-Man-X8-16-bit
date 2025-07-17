@@ -1,29 +1,29 @@
 extends Node2D
 
-@onready var sprite: AnimatedSprite2D = $ball
-@onready var touch_damage: Node2D = $DamageOnTouch
-@onready var laser_damage: Node2D = $laser/damage
-@onready var hittable_area: Area2D = $EnemyShield/hittable_area
-@onready var laser: AnimatedSprite2D = $laser
-@onready var shield: Node2D = $EnemyShield
-@onready var shot_sfx: AudioStreamPlayer2D = $prepare
-@onready var tween := TweenController.new(self,false)
-@onready var orbtween := TweenController.new(self,false)
+onready var sprite: AnimatedSprite = $ball
+onready var touch_damage: Node2D = $DamageOnTouch
+onready var laser_damage: Node2D = $laser/damage
+onready var hittable_area: Area2D = $EnemyShield/hittable_area
+onready var laser: AnimatedSprite = $laser
+onready var shield: Node2D = $EnemyShield
+onready var shot_sfx: AudioStreamPlayer2D = $prepare
+onready var tween := TweenController.new(self,false)
+onready var orbtween := TweenController.new(self,false)
 var active := false
 var onscreen := false
-@onready var move_sfx: AudioStreamPlayer2D = $move_sfx
+onready var move_sfx: AudioStreamPlayer2D = $move_sfx
 
 func _ready() -> void:
 	laser.visible = false
 	oscilatte_center()
-	Tools.timer(8 + randf_range(-1.2,1.2),"expire",self)
+	Tools.timer(8 + rand_range(-1.2,1.2),"expire",self)
 	move_sfx.play_r()
-	Event.connect("first_secret2_death", Callable(self, "queue_free"))
+	Event.connect("first_secret2_death",self,"queue_free")
 
 func move(destination : Vector2):
 	tween.reset()
 	tween.create(Tween.EASE_IN_OUT,Tween.TRANS_SINE)
-	tween.add_attribute("position",destination,1.0 + randf_range(0.0,0.2))
+	tween.add_attribute("position",destination,1.0 + rand_range(0.0,0.2))
 	Tools.timer(.5,"activate",self)
 
 func activate():

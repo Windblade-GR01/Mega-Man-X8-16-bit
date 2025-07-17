@@ -1,7 +1,7 @@
 extends NewAbility
 
-@onready var physics = Physics.new(get_parent())
-@onready var animation = AnimationController.new($"../animatedSprite", self)
+onready var physics = Physics.new(get_parent())
+onready var animation = AnimationController.new($"../animatedSprite", self)
 
 func should_execute() -> bool:
 	return current_conflicts.size() == 0

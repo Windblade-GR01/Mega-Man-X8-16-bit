@@ -1,8 +1,8 @@
 extends Node2D
-@onready var collapsing_repeating: Node2D = $".."
-@onready var splashaudio: AudioStreamPlayer2D = $splashaudio
-@onready var splash: AnimatedSprite2D = $splash
-@onready var splash_2: AnimatedSprite2D = $splash2
+onready var collapsing_repeating: Node2D = $".."
+onready var splashaudio: AudioStreamPlayer2D = $splashaudio
+onready var splash: AnimatedSprite = $splash
+onready var splash_2: AnimatedSprite = $splash2
 
 func _physics_process(_delta: float) -> void:
 	kill_player_if_he_falls()

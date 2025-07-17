@@ -1,8 +1,8 @@
 extends SimplePlayerProjectile
 
-@export var explosion : PackedScene
+export var explosion : PackedScene
 const destroyer := true
-@onready var tween = TweenController.new(self,false)
+onready var tween = TweenController.new(self,false)
 
 func _Setup() -> void:
 	var _initial_speed := 0.0
@@ -37,7 +37,7 @@ func explode() -> void:
 	destroy()
 	
 func instantiate(scene : PackedScene) -> Node2D:
-	var instance = scene.instantiate()
+	var instance = scene.instance()
 	get_tree().current_scene.get_node("Objects").call_deferred("add_child",instance,true)
 	instance.set_global_position(global_position) 
 	instance.set_creator(creator)

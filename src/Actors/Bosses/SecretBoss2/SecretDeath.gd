@@ -1,31 +1,31 @@
 extends AttackAbility
 
-@onready var tween := TweenController.new(self,false)
-@onready var space: Node = $"../Space"
-@onready var idle: Node2D = $"../Idle"
-@onready var damage: Node2D = $"../Damage"
-@onready var flash: Sprite2D = $flash
-@onready var battle_song: AudioStreamPlayer = $"../Intro/BattleSong"
-@onready var desperation: AudioStreamPlayer = $Desperation
-@export var _holy_death : PackedScene
-@export var dialogue : Resource
+onready var tween := TweenController.new(self,false)
+onready var space: Node = $"../Space"
+onready var idle: Node2D = $"../Idle"
+onready var damage: Node2D = $"../Damage"
+onready var flash: Sprite = $flash
+onready var battle_song: AudioStreamPlayer = $"../Intro/BattleSong"
+onready var desperation: AudioStreamPlayer = $Desperation
+export var _holy_death : PackedScene
+export var dialogue : Resource
 var holy_death : Node2D
-@onready var damage_on_touch: Node2D = $"../DamageOnTouch"
-@onready var veil_manager: Node = $"../animatedSprite/VeilManager"
-@onready var reflector: Node2D = $"../DamageReflector"
-@onready var vfx: Node = $vfx
-@onready var windspark: Sprite2D = $windspark
-@onready var flash_2: Sprite2D = $flash2
-@onready var golden_particles: GPUParticles2D = $golden_particles
-@onready var golden_particles_2: GPUParticles2D = $golden_particles2
-@onready var vertical_flash: Sprite2D = $VerticalFlash
+onready var damage_on_touch: Node2D = $"../DamageOnTouch"
+onready var veil_manager: Node = $"../animatedSprite/VeilManager"
+onready var reflector: Node2D = $"../DamageReflector"
+onready var vfx: Node = $vfx
+onready var windspark: Sprite = $windspark
+onready var flash_2: Sprite = $flash2
+onready var golden_particles: Particles2D = $golden_particles
+onready var golden_particles_2: Particles2D = $golden_particles2
+onready var vertical_flash: Sprite = $VerticalFlash
 
-@onready var explosions: GPUParticles2D = $explosion_particles
-@onready var smoke: GPUParticles2D = $smoke
-@onready var final_explosion: AudioStreamPlayer2D = $final_explosion
-@onready var light: Sprite2D = $background_light
-@onready var fullscreen_light: Sprite2D = $fullscreen_light
-@onready var break_vfx: AnimatedSprite2D = $break_vfx
+onready var explosions: Particles2D = $explosion_particles
+onready var smoke: Particles2D = $smoke
+onready var final_explosion: AudioStreamPlayer2D = $final_explosion
+onready var light: Sprite = $background_light
+onready var fullscreen_light: Sprite = $fullscreen_light
+onready var break_vfx: AnimatedSprite = $break_vfx
 
 const interval := 3.0
 var first_death := true
@@ -176,10 +176,10 @@ func _Update(delta):
 	#print(seen_dialog())
 
 func start_holy_death():
-	holy_death = _holy_death.instantiate()
+	holy_death = _holy_death.instance()
 	character.get_parent().add_child(holy_death)
 	Tools.timer(0.1,"activate",holy_death)
-	idle.connect("started", Callable(holy_death, "activate"))
+	idle.connect("started",holy_death,"activate")
 	
 func end_holy_death():
 	holy_death.deactivate()
@@ -194,9 +194,9 @@ func flash():
 	flash.start()
 
 func blink():
-	animatedSprite.material.set_shader_parameter("Flash", 1)
+	animatedSprite.material.set_shader_param("Flash", 1)
 func stop_blink():
-	animatedSprite.material.set_shader_parameter("Flash", 0)
+	animatedSprite.material.set_shader_param("Flash", 0)
 
 func set_weak_light():
 	print_debug("set weak light...")
@@ -216,13 +216,13 @@ func end():
 	#go_to_attack_stage(9)
 
 func set_light_alpha(value : float):
-	light.material.set_shader_parameter("Alpha",value)
+	light.material.set_shader_param("Alpha",value)
 
 func set_light_color(value : float):
-	light.material.set_shader_parameter("Color",value)
+	light.material.set_shader_param("Color",value)
 	
 func set_darken(value : float):
-	animatedSprite.material.set_shader_parameter("Darken",value)
+	animatedSprite.material.set_shader_param("Darken",value)
 
 
 func start_dialog_or_go_to_attack_stage(skip_dialog_stage := 0) -> void:

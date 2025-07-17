@@ -1,6 +1,6 @@
 extends BossWeapon
 
-@export var horizontal_speed := 800.0
+export var horizontal_speed := 800.0
 var light_tween 
 var charges_left := 0
 var dash_timer := 0.0
@@ -10,15 +10,15 @@ var safe_conclusion := false
 const dash_duration := 0.12
 const ability_duration := 1.0
 
-@export var fire_action := "fire"
+export var fire_action := "fire"
 
-@onready var light : PointLight2D = get_node_or_null("../../light")
-@onready var weapon_stasis: Node2D = $"../../WeaponStasis"
-@onready var _s = weapon_stasis.connect("interrupted", Callable(self, "stasis_interrupt"))
+onready var light : Light2D = get_node_or_null("../../light")
+onready var weapon_stasis: Node2D = $"../../WeaponStasis"
+onready var _s = weapon_stasis.connect("interrupted",self,"stasis_interrupt")
 
 func _ready() -> void:
 	set_physics_process(false)
-	charged_timer.connect("timeout", Callable(self, "charge_expire"))
+	charged_timer.connect("timeout",self,"charge_expire")
 	charged_timer.wait_time = ability_duration
 	charged_timer.one_shot = true
 	add_child(charged_timer)
@@ -27,10 +27,10 @@ func fire(charge_level) -> void:
 	if charges_left > 0:
 		dash_forward()
 	else:
-		super.fire(charge_level)
+		.fire(charge_level)
 
 func fire_regular() -> void:
-	super.fire_regular()
+	.fire_regular()
 	light_for_pitchblack()
 	dim_light_for_pitchblack()
 
@@ -107,7 +107,7 @@ func end() -> void:
 
 func light_for_pitchblack() -> void:
 	if light != null:
-		light.light(0.9,Vector2(5,3),Color.AQUA)
+		light.light(0.9,Vector2(5,3),Color.aqua)
 
 func dim_light_for_pitchblack() -> void:
 	if light != null:
@@ -126,10 +126,10 @@ func start_cooldown() -> void:
 	Log("Setting cooldown to " + str(timer))
 	cooldown = create_tween()
 	cooldown.tween_property(self,"timer",0,timer) # warning-ignore:return_value_discarded
-	cooldown.tween_callback(Callable(self, "buster_notify_cooldown_end")) # warning-ignore:return_value_discarded
+	cooldown.tween_callback(self,"buster_notify_cooldown_end") # warning-ignore:return_value_discarded
 
 func has_ammo() -> bool:
 	if charges_left > 0:
 		return true
 		
-	return super.has_ammo()
+	return .has_ammo()

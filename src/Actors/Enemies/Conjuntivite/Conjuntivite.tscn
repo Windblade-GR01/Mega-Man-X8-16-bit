@@ -6,7 +6,7 @@
 [ext_resource path="res://src/Actors/Enemies/Conjuntivite/conjuntivite.res" type="SpriteFrames" id=4]
 [ext_resource path="res://src/Actors/MeleeEnemyAttack.gd" type="Script" id=5]
 [ext_resource path="res://src/Actors/Enemies/Shared/QuickEnemyDeath.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/Actors/Enemies/SmallBat/bat_remains.png" type="Texture2D" id=7]
+[ext_resource path="res://src/Actors/Enemies/SmallBat/bat_remains.png" type="Texture" id=7]
 [ext_resource path="res://src/Actors/Modules/Enemy/DamageOnTouch.gd" type="Script" id=8]
 [ext_resource path="res://src/Actors/Modules/Enemy/EnemyDamage.gd" type="Script" id=9]
 [ext_resource path="res://src/Effects/Materials/default_material.tres" type="Material" id=12]
@@ -30,7 +30,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=239]
 curve = SubResource( 240 )
 
-[sub_resource type="ParticleProcessMaterial" id=245]
+[sub_resource type="ParticlesMaterial" id=245]
 resource_local_to_scene = true
 resource_name = "explosion"
 emission_shape = 1
@@ -52,7 +52,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=243]
 curve = SubResource( 244 )
 
-[sub_resource type="ParticleProcessMaterial" id=246]
+[sub_resource type="ParticlesMaterial" id=246]
 resource_local_to_scene = true
 resource_name = "remains_single"
 flag_disable_z = true
@@ -68,7 +68,7 @@ anim_speed_curve = SubResource( 243 )
 [sub_resource type="CircleShape2D" id=49]
 radius = 32.0
 
-[node name="Conjuntivite" type="CharacterBody2D" groups=["Enemies"]]
+[node name="Conjuntivite" type="KinematicBody2D" groups=["Enemies"]]
 z_index = 5
 collision_layer = 0
 collision_mask = 0
@@ -91,7 +91,7 @@ input_pickable = false
 position = Vector2( 0, 1.5 )
 shape = SubResource( 47 )
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 12 )
 frames = ExtResource( 4 )
 animation = "idle"
@@ -99,7 +99,7 @@ frame = 3
 playing = true
 flip_h = true
 
-[node name="thundersparks" type="AnimatedSprite2D" parent="."]
+[node name="thundersparks" type="AnimatedSprite" parent="."]
 material = ExtResource( 12 )
 z_index = -1
 frames = ExtResource( 4 )
@@ -112,7 +112,7 @@ visible = false
 position = Vector2( -0.5, 1.5 )
 shape = SubResource( 15 )
 
-[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 visible = false
 scale = Vector2( 2, 2 )
 rect = Rect2( -5, -5, 10, 10 )

@@ -1,17 +1,17 @@
 extends Node2D
 
-@onready var damage: Node2D = $DamageOnTouch
-@onready var animation := AnimationController.new($animatedSprite)
-@onready var state := AbilityStage.new(self,false)
-@onready var trail: AnimatedSprite2D = $trail
-@onready var trail_2: AnimatedSprite2D = $trail2
-@onready var trail_3: AnimatedSprite2D = $trail3
-@onready var trail_4: AnimatedSprite2D = $trail4
-@onready var long_damage: Node2D = $DamageOnTouch2
-@onready var firetip: GPUParticles2D = $firetip
-@onready var fire: GPUParticles2D = $evilfire_particles
+onready var damage: Node2D = $DamageOnTouch
+onready var animation := AnimationController.new($animatedSprite)
+onready var state := AbilityStage.new(self,false)
+onready var trail: AnimatedSprite = $trail
+onready var trail_2: AnimatedSprite = $trail2
+onready var trail_3: AnimatedSprite = $trail3
+onready var trail_4: AnimatedSprite = $trail4
+onready var long_damage: Node2D = $DamageOnTouch2
+onready var firetip: Particles2D = $firetip
+onready var fire: Particles2D = $evilfire_particles
 
-@onready var trails = [trail_4,trail_3,trail_2,trail]
+onready var trails = [trail_4,trail_3,trail_2,trail]
 var hidden_trails : Array
 var timer := 0.0
 var origin := Vector2.ZERO
@@ -38,7 +38,7 @@ func hide_far_trails():
 func set_lance_origin(pos):
 	origin = pos
 
-func activate_trail(_trail : AnimatedSprite2D):
+func activate_trail(_trail : AnimatedSprite):
 	if not _trail in hidden_trails: 
 		_trail.visible = true
 		_trail.playing = true

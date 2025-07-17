@@ -1,19 +1,15 @@
 [remap]
 
-importer="oggvorbisstr"
-type="AudioStreamOggVorbis"
-uid="uid://do0xogk8jj1uy"
-path="res://.godot/imported/OST - Metal Valley 1 - Intro.ogg-431321fdb2102ce628e036eeb335fe67.oggvorbisstr"
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/OST - Metal Valley 1 - Intro.ogg-431321fdb2102ce628e036eeb335fe67.oggstr"
 
 [deps]
 
 source_file="res://src/Sounds/OST - Metal Valley 1 - Intro.ogg"
-dest_files=["res://.godot/imported/OST - Metal Valley 1 - Intro.ogg-431321fdb2102ce628e036eeb335fe67.oggvorbisstr"]
+dest_files=[ "res://.import/OST - Metal Valley 1 - Intro.ogg-431321fdb2102ce628e036eeb335fe67.oggstr" ]
 
 [params]
 
 loop=false
 loop_offset=0
-bpm=0
-beat_count=0
-bar_beats=4

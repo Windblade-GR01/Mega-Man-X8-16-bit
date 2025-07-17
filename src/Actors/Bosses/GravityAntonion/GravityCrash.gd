@@ -1,9 +1,9 @@
 extends AttackAbility
 signal start_desperation
-@export var deactivate_hurl := true
-@export var damage_reduction_during_desperation := 0.5
-@onready var roar: AudioStreamPlayer2D = $roar
-@onready var desperate: AudioStreamPlayer2D = $desperate
+export var deactivate_hurl := true
+export var damage_reduction_during_desperation := 0.5
+onready var roar: AudioStreamPlayer2D = $roar
+onready var desperate: AudioStreamPlayer2D = $desperate
 
 signal ready_for_stun
 

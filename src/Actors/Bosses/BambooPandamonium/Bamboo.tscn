@@ -6,12 +6,12 @@
 [ext_resource path="res://src/Actors/Bosses/BambooPandamonium/DamageReceiver.gd" type="Script" id=4]
 [ext_resource path="res://src/Actors/Bosses/BambooPandamonium/blinker.gd" type="Script" id=5]
 [ext_resource path="res://src/Actors/Bosses/BambooPandamonium/Health.gd" type="Script" id=6]
-[ext_resource path="res://src/Effects/Textures/explosion.png" type="Texture2D" id=7]
+[ext_resource path="res://src/Effects/Textures/explosion.png" type="Texture" id=7]
 [ext_resource path="res://src/Actors/NewStateMachine/audioplayer.gd" type="Script" id=8]
 [ext_resource path="res://src/Actors/Bosses/BambooPandamonium/BambooDeath.gd" type="Script" id=9]
 [ext_resource path="res://src/Effects/Materials/RemainsParticle.tres" type="Material" id=10]
 [ext_resource path="res://src/Sounds/HIT.wav" type="AudioStream" id=11]
-[ext_resource path="res://src/Effects/Textures/remains_green.png" type="Texture2D" id=12]
+[ext_resource path="res://src/Effects/Textures/remains_green.png" type="Texture" id=12]
 [ext_resource path="res://src/Effects/Materials/explosion_pillar.tres" type="Material" id=13]
 [ext_resource path="res://src/Sounds/56 - MMX - Enemy Death.wav" type="AudioStream" id=14]
 [ext_resource path="res://src/Actors/Bosses/BambooPandamonium/BossDetector.gd" type="Script" id=15]
@@ -57,26 +57,26 @@ position = Vector2( 0, -96 )
 shape = SubResource( 1 )
 disabled = true
 
-[node name="start" type="AnimatedSprite2D" parent="."]
+[node name="start" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -29 )
 frames = ExtResource( 3 )
 animation = "intro"
 frame = 5
 playing = true
 
-[node name="body1" type="AnimatedSprite2D" parent="."]
+[node name="body1" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( 0, -64 )
 frames = ExtResource( 3 )
 animation = "end"
 
-[node name="body2" type="AnimatedSprite2D" parent="."]
+[node name="body2" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( 0, -128 )
 frames = ExtResource( 3 )
 animation = "end"
 
-[node name="body3" type="AnimatedSprite2D" parent="."]
+[node name="body3" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( 0, -192 )
 frames = ExtResource( 3 )
@@ -149,7 +149,7 @@ current_health = 6
 position = Vector2( 0, -29 )
 script = ExtResource( 9 )
 
-[node name="explosion" type="GPUParticles2D" parent="BambooDeath"]
+[node name="explosion" type="Particles2D" parent="BambooDeath"]
 material = SubResource( 13 )
 position = Vector2( 0, -65 )
 z_index = 2
@@ -161,7 +161,7 @@ local_coords = false
 process_material = ExtResource( 13 )
 texture = ExtResource( 7 )
 
-[node name="remains" type="GPUParticles2D" parent="BambooDeath"]
+[node name="remains" type="Particles2D" parent="BambooDeath"]
 material = SubResource( 12 )
 position = Vector2( 0, -57 )
 z_index = -1

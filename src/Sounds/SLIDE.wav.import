@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://bxssdh8ogo2x3"
-path="res://.godot/imported/SLIDE.wav-aa010f5547f93516dfc7ea7ab3adca5c.sample"
+type="AudioStreamSample"
+path="res://.import/SLIDE.wav-aa010f5547f93516dfc7ea7ab3adca5c.sample"
 
 [deps]
 
 source_file="res://src/Sounds/SLIDE.wav"
-dest_files=["res://.godot/imported/SLIDE.wav-aa010f5547f93516dfc7ea7ab3adca5c.sample"]
+dest_files=[ "res://.import/SLIDE.wav-aa010f5547f93516dfc7ea7ab3adca5c.sample" ]
 
 [params]
 

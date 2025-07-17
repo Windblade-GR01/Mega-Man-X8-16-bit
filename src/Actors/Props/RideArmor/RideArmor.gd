@@ -1,11 +1,11 @@
 extends Actor
 class_name RideArmor
-@onready var ride: Node = $Ride
+onready var ride: Node = $Ride
 
-@export var song_intro : AudioStream
-@export var song_loop : AudioStream
+export var song_intro : AudioStream
+export var song_loop : AudioStream
 var song_timer := 0.0
-@export var damage_reduction := 0.5
+export var damage_reduction := 0.5
 var grounded := false
 var listening_to_inputs := true
 var queued_up_for_destruction := false
@@ -110,21 +110,21 @@ func reduce_health(value : float):
 	current_health -= health_to_reduce
 
 func flash(duration := 0.032):
-	animatedSprite.material.set_shader_parameter("Flash", 1)
+	animatedSprite.material.set_shader_param("Flash", 1)
 	Tools.timer(duration,"end_flash",self)
 	
 func end_flash():
-	animatedSprite.material.set_shader_parameter("Flash", 0)
+	animatedSprite.material.set_shader_param("Flash", 0)
 	
 func blink(duration := 0.725):
-	animatedSprite.material.set_shader_parameter("Alpha_Blink", 1)
+	animatedSprite.material.set_shader_param("Alpha_Blink", 1)
 	Tools.timer(duration,"end_blink",self)
 	
 func end_blink():
-	animatedSprite.material.set_shader_parameter("Alpha_Blink", 0)
+	animatedSprite.material.set_shader_param("Alpha_Blink", 0)
 
 func make_invisible() -> void:
-	animatedSprite.material.set_shader_parameter("Alpha", 0)
+	animatedSprite.material.set_shader_param("Alpha", 0)
 	
 func is_executing(state) -> bool:
 	if state == "Ride":

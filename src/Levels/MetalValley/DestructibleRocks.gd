@@ -1,12 +1,12 @@
 extends Node2D
-@onready var blocked_entrance:= $blockedEntrance/collisionShape2D2
-@onready var explosion: GPUParticles2D = $"EnemyDeath/Explosion Particles"
-@onready var audio: AudioStreamPlayer2D = $EnemyDeath/audioStreamPlayer2D
-@onready var remains: GPUParticles2D = $EnemyDeath/remains_particles
-@onready var tile_map: TileMap = $tileMap
+onready var blocked_entrance:= $blockedEntrance/collisionShape2D2
+onready var explosion: Particles2D = $"EnemyDeath/Explosion Particles"
+onready var audio: AudioStreamPlayer2D = $EnemyDeath/audioStreamPlayer2D
+onready var remains: Particles2D = $EnemyDeath/remains_particles
+onready var tile_map: TileMap = $tileMap
 
 var mecha_nearby := false
-var sprite : AnimatedSprite2D
+var sprite : AnimatedSprite
 var active := true
 
 func _ready() -> void:

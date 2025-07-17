@@ -5,11 +5,11 @@
 
 [sub_resource type="Curve2D" id=4]
 _data = {
-"points": PackedVector2Array( 0, 0, 0, 0, 19, -492, 0, 0, 0, 0, 19, 752 )
+"points": PoolVector2Array( 0, 0, 0, 0, 19, -492, 0, 0, 0, 0, 19, 752 )
 }
 
 [node name="Elevator2" type="Node2D"]
-process_mode = 1
+pause_mode = 1
 position = Vector2( 2709, 1346 )
 
 [node name="path2D" type="Path2D" parent="."]
@@ -54,7 +54,7 @@ position = Vector2( 19, 593.779 )
 offset = 1091.68
 loop = true
 
-[node name="visibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+[node name="visibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
 position = Vector2( 16, 58 )
 scale = Vector2( 19, 53.3 )
 pause_particles = false

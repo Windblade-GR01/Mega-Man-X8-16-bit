@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/Levels/Gateway/line2D.gd" type="Script" id=1]
 [ext_resource path="res://src/Levels/Gateway/GuidePaticle.gd" type="Script" id=2]
-[ext_resource path="res://src/Effects/Textures/troia_particles.png" type="Texture2D" id=3]
+[ext_resource path="res://src/Effects/Textures/troia_particles.png" type="Texture" id=3]
 [ext_resource path="res://src/Effects/Materials/guide_particles.tres" type="Material" id=4]
 
 [sub_resource type="CanvasItemMaterial" id=1]
@@ -18,7 +18,7 @@ _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.463636 ), 0.0, 0.0, 0, 
 z_index = 50
 script = ExtResource( 2 )
 
-[node name="particles2D" type="GPUParticles2D" parent="."]
+[node name="particles2D" type="Particles2D" parent="."]
 material = SubResource( 1 )
 position = Vector2( 0, -5 )
 amount = 4

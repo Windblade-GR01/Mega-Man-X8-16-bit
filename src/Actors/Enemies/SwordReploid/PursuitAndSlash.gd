@@ -1,5 +1,5 @@
 extends AttackAbility
-@onready var slash: Node2D = $SlashHitbox
+onready var slash: Node2D = $SlashHitbox
 
 func on_nearby_player() -> void: #override
 	force_movement(0)
@@ -10,11 +10,11 @@ func on_nearby_player() -> void: #override
 		next_attack_stage_on_next_frame()
 
 func _Update(_delta) -> void:
-	super._Update(_delta)
+	._Update(_delta)
 
 	if attack_stage == 5 and has_finished_last_animation():
 		EndAbility()
 
 func turn_and_face_player() -> void:
-	super.turn_and_face_player()
+	.turn_and_face_player()
 	slash.handle_direction()

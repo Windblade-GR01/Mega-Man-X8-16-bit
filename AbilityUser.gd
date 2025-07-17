@@ -23,7 +23,7 @@ func update_moveset():
 	for child in get_children():
 		if should_add_to_start_moveset(child):
 			moveset.append(child)
-			child.connect("ability_end", Callable(self, "ability_ended"))
+			child.connect("ability_end",self,"ability_ended")
 
 func should_add_to_start_moveset(element) -> bool:
 	if element is BaseAbility:

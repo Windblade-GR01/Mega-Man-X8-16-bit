@@ -1,12 +1,12 @@
 extends AttackAbility
 class_name KingCrabArmShot
 
-@export var Projectile: PackedScene
+export (PackedScene) var Projectile
 var missileclaw : Node2D
-@onready var prepare: AudioStreamPlayer2D = $prepare
-@onready var shot: AudioStreamPlayer2D = $shot
-@onready var receive: AudioStreamPlayer2D = $receive
-@onready var nhecosound: AudioStreamPlayer2D = $nhecosound
+onready var prepare: AudioStreamPlayer2D = $prepare
+onready var shot: AudioStreamPlayer2D = $shot
+onready var receive: AudioStreamPlayer2D = $receive
+onready var nhecosound: AudioStreamPlayer2D = $nhecosound
 var played_first := false
 
 

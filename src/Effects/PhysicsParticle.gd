@@ -1,7 +1,7 @@
 extends RigidBody2D
 
-@export var number_of_frames := 16
-@export var max_bounces := 2
+export var number_of_frames := 16
+export var max_bounces := 2
 var falling := false
 var bounces := 0
 

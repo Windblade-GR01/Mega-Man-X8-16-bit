@@ -1,11 +1,11 @@
 extends X8TextureButton
 
-@export var pick_sound : NodePath
-@export var able_to_unlock_debug := false
-@onready var sub_menu = get_child(0)
+export var pick_sound : NodePath
+export var able_to_unlock_debug := false
+onready var sub_menu = get_child(0)
 
 func _ready() -> void:
-	var _s = sub_menu.connect("end", Callable(self, "_on_submenu_end"))
+	var _s = sub_menu.connect("end", self,"_on_submenu_end")
 
 func on_press() -> void:
 	if able_to_unlock_debug:

@@ -1,16 +1,16 @@
 extends Node
 
-@export var defeated_any := true
-@export var perfect_kill := true
-@export var gigacrush_kill := true
+export var defeated_any := true
+export var perfect_kill := true
+export var gigacrush_kill := true
 
-@export var _desperation : NodePath
-@onready var desperation := get_node_or_null(_desperation)
+export var _desperation : NodePath
+onready var desperation := get_node_or_null(_desperation)
 
-@export var no_damage : Resource
-@export var buster_only : Resource
-@export var naked : Resource
-@export var defeated : Resource
+export var no_damage : Resource
+export var buster_only : Resource
+export var naked : Resource
+export var defeated : Resource
 
 var active := false
 var taken_damage := false
@@ -22,11 +22,11 @@ const busters := ["Lemon","Medium","Charged Buster","Laser Buster","Triple Buste
 
 func _ready() -> void:
 	connect_node("Intro","ability_end","start")
-	Event.connect("xdrive", Callable(self, "on_xdrive"))
+	Event.connect("xdrive",self,"on_xdrive")
 
 func start(_d = null) -> void:
 	active = true
-	GameManager.player.connect("received_damage", Callable(self, "damage_check"))
+	GameManager.player.connect("received_damage",self,"damage_check")
 	connect_node("Damage","got_hit","buster_check")
 	connect_node("BossDeath","screen_flash","fire_achievements")
 	connect_desperation()
@@ -36,14 +36,14 @@ func start(_d = null) -> void:
 func connect_node(nodename : String, _signal : String, method : String):
 	var node = get_node_or_null("../" + nodename)
 	if node != null:
-		node.connect(_signal, Callable(self, method))
+		node.connect(_signal,self,method)
 	else:
 		push_error("Achievements: " + get_parent().name + "'s " + nodename + " not found.")
 
 func connect_desperation() -> void:
 	if desperation != null:
-		desperation.connect("ability_start", Callable(self, "on_desperation"))
-		desperation.connect("ability_end", Callable(self, "on_desperation_end"))
+		desperation.connect("ability_start",self,"on_desperation")
+		desperation.connect("ability_end",self,"on_desperation_end")
 
 func on_desperation(_d = null) -> void:
 	using_desperation = true

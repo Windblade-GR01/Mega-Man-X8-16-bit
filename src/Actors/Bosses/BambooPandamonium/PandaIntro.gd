@@ -1,24 +1,24 @@
 extends GenericIntro
 
-@export var slash : PackedScene
-@onready var bamboo: Node2D = $Bamboo
-@onready var bamboo_2: Node2D = $Bamboo2
-@onready var bamboo_3: Node2D = $Bamboo3
-@onready var bamboo_4: Node2D = $Bamboo4
-@onready var bamboos = [bamboo, bamboo_2, bamboo_3, bamboo_4]
-@onready var bamboo_sprites : Array
-@onready var bamboo_deaths : Array
-@onready var alert: AudioStreamPlayer2D = $alert
-@onready var pandaslash: AudioStreamPlayer2D = $pandaslash
-@onready var claw_appear: AudioStreamPlayer2D = $claw_appear
-@onready var claw_retreat: AudioStreamPlayer2D = $claw_retreat
+export var slash : PackedScene
+onready var bamboo: Node2D = $Bamboo
+onready var bamboo_2: Node2D = $Bamboo2
+onready var bamboo_3: Node2D = $Bamboo3
+onready var bamboo_4: Node2D = $Bamboo4
+onready var bamboos = [bamboo, bamboo_2, bamboo_3, bamboo_4]
+onready var bamboo_sprites : Array
+onready var bamboo_deaths : Array
+onready var alert: AudioStreamPlayer2D = $alert
+onready var pandaslash: AudioStreamPlayer2D = $pandaslash
+onready var claw_appear: AudioStreamPlayer2D = $claw_appear
+onready var claw_retreat: AudioStreamPlayer2D = $claw_retreat
 
 signal slashed
 
 func _ready() -> void:
 	for b in bamboos:
 		for object in b.get_children():
-			if object is AnimatedSprite2D:
+			if object is AnimatedSprite:
 				bamboo_sprites.append(object)
 			else:
 				bamboo_deaths.append(object)
@@ -96,4 +96,4 @@ func create_slash() -> void:
 	s.rotate_degrees(15)
 	s.global_position.y += 24
 	alert.play()
-	var _d = connect("slashed", Callable(s, "activate"))
+	var _d = connect("slashed",s,"activate")

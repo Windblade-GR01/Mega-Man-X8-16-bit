@@ -1,14 +1,14 @@
 extends Node2D
 
-@export var active := true
-@export var destination : NodePath
-@export var camera_limit : NodePath
+export var active := true
+export var destination : NodePath
+export var camera_limit : NodePath
 const duration := 0.85
-@onready var teleport_sfx: AudioStreamPlayer2D = $teleport
-@onready var teleport_end: AudioStreamPlayer2D = $teleport2
+onready var teleport_sfx: AudioStreamPlayer2D = $teleport
+onready var teleport_end: AudioStreamPlayer2D = $teleport2
 
-@export var check_for_upgrades := false
-@export var emit_gateway_signal := false
+export var check_for_upgrades := false
+export var emit_gateway_signal := false
 signal teleport_start
 signal teleported
 
@@ -28,14 +28,14 @@ func teleport() -> void:
 	GameManager.pause("Portal")
 	set_camera_to_process()
 	var tween = create_tween()
-	tween.set_process_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.set_pause_mode(SceneTreeTween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(GameManager.player,"modulate",Color(30,30,30,-1.0),duration)
-	tween.tween_callback(Callable(self, "move_player"))
-	tween.tween_property(GameManager.player,"modulate",Color.WHITE,duration)
-	tween.tween_callback(Callable(GameManager, "unpause").bind("Portal"))
-	tween.tween_callback(Callable(GameManager, "end_cutscene"))
-	tween.tween_callback(Callable(self, "set_camera_to_inherit"))
-	tween.tween_callback(Callable(self, "emit_signal").bind("teleported"))
+	tween.tween_callback(self,"move_player")
+	tween.tween_property(GameManager.player,"modulate",Color.white,duration)
+	tween.tween_callback(GameManager,"unpause",["Portal"])
+	tween.tween_callback(GameManager,"end_cutscene")
+	tween.tween_callback(self,"set_camera_to_inherit")
+	tween.tween_callback(self,"emit_signal",["teleported"])
 
 func move_player() -> void:
 	var destination_pos = get_node(destination).global_position
@@ -49,9 +49,9 @@ func move_player() -> void:
 	GameManager.camera.call_deferred("go_to_position",GameManager.camera.get_nearest_position())
 
 func set_camera_to_process() -> void:
-	GameManager.camera.set_process_mode(Node.PROCESS_MODE_ALWAYS)
+	GameManager.camera.set_pause_mode(Node.PAUSE_MODE_PROCESS)
 func set_camera_to_inherit() -> void:
-	GameManager.camera.set_process_mode(Node.PROCESS_MODE_INHERIT)
+	GameManager.camera.set_pause_mode(Node.PAUSE_MODE_INHERIT)
 	Event.emit_signal("stage_teleport_end")
 	GameManager.end_cutscene()
 	

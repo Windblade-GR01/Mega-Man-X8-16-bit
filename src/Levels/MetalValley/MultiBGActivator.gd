@@ -1,6 +1,6 @@
 extends "res://src/Levels/BackgroundSwapper.gd"
 
-@export var extra_bgs_to_activate : Array
+export var extra_bgs_to_activate : Array
 var backgrounds_to_activate : Array
 
 func _ready() -> void:

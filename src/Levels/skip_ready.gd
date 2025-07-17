@@ -1,10 +1,10 @@
-extends AnimatedSprite2D
+extends AnimatedSprite
 
-@export var duration := 1.2
-@export var warning_duration := 1.75
-@export var debug_mode := false
+export var duration := 1.2
+export var warning_duration := 1.75
+export var debug_mode := false
 var timer := 0.0
-@onready var alert = $audioStreamPlayer2
+onready var alert = $audioStreamPlayer2
 
 func _ready() -> void:
 	#GameManager.on_level_start()

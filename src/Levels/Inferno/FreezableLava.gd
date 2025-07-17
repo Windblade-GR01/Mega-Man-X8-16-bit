@@ -2,7 +2,7 @@ extends InstantDeathArea
 signal freeze
 signal small_ice(projectile)
 
-@export var detect_charged := true
+export var detect_charged := true
 
 func _on_area2D_body_entered(body: Node) -> void:
 	if active:

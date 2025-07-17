@@ -1,7 +1,7 @@
 extends NewAbility
 
-@onready var animation = AnimationController.new($"../animatedSprite",self)
-@onready var collider: CollisionShape2D = $"../collisionShape2D"
+onready var animation = AnimationController.new($"../animatedSprite",self)
+onready var collider: CollisionShape2D = $"../collisionShape2D"
 
 func _ready() -> void:
 	animation.on_finish("on_finished_animation",self)

@@ -6,10 +6,10 @@
 [ext_resource path="res://src/Actors/Modules/Enemy/BossDeath.gd" type="Script" id=4]
 [ext_resource path="res://src/Effects/Materials/BossSmokeParticles.tres" type="Material" id=5]
 [ext_resource path="res://src/Effects/Materials/ExpansiveMiniBossExplosionParticles.tres" type="Material" id=6]
-[ext_resource path="res://src/Effects/Textures/fake_boss_death.png" type="Texture2D" id=7]
-[ext_resource path="res://src/Effects/Textures/blue_screen.png" type="Texture2D" id=8]
+[ext_resource path="res://src/Effects/Textures/fake_boss_death.png" type="Texture" id=7]
+[ext_resource path="res://src/Effects/Textures/blue_screen.png" type="Texture" id=8]
 [ext_resource path="res://src/Actors/Bosses/boss_death_material.tres" type="Material" id=9]
-[ext_resource path="res://src/Effects/Textures/blue_explosion.png" type="Texture2D" id=10]
+[ext_resource path="res://src/Effects/Textures/blue_explosion.png" type="Texture" id=10]
 [ext_resource path="res://src/Sounds/BOSS_DEATH.wav" type="AudioStream" id=11]
 [ext_resource path="res://src/Sounds/MM - Equip.wav" type="AudioStream" id=12]
 
@@ -38,7 +38,7 @@ _data = [ Vector2( 0, 3 ), 0.0, -6.06097, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 
 [sub_resource type="CurveTexture" id=43]
 curve = SubResource( 42 )
 
-[sub_resource type="ParticleProcessMaterial" id=67]
+[sub_resource type="ParticlesMaterial" id=67]
 resource_local_to_scene = true
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
@@ -99,7 +99,7 @@ animations = [ {
 } ]
 
 [node name="BossDeath" type="Node2D"]
-process_mode = 3
+pause_mode = 2
 position = Vector2( 0, -104 )
 script = ExtResource( 4 )
 death_animation = ""
@@ -124,7 +124,7 @@ volume_db = -2.0
 max_distance = 900.0
 bus = "SFX"
 
-[node name="background_light" type="Sprite2D" parent="."]
+[node name="background_light" type="Sprite" parent="."]
 material = ExtResource( 9 )
 position = Vector2( 5.99998, 7.49999 )
 scale = Vector2( 100, 40 )
@@ -135,8 +135,8 @@ texture = ExtResource( 8 )
 material = SubResource( 66 )
 process_material = SubResource( 67 )
 
-[node name="reploid" type="AnimatedSprite2D" parent="."]
-process_mode = 3
+[node name="reploid" type="AnimatedSprite" parent="."]
+pause_mode = 2
 visible = false
 frames = SubResource( 79 )
 

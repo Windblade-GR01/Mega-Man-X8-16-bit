@@ -11,16 +11,16 @@
 [ext_resource path="res://src/Sounds/16 - MMX - X Upgrade Complete.wav" type="AudioStream" id=9]
 [ext_resource path="res://src/StageSelect/stage_infos/PitchBlack.tres" type="Resource" id=10]
 [ext_resource path="res://src/Sounds/FX - Menu Switch.ogg" type="AudioStream" id=11]
-[ext_resource path="res://src/Options/selectable_options.png" type="Texture2D" id=12]
-[ext_resource path="res://src/Options/selectable_keyconfig.png" type="Texture2D" id=13]
+[ext_resource path="res://src/Options/selectable_options.png" type="Texture" id=12]
+[ext_resource path="res://src/Options/selectable_keyconfig.png" type="Texture" id=13]
 [ext_resource path="res://src/Sounds/OST - StageSelect2 - Loop.ogg" type="AudioStream" id=14]
 [ext_resource path="res://src/StageSelect/selectables/selectable_mantis.res" type="SpriteFrames" id=15]
 [ext_resource path="res://src/StageSelect/pointer.gd" type="Script" id=16]
-[ext_resource path="res://src/StageSelect/menu_3.png" type="Texture2D" id=17]
-[ext_resource path="res://src/StageSelect/ss_bg.png" type="Texture2D" id=18]
+[ext_resource path="res://src/StageSelect/menu_3.png" type="Texture" id=17]
+[ext_resource path="res://src/StageSelect/ss_bg.png" type="Texture" id=18]
 [ext_resource path="res://src/StageSelect/selectables/selectable_jacob.res" type="SpriteFrames" id=19]
-[ext_resource path="res://src/StageSelect/ss_map_animated.png" type="Texture2D" id=20]
-[ext_resource path="res://src/StageSelect/ss_cursor.png" type="Texture2D" id=21]
+[ext_resource path="res://src/StageSelect/ss_map_animated.png" type="Texture" id=20]
+[ext_resource path="res://src/StageSelect/ss_cursor.png" type="Texture" id=21]
 [ext_resource path="res://src/StageSelect/selectables/selectable.tscn" type="PackedScene" id=22]
 [ext_resource path="res://src/StageSelect/stage_infos/JakobElevator.tres" type="Resource" id=23]
 [ext_resource path="res://src/StageSelect/stage_infos/TroiaBase.tres" type="Resource" id=24]
@@ -43,25 +43,25 @@
 [ext_resource path="res://src/StageSelect/frame.gd" type="Script" id=41]
 [ext_resource path="res://src/StageSelect/armor_setup/ArmorSetup.tscn" type="PackedScene" id=42]
 [ext_resource path="res://src/StageSelect/ArmorSetupButton.gd" type="Script" id=43]
-[ext_resource path="res://src/StageSelect/ss_cursor2.png" type="Texture2D" id=44]
-[ext_resource path="res://src/StageSelect/ss_cursor3.png" type="Texture2D" id=45]
-[ext_resource path="res://src/StageSelect/ss_previewborder.png" type="Texture2D" id=46]
-[ext_resource path="res://src/Fonts/X8bitmapfont.fnt" type="FontFile" id=47]
+[ext_resource path="res://src/StageSelect/ss_cursor2.png" type="Texture" id=44]
+[ext_resource path="res://src/StageSelect/ss_cursor3.png" type="Texture" id=45]
+[ext_resource path="res://src/StageSelect/ss_previewborder.png" type="Texture" id=46]
+[ext_resource path="res://src/Fonts/X8bitmapfont.fnt" type="BitmapFont" id=47]
 [ext_resource path="res://src/Effects/Materials/TextColorSwap.tres" type="Material" id=48]
 [ext_resource path="res://src/StageSelect/StageDescription.gd" type="Script" id=49]
-[ext_resource path="res://src/DialogSystem/font_colors/Neutral.png" type="Texture2D" id=50]
+[ext_resource path="res://src/DialogSystem/font_colors/Neutral.png" type="Texture" id=50]
 [ext_resource path="res://src/StageSelect/PitchBlackEnergizerTurnOff.gd" type="Script" id=51]
 [ext_resource path="res://src/Objects/Pickups/Subtanks/subtank_Inferno.tres" type="Resource" id=52]
 [ext_resource path="res://src/Objects/Pickups/Subtanks/subtank_CentralWhite.tres" type="Resource" id=53]
 [ext_resource path="res://src/Objects/Pickups/Subtanks/subtank_MetalValley.tres" type="Resource" id=54]
 [ext_resource path="res://src/Objects/Pickups/Subtanks/subtank_TroiaBase.tres" type="Resource" id=55]
-[ext_resource path="res://src/StageSelect/preview/stage_1.png" type="Texture2D" id=56]
+[ext_resource path="res://src/StageSelect/preview/stage_1.png" type="Texture" id=56]
 [ext_resource path="res://src/StageSelect/PreviewBox.gd" type="Script" id=57]
 [ext_resource path="res://src/AchievementSystem/AchievementsScreen.tscn" type="PackedScene" id=58]
-[ext_resource path="res://src/Options/selectable_achiev.png" type="Texture2D" id=59]
+[ext_resource path="res://src/Options/selectable_achiev.png" type="Texture" id=59]
 [ext_resource path="res://src/Levels/IGTimer.tscn" type="PackedScene" id=60]
 
-[sub_resource type="Shortcut" id=1]
+[sub_resource type="ShortCut" id=1]
 
 [sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 20 )
@@ -282,7 +282,7 @@ script = ExtResource( 4 )
 intro = ExtResource( 8 )
 
 [node name="StageSelectUI" type="CanvasLayer" parent="."]
-process_mode = 3
+pause_mode = 2
 layer = 2
 script = ExtResource( 5 )
 initial_focus = NodePath("Menu/ArmorSetup")
@@ -294,11 +294,11 @@ anchor_bottom = 1.0
 [node name="TroiaBase" type="TextureButton" parent="StageSelectUI/Menu"]
 modulate = Color( 0.407843, 0.792157, 1, 1 )
 self_modulate = Color( 1, 1, 1, 0 )
-offset_left = 83.0
-offset_top = 17.0
-offset_right = 124.0
-offset_bottom = 58.0
-custom_minimum_size = Vector2( 8, 8 )
+margin_left = 83.0
+margin_top = 17.0
+margin_right = 124.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 8, 8 )
 action_mode = 0
 script = ExtResource( 7 )
 menu_path = NodePath("../..")
@@ -307,11 +307,11 @@ stage_info = ExtResource( 24 )
 [node name="Primrose" type="TextureButton" parent="StageSelectUI/Menu"]
 modulate = Color( 0.407843, 0.792157, 1, 1 )
 self_modulate = Color( 1, 1, 1, 0 )
-offset_left = 131.0
-offset_top = 17.0
-offset_right = 172.0
-offset_bottom = 58.0
-custom_minimum_size = Vector2( 8, 8 )
+margin_left = 131.0
+margin_top = 17.0
+margin_right = 172.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 8, 8 )
 action_mode = 0
 script = ExtResource( 7 )
 menu_path = NodePath("../..")
@@ -320,11 +320,11 @@ stage_info = ExtResource( 27 )
 [node name="PitchBlack" type="TextureButton" parent="StageSelectUI/Menu"]
 modulate = Color( 0.407843, 0.792157, 1, 1 )
 self_modulate = Color( 1, 1, 1, 0 )
-offset_left = 227.0
-offset_top = 17.0
-offset_right = 268.0
-offset_bottom = 58.0
-custom_minimum_size = Vector2( 8, 8 )
+margin_left = 227.0
+margin_top = 17.0
+margin_right = 268.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 8, 8 )
 action_mode = 0
 script = ExtResource( 7 )
 menu_path = NodePath("../..")
@@ -333,11 +333,11 @@ stage_info = ExtResource( 10 )
 [node name="Dynasty" type="TextureButton" parent="StageSelectUI/Menu"]
 modulate = Color( 0.407843, 0.792157, 1, 1 )
 self_modulate = Color( 1, 1, 1, 0 )
-offset_left = 276.0
-offset_top = 17.0
-offset_right = 317.0
-offset_bottom = 58.0
-custom_minimum_size = Vector2( 8, 8 )
+margin_left = 276.0
+margin_top = 17.0
+margin_right = 317.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 8, 8 )
 action_mode = 0
 script = ExtResource( 7 )
 menu_path = NodePath("../..")
@@ -346,11 +346,11 @@ stage_info = ExtResource( 32 )
 [node name="BoosterForest" type="TextureButton" parent="StageSelectUI/Menu"]
 modulate = Color( 0.407843, 0.792157, 1, 1 )
 self_modulate = Color( 1, 1, 1, 0 )
-offset_left = 83.0
-offset_top = 166.0
-offset_right = 124.0
-offset_bottom = 207.0
-custom_minimum_size = Vector2( 8, 8 )
+margin_left = 83.0
+margin_top = 166.0
+margin_right = 124.0
+margin_bottom = 207.0
+rect_min_size = Vector2( 8, 8 )
 action_mode = 0
 script = ExtResource( 7 )
 menu_path = NodePath("../..")
@@ -359,11 +359,11 @@ stage_info = ExtResource( 31 )
 [node name="MetalValley" type="TextureButton" parent="StageSelectUI/Menu"]
 modulate = Color( 0.407843, 0.792157, 1, 1 )
 self_modulate = Color( 1, 1, 1, 0 )
-offset_left = 131.0
-offset_top = 166.0
-offset_right = 172.0
-offset_bottom = 207.0
-custom_minimum_size = Vector2( 8, 8 )
+margin_left = 131.0
+margin_top = 166.0
+margin_right = 172.0
+margin_bottom = 207.0
+rect_min_size = Vector2( 8, 8 )
 action_mode = 0
 script = ExtResource( 7 )
 menu_path = NodePath("../..")
@@ -372,11 +372,11 @@ stage_info = ExtResource( 28 )
 [node name="CentralWhite" type="TextureButton" parent="StageSelectUI/Menu"]
 modulate = Color( 0.407843, 0.792157, 1, 1 )
 self_modulate = Color( 1, 1, 1, 0 )
-offset_left = 226.0
-offset_top = 166.0
-offset_right = 267.0
-offset_bottom = 207.0
-custom_minimum_size = Vector2( 8, 8 )
+margin_left = 226.0
+margin_top = 166.0
+margin_right = 267.0
+margin_bottom = 207.0
+rect_min_size = Vector2( 8, 8 )
 action_mode = 0
 script = ExtResource( 7 )
 menu_path = NodePath("../..")
@@ -385,12 +385,12 @@ stage_info = ExtResource( 30 )
 [node name="Inferno" type="TextureButton" parent="StageSelectUI/Menu"]
 modulate = Color( 0.407843, 0.792157, 1, 1 )
 self_modulate = Color( 1, 1, 1, 0 )
-offset_left = 276.0
-offset_top = 166.0
-offset_right = 317.0
-offset_bottom = 207.0
-custom_minimum_size = Vector2( 8, 8 )
-focus_neighbor_right = NodePath("../Keycfg")
+margin_left = 276.0
+margin_top = 166.0
+margin_right = 317.0
+margin_bottom = 207.0
+rect_min_size = Vector2( 8, 8 )
+focus_neighbour_right = NodePath("../Keycfg")
 action_mode = 0
 script = ExtResource( 7 )
 menu_path = NodePath("../..")
@@ -399,11 +399,11 @@ stage_info = ExtResource( 6 )
 [node name="SigmaPalace" type="TextureButton" parent="StageSelectUI/Menu"]
 modulate = Color( 0.407843, 0.792157, 1, 1 )
 self_modulate = Color( 1, 1, 1, 0 )
-offset_left = 179.0
-offset_top = 17.0
-offset_right = 220.0
-offset_bottom = 58.0
-custom_minimum_size = Vector2( 8, 8 )
+margin_left = 179.0
+margin_top = 17.0
+margin_right = 220.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 8, 8 )
 action_mode = 0
 script = ExtResource( 7 )
 menu_path = NodePath("../..")
@@ -414,14 +414,14 @@ intensity = 3
 [node name="JacobElevator" type="TextureButton" parent="StageSelectUI/Menu"]
 modulate = Color( 0.407843, 0.792157, 1, 1 )
 self_modulate = Color( 1, 1, 1, 0 )
-offset_left = 35.0
-offset_top = 44.0
-offset_right = 76.0
-offset_bottom = 181.0
-custom_minimum_size = Vector2( 8, 8 )
-focus_neighbor_left = NodePath("../Gateway")
-focus_neighbor_top = NodePath("../TroiaBase")
-focus_neighbor_bottom = NodePath("../BoosterForest")
+margin_left = 35.0
+margin_top = 44.0
+margin_right = 76.0
+margin_bottom = 181.0
+rect_min_size = Vector2( 8, 8 )
+focus_neighbour_left = NodePath("../Gateway")
+focus_neighbour_top = NodePath("../TroiaBase")
+focus_neighbour_bottom = NodePath("../BoosterForest")
 action_mode = 0
 script = ExtResource( 7 )
 menu_path = NodePath("../..")
@@ -432,14 +432,14 @@ intensity = 1
 [node name="Gateway" type="TextureButton" parent="StageSelectUI/Menu"]
 modulate = Color( 0.407843, 0.792157, 1, 1 )
 self_modulate = Color( 1, 1, 1, 0 )
-offset_left = 323.0
-offset_top = 44.0
-offset_right = 364.0
-offset_bottom = 181.0
-custom_minimum_size = Vector2( 8, 8 )
-focus_neighbor_top = NodePath("../Dynasty")
-focus_neighbor_right = NodePath("../JacobElevator")
-focus_neighbor_bottom = NodePath("../Options")
+margin_left = 323.0
+margin_top = 44.0
+margin_right = 364.0
+margin_bottom = 181.0
+rect_min_size = Vector2( 8, 8 )
+focus_neighbour_top = NodePath("../Dynasty")
+focus_neighbour_right = NodePath("../JacobElevator")
+focus_neighbour_bottom = NodePath("../Options")
 action_mode = 0
 script = ExtResource( 7 )
 menu_path = NodePath("../..")
@@ -451,11 +451,11 @@ intensity = 2
 modulate = Color( 0.490196, 0.490196, 0.490196, 1 )
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 128.0
-offset_top = 192.0
-offset_right = 146.0
-offset_bottom = 210.0
-custom_minimum_size = Vector2( 18, 18 )
+margin_left = 128.0
+margin_top = 192.0
+margin_right = 146.0
+margin_bottom = 210.0
+rect_min_size = Vector2( 18, 18 )
 action_mode = 0
 shortcut = SubResource( 1 )
 texture_normal = ExtResource( 13 )
@@ -471,11 +471,11 @@ visible = false
 modulate = Color( 0.490196, 0.490196, 0.490196, 1 )
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 146.0
-offset_top = 192.0
-offset_right = 164.0
-offset_bottom = 210.0
-custom_minimum_size = Vector2( 18, 18 )
+margin_left = 146.0
+margin_top = 192.0
+margin_right = 164.0
+margin_bottom = 210.0
+rect_min_size = Vector2( 18, 18 )
 action_mode = 0
 shortcut = SubResource( 1 )
 texture_normal = ExtResource( 12 )
@@ -491,11 +491,11 @@ visible = false
 modulate = Color( 0.490196, 0.490196, 0.490196, 1 )
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 164.0
-offset_top = 192.0
-offset_right = 182.0
-offset_bottom = 210.0
-custom_minimum_size = Vector2( 18, 18 )
+margin_left = 164.0
+margin_top = 192.0
+margin_right = 182.0
+margin_bottom = 210.0
+rect_min_size = Vector2( 18, 18 )
 action_mode = 0
 shortcut = SubResource( 1 )
 texture_normal = ExtResource( 59 )
@@ -511,11 +511,11 @@ visible = false
 modulate = Color( 0.490196, 0.490196, 0.490196, 1 )
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_top = 166.0
-offset_right = 20.0
-offset_bottom = 206.0
-custom_minimum_size = Vector2( 18, 18 )
+margin_left = -20.0
+margin_top = 166.0
+margin_right = 20.0
+margin_bottom = 206.0
+rect_min_size = Vector2( 18, 18 )
 action_mode = 0
 shortcut = SubResource( 1 )
 script = ExtResource( 3 )
@@ -523,18 +523,18 @@ menu_path = NodePath("../..")
 pick_sound = NodePath("../../pick")
 
 [node name="ArmorSetup" parent="StageSelectUI/Menu/ArmorSetup" instance=ExtResource( 42 )]
-process_mode = 3
+pause_mode = 2
 visible = false
 
 [node name="Shadow" type="Label" parent="StageSelectUI/Menu"]
 modulate = Color( 0, 0, 0, 0.745098 )
 anchor_right = 0.1
-offset_left = 87.0
-offset_top = 67.0
-offset_right = 276.2
-offset_bottom = 142.0
+margin_left = 87.0
+margin_top = 67.0
+margin_right = 276.2
+margin_bottom = 142.0
 size_flags_vertical = 1
-theme_override_fonts/font = ExtResource( 47 )
+custom_fonts/font = ExtResource( 47 )
 text = "Stage:
     stage_name
 Boss: 
@@ -547,12 +547,12 @@ __meta__ = {
 [node name="StageDescription" type="Label" parent="StageSelectUI/Menu"]
 material = ExtResource( 48 )
 anchor_right = 0.1
-offset_left = 86.0
-offset_top = 66.0
-offset_right = 275.2
-offset_bottom = 141.0
+margin_left = 86.0
+margin_top = 66.0
+margin_right = 275.2
+margin_bottom = 141.0
 size_flags_vertical = 1
-theme_override_fonts/font = ExtResource( 47 )
+custom_fonts/font = ExtResource( 47 )
 text = "Stage:
     stage_name
 Boss: 
@@ -576,19 +576,19 @@ bus = "SFX"
 
 [node name="Fader" type="ColorRect" parent="StageSelectUI"]
 visible = false
-offset_right = 398.0
-offset_bottom = 224.0
+margin_right = 398.0
+margin_bottom = 224.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
-[node name="map" type="AnimatedSprite2D" parent="."]
+[node name="map" type="AnimatedSprite" parent="."]
 position = Vector2( 199, -139 )
 z_index = -50
 frames = SubResource( 38 )
 frame = 15
 playing = true
 
-[node name="pointer" type="AnimatedSprite2D" parent="map"]
+[node name="pointer" type="AnimatedSprite" parent="map"]
 position = Vector2( 0, 322 )
 frames = SubResource( 16 )
 playing = true
@@ -617,12 +617,12 @@ soft_conflicts = [ NodePath("../move_bottom"), NodePath("../move_jacob"), NodePa
 final_position_y = 352.0
 destination_condition = -258.0
 
-[node name="bg" type="Sprite2D" parent="."]
+[node name="bg" type="Sprite" parent="."]
 position = Vector2( 199, 112 )
 z_index = -10
 texture = ExtResource( 18 )
 
-[node name="PreviewBox" type="AnimatedSprite2D" parent="."]
+[node name="PreviewBox" type="AnimatedSprite" parent="."]
 position = Vector2( 280, 93 )
 frames = SubResource( 48 )
 animation = "increase"
@@ -632,11 +632,11 @@ script = ExtResource( 57 )
 buttons = NodePath("../StageSelectUI/Menu")
 map = NodePath("../map")
 
-[node name="level_preview" type="Sprite2D" parent="PreviewBox"]
+[node name="level_preview" type="Sprite" parent="PreviewBox"]
 position = Vector2( 0, -3 )
 texture = ExtResource( 56 )
 
-[node name="frame" type="Sprite2D" parent="."]
+[node name="frame" type="Sprite" parent="."]
 position = Vector2( 199, 112 )
 z_index = 10
 texture = ExtResource( 17 )
@@ -680,7 +680,7 @@ position = Vector2( 247, 186 )
 frames = ExtResource( 40 )
 frame = 1
 
-[node name="ArmorSetup" type="AnimatedSprite2D" parent="button_sprites"]
+[node name="ArmorSetup" type="AnimatedSprite" parent="button_sprites"]
 visible = false
 position = Vector2( 199, 186 )
 z_index = 11

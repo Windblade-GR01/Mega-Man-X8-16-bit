@@ -1,4 +1,4 @@
-extends RefCounted
+extends Reference
 class_name Physics
 
 var character : Actor

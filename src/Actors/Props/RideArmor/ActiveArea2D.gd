@@ -1,10 +1,10 @@
 extends Area2D
 class_name ActiveArea2D
 
-@export var active := true
-@export var group := "Everything"
-@export var exceptions : Array
-@export var debug_logs := false
+export var active := true
+export var group := "Everything"
+export var exceptions : Array
+export var debug_logs := false
 var bodies = []
 
 signal group_body_entered(body)

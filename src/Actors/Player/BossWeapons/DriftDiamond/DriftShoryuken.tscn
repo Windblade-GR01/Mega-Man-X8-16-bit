@@ -4,12 +4,12 @@
 [ext_resource path="res://SpriteEffect.gd" type="Script" id=2]
 [ext_resource path="res://src/Actors/Player/BossWeapons/DriftDiamond/DriftShoryuken.gd" type="Script" id=3]
 [ext_resource path="res://src/Sounds/Yeti - Stomp.ogg" type="AudioStream" id=4]
-[ext_resource path="res://src/Actors/Player/BossWeapons/DriftDiamond/shoryuken.png" type="Texture2D" id=5]
-[ext_resource path="res://src/Actors/Bosses/boss_sprites/icejump.png" type="Texture2D" id=6]
+[ext_resource path="res://src/Actors/Player/BossWeapons/DriftDiamond/shoryuken.png" type="Texture" id=5]
+[ext_resource path="res://src/Actors/Bosses/boss_sprites/icejump.png" type="Texture" id=6]
 [ext_resource path="res://src/Effects/Materials/drift_diamond_particles.tres" type="Material" id=7]
 [ext_resource path="res://src/Effects/Materials/IceRemains.tres" type="Material" id=8]
-[ext_resource path="res://src/Effects/Textures/snow_sparkle.png" type="Texture2D" id=9]
-[ext_resource path="res://src/Actors/Bosses/AvalancheYeti/ice_remains.png" type="Texture2D" id=10]
+[ext_resource path="res://src/Effects/Textures/snow_sparkle.png" type="Texture" id=9]
+[ext_resource path="res://src/Actors/Bosses/AvalancheYeti/ice_remains.png" type="Texture" id=10]
 [ext_resource path="res://src/Sounds/Ice Break.wav" type="AudioStream" id=11]
 
 [sub_resource type="AtlasTexture" id=24]
@@ -40,8 +40,8 @@ particles_anim_h_frames = 3
 particles_anim_v_frames = 2
 particles_anim_loop = false
 
-[node name="DriftDiamondCharged" type="CharacterBody2D" groups=["Player Projectile"]]
-process_mode = 3
+[node name="DriftDiamondCharged" type="KinematicBody2D" groups=["Player Projectile"]]
+pause_mode = 2
 z_index = 10
 collision_layer = 4
 collision_mask = 0
@@ -51,19 +51,19 @@ damage_to_bosses = 10.0
 damage_to_weakness = 20.0
 break_guards = true
 
-[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 25 )
 playing = true
 
-[node name="visibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="visibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 
 [node name="collisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 9.5, 0 )
 z_index = -1
 shape = SubResource( 26 )
 
-[node name="dash_particle" type="Sprite2D" parent="."]
-process_mode = 3
+[node name="dash_particle" type="Sprite" parent="."]
+pause_mode = 2
 visible = false
 position = Vector2( 14, -33 )
 z_index = 45
@@ -74,7 +74,7 @@ script = ExtResource( 2 )
 animation_speed = 32.0
 one_shot = true
 
-[node name="remains_particles" type="GPUParticles2D" parent="."]
+[node name="remains_particles" type="Particles2D" parent="."]
 material = SubResource( 27 )
 position = Vector2( 0, -8 )
 z_index = 1
@@ -93,7 +93,7 @@ script = ExtResource( 1 )
 make_invisible = true
 undo_on_rotation_end = false
 
-[node name="particles2D" type="GPUParticles2D" parent="."]
+[node name="particles2D" type="Particles2D" parent="."]
 material = SubResource( 28 )
 position = Vector2( 0, 1 )
 rotation = 1.5708
@@ -113,7 +113,7 @@ max_distance = 600.0
 bus = "SFX"
 
 [node name="icebreak" type="AudioStreamPlayer2D" parent="."]
-process_mode = 3
+pause_mode = 2
 stream = ExtResource( 11 )
 volume_db = -20.0
 pitch_scale = 0.77

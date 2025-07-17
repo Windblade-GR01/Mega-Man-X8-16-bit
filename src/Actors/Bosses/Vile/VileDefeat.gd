@@ -1,10 +1,10 @@
 extends AttackAbility
-@onready var explosion: AudioStreamPlayer2D = $explosion
-@onready var explosion_particles: GPUParticles2D = $explosion_particles
-@onready var beam_out: AudioStreamPlayer2D = $beam_out
-@onready var sparks: AudioStreamPlayer2D = $sparks
+onready var explosion: AudioStreamPlayer2D = $explosion
+onready var explosion_particles: Particles2D = $explosion_particles
+onready var beam_out: AudioStreamPlayer2D = $beam_out
+onready var sparks: AudioStreamPlayer2D = $sparks
 
-@export var defeat_flag := "none"
+export var defeat_flag := "none"
 signal screen_flash
 
 func _ready() -> void:

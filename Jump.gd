@@ -1,10 +1,10 @@
 extends Fall
 class_name Jump
 
-@export var max_jump_time := 0.625
-@export var leeway_time := 0.1
-@export var fullspeed_proportion := 0.19
-@export var minimum_upwards_time := 0.0
+export var max_jump_time := 0.625
+export var leeway_time := 0.1
+export var fullspeed_proportion := 0.19
+export var minimum_upwards_time := 0.0
 var fullspeed_time := 0.0
 var slowdown_time := 0.0
 var stopped_input := false
@@ -33,7 +33,7 @@ func emit_jump_signal():
 func _Update(_delta: float) -> void:
 	if_no_input_zero_vertical_speed()
 	ascent_with_slowdown_after_delay(_delta)
-	super._Update(_delta)
+	._Update(_delta)
 
 func if_no_input_zero_vertical_speed() -> void:
 	if character.get_vertical_speed() < 0:

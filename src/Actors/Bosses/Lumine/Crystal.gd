@@ -1,15 +1,15 @@
-extends AnimatedSprite2D
+extends AnimatedSprite
 
 var _range := Vector2(-28.0, -6.0) #_range.x = -28.0
 var crystal_position := Vector2.ZERO
 var distance_factor := 1.0 #1.0 is normal, #30.0 is close to body
 var current_speed := 1.0
-@onready var tween := TweenController.new(self,false)
-@onready var tween_speed := TweenController.new(self,false)
-@onready var tween_range := TweenController.new(self,false)
-@onready var tween_y := TweenController.new(self,false)
-@onready var ring := get_parent()
-@onready var trail: Line2D = $node/trail
+onready var tween := TweenController.new(self,false)
+onready var tween_speed := TweenController.new(self,false)
+onready var tween_range := TweenController.new(self,false)
+onready var tween_y := TweenController.new(self,false)
+onready var ring := get_parent()
+onready var trail: Line2D = $node/trail
 var timer := 0.0
 var contracting := false
 
@@ -30,7 +30,7 @@ func speed_up(new_speed_scale := 3.0) -> void:
 
 func expand() -> void:
 	contracting = false
-	Tools.timer(0.5,"_make_visible",self)
+	Tools.timer(0.5,"make_visible",self)
 	tween_range.reset()
 	tween_range.create(Tween.EASE_OUT,Tween.TRANS_CUBIC)
 	tween_range.add_attribute("distance_factor", 1.0, 1.0)
@@ -42,7 +42,7 @@ func contract() -> void:
 	tween_range.add_attribute("distance_factor", 30.0, 1.0)
 	Tools.timer(0.5,"make_invisible",self)
 
-func _make_visible() -> void:
+func make_visible() -> void:
 	visible = true
 	trail.visible = true
 	emit_signal("visibled")

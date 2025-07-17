@@ -1,6 +1,6 @@
-extends CharacterBody2D
+extends KinematicBody2D
 
-@onready var character = get_parent()
+onready var character = get_parent()
 var break_guards = true
 
 func _ready() -> void:

@@ -1,13 +1,13 @@
 extends CameraMode
 
 func activate(_target) -> void:
-	super.activate(_target)
+	.activate(_target)
 	translate()
 
 func translate() -> void:
 	var tween = create_tween()
 	tween.tween_property(camera, "global_position", get_target(), 1.25)
-	tween.tween_callback(Callable(self, "deactivate"))
+	tween.tween_callback(self, "deactivate")
 	camera.emit_start_translate()
 
 func deactivate() -> void:

@@ -1,8 +1,8 @@
 extends AttackAbility
 
 var finished := false
-@onready var land: AudioStreamPlayer2D = $land
-@onready var eye: AudioStreamPlayer2D = $eye
+onready var land: AudioStreamPlayer2D = $land
+onready var eye: AudioStreamPlayer2D = $eye
 
 var deactivated_player := false
 

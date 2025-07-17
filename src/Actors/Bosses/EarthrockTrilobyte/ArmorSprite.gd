@@ -1,6 +1,6 @@
-extends AnimatedSprite2D
+extends AnimatedSprite
 
-@export var naked_sprites : Resource
+export var naked_sprites : Resource
 var armor_sprites
 
 func _ready() -> void:

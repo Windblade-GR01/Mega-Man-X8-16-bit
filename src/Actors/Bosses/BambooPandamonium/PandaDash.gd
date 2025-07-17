@@ -1,6 +1,6 @@
 extends AttackAbility
 var barriers_present:= false
-@onready var dash: AudioStreamPlayer2D = $dash
+onready var dash: AudioStreamPlayer2D = $dash
 
 func _on_barriers_created() -> void:
 	barriers_present = true

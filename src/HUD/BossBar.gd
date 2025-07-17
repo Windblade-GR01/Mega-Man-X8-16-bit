@@ -1,17 +1,17 @@
 extends NinePatchRect
 
-@onready var bar: TextureProgressBar = $textureProgress
-@onready var tween := TweenController.new(self,false)
-@onready var tween_near := TweenController.new(self,false)
+onready var bar: TextureProgress = $textureProgress
+onready var tween := TweenController.new(self,false)
+onready var tween_near := TweenController.new(self,false)
 
 var fading_out := false
 var fading_in := false
 
 func _ready() -> void:
-	Event.connect("set_boss_bar", Callable(self, "set_boss_bar"))
+	Event.connect("set_boss_bar",self,"set_boss_bar")
 	visible = false
 
-func set_boss_bar(new_bar : Texture2D):
+func set_boss_bar(new_bar : Texture):
 	texture = new_bar
 
 func blink():
@@ -27,12 +27,12 @@ func blink():
 	tween.add_callback("unblink")
 
 func unblink():
-	bar.modulate.r = Color.WHITE.r
-	bar.modulate.g = Color.WHITE.g
-	bar.modulate.b = Color.WHITE.b
-	self_modulate.r = Color.WHITE.r
-	self_modulate.g = Color.WHITE.g
-	self_modulate.b = Color.WHITE.b
+	bar.modulate.r = Color.white.r
+	bar.modulate.g = Color.white.g
+	bar.modulate.b = Color.white.b
+	self_modulate.r = Color.white.r
+	self_modulate.g = Color.white.g
+	self_modulate.b = Color.white.b
 
 func disable():
 	set_physics_process(false)

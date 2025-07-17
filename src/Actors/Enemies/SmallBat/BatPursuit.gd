@@ -1,16 +1,16 @@
 extends AttackAbility
 
-@export var pursuit_speed := 80
-@onready var animator := $"../animatedSprite"
+export var pursuit_speed := 80
+onready var animator := $"../animatedSprite"
 
 func _ready() -> void:
-	Event.connect("stage_rotate_end", Callable(self, "EndAbility"))
+	Event.connect("stage_rotate_end",self,"EndAbility")
 
 func _Setup() -> void:
 	animator.set_speed_scale(1.5)
 
 func _Interrupt() -> void:
-	super._Interrupt()
+	._Interrupt()
 	animator.set_speed_scale(1)
 
 func _EndCondition() -> bool:
@@ -19,4 +19,4 @@ func _EndCondition() -> bool:
 func _Update(_delta) -> void:
 	var target_direction = (GameManager.get_player_position() - character.global_position).normalized()
 	force_movement_regardless_of_direction(pursuit_speed * target_direction.x) #equivalente a set_horizontal_speed
-	set_vertical_speed(pursuit_speed * target_direction.y * remap(cos(timer*4),-1,1,-0.25,1) )
+	set_vertical_speed(pursuit_speed * target_direction.y * range_lerp(cos(timer*4),-1,1,-0.25,1) )

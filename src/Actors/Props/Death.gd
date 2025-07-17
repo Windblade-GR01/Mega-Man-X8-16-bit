@@ -1,10 +1,10 @@
 extends Ability
 class_name BikeDeath
 
-@onready var explosions = $"Explosion Particles"
-@onready var sprite = get_parent().get_node("animatedSprite")
-@onready var death_particle = $Remains/remains_particles
-@export var explosion_duration:= 2.0
+onready var explosions = $"Explosion Particles"
+onready var sprite = get_parent().get_node("animatedSprite")
+onready var death_particle = $Remains/remains_particles
+export var explosion_duration:= 2.0
 var times_sound_played := 0.0
 var emitted_signal := false
 
@@ -15,7 +15,7 @@ func _ready() -> void:
 func _Setup():
 	explosions.emitting = true
 	emitted_signal = false
-	sprite.material.set_shader_parameter("Alpha_Blink", 1)
+	sprite.material.set_shader_param("Alpha_Blink", 1)
 
 func _Update(_delta):
 	if timer > times_sound_played/5 and timer < explosion_duration:
@@ -46,7 +46,7 @@ func play_explosion_sounds():
 		times_sound_played += 1
 		var audio = $audioStreamPlayer2D.duplicate()
 		add_child(audio)
-		audio.pitch_scale = randf_range(0.95,1.05)
+		audio.pitch_scale = rand_range(0.95,1.05)
 		audio.play()
 
 func emit_remains_particles():

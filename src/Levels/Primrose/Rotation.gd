@@ -1,10 +1,10 @@
 extends Node2D
 
-@export var able_to_rotate := true
+export var able_to_rotate := true
 const rotation_duration := 1.5
 var objects_to_counter_rotate : Array
 var objects_to_rotate : Array
-var tween : Tween
+var tween : SceneTreeTween
 
 func _ready() -> void:
 	Event.listen("rotate_stage_in_degrees",self,"rotate_stage_in_degrees")
@@ -36,7 +36,7 @@ func pause_and_prepare_camera() -> void:
 
 func setup_rotation_tween(degrees : float, room : Node2D) -> void:
 	tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
-	tween.set_process_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.set_pause_mode(SceneTreeTween.TWEEN_PAUSE_PROCESS)
 	tween.set_parallel()
 	tween.tween_property(room,"rotation_degrees",room.rotation_degrees + degrees,rotation_duration)
 
@@ -52,10 +52,10 @@ func setup_objects_rotation(degrees : float) -> void:
 
 func setup_callbacks_after_rotation() -> void:
 	tween.set_parallel(false)
-	tween.tween_callback(Callable(self, "emit_rotate_end"))
-	tween.tween_callback(Callable(GameManager, "primrose_unpause"))
-	tween.tween_callback(Callable(GameManager, "end_cutscene"))
-	tween.tween_callback(Callable(self, "set_camera_to_inherit"))
+	tween.tween_callback(self,"emit_rotate_end")
+	tween.tween_callback(GameManager,"primrose_unpause")
+	tween.tween_callback(GameManager,"end_cutscene")
+	tween.tween_callback(self,"set_camera_to_inherit")
 
 func emit_rotate_end() -> void:
 	Event.emit_signal("stage_rotate_end")
@@ -63,8 +63,8 @@ func emit_rotate_end() -> void:
 func set_camera_to_process() -> void:
 	#GameManager.camera.ignore_limits()
 	GameManager.camera.start_translate(GameManager.get_player_position())
-	GameManager.camera.set_process_mode(Node.PROCESS_MODE_ALWAYS)
+	GameManager.camera.set_pause_mode(Node.PAUSE_MODE_PROCESS)
 func set_camera_to_inherit() -> void:
-	GameManager.camera.set_process_mode(Node.PROCESS_MODE_INHERIT)
+	GameManager.camera.set_pause_mode(Node.PAUSE_MODE_INHERIT)
 	
 	

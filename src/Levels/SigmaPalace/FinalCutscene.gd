@@ -1,38 +1,38 @@
 extends Node2D
-@onready var firenoise: AudioStreamPlayer2D = $firenoise
+onready var firenoise: AudioStreamPlayer2D = $firenoise
 
-@export var charge_color1 : Color
-@export var charge_color2 : Color
-@export var song_intro : AudioStream
-@export var song_loop : AudioStream
-@export var text_second_dialog : Resource
-@onready var dialog_box: Label = $DialogBox
-@onready var screencover: Sprite2D = $screencover
-@onready var x: AnimatedSprite2D = $X
-@onready var charge_shot: AnimatedSprite2D = $ChargeShot
-@onready var lumine: AnimatedSprite2D = $Lumine
-@onready var lflash: Sprite2D = $Lumine/flash
-@onready var remains: GPUParticles2D = $Lumine/remains_particles
-@onready var explosions: GPUParticles2D = $Lumine/explosions
-@onready var explode: AudioStreamPlayer2D = $Lumine/explode
-@onready var shot: AudioStreamPlayer2D = $ChargeShot/shot
-@onready var charge: AudioStreamPlayer2D = $X/charge
-@onready var explode_2: AudioStreamPlayer2D = $Lumine/explode2
-@onready var beam_outvfx: AudioStreamPlayer2D = $X/beam_out
-@onready var charge_vfx: AnimatedSprite2D = $X/ChargeVFX
-@onready var musicplayer: AudioStreamPlayer = $"Music Player"
-@onready var shockwave: Sprite2D = $Lumine/shockwave
-@onready var burnt_floor: Sprite2D = $Lumine/burnt_floor
-@onready var shot2: AudioStreamPlayer2D = $X/shot
+export var charge_color1 : Color
+export var charge_color2 : Color
+export var song_intro : AudioStream
+export var song_loop : AudioStream
+export var text_second_dialog : Resource
+onready var dialog_box: Label = $DialogBox
+onready var screencover: Sprite = $screencover
+onready var x: AnimatedSprite = $X
+onready var charge_shot: AnimatedSprite = $ChargeShot
+onready var lumine: AnimatedSprite = $Lumine
+onready var lflash: Sprite = $Lumine/flash
+onready var remains: Particles2D = $Lumine/remains_particles
+onready var explosions: Particles2D = $Lumine/explosions
+onready var explode: AudioStreamPlayer2D = $Lumine/explode
+onready var shot: AudioStreamPlayer2D = $ChargeShot/shot
+onready var charge: AudioStreamPlayer2D = $X/charge
+onready var explode_2: AudioStreamPlayer2D = $Lumine/explode2
+onready var beam_outvfx: AudioStreamPlayer2D = $X/beam_out
+onready var charge_vfx: AnimatedSprite = $X/ChargeVFX
+onready var musicplayer: AudioStreamPlayer = $"Music Player"
+onready var shockwave: Sprite = $Lumine/shockwave
+onready var burnt_floor: Sprite = $Lumine/burnt_floor
+onready var shot2: AudioStreamPlayer2D = $X/shot
 
-@onready var tween := TweenController.new(self,false)
+onready var tween := TweenController.new(self,false)
 
 func _ready() -> void:
 	screencover.visible = true
 	tween.attribute("volume_db",-35,2,firenoise)
 	Tools.timer(2,"fade_in",self)
 	Tools.timer(8,"start_dialog",self)
-	Event.connect("character_talking", Callable(self, "on_talk"))
+	Event.connect("character_talking",self,"on_talk")
 
 func on_talk(character_name : String):
 	if character_name == "MegaMan X":
@@ -55,21 +55,21 @@ func _on_dialog_concluded() -> void:
 		Tools.timer(1.0,"beam_out",self)
 
 func start_charge() -> void:
-	x.material.set_shader_parameter("Color",charge_color1)
-	x.material.set_shader_parameter("Charge",1.0)
+	x.material.set_shader_param("Color",charge_color1)
+	x.material.set_shader_param("Charge",1.0)
 	x.play("shot")
 	charge.play()
 	charge_vfx.visible = true
 	Tools.timer(1.5,"next_charge",self)
 
 func next_charge() -> void:
-	x.material.set_shader_parameter("Color",charge_color2)
+	x.material.set_shader_param("Color",charge_color2)
 	charge_vfx.play("Heavy")
-	charge_vfx.modulate = Color.KHAKI
+	charge_vfx.modulate = Color.khaki
 	Tools.timer(4.0,"fire",self)
 
 func fire() -> void:
-	x.material.set_shader_parameter("Charge",0.0)
+	x.material.set_shader_param("Charge",0.0)
 	charge_shot.visible = true
 	x.frame = 0
 	shot.play()
@@ -86,7 +86,7 @@ func end_fire() -> void:
 
 func quick_pause() -> void:
 	lflash.start()
-	lumine.material.set_shader_parameter("Flash",1.0)
+	lumine.material.set_shader_param("Flash",1.0)
 	GameManager.pause("lumine_explosion")
 	explode.play()
 	Tools.timer(0.85,"unquickpause",self,null,true)
@@ -137,7 +137,7 @@ func pull_x_up():
 func fade_out():
 	screencover.visible = true
 	screencover.material.blend_mode = 0
-	screencover.modulate = Color.BLACK
+	screencover.modulate = Color.black
 	screencover.modulate.a = 0.0
 	tween.attribute("modulate:a",1.0,3.0,screencover)
 	tween.attribute("volume_db",-50,10.0,musicplayer)

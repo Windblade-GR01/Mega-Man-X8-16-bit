@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=2]
 
-[ext_resource path="res://src/Effects/Textures/chaos_emeralds_sheet.png" type="Texture2D" id=1]
+[ext_resource path="res://src/Effects/Textures/chaos_emeralds_sheet.png" type="Texture" id=1]
 [ext_resource path="res://src/Actors/Bosses/Lumine/RotatingCrystals.gd" type="Script" id=2]
 [ext_resource path="res://src/Actors/Bosses/Lumine/Crystal.gd" type="Script" id=3]
 [ext_resource path="res://src/Actors/Bosses/Lumine/trail.gd" type="Script" id=4]
@@ -21,8 +21,8 @@ animations = [ {
 _data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
 
 [sub_resource type="Gradient" id=8]
-offsets = PackedFloat32Array( 0.0634146, 0.631111, 0.831111, 1 )
-colors = PackedColorArray( 0.694118, 0.694118, 0.694118, 0, 0.537255, 0.537255, 0.537255, 0.109804, 1, 1, 1, 0.27451, 1, 1, 1, 0.521569 )
+offsets = PoolRealArray( 0.0634146, 0.631111, 0.831111, 1 )
+colors = PoolColorArray( 0.694118, 0.694118, 0.694118, 0, 0.537255, 0.537255, 0.537255, 0.109804, 1, 1, 1, 0.27451, 1, 1, 1, 0.521569 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 1 )
@@ -112,7 +112,7 @@ animations = [ {
 z_index = -1
 script = ExtResource( 2 )
 
-[node name="Crystal" type="AnimatedSprite2D" parent="."]
+[node name="Crystal" type="AnimatedSprite" parent="."]
 position = Vector2( -29, 0 )
 z_index = 1
 frames = SubResource( 10 )
@@ -131,7 +131,7 @@ script = ExtResource( 4 )
 length = 21
 object_to_follow = NodePath("../..")
 
-[node name="Crystal2" type="AnimatedSprite2D" parent="."]
+[node name="Crystal2" type="AnimatedSprite" parent="."]
 position = Vector2( -21, 0 )
 z_index = 1
 frames = SubResource( 12 )
@@ -150,7 +150,7 @@ script = ExtResource( 4 )
 length = 21
 object_to_follow = NodePath("../..")
 
-[node name="Crystal3" type="AnimatedSprite2D" parent="."]
+[node name="Crystal3" type="AnimatedSprite" parent="."]
 position = Vector2( -13, 0 )
 z_index = 1
 frames = SubResource( 14 )
@@ -169,7 +169,7 @@ script = ExtResource( 4 )
 length = 21
 object_to_follow = NodePath("../..")
 
-[node name="Crystal4" type="AnimatedSprite2D" parent="."]
+[node name="Crystal4" type="AnimatedSprite" parent="."]
 position = Vector2( -5, 0 )
 z_index = 1
 frames = SubResource( 16 )
@@ -188,7 +188,7 @@ script = ExtResource( 4 )
 length = 21
 object_to_follow = NodePath("../..")
 
-[node name="Crystal5" type="AnimatedSprite2D" parent="."]
+[node name="Crystal5" type="AnimatedSprite" parent="."]
 position = Vector2( 5, 0 )
 z_index = 1
 frames = SubResource( 18 )
@@ -207,7 +207,7 @@ script = ExtResource( 4 )
 length = 21
 object_to_follow = NodePath("../..")
 
-[node name="Crystal6" type="AnimatedSprite2D" parent="."]
+[node name="Crystal6" type="AnimatedSprite" parent="."]
 position = Vector2( 13, 0 )
 z_index = 1
 frames = SubResource( 20 )
@@ -226,7 +226,7 @@ script = ExtResource( 4 )
 length = 21
 object_to_follow = NodePath("../..")
 
-[node name="Crystal7" type="AnimatedSprite2D" parent="."]
+[node name="Crystal7" type="AnimatedSprite" parent="."]
 position = Vector2( 21, 0 )
 z_index = 1
 frames = SubResource( 22 )
@@ -245,7 +245,7 @@ script = ExtResource( 4 )
 length = 21
 object_to_follow = NodePath("../..")
 
-[node name="Crystal8" type="AnimatedSprite2D" parent="."]
+[node name="Crystal8" type="AnimatedSprite" parent="."]
 position = Vector2( 29, 0 )
 z_index = 1
 frames = SubResource( 24 )

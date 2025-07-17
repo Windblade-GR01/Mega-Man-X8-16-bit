@@ -20,7 +20,7 @@ func _Update(_delta):
 		times_sound_played += 1
 		var audio = audioplayer.duplicate()
 		add_child(audio)
-		audio.pitch_scale = randf_range(0.95,1.05)
+		audio.pitch_scale = rand_range(0.95,1.05)
 		audio.play()
 	if timer > explosion_duration:
 		if explosions.emitting:

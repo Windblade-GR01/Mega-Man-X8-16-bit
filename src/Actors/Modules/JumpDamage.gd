@@ -1,16 +1,16 @@
 extends EventAbility
 
-@export var duration := 0.65
-@export var damage_value := 3
-@export var damage_to_bosses := 2
-@export var damage_frequency := 0.04
+export var duration := 0.65
+export var damage_value := 3
+export var damage_to_bosses := 2
+export var damage_frequency := 0.04
 var next_damage_time := 0.02
 var target_list = []
 var damaged_target_list = []
 var disappear := 0.0
-@onready var collider := $DamageArea/collisionShape2D
-@onready var effect = get_node("shield_effect")
-@onready var damage_area: RigidBody2D = $DamageArea
+onready var collider := $DamageArea/collisionShape2D
+onready var effect = get_node("shield_effect")
+onready var damage_area: RigidBody2D = $DamageArea
 
 func _ready() -> void:
 	effect.visible = false
@@ -66,14 +66,14 @@ func _process(delta: float) -> void:
 	if disappear > 0:
 		disappear += delta * 8
 		effect.speed_scale -= delta * 4
-		effect.modulate = lerp(Color.WHITE,Color(1,1,1,0),disappear)
+		effect.modulate = lerp(Color.white,Color(1,1,1,0),disappear)
 		if disappear > 1:
 			stop_disappear()
 
 func stop_disappear():
 	disappear = 0
 	effect.visible = false
-	effect.modulate = Color.WHITE
+	effect.modulate = Color.white
 	effect.speed_scale = 1
 
 func hit(_body) -> void:

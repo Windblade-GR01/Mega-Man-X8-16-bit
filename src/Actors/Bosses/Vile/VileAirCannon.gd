@@ -1,18 +1,18 @@
 extends AttackAbility
 
-@export var prepare_anim := "flight_cannon_prepare"
-@export var shot_anim := "flight_cannon_fire"
-@export var end_anim := "flight_cannon_end"
-@export var shots := 9
-@export var projectile : PackedScene
-@onready var tween := TweenController.new(self)
-@onready var space: Node = $"../Space"
+export var prepare_anim := "flight_cannon_prepare"
+export var shot_anim := "flight_cannon_fire"
+export var end_anim := "flight_cannon_end"
+export var shots := 9
+export var projectile : PackedScene
+onready var tween := TweenController.new(self)
+onready var space: Node = $"../Space"
 signal stop
 var moving = false
 var headed_direction := 1
 const steps := 1
-@onready var shot_sound: AudioStreamPlayer2D = $shot_sound
-@onready var traverse: AudioStreamPlayer2D = $traverse
+onready var shot_sound: AudioStreamPlayer2D = $shot_sound
+onready var traverse: AudioStreamPlayer2D = $traverse
 
 func _Setup() -> void:
 	play_animation("flight")
@@ -37,7 +37,7 @@ func _Update(_delta) -> void:
 		EndAbility()
 
 func _Interrupt() -> void:
-	super._Interrupt()
+	._Interrupt()
 	emit_signal("stop")
 
 func go_to_shot_position() -> void:

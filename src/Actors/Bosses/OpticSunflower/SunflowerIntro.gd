@@ -1,7 +1,7 @@
 extends GenericIntro
-@onready var appear: AudioStreamPlayer2D = $"../OpticTeleport/appear"
-@onready var leaves: GPUParticles2D = $"../OpticTeleport/leaves"
-@export var bar : Texture2D
+onready var appear: AudioStreamPlayer2D = $"../OpticTeleport/appear"
+onready var leaves: Particles2D = $"../OpticTeleport/leaves"
+export var bar : Texture
 
 func _Setup() -> void:
 	Log("Setup Intro")
@@ -12,7 +12,7 @@ func _Update(delta) -> void:
 	process_gravity(delta)
 	if attack_stage == 0 and timer > 1:
 		Log("Setup Intro")
-		_make_visible()
+		make_visible()
 		turn_player_towards_boss()
 		appear.play()
 		play_animation("tp_appear_prepare")

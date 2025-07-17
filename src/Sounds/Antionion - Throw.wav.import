@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://u0ldcpm48aps"
-path="res://.godot/imported/Antionion - Throw.wav-49d86be399b1c7334d9de08f8f31d3d4.sample"
+type="AudioStreamSample"
+path="res://.import/Antionion - Throw.wav-49d86be399b1c7334d9de08f8f31d3d4.sample"
 
 [deps]
 
 source_file="res://src/Sounds/Antionion - Throw.wav"
-dest_files=["res://.godot/imported/Antionion - Throw.wav-49d86be399b1c7334d9de08f8f31d3d4.sample"]
+dest_files=[ "res://.import/Antionion - Throw.wav-49d86be399b1c7334d9de08f8f31d3d4.sample" ]
 
 [params]
 

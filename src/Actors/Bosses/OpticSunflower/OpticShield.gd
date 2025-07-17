@@ -1,8 +1,8 @@
 extends AttackAbility
 
-@export var optic_orb : PackedScene
-@onready var charge: AudioStreamPlayer2D = $charge
-@onready var shot: AudioStreamPlayer2D = $shot
+export var optic_orb : PackedScene
+onready var charge: AudioStreamPlayer2D = $charge
+onready var shot: AudioStreamPlayer2D = $shot
 
 func _Setup() -> void:
 	turn_and_face_player()

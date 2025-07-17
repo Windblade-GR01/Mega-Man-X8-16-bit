@@ -1,9 +1,9 @@
 extends AttackAbility
 
-@export var projectile : PackedScene
+export var projectile : PackedScene
 const distance := Vector2(128,64)
 const escape_distance := Vector2(384,64)
-@onready var shot_sound: AudioStreamPlayer2D = $shot_sound
+onready var shot_sound: AudioStreamPlayer2D = $shot_sound
 var shots_fired := 0
 
 func _Setup() -> void:

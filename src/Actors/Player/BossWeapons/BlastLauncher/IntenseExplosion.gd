@@ -3,9 +3,9 @@ var target_list : Array
 var interval := 0.064
 var damage_timer := 0.0
 const continuous_damage := true
-@onready var animation := AnimationController.new($animatedSprite)
-@onready var sound: AudioStreamPlayer2D = $sound
-@onready var light: PointLight2D = $light
+onready var animation := AnimationController.new($animatedSprite)
+onready var sound: AudioStreamPlayer2D = $sound
+onready var light: Light2D = $light
 
 func _DamageTarget(body) -> int:
 	target_list.append(body)
@@ -20,7 +20,7 @@ func _OnDeflect() -> void:
 func _Setup() -> void:
 	animation.play("intro")
 	sound.play_rp(0.05,0.725)
-	light.light(0.7,Vector2(5,3),Color.GOLD)
+	light.light(0.7,Vector2(5,3),Color.gold)
 
 func _Update(delta) -> void:
 	if not animation.is_currently("loop_end"):

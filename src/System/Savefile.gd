@@ -52,7 +52,7 @@ func clear_save():
 		"keys" : {},
 		"achievements" : {}
 	}
-	InputMap.load_from_project_settings()
+	InputMap.load_from_globals()
 	write_to_file()
 
 func clear_game_data() -> void:
@@ -69,7 +69,7 @@ func clear_keybinds() -> void:
 	print("Save: clearing keybinds")
 	set_all_data()
 	game_data["keys"] = {}
-	InputMap.load_from_project_settings()
+	InputMap.load_from_globals()
 	apply_data()
 	write_to_file()
 

@@ -1,14 +1,14 @@
-extends GPUParticles2D
+extends Particles2D
 
-@onready var bg_particles: GPUParticles2D = $bg_particles
-@onready var bg: ParallaxLayer = $"../../Scenery/parallaxBackground/farthest"
-@onready var tween := TweenController.new(self,false)
-@onready var map: Node2D = $"../../Scenery/GatewayTiled"
-@onready var expl: AudioStreamPlayer2D = $explosion
-@onready var expl2: AudioStreamPlayer2D = $explosion2
+onready var bg_particles: Particles2D = $bg_particles
+onready var bg: ParallaxLayer = $"../../Scenery/parallaxBackground/farthest"
+onready var tween := TweenController.new(self,false)
+onready var map: Node2D = $"../../Scenery/GatewayTiled"
+onready var expl: AudioStreamPlayer2D = $explosion
+onready var expl2: AudioStreamPlayer2D = $explosion2
 
 func _ready() -> void:
-	Event.connect("boss_death_screen_flash", Callable(self, "stop_all"))
+	Event.connect("boss_death_screen_flash",self,"stop_all")
 
 func activate() -> void:
 	if not emitting:
@@ -32,25 +32,25 @@ func screenshake() -> void:
 	Event.emit_signal("screenshake",0.8)
 	tween.reset()
 	tween.attribute("motion_offset:y",bg.motion_offset.y - fall_velocity,1.6,bg)
-	tween.attribute("modulate",Color.LIGHT_PINK,.8,map)
-	tween.add_attribute("modulate",Color.LIGHT_GRAY,.8,map)
+	tween.attribute("modulate",Color.lightpink,.8,map)
+	tween.add_attribute("modulate",Color.lightgray,.8,map)
 	fall_velocity = clamp(fall_velocity + 0.5,5.0,32.0)
 	Tools.timer(1.6,"screenshake",self)
 
 func explosion():
 	if not stopped:
 		expl.play_rp()
-		Tools.timer(randf_range(0.2,0.5),"explosion2",self)
+		Tools.timer(rand_range(0.2,0.5),"explosion2",self)
 	
 func explosion2():
 	if not stopped:
 		expl2.play_rp()
-		Tools.timer(randf_range(0.2,0.5),"explosion",self)
+		Tools.timer(rand_range(0.2,0.5),"explosion",self)
 
 func stop_all():
 	tween.reset()
 	tween.create(Tween.EASE_OUT,Tween.TRANS_SINE)
 	tween.add_attribute("motion_offset:y",bg.motion_offset.y - fall_velocity,4,bg)
 	bg_particles.emitting = false
-	map.modulate = Color.LIGHT_GRAY
+	map.modulate = Color.lightgray
 	stopped = true

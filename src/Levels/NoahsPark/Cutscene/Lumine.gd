@@ -1,11 +1,11 @@
-extends AnimatedSprite2D
+extends AnimatedSprite
 
 var tween := TweenController.new(self,false)
-@onready var initial_color := modulate
+onready var initial_color := modulate
 var appeared := false
 
 func _ready() -> void:
-	Event.connect("character_talking", Callable(self, "on_talk"))
+	Event.connect("character_talking",self,"on_talk")
 	reset()
 
 func on_talk(character_name):
@@ -25,6 +25,6 @@ func appear():
 	tween.attribute("self_modulate:a",1.0,2.0)
 
 func color_to_light():
-	tween.attribute("modulate",Color.WHITE,3.0)
+	tween.attribute("modulate",Color.white,3.0)
 	tween.add_callback("play",self,["open"])
 	appeared = true

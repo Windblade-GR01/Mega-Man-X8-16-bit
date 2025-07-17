@@ -3,11 +3,11 @@ using Godot;
 using System;
 
 [Tool]
-public partial class TiledImporterPlugin : EditorPlugin
+public class TiledImporterPlugin : EditorPlugin
 {
     EditorImportPlugin mapFormatImportPlugin = null;
 
-    public override string _GetPluginName() => "Godot Tiled Importer";
+    public override string GetPluginName() => "Godot Tiled Importer";
 
     public override void _EnterTree()
     {

@@ -1,19 +1,15 @@
 [remap]
 
-importer="oggvorbisstr"
-type="AudioStreamOggVorbis"
-uid="uid://dco0tb28h3v3r"
-path="res://.godot/imported/OST - AlternateVile - Intro.ogg-5353d9bcd90d8aed60a38427189fd1bd.oggvorbisstr"
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/OST - AlternateVile - Intro.ogg-5353d9bcd90d8aed60a38427189fd1bd.oggstr"
 
 [deps]
 
 source_file="res://src/Sounds/OST - AlternateVile - Intro.ogg"
-dest_files=["res://.godot/imported/OST - AlternateVile - Intro.ogg-5353d9bcd90d8aed60a38427189fd1bd.oggvorbisstr"]
+dest_files=[ "res://.import/OST - AlternateVile - Intro.ogg-5353d9bcd90d8aed60a38427189fd1bd.oggstr" ]
 
 [params]
 
 loop=false
 loop_offset=0
-bpm=0
-beat_count=0
-bar_beats=4

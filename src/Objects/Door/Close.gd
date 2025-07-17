@@ -1,7 +1,7 @@
 extends NewAbility
 var player
-@onready var animation = AnimationController.new($"../animatedSprite",self)
-@onready var collider: CollisionShape2D = $"../collisionShape2D"
+onready var animation = AnimationController.new($"../animatedSprite",self)
+onready var collider: CollisionShape2D = $"../collisionShape2D"
 
 func _Setup() -> void:
 	player = GameManager.player

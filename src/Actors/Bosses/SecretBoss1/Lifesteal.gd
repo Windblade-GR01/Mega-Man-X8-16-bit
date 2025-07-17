@@ -1,5 +1,5 @@
 extends Node
-@onready var character: CharacterBody2D = $".."
+onready var character: KinematicBody2D = $".."
 
 
 func _ready() -> void:
@@ -7,7 +7,7 @@ func _ready() -> void:
 	pass
 
 func activate():
-	GameManager.player.connect("received_damage", Callable(self, "on_damage_player"))
+	GameManager.player.connect("received_damage",self,"on_damage_player")
 	pass
 
 func on_damage_player():

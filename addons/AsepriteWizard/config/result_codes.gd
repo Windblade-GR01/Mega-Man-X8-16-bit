@@ -1,5 +1,5 @@
-@tool
-extends RefCounted
+tool
+extends Reference
 
 const SUCCESS = 0
 const ERR_ASEPRITE_CMD_NOT_FOUND = 1

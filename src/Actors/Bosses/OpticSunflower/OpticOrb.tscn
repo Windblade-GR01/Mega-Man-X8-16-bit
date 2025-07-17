@@ -10,14 +10,14 @@ radius = 18.0
 [node name="OpticOrb" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="front_shield" type="AnimatedSprite2D" parent="."]
+[node name="front_shield" type="AnimatedSprite" parent="."]
 z_index = 8
 frames = ExtResource( 1 )
 animation = "idle"
 frame = 4
 playing = true
 
-[node name="back_shield" type="AnimatedSprite2D" parent="."]
+[node name="back_shield" type="AnimatedSprite" parent="."]
 z_index = 4
 frames = ExtResource( 1 )
 animation = "idle"

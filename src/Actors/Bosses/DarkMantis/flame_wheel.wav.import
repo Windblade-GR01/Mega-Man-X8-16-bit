@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://cj2jug18ftk1h"
-path="res://.godot/imported/flame_wheel.wav-2b3433a9b5277d9a080556dbb7a494af.sample"
+type="AudioStreamSample"
+path="res://.import/flame_wheel.wav-2b3433a9b5277d9a080556dbb7a494af.sample"
 
 [deps]
 
 source_file="res://src/Actors/Bosses/DarkMantis/flame_wheel.wav"
-dest_files=["res://.godot/imported/flame_wheel.wav-2b3433a9b5277d9a080556dbb7a494af.sample"]
+dest_files=[ "res://.import/flame_wheel.wav-2b3433a9b5277d9a080556dbb7a494af.sample" ]
 
 [params]
 

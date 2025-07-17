@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://crhhefwelavrq"
-path="res://.godot/imported/SFX - Ambientfire.wav-2cd429f2648534a19192ecb8792b0f20.sample"
+type="AudioStreamSample"
+path="res://.import/SFX - Ambientfire.wav-2cd429f2648534a19192ecb8792b0f20.sample"
 
 [deps]
 
 source_file="res://src/Sounds/SFX - Ambientfire.wav"
-dest_files=["res://.godot/imported/SFX - Ambientfire.wav-2cd429f2648534a19192ecb8792b0f20.sample"]
+dest_files=[ "res://.import/SFX - Ambientfire.wav-2cd429f2648534a19192ecb8792b0f20.sample" ]
 
 [params]
 

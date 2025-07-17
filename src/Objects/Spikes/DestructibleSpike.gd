@@ -1,10 +1,10 @@
-extends AnimatedSprite2D
-@onready var death_plane: Area2D = $death_plane
-@onready var detector_collider: CollisionShape2D = $damage_detector/collisionShape2D
-@onready var remains_particles: GPUParticles2D = $remains_particles
-@onready var _break: AudioStreamPlayer2D = $break
+extends AnimatedSprite
+onready var death_plane: Area2D = $death_plane
+onready var detector_collider: CollisionShape2D = $damage_detector/collisionShape2D
+onready var remains_particles: Particles2D = $remains_particles
+onready var _break: AudioStreamPlayer2D = $break
 
-@onready var current_rotation = get_parent().rotation_degrees
+onready var current_rotation = get_parent().rotation_degrees
 var destroyed := false
 
 func _on_damage_detector_body_entered(body: Node) -> void:

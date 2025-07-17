@@ -4,16 +4,16 @@ class_name Ride
 var rider : Node = null
 var recent_rider : Node = null
 var rider_original_parent : Node
-@onready var mount_audio := $audioStreamPlayer2D
+onready var mount_audio := $audioStreamPlayer2D
 
-@export var destroy_damage := 8
-@onready var area2D := get_parent().get_node("area2D")
+export var destroy_damage := 8
+onready var area2D := get_parent().get_node("area2D")
 
 func _ready() -> void:
 # warning-ignore:return_value_discarded
-	area2D.connect("body_entered", Callable(self, "_on_area2D_body_entered"))
+	area2D.connect("body_entered",self,"_on_area2D_body_entered")
 # warning-ignore:return_value_discarded
-	area2D.connect("body_exited", Callable(self, "_on_area2D_body_exited"))
+	area2D.connect("body_exited",self,"_on_area2D_body_exited")
 # warning-ignore:return_value_discarded
 	character.listen("death",self,"_on_death")
 

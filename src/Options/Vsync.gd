@@ -1,7 +1,7 @@
 extends X8OptionButton
 
 func _ready() -> void:
-	Event.connect("translation_updated", Callable(self, "display"))
+	Event.connect("translation_updated",self,"display")
 	
 func setup() -> void:
 	set_vsync(get_vsync())
@@ -18,7 +18,7 @@ func decrease_value() -> void: #override
 
 func set_vsync(value:bool) -> void:
 	Configurations.set("Vsync",value)
-	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED if (value) else DisplayServer.VSYNC_DISABLED)
+	OS.vsync_enabled = value
 
 func get_vsync() -> bool:
 	if Configurations.exists("Vsync"):

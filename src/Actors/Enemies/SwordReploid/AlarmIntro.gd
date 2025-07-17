@@ -1,8 +1,8 @@
 extends AttackAbility
 
 var already_executed := false
-@onready var damage_on_touch: Node2D = $"../DamageOnTouch"
-@onready var damage: Node2D = $"../Damage"
+onready var damage_on_touch: Node2D = $"../DamageOnTouch"
+onready var damage: Node2D = $"../Damage"
 var enemy_shield: Node2D
 
 func _StartCondition() -> bool:

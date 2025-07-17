@@ -1,7 +1,7 @@
 extends Node
 
 var subtanks = []
-@onready var player: Character = $".."
+onready var player: Character = $".."
 signal max_subtank_used
 
 func _ready() -> void:
@@ -32,14 +32,14 @@ func on_use_any_subtank() -> void: #runtime use of subtank
 			if subtank.active and subtank.current_health > 0:
 				get_tree().call_deferred("set_pause",true)
 				subtank.use()
-				await subtank.finished_healing
-				await get_tree().create_timer(0.1).timeout
+				yield(subtank,"finished_healing")
+				yield(get_tree().create_timer(0.1),"timeout")
 				get_tree().call_deferred("set_pause",false)
 				break
 
 func listen_to_max_use() -> void:
 	for subtank in subtanks:
-		subtank.connect("used_at_max_capacity", Callable(self, "on_subtank_max_use"))
+		subtank.connect("used_at_max_capacity",self,"on_subtank_max_use")
 
 func on_subtank_max_use() -> void:
 	emit_signal("max_subtank_used")

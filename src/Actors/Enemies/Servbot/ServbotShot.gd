@@ -1,6 +1,6 @@
 extends AttackAbility
-@export var projectile: PackedScene
-@onready var shot_sound: AudioStreamPlayer2D = $shot_sound
+export (PackedScene) var projectile
+onready var shot_sound: AudioStreamPlayer2D = $shot_sound
 
 
 func _Update(_delta) -> void:
